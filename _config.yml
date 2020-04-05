@@ -1,1 +1,8 @@
+title: Eric C. Singers Blog
+description: Just another blog
+author: Eric C. Singer
+
+plugins:
+  - jekyll-feed
+
 theme: jekyll-theme-hacker
