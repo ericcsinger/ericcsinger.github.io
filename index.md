@@ -1,4 +1,14 @@
-# Welcome to Eric's Blog
+---
+title: "Eric's Blog
+---
 
-Click here to subscribe to my rss feed.
-<link rel="alternate" type="application/atom+xml" title="Eric C. Singers Blog" href="/feed.xml">
+### Latest posts
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li>
+      <div class="publish-date"><time pubdate="">{{ post.date | date: "%B %-d, %Y" }}</time></div>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
