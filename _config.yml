@@ -1,6 +1,13 @@
 title: Eric C. Singers Blog
 description: Just another blog
-author: Eric C. Singer
+author: 
+  fullname:  Eric C. Singer
+  twitter: esinger
+  github: ericcsinger
+  stackoverflow: 1239030
+  rss: true
+
+
 
 plugins:
   - jekyll-feed
