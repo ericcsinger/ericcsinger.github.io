@@ -4,5 +4,11 @@ author: Eric C. Singer
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jemoji
 
 theme: jekyll-theme-hacker
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
