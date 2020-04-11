@@ -72,7 +72,7 @@ a {
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $magenta;
+    color: $gold;
   }
 }
 
@@ -116,7 +116,7 @@ img {
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: $darkorange;
 }
 
 // Specify the color of the selection
@@ -126,7 +126,7 @@ img {
 }
 ::selection {
   color: $black;
-  background: $lightGray;
+  background: $blue;
 }
 
 // Nicolas Gallagher's micro clearfix hack
