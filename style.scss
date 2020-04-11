@@ -18,7 +18,7 @@ html {
 }
 
 body {
-	background: $midnightblue;
+	background: $black;
   font: 18px/1.4 $helvetica;
   color: $lightskyblue
 }
@@ -69,7 +69,6 @@ p {
 }
 
 a {
-  color: $blue;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
