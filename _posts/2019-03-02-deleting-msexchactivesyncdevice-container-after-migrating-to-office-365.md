@@ -42,7 +42,7 @@ The essential steps we need to do are as follows:
 
 In my original example, you can see I’m searching based on an arbitrary patter. In actuality, you want to find users based on their DN, not their username. Or rather if you DO want to find them based on their username, you’d want to so something like this.
 
-```Powershell
+``` Powershell
 $User = Get-aduser -Identity EnterTheUserNameHere
 $AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like 'msExchActiveSyncDevice'} | Where-Object {$_.DistinguishedName -like "*$($User.DistinguishedName)"} 
 $ActivesyncContainer = Get-ADObject -filter { ObjectClass -like 'msExchActiveSyncDevices'} | Where-Object {$_.DistinguishedName -like "*$($User.DistinguishedName)"}
