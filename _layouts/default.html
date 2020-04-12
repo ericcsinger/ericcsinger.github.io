@@ -31,9 +31,14 @@
           <a href="{{ github.owner_url }}" class="button"><small>Follow me on</small> GitHub</a>
         {% endif %}
         
-        <h2>{{ site.urls.linkedin }}</h2>
+        {% if site.urls.linkedin %}
+          <h2>{{ site.urls.linkedin }}</h2>
 
-        <a href="{{ site.urls.linkedin | relative_url }}">Visit our HTML tutorial</a>
+          <a href="{{ site.urls.linkedin | relative_url }}">HTML tutorial</a>
+
+        {% endif %}
+
+        
 
       </div>
     </header>
