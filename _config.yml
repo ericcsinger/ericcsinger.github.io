@@ -9,5 +9,5 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
 
-heme: jekyll-theme-architect
+
 theme: jekyll-theme-architect
