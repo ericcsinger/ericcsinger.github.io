@@ -33,7 +33,7 @@
         
         <h2>{{ site.urls.linkedin }}</h2>
 
-        <a href="{{ site.urls.linkedin | absolute_url }}">Visit our HTML tutorial</a>
+        <a href="{{ site.urls.linkedin | remove: site.github.repository_url }}">Visit our HTML tutorial</a>
 
       </div>
     </header>
