@@ -10,5 +10,5 @@ plugins:
 
 theme: jekyll-theme-architect
 
-github:
-  linkedin_url: www.linkedin.com/in/ericcsinger
+urls:
+  linkedin: www.linkedin.com/in/ericcsinger
