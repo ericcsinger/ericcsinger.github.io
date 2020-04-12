@@ -2,7 +2,7 @@ title: Eric C. Singers Blog
 description: Just another IT blog
 show_downloads: true
 google_analytics: UA-163410401-1
-baseurl: 
+
 
 plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
