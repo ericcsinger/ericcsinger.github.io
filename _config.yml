@@ -8,6 +8,7 @@ plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
-
-
 theme: jekyll-theme-architect
+
+github:
+  linkedin_url: www.linkedin.com/in/ericcsinger

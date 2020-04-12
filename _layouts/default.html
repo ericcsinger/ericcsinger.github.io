@@ -22,10 +22,7 @@
 
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
 
-        <a href="www.linkedin.com/in/ericcsinger">"Linked in"</a>
-        <a href="www.linkedin.com/in/ericcsinger" class="button">
-          <small>Download</small>
-        </a>
+        
 
 
         {% if site.github.is_project_page %}
@@ -53,6 +50,9 @@
               <small>Download</small>
               .tar.gz file
             </a>
+
+            <a href="{{ site.github.linkedin_url}}">Linked In!</a>
+
             
           {% endif %}
 
