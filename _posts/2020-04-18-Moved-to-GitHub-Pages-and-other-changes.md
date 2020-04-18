@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Moved to GitHub Pages and other changes
 ---
 
