@@ -1,5 +1,9 @@
 ---
 title: Moved to GitHub Pages and other changes
+date: '2020-04-18T17:30:29+00:00'
+permalink: /Moved-to-GitHub-Pages-and-other-changes
+author: 'Eric C. Singer'
+type: post
 ---
 
 # Moved to GitHub pages
