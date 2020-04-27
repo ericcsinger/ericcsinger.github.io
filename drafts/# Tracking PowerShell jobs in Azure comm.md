@@ -12,11 +12,33 @@ This got me to thinking, because I really like using that parameter for certain 
 
 The real question for me was, do I use a hash table or an array list?  Very recently, I've started messing around with hash tables.  Given the job id was an easy "key" and the description made a perfect "value", I figured a hash table would be a quick way to get what I needed with the least amount of code.
 
-The simplicity of a hash table, is that I didn't need to mess with filtering or searching like I would in an array.  I would simply make the job id number the key, and the frinedly description the value.  This way, when looking up job number 24, all I had to do was a simple
+The simplicity of a hash table, is that I didn't need to mess with filtering or searching like I would in an array.  I would simply make the job id number the key, and the frinedly description the value.  This way, when looking up job number 24, all I had to do was a simple...
 
 ```PowerShell
 $Hash_Table.JobIDNumber
 ```
 
-and I would get back the value.  In my case the value is a simple description, but if needed, you could easily create a custom object and store that as the value.
+...and I would get back the value.  In my case the value is a simple description, but if needed, you could easily create a custom object and store that as the value.
+
+Before getting too far a head, let me link the Microsoft article on working with hash tables right [here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7).  
+
+
+I always like to start my variables by null'ing them out.  Then I'll create a blank hash table, since we'll be adding to this as we loop through.  Null'ing out the hash table insures that you start with clean results.  I also like to clear out any jobs that may have run previously.  I keep my PowerShell console open for weeks at a time, so there's a lot of opperunity for stale jobs.
+
+```PowerShell
+#Clear any jobs
+Get-Job | Remove-Job
+
+#Clear the hash table
+$Hash_Table = $NULL
+
+#Create the blank hash table.  Technically this should mitigate the need for null'ing it out, but call me paranoid I guess.
+$Hash_Table = @{}
+```
+
+
+
+
+
+
 
