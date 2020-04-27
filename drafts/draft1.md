@@ -55,14 +55,45 @@ $Hash_Table
 | ----------- | ----------- |
 | MyKey | My super helpful value |
 
+If we run the following...
 
 ```PowerShell
 #See just the value for the MyKey entry
 $Hash_Table.MyKey
 ```
+...the value of "My super helpful value" will be returned
 
+Now let's pull this into Azure so we can see how it would be of value (pun intended). 
 
+```PowerShell
+#Clear any jobs
+Get-Job | Remove-Job
 
+#Clear the hash table
+$Hash_Table = $NULL
 
+#Create the blank hash table.  Technically this should mitigate the need for null'ing it out, but call me paranoid I guess.
+$Hash_Table = @{}
 
+#Create a new Azure VM as a job
+$Job = New-AzVM -ResourceGroupName $vm_resourcegroup_name -Location $vm_location -VM $vm -Zone $vm_zone -AsJob
+
+#Add the result to a hash table
+$Hash_Table.Add($Job.ID, "Deploying $($vm.name)")
+```
+
+Now if we want to check the status of the job, we can simple do something like this.
+
+```PowerShell
+#Get all jobs
+$All_Jobs = Get-job
+
+#Loop through each job you created
+Foreach ($Job in $All_Jobs)
+    {
+    Write-host "Job ID: $($Job.ID) | Job Description: $($Hash_Table.$($Job.ID)) | Job State: $($Job.State)"
+    }
+
+```
+You'll now be able to easily identify which job ID maps to which command and what the state is.  You can then easily use this hash table for further automation.
 
