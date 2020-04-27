@@ -25,7 +25,7 @@ $Hash_Table.JobIDNumber
 
 ...and I would get back the value.  In my case the value is a simple description.   If needed, you could create a custom object and store that as the value.
 
-> [Here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7) is a helpful link on working with PowerShell hash tables.
+[Here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7) is a helpful link on working with PowerShell hash tables.
 
 ### How To
 
