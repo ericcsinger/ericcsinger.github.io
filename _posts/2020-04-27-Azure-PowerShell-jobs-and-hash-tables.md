@@ -13,11 +13,11 @@ One of the things I've learned in administering Azure, is singular tasks can tak
 
 What do you do when you're in PowerShell?  Something as simple as shutting down a VM, can sometimes take 5 - 15 minutes.  Your console is locked during that time.  You could start another Powershell session, but that's a pain.  There is of course Azure Resource Manager Templates, but they're complex for a lot of folks.
 
-Some of you already know, a lot of Azure commands have a parameter called "AsJob".  It works great.  When you're executing a long running command and don't want to wait, add that parameter on at the end.  The Azure command will create a PowerShell job, and run that command in the background.  Thus allow you, or your script, to move forward.
+Some of you already know, a lot of Azure commands have a parameter called "AsJob".  It works great.  When you're executing a long running command and don't want to wait, add that parameter on at the end.  The Azure command will create a PowerShell job, and run that command in the background.  Thus allowing you, or your script, to move forward.
 
 ## The Problem
 
-What's the problem them?  Well, I've discovered, that not all commands display any kind of useful information in the job name.  It's typically named  something like "long running job".  The problem, is identifying what that job is.
+What's the problem then?  Well, I've discovered, that not all commands display any kind of useful information in the job name.  It's typically named something like "long running job".  The problem, is identifying what that job is.
 
 ## The Solution
 
