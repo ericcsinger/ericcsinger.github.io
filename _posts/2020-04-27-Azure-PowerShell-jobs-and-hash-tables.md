@@ -102,7 +102,7 @@ $Job = New-AzVM -ResourceGroupName $vm_resourcegroup_name -Location $vm_location
 $Hash_Table.Add($Job.ID, "Deploying $($vm.name)")
 ```
 
-Now if we want to check the status of the job, we can simple do something like this.
+Now if we want to check the status of the job, we can simply do something like this.
 
 ```PowerShell
 #Get all jobs
