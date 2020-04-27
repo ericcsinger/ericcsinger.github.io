@@ -1,27 +1,33 @@
 # Azure, PowerShell jobs, and hash tables
 
-One of the things I've learned in admministring Azure, is singular tasks can take a long time.  When using the web GUI, it's not a big deal.  Simply fireup a new tab, while the task runs in the background.
+## Introduction
+One of the things I've learned in administering Azure, is singular tasks can take a long time.  When using the web GUI, it's not a big deal.  Start a new tab, while the task runs in the background.
 
-However, what do you do when you're in PowerShell?  Something as simple as shutting down a VM, can sometimes take 5 - 15 minutes.  Your console is locked during that time.  You could fireup another Powershell session, but that's far more time consuming than opening a new tab.  You could also bundle all your modifacations and setups in an Azure Resource Manager Template, but that's far more complex (even if it's the right thing to do).
+What do you do when you're in PowerShell?  Something as simple as shutting down a VM, can sometimes take 5 - 15 minutes.  Your console is locked during that time.  You could start another Powershell session, but that's a pain.  There is of course Azure Resource Manager Templates, but they're complex for a lot of folks.
 
-Some of you already know, a lot of Azure commands have a parameter called "AsJob".  It works great.  When you're exectuing a long running command and don't want to wait, simply add that tab on at the end.  The Azure command will automatically create a PowerShell job, and run that command in the background.  This allows your script to move on to the next action, or allows you the admin to move on to administering something else.
+Some of you already know, a lot of Azure commands have a parameter called "AsJob".  It works great.  When you're executing a long running command and don't want to wait, add that parameter on at the end.  The Azure command will create a PowerShell job, and run that command in the background.  Thus allow you, or your script, to move forward.
 
-What's the problem them?  Well, I've discovered, that not all commands display any kind of useful information in the job name.  It's simpale "long running job" or something like that.  While it's great that you can parallize your tasks, there's no way of knowing which taks failed, or even which output is from which job.
+## The Problem
 
-This got me to thinking, because I really like using that parameter for certain tasks, but I wanted to be able to know the state of something in a more frinedly way.  The easy answer for me, was to create a PowerShell object and track job id so I could refreence it later.
+What's the problem them?  Well, I've discovered, that not all commands display any kind of useful information in the job name.  It's typically named  something like "long running job".  The problem, is identifying what that job is.
 
-The real question for me was, do I use a hash table or an array list?  Very recently, I've started messing around with hash tables.  Given the job id was an easy "key" and the description made a perfect "value", I figured a hash table would be a quick way to get what I needed with the least amount of code.
+## The Solution
 
-The simplicity of a hash table, is that I didn't need to mess with filtering or searching like I would in an array.  I would simply make the job id number the key, and the frinedly description the value.  This way, when looking up job number 24, all I had to do was a simple...
+How do we solve this then?  Well, I came up with the idea of creating a PowerShell object to store job details.
+
+The real question for me was, do I use a hash table or an arraylist?  Very recently, I've started messing around with hash tables.  Given the job id was an easy "key" and the description made a perfect "value", I figured a hash table would best solution.
+
+The simplicity of a hash table, is that I didn't need to mess with filtering or searching like I would in an array.  I would simply make the job id number the key, and the friendly description the value.  This way, when looking up job number 24, all I had to do was a simple...
 
 ```PowerShell
 $Hash_Table.JobIDNumber
 ```
 
-...and I would get back the value.  In my case the value is a simple description, but if needed, you could easily create a custom object and store that as the value.
+...and I would get back the value.  In my case the value is a simple description.   If needed, you could create a custom object and store that as the value.
 
-Before getting too far a head, let me link the Microsoft article on working with hash tables right [here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7).  
+> [Here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7) is a helpful link on working with PowerShell hash tables.
 
+### How To
 
 I always like to start my variables by null'ing them out.  Then I'll create a blank hash table, since we'll be adding to this as we loop through.  Null'ing out the hash table insures that you start with clean results.  I also like to clear out any jobs that may have run previously.  I keep my PowerShell console open for weeks at a time, so there's a lot of opperunity for stale jobs.
 
@@ -36,7 +42,7 @@ $Hash_Table = $NULL
 $Hash_Table = @{}
 ```
 
-Alright, we've got a clean hash table, now let's do a simple add just to see how it works.
+Alright, we've got a clean hash table, now let's do a simple add to see how it works.
 
 ```PowerShell
 #Adding a simple key / value pair
@@ -102,5 +108,7 @@ And that in my simple example, returns the following.
 Job ID: 3 | Job Description: Deploying blah blah blah | Job State: Completed
 ```
 
-You'll now be able to easily identify which job ID maps to which command and what the state is.  You can then easily use this hash table for further automation.
+## Conclusion
+
+You'll now be able to identify which job ID maps to which command and what the state is.  You can then use this hash table for further automation.
 
