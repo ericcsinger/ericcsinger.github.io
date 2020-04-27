@@ -39,7 +39,7 @@ $Hash_Table.JobIDNumber
 
 ### How To
 
-I always like to start my variables by null'ing them out.  Then I'll create a blank hash table, since we'll be adding to this as we loop through.  Null'ing out the hash table insures that you start with clean results.  I also like to clear out any jobs that may have run previously.  I keep my PowerShell console open for weeks at a time, so there's a lot of opperunity for stale jobs.
+I always like to start my variables by null'ing them out.  Then I'll create a blank hash table, since we'll be adding to this as we loop through.  Null'ing out the hash table insures that you start with clean results.  I also like to clear out any jobs that may have run previously.  I keep my PowerShell console open for weeks at a time, so there's a lot of opportunity for stale jobs.
 
 ```PowerShell
 #Clear any jobs
