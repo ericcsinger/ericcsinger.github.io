@@ -59,10 +59,13 @@ $Hash_Table
 ```
 ...you will get back something that should look like this.
 
+---
+
 | Name | Value |
 | ----------- | ----------- |
 | MyKey | My super helpful value |
 
+---
 
 If we run the following...
 
