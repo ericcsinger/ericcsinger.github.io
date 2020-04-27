@@ -36,6 +36,29 @@ $Hash_Table = $NULL
 $Hash_Table = @{}
 ```
 
+Alright, we've got a clean hash table, now let's do a simple add just to see how it works.
+
+```PowerShell
+#Adding a simple key / value pair
+$Hash_Table.Add("MyKey", "My super helpful value")
+```
+
+When you hit the 'ol enter key, you're not going to see a responce of any sort.  However, if we do something like
+
+```PowerShell
+#See EVERYTHING in the hash table
+$Hash_Table
+```
+...you will get back something that should look like this.
+
+| Name | Value |
+| MyKey | My super helpful value |
+
+
+```PowerShell
+#See just the value for the MyKey entry
+$Hash_Table.MyKey
+```
 
 
 
