@@ -1,4 +1,4 @@
-# Tracking PowerShell jobs in Azure commands
+# Azure, PowerShell jobs, and hash tables
 
 One of the things I've learned in admministring Azure, is singular tasks can take a long time.  When using the web GUI, it's not a big deal.  Simply fireup a new tab, while the task runs in the background.
 
