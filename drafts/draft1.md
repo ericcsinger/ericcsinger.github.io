@@ -95,5 +95,12 @@ Foreach ($Job in $All_Jobs)
     }
 
 ```
+
+And that in my simple example, returns the following.
+
+```
+Job ID: 3 | Job Description: Deploying blah blah blah | Job State: Completed
+```
+
 You'll now be able to easily identify which job ID maps to which command and what the state is.  You can then easily use this hash table for further automation.
 
