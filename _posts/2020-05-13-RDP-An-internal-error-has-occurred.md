@@ -63,6 +63,6 @@ Description:
 The RD Session Host Server has failed to create a new self signed certificate to be used for RD Session Host Server authentication on SSL connections. The relevant status code was Object already exists.
 ```
 
-Off to Google again, since this seem to have bene a well-known error, the solution laid out [here](http://windowsrunbook.blogspot.com/2017/07/windows-2012-no-rdp.html), was the final solution.  
+Off to Google again, since this seem to have been a well-known error, the solution laid out [here](http://windowsrunbook.blogspot.com/2017/07/windows-2012-no-rdp.html), was the final solution.  
 
 I don't want to take traffic away from this person, so follow the link to them for the solution.  I only needed to perform the rename action in that article.  After that, things started back up and were fine.
