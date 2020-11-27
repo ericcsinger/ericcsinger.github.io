@@ -14,7 +14,7 @@ post_format: []
 
 # PowerShell: Remove a failed domain controller
 
-Version: 1.0.0
+Version: 1.0.1
 
 ## Introduction:
 Let's face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something.  In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS.  Nothing about utilizing PowerShell.  
@@ -113,7 +113,7 @@ If ($All_Roles_To_Move_Count -gt 0)
 ```
 
 ## Cleanup our sites and NTDS
-The DC lives in your sites... somewhere.  This will find it, and remove it.  This is also where we'll using a simple onliner ntdsutil wrapped in PowerShell to formally cleanup the DC domain info.
+The DC lives in your sites... somewhere.  This will find it, and remove it.  This is also where we'll be using a simple onliner ntdsutil wrapped in PowerShell to formally cleanup the DC domain info.
 
 ```PowerShell
 :All_AD_Sites Foreach ($AD_Site in $All_AD_Sites)
