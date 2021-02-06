@@ -2,7 +2,7 @@
 title: 'PowerShell: Find orphaned disks in Azure and their cost'
 date: '2021-02-06T16:00:00+00:00'
 status: publish
-permalink: /PowerShell-Find-orphaned-disks-in-Azure-and-their-cost'
+permalink: /PowerShell-Find-orphaned-disks-in-Azure-and-their-cost
 author: 'Eric C. Singer'
 excerpt: ''
 type: post
@@ -14,7 +14,7 @@ post_format: []
 
 # PowerShell: Find orphaned disks in Azure and their cost
 
-Version: 1.0.0
+Version: 1.0.1
 
 ## Introduction:
 Just wanted to get something super simple out there.  I was curious how many unattatched disks our Azure portal had and what it was costing us.  This little script will give us the basic answer to that question.
