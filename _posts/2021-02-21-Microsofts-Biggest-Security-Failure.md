@@ -7,14 +7,15 @@ author: 'Eric C. Singer'
 excerpt: ''
 type: post
 tag:
-    - Microsoft Windows
+    - Microsoft
+    - Windows
     - Security
 post_format: []
 ---
 
 # Microsoft's Biggest Security Failure
 
-Version: 1.0.0
+Version: 1.0.1
 
 ## Introduction
 
