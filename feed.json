@@ -1,0 +1,13 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Eric&#x27;s Blog",
+    "description": "",
+    "home_page_url": "https://ericcsinger.com",
+    "feed_url": "https://ericcsinger.com/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Eric C. Singer"
+    },
+    "items": [
+    ]
+}
