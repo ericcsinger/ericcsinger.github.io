@@ -1,5 +1,5 @@
 ---
-title: "Microsoft's Biggest Security Failure"
+title: 'Microsoft's Biggest Security Failure'
 date: '2021-02-21T16:00:00+00:00'
 status: publish
 permalink: /Microsofts-Biggest-Security-Failure
@@ -15,7 +15,7 @@ post_format: []
 
 # Microsoft's Biggest Security Failure
 
-Version: 1.0.2
+Version: 1.0.1
 
 ## Introduction
 
