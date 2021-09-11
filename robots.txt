@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://ericcsinger.com/sitemap.xml
