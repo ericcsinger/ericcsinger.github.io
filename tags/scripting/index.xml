@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scripting on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/scripting/</link>
+    <description>Recent content in scripting on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sun, 15 May 2016 19:57:35 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/scripting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Solving: Chasing SQL&#39;s Dump</title>
+      <link>http://ericcsinger.com/posts/problem-solving-chasing-sqls-dump/</link>
+      <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/problem-solving-chasing-sqls-dump/</guid>
+      <description>The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.</description>
+    </item>
+    
+    <item>
+      <title>Powershell Scripting: Get-ECSVMwareVirtualDiskToWindowsLogicalDiskMapping</title>
+      <link>http://ericcsinger.com/posts/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/</link>
+      <pubDate>Sat, 26 Dec 2015 21:56:08 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/</guid>
+      <description>Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping: which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
+This function has the following dependencies and assumptions:
+ It depends on my windows physical to logical function and all its dependencies. It assumes your VM name matches your windows server name It assumes you’ve pre-loaded the VMware powershell snap-in.</description>
+    </item>
+    
+    <item>
+      <title>Powershell Scripting: Get-ECSPhysicalDiskToLogicalDiskMapping</title>
+      <link>http://ericcsinger.com/posts/powershell-scripting-get-physicaldisktologicaldisk/</link>
+      <pubDate>Sun, 20 Dec 2015 16:50:39 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/powershell-scripting-get-physicaldisktologicaldisk/</guid>
+      <description>I figured it was about time to knock out something a little technical for a change, and I figured I’d start with this little function, which is part of a larger script that I’ll talk more about later.
+There may be a time where you need to find the relationship between a physical disk drive and your logical drive. In my case, I had a colleague ask me if there was an easy way to match a VMware disk to a Window disk so he could extend the proper drive.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,493 @@
+<!doctype html><html lang="en"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review: 1 year with LogicMonitor - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+<meta name="keywords" content="" />
+<meta name="description" content="Disclaimer:This is unsolicited feedback. These are my own opinions and not those of my employer.
+Terminology:I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
+ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers." /><meta itemprop="name" content="Review: 1 year with LogicMonitor">
+<meta itemprop="description" content="Disclaimer:This is unsolicited feedback. These are my own opinions and not those of my employer.
+Terminology:I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
+ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers."><meta itemprop="datePublished" content="2016-04-06T21:53:04+00:00" />
+<meta itemprop="dateModified" content="2016-04-06T21:53:04+00:00" />
+<meta itemprop="wordCount" content="4450">
+<meta itemprop="keywords" content="LogicMonitor,Monitoring," /><meta property="og:title" content="Review: 1 year with LogicMonitor" />
+<meta property="og:description" content="Disclaimer:This is unsolicited feedback. These are my own opinions and not those of my employer.
+Terminology:I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
+ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ericcsinger.com/posts/review-1-year-with-logicmonitor/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-04-06T21:53:04+00:00" />
+<meta property="article:modified_time" content="2016-04-06T21:53:04+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Review: 1 year with LogicMonitor"/>
+<meta name="twitter:description" content="Disclaimer:This is unsolicited feedback. These are my own opinions and not those of my employer.
+Terminology:I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
+ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers."/>
+<meta property="og:image" content="http://ericcsinger.com/false"/>
+  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Review%3a%201%20year%20with%20LogicMonitor&url=http%3a%2f%2fericcsinger.com%2fposts%2freview-1-year-with-logicmonitor%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fposts%2freview-1-year-with-logicmonitor%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="http://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Review: 1 year with LogicMonitor</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    <a class="action" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Review: 1 year with LogicMonitor
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2016-04-06 17:53:04 -0400 EDT.">
+    Wed, 06 Apr 2016 21:53:04 &#43;0000
+  </span><span class="post-reading-time">
+    21 min read
+  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/tags/logicmonitor/" class="badge post-taxonomy">LogicMonitor</a><a href="http://ericcsinger.com/tags/monitoring/" class="badge post-taxonomy">Monitoring</a></span>
+</div>
+<div class="post-content mb-3"><h1 id="disclaimer">Disclaimer:<a class="anchor ms-1" href="#disclaimer"><i class="fas fa-link"></i></a></h1>
+<p>This is unsolicited feedback. These are my own opinions and not those of my employer.</p>
+<h1 id="terminology">Terminology:<a class="anchor ms-1" href="#terminology"><i class="fas fa-link"></i></a></h1>
+<p>I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.</p>
+<ul>
+<li><strong>LM</strong>: Acronym I user for LogicMonitor</li>
+<li><strong>Collector</strong>: Its a windows or linux box that grabs the data you want monitored from your other servers. Its an agent that sits on a server and allows LM to either remotely poll other servers, or locally collect data.</li>
+<li><strong>Datasource</strong>: This is a term used to describe a “monitor”. As an example, if I wanted to monitor a windows logical disk perfmon counter, that would be a datasource. If I have a script that checks for the status of an exchange database, that would be a datasource.</li>
+<li><strong>Instance</strong>: A term used to describe a very specific item that’s monitored by a datasource. For example, going back to the logical disk datasource. If you had a C: E: and F: drive, each drive is an individual instance. Some datasources are designed to collect multiple instances (like the example) others like “ping” are not.</li>
+<li><strong>Device:</strong> Anything that you’re monitoring. This is what LM license. A few examples, a windows server, linux server, switch. pdu, etc.</li>
+</ul>
+<h1 id="introduction">Introduction:<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h1>
+<p>If we’re all honest, I think we can all agree that monitoring solutions suck. Its a little crass I know, but I think its a fitting word for this software class as a whole. Backup and monitoring are the two areas I always here folks say “they all suck, this one just sucks a little less”. And that is really why we chose LogicMonitor. Its not that I’m blown away with it as a solution, but it sucks a lot less then the other options out there. So you could say from my view they’e the best, or you could say they’re the least worst. Either way, we chose them over a number of other vendors, including the all so popular SolarWinds.</p>
+<p>For us, we were coming from absolutely nothing (just some scripts and freebie tools) to try and monitor a 700+ device environment. It was a huge undertaking to say the least. We really didn’t have anything to compare anyone too. I had some personal experience with What’s Up! and Solarwinds, but that was it and it was in a much smaller environment with much simpler needs.</p>
+<h1 id="who-we-evaluated">Who we evaluated:<a class="anchor ms-1" href="#who-we-evaluated"><i class="fas fa-link"></i></a></h1>
+<p>Just going to provide a quick list of everyone we evaluated. Ultimately the choice boiled down to Solarwinds vs. LogicMonitor for us.</p>
+<ul>
+<li>Passlers PRTG</li>
+<li>IPSwitchs Whats up</li>
+<li>ScienceLogic</li>
+<li>Solarwinds</li>
+<li>LogicMonitor</li>
+<li>Microsoft Systems Center Ops Manager</li>
+</ul>
+<p>Not the most comprehensive list of monitoring solutions, but we went after the well known ones, and we stayed way from the more complex and / or expensive ones. Nagios as an example is one we skipped due to the complexity. I’ve got about 500 other things to do with my time, and troubleshooting an opensource monitoring solution isn’t one of them.</p>
+<h1 id="pre-sales">Pre-sales:<a class="anchor ms-1" href="#pre-sales"><i class="fas fa-link"></i></a></h1>
+<p>Besides the fact that I liked the way LogicMonitor functioned better than other solutions, it was ultimately the pre-sales experience that sold us on them. Its not that LM did anything that I wouldn’t normally expect out of a decent company. As an example.</p>
+<ol>
+<li>Highly responsive to any questions and comments</li>
+<li>Had their better / best pre-sales engineer at our disposal</li>
+<li>Walked us through the product and actually was able to answer odd ball questions.</li>
+<li>Helped get us setup and worked with both our network team and my team individually to evaluate point cases.</li>
+<li>Helped us setup custom monitors.</li>
+<li>Worked with us on pricing</li>
+<li>Didn’t badger us, knowing that we were still evaluating other solutions.</li>
+<li>Specific to monitoring, didn’t tell us to reach out to a community for support.</li>
+<li>They were very gracious with extending our trial multiple times. We got held up with other issues, or needed more time to test something and they were very easy going about it.</li>
+</ol>
+<p>Surprisingly LogicMonitor was one of the last vendors we evaluated. Mostly due to the fact that I had never heard of them, and it took a bit of creative searching to find them. I didn’t even really want to look for them if we’re being honest. Product wise, I thought I wanted Solarwinds. Really, the only reason I went looking was Solarwinds pre-sales was so horrible. And when I say horrible, I’m not exaggerating. Just to give a few examples.</p>
+<ol>
+<li>Sales guy pinged me almost every other day asking me when I was going to buy.</li>
+<li>Sales guy offered me this “Great Deal!” if I signed on the dotted line by COB Friday (it was Thursday when they sent the message).</li>
+<li>Sales guy told me I would never get said deal again</li>
+<li>Sales demo was done by sales guy, without a pre-sales engineer on the call. Sales guy couldn’t answer technical questions.</li>
+<li>It took days to get in touch with a pre-sales engineer for any and all questions we had. It wasn’t like we fired off an email and we’d get a response in a few hours, it was days. Then if we needed to jump on a call, again it was days.</li>
+<li>When we did jump on a call, most recommendations for monitors were “go check out our community database, I’m sure we’ve got something that meets your needs”. Not “let me go look into that…”</li>
+<li>They told me features existed in base level products, that ultimately required a different (more expensive) add on.</li>
+<li>We were NOT allowed to access generic tech support to evaluate them. That was a big red flag for us.</li>
+</ol>
+<p>So really, LM (LogicMonitor) just seemed like a breath of fresh air after dealing with Solarwinds. Like I said, its not that LM did anything above and beyond. The reality, they just acted like the way you’d expect from a tier 1 solution provider, and that’s a good thing.</p>
+<h1 id="the-product-its-self">The product its self:<a class="anchor ms-1" href="#the-product-its-self"><i class="fas fa-link"></i></a></h1>
+<p>All in all, its a great product. It still has a LONG ways to go, but the good news is they’re on the agile model and it shows. There are improvements and changes coming out all the time. To get into the specifics, let’s start with what I like.</p>
+<h2 id="pros">Pros:<a class="anchor ms-1" href="#pros"><i class="fas fa-link"></i></a></h2>
+<ol>
+<li>They have a huge list of pre-built monitors, way larger then Solarwinds or any other vendor we evaluated. Granted Solarwinds has a ton of community driven monitors, but LogicMonitor has a much larger database of monitors they built and supported. This is a huge plus, because we didn’t want to spend the next year developing and tweaking our own monitors.</li>
+<li>The basics of getting monitoring setup are easy and intuitive. Define some credentials, setup some collectors, and BOOM! you’re off and monitoring.</li>
+<li>The monitors themselves are mostly comprehensive. They all have a great set of pre-defined thresholds based on a vendors recommended practices.</li>
+<li>Building custom monitors (scripts, WMI) are fairly easy. I had developed multiple Powershell monitors in a couple of days.</li>
+<li>Building dashboards is easy, and reasonably intuitive</li>
+<li>There’s pretty much no limit to what you can monitor. If it can be polled in some way, it can be monitored.</li>
+<li>They support a lot of out the box collection methods</li>
+<li>Powershell, VBS, CMD, Pearl, Groovy, and other scripts</li>
+<li>SNMP</li>
+<li>WMI</li>
+<li>Perfmon</li>
+<li>JDBC</li>
+<li>JSON API</li>
+<li>Generic HTTP gets</li>
+<li>etc.</li>
+<li>There is only 1 license to worry about. What ever monitor you assign to that device, doesn’t cost any extra.</li>
+<li>Again, its licensed by device, not by object. So a switch with 96 ports, only counts as one device.</li>
+<li>They keep reasonably good documentation on the monitors, although its been slacking off a bit as their database increases.</li>
+<li>They have multiple alert methods, including email, sms, phone, slack, pagerduty etc.</li>
+<li>They have a good set of integration with other third parties, like Slack, pagerduty, onelogin, and various other vendors.</li>
+<li>Other than the collector (poller) everything is hosted in the cloud. So you do have some work to get things setup, but ultimately the hard work is take care of by them.</li>
+<li>They’re constantly implementing new features and upgrades. Its slowly getting community driven too, which is a good / bad thing.</li>
+<li>Because its web driven I can login from anywhere to check out what’s going on. They also have a phone app, which still needs some work, but hey, its a nice option.</li>
+<li>If you happen to be an MSP, it looks like they have some nice features around that.</li>
+<li>Notification are quick and reliable</li>
+<li>If they don’t have a datasource, and you don’t have time to create one, you have two options.</li>
+<li>You can pay them, and it will get high priority.</li>
+<li>You can wait, get put into a queue, but ultimately you won’t have to do much and they’ll take care of it for you.</li>
+<li>The new GUI is based on HTML 5, and as far as web consoles go, its very fast / snappy.</li>
+<li>They have a feature called “dynamic groups” which is pretty cool. You can group devices based on a query. The query can contain anything from the list of properties on the device. So I might group all “physical” servers by looking for “poweredge” in the model as an example, or all production sql servers based on a naming pattern.</li>
+<li>Its rudimentary, but they do have built in external monitoring (global monitoring) of simple things like ping, web checks, etc. Best of all, so far its unlimited.</li>
+<li>They can mix and match discovery and collection methods. So if you want to for example use a script to find all dell servers with a drac, you can then use their built in “ping” to do the actual monitoring. Meaning, just because you use a script for the discovery of a device / instance, doesn’t mean you need to use a script for the collection.</li>
+<li>They’re SaaS, so its pay as you go.</li>
+</ol>
+<p>Before I get into the Cons, I just want to be clear, that EVERY product has cons. I have yet to use a perfect product. The list may look large an ominous, but that’s frankly because its a lot easier to pick apart things you don’t like then to appreciate the things that work well. That said, I’m still not going to pull any punches. If there’s one tone I want to set with my blog, its not that I’m mean, but that I’m honest, even if it hurts. Again also keep the disclaimer in mind. These are my opinions.</p>
+<h2 id="cons">Cons:<a class="anchor ms-1" href="#cons"><i class="fas fa-link"></i></a></h2>
+<ol>
+<li>Collection / Polling has a few issues IMO. Not deal breaker issues, just issues.</li>
+<li>The collectors are not the most reliable solution I’ve used. We’ve run into dozens of cases where they get “overloaded” and we either need to restart them, or add more collectors to balance out the load. They will say at max 100 devices if its windows or VMware, IMO I find that to be overly generous, more like 40 – 50 if you’re lucky.</li>
+<li>They don’t scale up very well, which means you need a lot of collectors to manage your load reliably. (we run 10 for roughly 500 devices). They’ll tell you they can scale up, and maybe that’s true. But it involves a lot of work getting folks on their end that know all the settings to tweak and what not.
+<ol>
+<li>Update 03/01/2017: They’ve release a method for having collector “sizes”. I haven’t had a chance to validate it yet, but it looks like it enable the ability to scale up fairly well.</li>
+</ol>
+</li>
+<li>The collection process is horribly inefficient IMO (but getting better). If you have a switch with 100 switch ports. At a minimum, you’re going to hit that switch 100 instances * the number of multi instance datasources you have. For Windows boxes, a good example would be an individual WMI call per hard drive (instance), and per datasource. So Logical Disk counter + Physical disk counter would each equal unique polls * the number of disks. If I have two disks per server, just to monitor Logical and Physical, I’m looking at 4 wmi calls just for that one device and those disks.
+<ol>
+<li>They have released a newer script collection process which now does one poll per datasource, which is the way it probably should have been all along. One poll per datasource per device. This doesn’t fix the other 99% of their data sources, but its a start.</li>
+</ol>
+</li>
+<li>You never really know when the collectors are overloaded, until you login to the console and start seeing “no data” warnings and stuff like that. Then you contact them, they tell you its overloaded, but that may not even be true.</li>
+<li>Troubleshooting issues can be a bit of a pain. Their collectors return errors that sometimes could mean one of a number of possible issues. For example, specific to WMI, we’ve frequently been told “its clear you don’t have permissions set right based on our error” to in turn prove that’s not the problem. They then move on to “WMI must be broke” to which in turn we demonstrate that, that’s not the case, to finally realizing “oh, wmi is just timing out”. Instead of having very specific and granular error messages, it appears they use very generic messages and then expect the tech / you and me to just take a few guesses as to what might be going wrong.</li>
+<li>They don’t appear to have any Powershell script datasources. There are just certain things that can only effectively be monitored by Powershell. Windows storage spaces at the time was one example. To this day, I still don’t see them having any PS datasources. They have a ton of datasources based on Groovy, which is fine for web and Linux, but really, they need to get some more Powershell experts on staff.</li>
+<li>They lack instances, datasource and device aggregation based monitoring. What I mean by that is as an example, let’s say you have two PDU’s in a rack. Ultimately you want to know the aggregate power consumed in a rack not just by an individual PDU. That is not something they can do without some fancy scripting on your part.</li>
+<li>They don’t support things like “sub-instances”. For example, if I have a database server, that will have databases, those databases will have files. They don’t support displaying and monitoring the data in such a way that i can “drill” down from the SQL server to an individual file in a DB. They CAN monitor individual files and individual DB’s, they just can aggregate them.</li>
+<li>You need professional services for things that frankly you shouldn’t need. For example, if you want to bulk import a bunch of devices, you can’t do that on your own (at least not easily). There’s no GUI to import a CSV or a JSON file. I think at best we “might” have an API finally available that could be used, but even there, at least last time i checked, its not documented well. Either way, tools should be easy to use, and for importing devices, a GUI should not be a problem at all.</li>
+<li>Setting up dashboards is easy, but tedious if you need to make multiple similar dashboards. If I have 20 web clusters as an example, I might want a dashboard for each one. There’s no easy way to create those dashboards other than simply cloning a template, and going through (painfully) one chart and one datapoint at a time and updating which device and label to use. Again, going back to point 5, perhaps something via the API’s could make this much easier.</li>
+<li>Update 03/01/2017: I haven’t had a chance to validate their dashboard enhancements yet, but it looks like they’ve added functionality that would make creating dashboards a lot easier.</li>
+<li>Their lack of AD integrate authentication is frustrating. Forcing us to use either MS SAML or some third party solution just seems unneeded. its a nice option for sure, but I’d much rather have an appliance that I run which enables AD auth.</li>
+<li><!-- raw HTML omitted -->They lack a “poll now” feature which I loved in solarwinds. If I have a datasource (say CPU) set to poll every 5 minutes. I’m stuck waiting 5 minutes for that device to poll. 5 minutes can be a long time when you’re recovering from an outage.<!-- raw HTML omitted --></li>
+<li>Update 03/01/2017: They have now added the poll now feature.</li>
+<li><!-- raw HTML omitted -->They roll up historical data way too fast on average. With in less than a day, our data went from per poll datapoint (say every minute), to 8 minute averages. I can understand if after a week that happened, but in less than a day, that’s just crazy. Now, last I heard, they were looking to move to a different platform which would resolve this (again they continue to innovate / improve), but its a painful issue to live with when you need it.<!-- raw HTML omitted --></li>
+<li>Update 10/04/2016: I forget the exact release (7.9 maybe?) but this is no longer an issue. What you collect is what you keep for your agreed upon retention.</li>
+<li>They had this really simplistic, but slightly dated UI that they’re now abandoning for a newer GUI. In many ways I DO like the new GUI, but simple things like finding threshold overrides, or datasources disabled at a group level are now way harder than they need to be. It seems like the UI designers are spending too much time focusing on aesthetics vs. functionality.</li>
+<li>I appreciate that they have tech support, but honestly I feel like they’re reading a script some times. Multiple cases where we’ve demonstrated that our device wasn’t having issues, and that its probably their collectors, they’ve come back and forced us to prove it time and time again. Even when we come armed with info like “i logged into the poller, and run this command to grab wmi info on remote problem system as the poller user”.</li>
+<li>I’m not going to go into great detail here, only to say that I think their architecture could be a little more secure with some simple changes.</li>
+<li>I HATE the way their datasources don’t have an “overrides” function. What I mean by that is they have system datasources (ones they provide) and sometimes you need to make tweaks to them. Well in a few months, they may have an update for that datasoruce you tweaked. When you run the update, it whacks all your settings. I wish they provided a read only datasource, and that we had an ability to “link” a new datasource that had our customization, which over rode their datasource. This would allow their new features and tweaks to roll in, but things that we’ve overridden, would remain in place.</li>
+<li>When they build datasources, to put it bluntly, I think they cheap out on fully developing them. For example, if I have an IronPort Email Security Appliance. They may have a built in datasource, but it may not have all the available OID’s setup or even all the datapoints. I get that it means they might need to store more data on their end, but why not just bite the bullet and configure ALL MIBS as an example and all datapoints. Maybe even have an option where only whats truly needed (subjective definition BTW) is enabled by default, but the other options are available, and as simple as enabling them.</li>
+<li>Going off of point 14, they don’t really seem to think like an admin of the thing they’re monitoring. Or more specifically, in many cases they’re not fully monitoring the health of an application, just monitoring counters that exists. Let me give you an example. With active directory, one of the things you want to monitor is DFS-R health. Simply monitoring a counters doesn’t always provide insight into whether something like this is healthy or functioning as it should. In my case, I wanted to know for a fact that replication was working in Active Directory, so I ended up having to write a Powershell script that regularly created / updated a health file (on each DC) and then monitored that a given health file was updated on all DC’s. Now to be fair to LM, they never claimed to be a full tilt applicaiton monitor <strong>and</strong> I was able to do said monitor with their product. Still, if LM were to say hire or consult with an Active Directory engineer, there would be things like this that they could probably glean, that would benefit all of their customers. You could also contend this is something that could be crowd sourced by the community, but TBH, I’d much rather see something provided by them, and supported by them.</li>
+<li><!-- raw HTML omitted -->They still lack a comprehensive RestAPI. Adding to that, they lack Powershell cmdlets for administering their products. Again, I’m going to berate any vendor that doesn’t offer Powershell in 2016. IMO if you’re catering to a windows crowd, not offering Powershell is just foolish on your part. Again, why should 100’s to 1,000’s of your customers waste time figuring out your API’s to do common functions, when you could spend the time once, and 1,000’s of customers could benefit from your work. Not to mention now there would be a standard (searchable) CLI / help doc for how to do something.<!-- raw HTML omitted --></li>
+<li>Update 10/04/2016: As of 8.0, their API is pretty comprehensive if not complete. I haven’t had a chance to use their API, so I can’t speak to things like how user friendly it is, but it does exist now.</li>
+<li>To say setting up, troubleshooting, and administering their alert / notification rules is a PITA is an understatement. There are things like making sure rules are properly prioritized based on static numbers (not dynamic). It works like an ACL. Adding to that, it seems like there’s only one target per device. Even thought a device can be a member of multiple groups, only one group can actually be used to configure notifications / alerts. For example, lets say you have a group called “windows” and a sub-group called “SQL”. And let’s just say for argument, you have a special SQL server called “specialSQL”. Now let’s say be default you want all windows admins to monitor all windows boxes. And you want DBA’s to get all SQL alerts (but windows admins still need the alerts too), but you also have a special team that needs alerts for specialSQL server. You need three alert groups setup with members as outlined below. So now just imagine a joint like us with 700 devices and 100 different folks that want different alerts for different systems? Yikes! And, just remember the beginning point, each one of these is a rule, with a different number, that needs to be configured correctly or one group may not end up getting a notification, ever.</li>
+<li>One for Windows admins, which contains windows admins</li>
+<li>One for SQL servers which contains Windows admins + DBA’s</li>
+<li>One for Windows admins + DBA’s + special team.</li>
+<li>There filters in many cases are “include” only and there’s no “exclude” option. For example, if I want a dashboard that shows all windows servers, but no SQL servers, not going to happen if the SQL server happens to have *windows* in its group name. The only way to work around that would be instead of using a wild card for group *windows*, we need to explicitly include *Exchange*, *IIS*, *File*, etc. Its a PITA</li>
+<li>Update 10/04/2016: I would not go so far as saying this is resolved completely, but they do ofter some exclude capability now. It’s appears to only be one level deep though. As in, the above example i could exclude .\windows\SQL by excluding *SQL*, but I couldn’t exclude .\windows\test\SQL with the same statement. Still kind of lame IMO. Frankly their operators and filter mechanism is over complicated.</li>
+<li>Their datasources besides not always being documented well (or in many cases not at all) have absolutely no decent naming convention. Instead of doing something like “Vendor_Product_Datasource” they just randomly choose vendors, or product names and in many cases abbreviate them. For example, one datasource might be named “winos” and another “wincpu”?</li>
+<li>Their threshold evaluation leaves a lot to be desired. They work based on the following operators “=,&lt;=,&gt;=,&lt;,&gt;,!=, etc.” Some devices have nice even number sequences where anything above 1 = warning until you get to 4 and then its an error. In those cases their thresholds work fine. However if you can something tricky like 0 = good, 1 = verybad, 2 = warning, 3 = maybe something you should look into, 4 = error. There’s no good way to target numbers that are all over the place with thier limitation. It would be nice to see them add query based evaluation instead. As in supporting “or” + “and” + grouping threshold conditons. Like (=1 or = 2) or (&gt;=7). I suspect it might take some extra CPU power to make that evaluation, but it would be worth it.</li>
+<li>Having agent based collection would be a nice option for those of us that don’t like having to doll out admin rights to our collectors. We have a few cases where we installed the collector right on the server we wanted to monitor to avoid such things. Perhaps we could do that across the board, but I haven’t looked into it and honestly that would be a hack.</li>
+<li><!-- raw HTML omitted -->They’re SaaS, so if you’re limited to a lot of their constraints (data retention as an example).<!-- raw HTML omitted --></li>
+<li>Update 10/04/2016: It looks like they now retain up to two years worth of data with certain contracts. Better than before, but still not a good fit for long term retention.</li>
+<li>They’re not a replacement solution for all your deep web, application and network monitoring solutions. Yes they have NetFlow, but I suspect Scrutinizer does it much better.</li>
+</ol>
+<h1 id="summary">Summary:<a class="anchor ms-1" href="#summary"><i class="fas fa-link"></i></a></h1>
+<p>They’re not perfect as I eluded too, and believe me, I could probably keep going on with the cons (and pros, albeit harder). However, its about context, and in the context of other solutions, I really like LogicMonitor. They’re fairly new as a company and given everything they’ve been able to do so far, I honestly can’t wait to see what they’ve got on the horizon. I’ve found that most things I care about, I’ve been able to use LM to monitor. Even things that you normally wouldn’t monitor, like job status in 3rd party applications. They for the most part have been the one console I use to monitor everything. It took a bit of time to roll up all my outlying functions into them, but now we have a great single pain of glass. Give them a peak when you have some time.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-left"></i>
+    <a href="http://ericcsinger.com/posts/review-1-5-years-with-veeam/">Review: 1.5 years with Veeam
+</a>
+  </div><div class="post-nav post-next">
+    <a href="http://ericcsinger.com/posts/thinking-out-loud-the-broken-talent-acquisition-process/">Thinking out loud: The broken talent acquisition process
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
+   width="2316" height="3088"
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a></nav>
+</div>
+  </div>
+</section>
+  <div class="post-toc row mb-4 card component" id="postTOC">
+  <div class="card-header">
+    <h2 class="card-title">Contents</h2>
+  </div>
+  <div class="card-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pros">Pros:</a></li>
+    <li><a href="#cons">Cons:</a></li>
+  </ul>
+</nav>
+  </div>
+</div><section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="http://ericcsinger.com/Microsofts-Biggest-Security-Failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/azure-powershell-jobs-and-hash-tables/">Azure, PowerShell jobs, and hash tables
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
+            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
+            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
+            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/storage-spaces/" class="badge rounded post-taxonomy" title="storage spaces">
+            storage spaces<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
+<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

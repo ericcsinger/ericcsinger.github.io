@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>backup on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/backup/</link>
+    <description>Recent content in backup on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sun, 11 Jun 2017 19:39:36 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Review: 5 years with CommVault</title>
+      <link>http://ericcsinger.com/posts/review-5-years-with-commvault/</link>
+      <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/review-5-years-with-commvault/</guid>
+      <description>Introduction:Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.</description>
+    </item>
+    
+    <item>
+      <title>Problem Solving: CommVault tape usage</title>
+      <link>http://ericcsinger.com/posts/problem-solving-commvault-tape-usage/</link>
+      <pubDate>Wed, 10 Aug 2016 23:52:51 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/problem-solving-commvault-tape-usage/</guid>
+      <description>Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.</description>
+    </item>
+    
+    <item>
+      <title>Problem Solving: Chasing SQL&#39;s Dump</title>
+      <link>http://ericcsinger.com/posts/problem-solving-chasing-sqls-dump/</link>
+      <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/problem-solving-chasing-sqls-dump/</guid>
+      <description>The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.</description>
+    </item>
+    
+    <item>
+      <title>Backup Storage Part 5: Realization of a failure</title>
+      <link>http://ericcsinger.com/posts/backup-storage-part-5-realization-of-a-failure/</link>
+      <pubDate>Tue, 20 Oct 2015 22:27:15 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/backup-storage-part-5-realization-of-a-failure/</guid>
+      <description>No one likes admitting they’re wrong, and I’m certainly no different. Being a mature person means being able to admit you’re wrong, even if it means doing it publicly, and that is what I’m about to do.
+I’ve been writing this series slowly over the past few months, and during that time, I’ve noticed an increasing number of instances where my storage space virtual disks NTFS would go corrupt. Basically, I’d see Veeam errors writing to our repository, and when investigating, I would find files not deleting (old VBK’s).</description>
+    </item>
+    
+    <item>
+      <title>Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s</title>
+      <link>http://ericcsinger.com/posts/backup-storage-part-4a-windows-storage-spaces-gotchas/</link>
+      <pubDate>Sat, 26 Sep 2015 18:16:34 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/backup-storage-part-4a-windows-storage-spaces-gotchas/</guid>
+      <description>The pro and the con of a software defined storage is that its not a turn key solution. Not only do you have the power to customize your solution, you also have no choice but to design your solution. With Storage Spaces, we figured most of this stuff out before selecting it as our new backup storage solution. At the time, there was some documentation on storage spaces, but it was very much a learning process.</description>
+    </item>
+    
+    <item>
+      <title>Backup Storage Part 3c: Cloud Storage</title>
+      <link>http://ericcsinger.com/posts/backup-storage-part-3c-cloud-storage/</link>
+      <pubDate>Sun, 23 Aug 2015 15:33:43 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/backup-storage-part-3c-cloud-storage/</guid>
+      <description>Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.</description>
+    </item>
+    
+    <item>
+      <title>Backup Storage Part 3a: Deduplication Targets</title>
+      <link>http://ericcsinger.com/posts/backup-storage-part-3a-deduplication-targets/</link>
+      <pubDate>Tue, 02 Jun 2015 21:08:31 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/backup-storage-part-3a-deduplication-targets/</guid>
+      <description>Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.
+ Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</description>
+    </item>
+    
+  </channel>
+</rss>

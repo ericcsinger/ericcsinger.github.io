@@ -1,0 +1,376 @@
+<!doctype html><html lang="en"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review: 4.5 years with Dell Poweredge Servers - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+<meta name="keywords" content="" />
+<meta name="description" content="Disclaimer:Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
+Introduction:When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example)." /><meta itemprop="name" content="Review: 4.5 years with Dell Poweredge Servers">
+<meta itemprop="description" content="Disclaimer:Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
+Introduction:When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example)."><meta itemprop="datePublished" content="2016-09-03T19:37:12+00:00" />
+<meta itemprop="dateModified" content="2016-09-03T19:37:12+00:00" />
+<meta itemprop="wordCount" content="2230">
+<meta itemprop="keywords" content="dell,reviews,servers," /><meta property="og:title" content="Review: 4.5 years with Dell Poweredge Servers" />
+<meta property="og:description" content="Disclaimer:Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
+Introduction:When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ericcsinger.com/posts/review-4-5-years-with-dell-poweredge-servers/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-09-03T19:37:12+00:00" />
+<meta property="article:modified_time" content="2016-09-03T19:37:12+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Review: 4.5 years with Dell Poweredge Servers"/>
+<meta name="twitter:description" content="Disclaimer:Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
+Introduction:When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example)."/>
+<meta property="og:image" content="http://ericcsinger.com/false"/>
+  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Review%3a%204.5%20years%20with%20Dell%20Poweredge%20Servers&url=http%3a%2f%2fericcsinger.com%2fposts%2freview-4-5-years-with-dell-poweredge-servers%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fposts%2freview-4-5-years-with-dell-poweredge-servers%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="http://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Review: 4.5 years with Dell Poweredge Servers</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Review: 4.5 years with Dell Poweredge Servers
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2016-09-03 15:37:12 -0400 EDT.">
+    Sat, 03 Sep 2016 19:37:12 &#43;0000
+  </span><span class="post-reading-time">
+    11 min read
+  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/tags/dell/" class="badge post-taxonomy">dell</a><a href="http://ericcsinger.com/tags/reviews/" class="badge post-taxonomy">reviews</a><a href="http://ericcsinger.com/tags/servers/" class="badge post-taxonomy">servers</a></span>
+</div>
+<div class="post-content mb-3"><h1 id="disclaimer">Disclaimer:<a class="anchor ms-1" href="#disclaimer"><i class="fas fa-link"></i></a></h1>
+<p>Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.</p>
+<h1 id="introduction">Introduction:<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h1>
+<p>When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example).</p>
+<p>You’re probably thinking this means I’ll be going over why one vendor is better than the other? Nope, not at all. I don’t have the current experience with the HP ecosystem to draw any conclusions like that. I provided that information so that you the reader know that I write this all as a former HP fanboy. I hope you’ll find it objective and informative. I also hope that someone with some sway at Dell is reading this, so they can look for ways to improve their product platform.</p>
+<h1 id="pros">Pros:<a class="anchor ms-1" href="#pros"><i class="fas fa-link"></i></a></h1>
+<p>As always, I like to start out with the pros of a solution.</p>
+<ul>
+<li><strong>Hardware lifecycle:</strong> I find that Dell has a very good HW lifecycle. They’re very quick to release new servers after Intel releases a new chip. Maybe not a big deal for some, but for us, it’s a nice win. In turn I also find that Dell keeps their current and former server models around for a very respectable amount of time. If you’re in a situation where you’re trying to keep a cluster in a homogeneous HW configuration, this is advantageous.</li>
+<li><strong>Support:</strong> For general HW issues I find Dell to have fantastic support. We use pro support for everything which I’m sure helps. When I say general HW support, I’m talking about getting hard drives, or memory replaced. To some degree I’ll even say troubleshooting more complex HW issues they tend to be pretty good at. When you get above the HW stack, I’ll chat about that a little bit later. It also worth mentioning that from what I can tell, support is 100% based in the US which is surprising but certainly appreciated.</li>
+<li><strong>HW Design / Build:</strong> When you’re comparing Dell to something like a Supermicro server, it’s a night and day difference. I find that the overall build quality of Dell’s rackmount solutions are excellent. Internally, most things are easy to get to and replace. The cover is labeled well as are things like the memory which makes it easy to track down a problem DIMM. Outside the server, the cable management arms are nice (if you use them). Overall, the server is built sturdy, the edges are typically smooth (not sharp) and pretty much everything is tooless. I only have two gripes, which I’ll add here instead of duplicating it in the cons. I find their bezels to be somewhat useless. We’ve stopped using them because we’ve run into cases where its actually hard to get them off. Also, depending on your chassis config, the bezel blocks some idiot lights. Finally, and admittedly this is more of a personal preference, I HATE Dell’s rails. I think the theory is they’re supposed to be installed vertically starting in the rear, and then lay into the rails. The problem is the rails are just too damn flimsy when they’re extended (all rails are; this isn’t just Dell). I personally prefer the slide in style like found on the HP’s.</li>
+<li><strong>Purchasing configuration:</strong> One thing I love with Dell is that each server is 100% customizable, or at least reasonably customizable. I’ve worked with other vendors where you were forced to use cookie cutter templates or wait a month+ for a custom build.</li>
+<li><strong>Price:</strong> I can’t say they’re cheaper than every vendor out there, but I suspect if you compare them to HP, Cisco or Lenovo I find that they tend to be a more affordable solution. For us, we go Dell direct and we’re considered an enterprise customer. Your mileage may vary in this case of course.</li>
+<li><strong>Sales team:</strong> I can’t typically say this about many vendors, but I generally love working with Dell’s sales team. They’re all very friendly and very responsive to requests. Its one of those things where its just nice to see a vendor meet what I’ll call minimum expectations. Dells sales team does this for sure and in many cases exceeds them.</li>
+</ul>
+<p>And that is pretty much where the pros end.</p>
+<h1 id="cons">Cons:<a class="anchor ms-1" href="#cons"><i class="fas fa-link"></i></a></h1>
+<p>Like I’ve said in previous reviews, its always easier to pick out the cons of a solution. Chalk it up to taking things for granted, loss of perspective, etc. I would say take some of these cons with a grain of salt, no vendor is perfect. Some of this stuff I’m not just outlining for your information, but also so that perhaps a product manager for Dell’s server solutions gets some much needed, unfiltered feedback. I say unfiltered, because as a customer, I honestly feel like this stuff never makes it up to the right people, or when it does, its watered down.</p>
+<ul>
+<li><strong>Innovation:</strong> Dell has absolutely ZERO innovation capabilities across their entire portfolio, and the Poweredge line is no exception. I’ve often joked that when Dell buys a company, that’s where they’re going die a slow non-innovative death. Look at what they’ve done with EQL, Compellent, Ocarina, and Quest. Seriously, the whole line up is a joke compared to what’s out and about now a day. I know this is supposed to be about Poweredge servers (and I’ll get to that) but if Dell keeps any of those storage products around post EMC merger, they’re fools. How does this apply to servers? Take a look at Cisco UCS and then take a look at Dell. Dells server solution is fine if you have say less than 50 or so servers and most of them are virtual hosts. The instant you start going above that, the more value there is in a solution like Cisco UCS. If I was still running a 100+ real server environment, no way I’d run Dell. Why do I categorize this under innovation? Because there is nothing coming out from Dell that I feel compelled to write about. There is no “wow” factor with Dell servers. When I first saw a UCS demo, THAT was a wow factor. I don’t like the Cisco architecture, but no one can say that they’re not innovative, and I’d totally jump in with Cisco if my environment was larger.</li>
+<li><strong>Central Management (physical servers):</strong> Getting into a little bit more details of why I wouldn’t buy Dell if I had a larger shop. They have a half assed / practically non-existent server management solution. They have this POS called Dell Open Manage Essentials, that’s supposed to take care of pretty much everything one would need to take care of with a Dell server. The problem is it doesn’t do a whole lot and what it does do, it doesn’t do very well.
+<ul>
+<li><strong>Monitoring:</strong> OME only told us that there is a problem, but it wouldn’t tell you what the problem was. So we’d still have to log into each server to find out what the specific problem was. That wouldn’t have been a big deal, except 95% of the time it was something dumb like the drivers / FW being out of date (really, do we need a warning about that?).</li>
+<li><strong>Remote FW and Driver updates:</strong> This never worked, tried it a million times, and it would either only partially work, or not work at all. Installing things like drivers or new tools would just show “failed” with some cryptic reason. Manually download the same update, and run it manually, and it works fine.</li>
+<li><strong>Server profiles:</strong> I didn’t even try these because honestly nothing else worked well, and it looks like a PITA to configure. There is clearly no “vision” for how to make managing servers easy at Dell. I don’t mind doing some prep work here, but its not like we’re talking about standing up an OS + Application, we’re talking about a few server settings, some drac settings and icing on the cake would be configuring and managing the local RAID cards. I know its probably not fair to put it down, maybe it’s a diamond of a solution baked into a crappy product, but I doubt it.</li>
+</ul>
+</li>
+<li><strong>Central Management (Vmware):</strong> They actually do “ok” here, but its not great. When the solution works (hit or miss) it does work pretty well. Still I’m only using it to manage FW updates, and even with that it only works part of the time. There have been countless cases where I’ve needed to kill outstanding FW update jobs and soft reset the drac to shake things loose. There’s also times where I need to reboot the FW update appliance, and sometimes I have to reboot vCenter + do all the above, because who knows what the problem is.</li>
+<li><strong>Non-standard HW:</strong> It’s beyond frustrating that I can’t say I want all Intel SSD of a specific model. Dell uses vague terms (low, mid or high write duty) to describe their SSD drives. There’s no way for me to know if I’m getting an SSD that can do 35k IOPS or 100k IOPS. With HDD’s its mostly a commodity, but with SSD’s, there are very much big pros and cons depending on which SSD you use. IMO, with HCI (however over rate the architecture is) becoming a hot new thing, having a standard SSD and HHD IMO is a must. You’re now building around local storage characteristics, and you need predictability.</li>
+<li><strong>SSD and HDD are stupid expensive:</strong> Just a matter of opinion, but their prices are insane, especially for the SSD’s. I get that they might wear out prematurely, but then put some clause that they’re simply good for “x” writes are whatever.</li>
+<li><strong>DRACs:</strong> There remote management cards have gotten better over the years, but they’re still nothing compared to iLO. They can still be somewhat unreliable and they’re only now starting to release an HTML5 interface instead of Java. Adding to that, as mentioned above, I’ve seen multiple cases where FW update stop working and its almost always the DRAC that’s the issue.</li>
+<li><strong>Documentation and downloads:</strong> Dell is almost as bad as Microsoft when it comes to documentation and downloads. Things are just scattered all over the place and it lacks consistency. Yes, I can go to the drivers and downloads section for a server model, but there have been many times where I’ve seen Openmanage Systems Administrator (OSMA) latest version on say a Dell poweredge r730 page, but NOT on a poweredge r720.</li>
+</ul>
+<p>With things like the Dell Openmanage vCenter appliance, I also find it hard to find the latest updates or to know where to download my serial keys. Documentation about the product is also difficult to find at times.</p>
+<ul>
+<li><strong>Standalone FW updates:</strong> Dell has methods updating the HW for standalone system, but they’re all overly complex, or not refined. One method is booting of an SBU disk and then swapping CD’s (ISOs) to load your repo. It works (most of the time) but it’s a PITA. The other option is using their repository manager (another half-baked solution) to create a standalone FW update ISO that just blindly updates all HW that you’ve loaded a FW for. Neither solution is seamless or refined. I cringe every time I have to use either.</li>
+<li><strong>Support:</strong> I know I marked this as a pro, but I wanted to elaborate a bit here on the cons of support. I know in many cases they’re probably not different than other vendors, but I’m so sick of hearing “we can’t do x or y until you’ve updated all your FW and drivers”. To me, I don’t care what vendor you are, this is lazy, kick the can troubleshooting. Its one thing if you can point to a release note in a FW or driver that describes the specific problem I’m having, but if you’re not even looking at the release notes, and blindly telling me to update component x,y and z, that’s just you being lazy. Here is normally what ends up happening anyway. I call you, you tell me to update x,y and z. I begrudgingly do it after debating with you, problem is NOT solved and now you’ve just pissed me off and wasted my time (and depending on the server, other teams time).</li>
+</ul>
+<h1 id="conclusion">Conclusion:<a class="anchor ms-1" href="#conclusion"><i class="fas fa-link"></i></a></h1>
+<p>At the end of the day, I’m sure you’re thinking I hate Dell servers. I don’t, but they leave a lot to be desired. I look at Dell as a high end Supermicro server. I know I’ll get good support from them, a solid server and if I don’t buy their disks, a reasonably priced server. Because our environment is relatively small (35 servers or so), I can deal with their cons. If I had a larger physical server environment, I would probably lean more towards Cisco, but at this size and below its not worth the added cost or complexity of UCS. That being said, if cost was no option, or if Cisco were to offer their solution at a more affordable price, I don’t know why anyone would buy Dell.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-left"></i>
+    <a href="http://ericcsinger.com/posts/thinking-out-loud-hyper-converged-storages-missing-link/">Thinking out loud: Hyper converged storages missing link
+</a>
+  </div><div class="post-nav post-next">
+    <a href="http://ericcsinger.com/posts/quicky-review-gpogpp-vs-dsc/">Quicky Review: GPO/GPP vs. DSC
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
+   width="2316" height="3088"
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a></nav>
+</div>
+  </div>
+</section>
+  <section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="http://ericcsinger.com/Microsofts-Biggest-Security-Failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/azure-powershell-jobs-and-hash-tables/">Azure, PowerShell jobs, and hash tables
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
+            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
+            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
+            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/storage-spaces/" class="badge rounded post-taxonomy" title="storage spaces">
+            storage spaces<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
+<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

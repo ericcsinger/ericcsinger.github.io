@@ -1,0 +1,591 @@
+<!doctype html><html lang="en"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem Solving: Chasing SQL&#39;s Dump - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+<meta name="keywords" content="" />
+<meta name="description" content="The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them." /><meta itemprop="name" content="Problem Solving: Chasing SQL&#39;s Dump">
+<meta itemprop="description" content="The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them."><meta itemprop="datePublished" content="2016-05-15T19:57:35+00:00" />
+<meta itemprop="dateModified" content="2016-05-15T19:57:35+00:00" />
+<meta itemprop="wordCount" content="4379">
+<meta itemprop="keywords" content="backup,commvault,JAMS,scripting,SQL," /><meta property="og:title" content="Problem Solving: Chasing SQL&#39;s Dump" />
+<meta property="og:description" content="The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ericcsinger.com/posts/problem-solving-chasing-sqls-dump/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-05-15T19:57:35+00:00" />
+<meta property="article:modified_time" content="2016-05-15T19:57:35+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Problem Solving: Chasing SQL&#39;s Dump"/>
+<meta name="twitter:description" content="The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them."/>
+<meta property="og:image" content="http://ericcsinger.com/false"/>
+  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Problem%20Solving%3a%20Chasing%20SQL%27s%20Dump&url=http%3a%2f%2fericcsinger.com%2fposts%2fproblem-solving-chasing-sqls-dump%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fposts%2fproblem-solving-chasing-sqls-dump%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="http://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: Chasing SQL&#39;s Dump</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    <a class="action" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Problem Solving: Chasing SQL&#39;s Dump
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2016-05-15 15:57:35 -0400 EDT.">
+    Sun, 15 May 2016 19:57:35 &#43;0000
+  </span><span class="post-reading-time">
+    21 min read
+  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/tags/backup/" class="badge post-taxonomy">backup</a><a href="http://ericcsinger.com/tags/commvault/" class="badge post-taxonomy">commvault</a><a href="http://ericcsinger.com/tags/jams/" class="badge post-taxonomy">JAMS</a><a href="http://ericcsinger.com/tags/scripting/" class="badge post-taxonomy">scripting</a><a href="http://ericcsinger.com/tags/sql/" class="badge post-taxonomy">SQL</a></span>
+</div>
+<div class="post-content mb-3"><h1 id="the-problem">The Problem:<a class="anchor ms-1" href="#the-problem"><i class="fas fa-link"></i></a></h1>
+<p>For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂</p>
+<p>When I started at my current employer, the SQL server backup architecture was kind of a mess. To being with, where were then was about 40 – 50 physical SQL servers. So when you’re picturing all of this, keep that in mind. Some of these issues don’t go hand in hand with physical design limitations, but some do.</p>
+<ul>
+<li>DAS was used for not only storage the SQL log, DB and index, but also backup’s. Sometimes if the SQL server was critical enough, we had dedicated disks for backups, but that wasn’t typical. This of course is a problem for many reasons.
+<ul>
+<li>Performance for not only backup’s but the SQL service its self were limited often because they were sharing the same disks. So when a backup kicked off, SQL was reading from the same disks it was attempting to write to. This wasn’t as big of an issue for the few systems that had dedicated disks, but even there, sometimes they were sharing the same RAID card, which meant you’re still <!-- raw HTML omitted -->potentially<!-- raw HTML omitted --> bottlenecking one for the other.</li>
+<li>Capacity was spread across physical servers. Some systems had plenty of space and others barely had enough. Islands are never easy to manage.</li>
+<li>If that SQL server went down, so did its most recent backup’s. TL backup’s were also stored here (shudders).</li>
+<li>Being a dev shop meant doing environment refreshes. This meant creating and maintaining share / NTFS permissions across servers. This by its self isn’t inherently difficult if its thought out ahead of time, but it wasn’t (not my design).</li>
+<li>We were migrating to a virtual environment, and that virtual environment would be potentially vMotioning from one host to another. DAS was a solution that wouldn’t work long term.</li>
+</ul>
+</li>
+<li>The DBA’s managed their backup schedules so it required us all to basically estimate when the best time to pickup their DB’s. Sometimes we were too early and sometimes we could have started sooner.</li>
+<li>Adding to the above points if we had a failed backup over night, or a backup that ran long, it had an effect on SQL’s performance during production hours. This put us in a position of choosing between giving up on backing some data up, or having performance degradation.</li>
+<li>We didn’t know when they did full’s vs diffs. Which means, we might be storing thier DIFF files on what we considered “full” backup taps. By its self not an issue, except for the fact that we did monthly extended fulls. Meaning we kept the first full backup of each month for 90 days. If that file we’re keeping is a diff file, that’ doesn’t do us any good. However, you can see below, why it wasn’t as big of an issue in general.</li>
+<li>Finally, the the problem that I contended with besides all of these, is that because they were just keeping ALL files on disk in the same location, every time we did a full backup, we backed EVERYTHING up. Sometimes that was 2 weeks worth of data, TL’s, Diff’s and and Fulls. This meant we were storing their backup data multiple times over on both disk and tape.</li>
+</ul>
+<p>I’m sure there’s more than a few of you out there with similar design issues. I’m going to lay out how I worked around some of the politics and budget limitation. I wouldn’t suggest this solution as a first choice, its really not the right way to tackle it, but it is a way that works well for us, and might for you. This solution of course isn’t limited to SQL. Really anything that uses a backup file scheme could fit right into this solution.</p>
+<h1 id="the-solution">The solution:<a class="anchor ms-1" href="#the-solution"><i class="fas fa-link"></i></a></h1>
+<p>I spent days worth of my personal time while jogging, lifting, etc. just thinking about how to solve all these problems. Some of them were easy and some of them would be technically complex, but doable. I also spent hours with our DBA team collaborating on the rough solution I came up with, and honing it to work for both of us.</p>
+<p>Here is basically what I came to the table with wanting to solve:</p>
+<ul>
+<li>I wanted SQL dumping to a central location, no more local SQL backups.</li>
+<li>The DBA’s wanted to simplify permissions for all environments to make DB refreshing easier.</li>
+<li>I wanted to minimize or eliminate storing their backup data twice on disk.</li>
+<li>I wanted them to have direct access to our agreed upon retention without needing to involve us for most historical restores. Basically giving them self service recovery.</li>
+<li>I wanted to eliminate backing up more data then we needed</li>
+<li>I wanted to know for sure when they were done backing up and knowing what type of backup they performed.</li>
+</ul>
+<p>Honestly we needed the fix, as the reality was we were moving towards a virtualizing our SQL infrastructure, and presenting local disk on SAN would be both expensive, but also incredibly complex to contend with for 60+ SQL servers.</p>
+<h2 id="how-we-did-it">How we did it:<a class="anchor ms-1" href="#how-we-did-it"><i class="fas fa-link"></i></a></h2>
+<p>Like I said, some of it was an easy fix, and some of it more complex, let’s break it down.</p>
+<h3 id="the-easy-stuff">The easy stuff:<a class="anchor ms-1" href="#the-easy-stuff"><i class="fas fa-link"></i></a></h3>
+<h4 id="backup-performance-and-centralization">Backup performance and centralization:<a class="anchor ms-1" href="#backup-performance-and-centralization"><i class="fas fa-link"></i></a></h4>
+<p>We bought an affordable backup storage solution. At the time of this writing it was and still is Microsoft Windows Storage Spaces. After making that mistake, we’re now moving on to what we hope is a more reliable and mostly more simplistic Quantum QXS (DotHill) SAN using all NL-SAS disks. Point being, instead of having SQL dump to local disk, we setup a fairly high performant file server cluster. This gave us both high availability, and with the HW we implemented, very high performance as well.</p>
+<h5 id="new-problem-we-had-to-solve">New problem we had to solve:<a class="anchor ms-1" href="#new-problem-we-had-to-solve"><i class="fas fa-link"></i></a></h5>
+<p>Having something centralized means you also have to think about the possibility of needing to move it at some point. Given that many processes would be written around this new network share, we needed to make sure we could move data around on the backend, update some pointers and things go on without needing to make massive changes. For that, we relied on DFS-N. We had the SQL systems point at DFS shares instead of pointing at the raw share. This is going to prove valuable as we move data very soon to the new SAN.</p>
+<h4 id="reducing-multiple-disk-copies-and-providing-them-direct-access-to-historical-backups">Reducing multiple disk copies and providing them direct access to historical backups:<a class="anchor ms-1" href="#reducing-multiple-disk-copies-and-providing-them-direct-access-to-historical-backups"><i class="fas fa-link"></i></a></h4>
+<p>The backup storage was sized to store ALL required standard retention, and we (SysAdmins) would continue managing extended retention using our backup solution. For the most part this now means the DBA’s had access to the data they needed 99% of the time. This solved the storing the data more than once on disk problem as we would no longer store their standard retention in CommVault, but instead rely on the SQL dumps they already are storing on disk (except extended retention). They still get copied to tape and sent off site in case you thought that wasn’t covered BTW.</p>
+<h4 id="simplifying-backup-share-permissions">Simplifying backup share permissions:<a class="anchor ms-1" href="#simplifying-backup-share-permissions"><i class="fas fa-link"></i></a></h4>
+<p>The DBA’s wanted to simplify permissions, so we worked together and basically came up with a fairly simple folder structure. We used the basic configuration below.</p>
+<ul>
+<li>SQL backup root
+<ul>
+<li>PRD &lt;—- DFS root / direct file share
+<ul>
+<li>example prd SQL server 1 folder</li>
+<li>example prd SQL server 2 folder</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>STG &lt;—– DFS root / direct file share
+<ul>
+<li>example stg SQL server 1 folder</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>Active Directory security group wise we set it up so that all prod SQL servers are part of a “prod” active directory group, all stage are part of a “stage” active directory group, etc.</li>
+<li>The above AD groups were then assigned at the DFS root (Stg, prd, dev, uat) with the desired permissions.</li>
+</ul>
+<p>With this configuration, its now as simple as dropping a SQL service account in one group, it and will now automatically fall into the correct environment level permissions. In some cases its more permissive then it should be (prod has access to any prod server for example), but it kept things simple, and in our case, I’m not sure the extra security of per server / per environment really would have been a big win.</p>
+<h3 id="the-harder-stuff">The harder stuff:<a class="anchor ms-1" href="#the-harder-stuff"><i class="fas fa-link"></i></a></h3>
+<p>The only two remaining problems we had to solve was knowing what kind of backup the DBA’s did, and making sure we were not backing up more data than we needed. These were also the two most difficult problems to solve because there wasn’t native way to do it (other than agent based backup). We had two completely disjointed systems AND processes that we were trying to make work together. It took many miles of running for me to put all the pieces together and it took a number of meetings with the DBA’s to figure things out. The good news is, both problems were solved by aspects of a single solution. The bad news is, its a fairly complex process, but so far, its been very reliable. Here’s how we did it.</p>
+<h4 id="the-done-file">The DONE file:<a class="anchor ms-1" href="#the-done-file"><i class="fas fa-link"></i></a></h4>
+<p>Everything in the work flow is based on the presence of a simple file, what we refer to as the “done” file internally. This file is used throughout the work flow for various things, and its the key in keeping the whole process working correctly. Basically the workflow lives and dies by the DONE file. The DONE file was also the answer to our knowing what type of backup the DBA’s ran, so we could appropriately sync out backup type with them.</p>
+<p>The DONE file follows a very rigid naming convention. All of our scripts depend on this, and frankly naming standard are just a recommend practice (that’s for another blog post).</p>
+<p>Our naming standard is simple:</p>
+<p>%FourDigitYear%%2DigitMonth%%2DigitDay%_%24Hour%%Minute%%JobName(usually the sql instance)%_%backuptype%.done</p>
+<p>And here are a few examples:</p>
+<ul>
+<li>Default Instance of SQL
+<ul>
+<li>20150302_2008_ms-sql-02_inc.done</li>
+<li>20150302_2008_ms-sql-02_full.done</li>
+</ul>
+</li>
+<li>Stg instance of SQL
+<ul>
+<li>20150302_2008_ms-sql-02stg_inc.done</li>
+<li>20150302_2008_ms-sql-02stg_inc.done</li>
+</ul>
+</li>
+</ul>
+<h5 id="the-backup-folder-structure">The backup folder structure:<a class="anchor ms-1" href="#the-backup-folder-structure"><i class="fas fa-link"></i></a></h5>
+<p>Equally as important as the done file, is our folder structure. Again because this is a repeatable process, everything must follow a standard or the whole thing fall apart.</p>
+<p>As you know we have a root folder structure that goes something like this ” \\ShareRoot\Environment\ServerName”. Inside the servername root I create four folders and I’ll explain their use next.</p>
+<ul>
+<li>.\Servername\DropOff</li>
+<li>.\Servername\Queue</li>
+<li>.\Servername\Pickup</li>
+<li>.\Servername\Recovery</li>
+</ul>
+<p><strong>Dropoff:</strong> This is where the DBA’s dump their backups initially. The backup’s sit here and wait for our process to begin.</p>
+<p><strong>Queue:</strong> This is a folder that we use to stage / queue the backup’s before the next phase. Again I’ll explain in greater detail. But the main point of this is to allow us to keep moving data outside of the Dropoff folder to a temp location in the queue folder. You’ll understand why in a bit.</p>
+<p><strong>Pickup:</strong> This is where our tape jobs are configured to look for data.</p>
+<p><strong>Recovery:</strong> This is the permanent resting place for the data until it reaches the end of its configured retention period.</p>
+<h6 id="stage-1-sql-side">Stage 1: SQL side<a class="anchor ms-1" href="#stage-1-sql-side"><i class="fas fa-link"></i></a></h6>
+<p><strong>Prerequisites:</strong></p>
+<ol>
+<li>SQL needs a process that can check the Pickup folder for a done file, delete a done file and create a done file. Our DBA’s created a stored procedure with parameters to handle this, but you can tackle it however you want, so long as it can be executed in a SQL maintenance plan.</li>
+<li>For each “job” in sql that you want to run, you’ll need to configure a “full” maintenance plan to run a full backup, and if you’re using SQL diffs, create an “inc” maintenance plan. In our case, to try and keep things a little simple, we limited a “job” to a single SQL instance.</li>
+</ol>
+<p><strong>SQL maintenance plan work flow:</strong></p>
+<p>Every step in this workflow will stop on an error, there is NO continuing or ignore.</p>
+<ol>
+<li>First thing the plan does is check for the existence of a previous DONE file.</li>
+<li>If a DONE file exists, its deleted and an email is sent out to the DBA’s and sysadmins informing them. This is because its likely that a previous process failed to run</li>
+<li>If a DONE file does not exist, we continue to the next step.</li>
+<li>Run our backup, whether its a full or inc.</li>
+<li>Once complete, we then create a new done file in the root of the PickupFolder directory. This will either have a “full” or “inc” in the name depending on which maintenance plan ran.</li>
+<li>We purge backup’s in the Recovery folder that are past our retention period.</li>
+</ol>
+<p>SQL side is complete. That’s all the DBA’s need to do. The rest is on us. From here you can see how they were able to tell us whether or not they ran a full via the done file. You can also glean a few things about the workflow.</p>
+<ol>
+<li>We’re checking to see if the last backup didn’t process</li>
+<li>We delete the done file before we start a new backup (you’ll read why in a sec).</li>
+<li>We create a new DONE file once the backup’s are done</li>
+<li>We don’t purge any backup’s until we know we had a successful backup.</li>
+</ol>
+<h6 id="stage-1-sysadmin-side">Stage 1: SysAdmin side<a class="anchor ms-1" href="#stage-1-sysadmin-side"><i class="fas fa-link"></i></a></h6>
+<p>Our stuff is MUCH harder, so do your best to follow along and let me know if you need me to clarify anything.</p>
+<ol>
+<li>We need a stage 1 script created, and stage 1 script will do the following in sequential order.</li>
+<li>Will need to know what job its looking for. In our case with JAMS, we named our JAMS jobs based on the same pattern as the done file. So when the job starts the script reads information from the running job and basically fills in all the parameters like the folder location, job name, etc.</li>
+<li>The script looks for the presence of ANY done file in the specific folder.
+<ol>
+<li>If no done file exists, it goes into a loop, and checks every 5 minutes (this minimizes slack time).</li>
+<li>If a done file does exists we…
+<ol>
+<li>If there are more than 1, we fail. As we don’t know for sure which file is correct. This is a fail safe</li>
+<li>If there is only one, we move on.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Using the “_” in the done file, we make sure that it follows all our standards. So for example, we check that the first split is a date, the second is a time, the third matches the job name in JAMS and the fourth is either an inc or full. A failure in any one of these, will cause the job to fail and we’ll get notified to manually look into it.</li>
+<li>Once we verify the done file is good to go, we now have all we need to start the migration process. So the next thing we do is use the date and time information, to create a sub-folder in the Queue folder.</li>
+<li>Now we use robocopy to mirror the folder structure to the .\Queue\Date_Time</li>
+<li>Once that’s complete, we move all files EXCEPT the done file to the Date_Time folder.</li>
+<li>Once that’s complete, we then move the done file into said folder.</li>
+</ol>
+<p>And that completes stage 1. So now you’re probably wondering, why wouldn’t we just move that data straight to the pickup folder? A few reasons.</p>
+<ul>
+<li>When the backup to tape starts we want to make sure no new files are getting pumped into the pickup folder. You could say well just wait until the backup’s done before you move data along. I agree and we sort of do that, but we do it in a way that keeps the pickup folder empty.
+<ul>
+<li>By moving the files to a queue folder, if our tape process is messed up (not running) we can keep moving data out of the pickup folder into a special holding area, all the while still being able to keep track of the various backup sets (each new job would have a different date_timestamp folder in the queue folder). Our biggest concern is missing a full backup. Remember, if the SQL job see’s a done file, it deletes it. We really want to avoid that if possible.</li>
+<li>We ALSO wanted to avoid a scenario where we were moving data into a queue folder while the second stage job tried to move data out of the queue folder. Again, buy have an individual queue folder for each job, this allows us to keep track of all the moving pieces and make sure that we’re not stepping on toes.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Gotcha to watch out for with moving files:</strong></p>
+<p>If you didn’t pick up on it, I mentioned that I used robocopy to mirror the directory structure, but I did NOT mention using it for moving the files. There’s a reason for that. Robocopy’s move parameter actually does a copy + delete. As you can imagine with a multi-TB backup, this process would take a while. I built a custom “move-files” function in powershell that does a similar thing, and in that function I use “move-file” cmdlet which is a simple pointer update. MUCH faster as you can imagine.</p>
+<p><strong>Stage 2: SysAdmin Side</strong></p>
+<p>We’re using JAMS to manage this, and with that, this stage does NOT run, unless stage 1 is complete. Keep that in mind if you’re trying to use your own work flow solution.</p>
+<p>Ok so at this point our pickup directory may or may not be empty, doesn’t matter, what does matter is that we should have one or more jobs sitting in our .\Queue\xxx folder(s). What you need next is a script that does the following.</p>
+<ol>
+<li>When it starts, it looks for any “DONE” file in the queue folder. Basically doing a recursive search.</li>
+<li>If one or more files are found, we do a foreach loop for each done file found and….
+<ol>
+<li>Mirror the directory structure using robocopy from queue\date_time to the PickupFolder
+<ol>
+<li>Then move the backup files to the Pickup folder</li>
+<li>Move the done file to the Pickup Folder</li>
+<li>We then confirm the queue \date_time is empty and delete it.</li>
+<li><!-- raw HTML omitted -->***NOTE: Notice how we look for a DONE file first. This allows stage 1 to be populating a new Queue sub-folder while we’re working on this stage without inadvertently moving data that’s in use by another stage. This is why there’s a specific order to when we move the done file in each stage.<!-- raw HTML omitted --></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>If NO done files are found, we assume maybe you’re recovering from a failed step and continue on to….</li>
+<li>Now that all files (dumps and done) are in the pickup folder we….</li>
+<li>Look for all done files. if any of them are full, the job will be a full backup. if we find NO fulls, then its an inc.</li>
+<li>Kick of a backup using a CommVault scripts. Again parameters such as the path, client, subclient, etc. are all pulled from JAMS in our case or already present in CommVault. We use the information determined about the job type in step 2\1 as for what we’ll execute. Again, this gives the DBA’s the power to control whether a full backup or an inc is going to tape.</li>
+<li>As the backup job is running, we’re constantly checking the status of the backup, about once a minute using a simple “while” statement. If the job fails, our JAMS solution will execute the job two more times before letting us know and killing the job.</li>
+<li>if the job succeeds, we move on to the next step</li>
+<li>Now we follow the same moving procedure we used above, except this time, we have no queue\date_time folder to contend with.</li>
+<li>Move the backup files from Pickup to the Recovery folder.</li>
+<li>Move the done files</li>
+<li>Check that the Pickup folder is empty
+<ol>
+<li>If yes, we delete and recreate it. Reason? Simple, its the easiest way to deal with a changing folder structure. if a DBA deletes a folder in the DropOff directory, we don’t want to continue propagating a stale object.</li>
+<li>If not we bomb the script and request manual intervention.</li>
+</ol>
+</li>
+<li>if all that works well, we just completed out backup process.</li>
+</ol>
+<h1 id="issues">Issues?<a class="anchor ms-1" href="#issues"><i class="fas fa-link"></i></a></h1>
+<p>You didn’t think I was going to say it was perfect did you? Hey, I’m just as hard on myself as I am on vendors. So here is what sucks with the solution.</p>
+<ol>
+<li>For the longest time, *I* was the only one that knew how to troubleshoot it. After a bit of trainings, and running into issues though, my team is mostly caught up on how to troubleshoot. Still, this is the issue with home brewed solutions, and ones entirely scripted, don’t help.</li>
+<li>Related to the above, if I leave my employer, I’m sure the script could be modified to serve other needs, but its not easy, and I’m sure it would take a bit of reverse engineering. Don’t get me wrong, I commented the snot out of the script, but that doesn’t make it any easier to understand.</li>
+<li>Its tough to extend. I know I said it could, but really, I don’t want to touch it unless I have to (other than parameters).</li>
+<li>When we do UAT refreshes, we need to disable production jobs so the DBA’s have access to the production backups for as long as they need. its not the end of the world, but it requires us to now be involved at a low level with development refreshes, where as before that wasn’t any involvement on our side.</li>
+<li>We’ve had times where full backup’s have been missed tape side. That doesn’t mean they didn’t get copied to tape, rather they were considered an “inc” instead of being considered a “full”. This could easily be fixed simply by having the SQL stored procedure checking if the done file that’s about to be deleted is a full backup and if so, to replace it with a new full DONE file, but that’s not the way it is now, and that depends on the DBA’s. Maybe in your case, you can account for that.</li>
+<li>We’ve had cases where the DBA’s do a UAT refresh and copy a backup file to the recovery folder manually. When we go to move the data from the pickup folder to the recovery folder, our process bombs because it detects that the same file already exists. Not the end of the world for sure, easy enough to troubleshoot, but its not seamless. An additional workaround to this could be to do an md5 hash comparison. If the file is the same, just delete it out of the pickup directory and move on.</li>
+<li>There are a lot of jobs to define and a lot of places to update.</li>
+<li>In JAMS we have to create 2 jobs + a workflow that links them per SQL job</li>
+<li>in CommVault we have to define the sub-client and all its settings.</li>
+<li>On the backup share, 4 folders need to be created per job.</li>
+</ol>
+<h1 id="closing-thoughts">Closing thoughts:<a class="anchor ms-1" href="#closing-thoughts"><i class="fas fa-link"></i></a></h1>
+<p>At first glance I know its REALLY convoluted looking. A Rube Goldberg for sure. However, when you really start digging into it, its not as bad as it seems. In essence, I’m mostly using the same workflow multiple times and simply changing the source / destination. There are places for example when I’m doing the actual backup, where there’s more than the generic process being used, but its pretty repetitive otherwise.</p>
+<p>In our case, JAMS is a very critical peace of software to making this solution work. While you can do this without the software, it would be much harder for sure.</p>
+<p>At this point, I have to imagine that you’re wondering if this is all worth it? Maybe not to companies with deep pockets. And being honest, this was actually one of those processes that I did in house and was frustrated that I had to do it. I mean really, who wants to go through this level of hassle right? Its funny, I thought THIS would be the process i was troubleshooting all the time, and NOT Veeam. However, this process for the most part has been incredibly stable and resilient. Not bragging, but its probably because I wrote the workflow. The operational overhead I invested saved a TON of capex. Backing up SQL natively with CommVault has a list price of 10k per TB, before compression. We have 45TB of SQL data AFTER compression. You do the math, and I’m pretty sure you’ll see why we took the path we did. Maybe you’ll say, that CommVault is too expensive, and to some degree that’s true, but even if you’re paying 1k per TB, if you’re being pessimistic and assuming that 45TB = 90TB before compression, I saved 90k + 20% maintenance each year, and CommVault doesn’t cost anywhere close to 1k per TB, so really, I saved a TON of bacon with the process.</p>
+<p>Besides the cost factor, its also enabled us to have a real grip on what’s going happening with SQL backups. Before it was this black box that we had no real insight into. You could contend that’s a political issue, but then I suspect lots of companies have political issues. We now know that SQL ran a full backup 6 days ago. We now have our backup workflow perfectly coordinated. We’re not starting to early, and we’re kicking off with in 5 minutes of them being done, so we’re not dealing with slack time either. We’re making sure that our backup application + backup tape is being used in the most prudent way. Best of all, our DBA’s now have all their dump files available to them, their environment refreshes are reasonable easy, the backup storage is FAST, we have backup’s centralized and not stored with the server. All in all, the solution kicks ass in my not so humble opinion. Would I have loved to do CommVault natively? For sure, no doubt its ultimately the best solution, but this is a compromise that allowed us to continue using CommVault, save money and accomplish all our goals.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-left"></i>
+    <a href="http://ericcsinger.com/posts/kudos-west-coast-technologies-wct/">KUDOS: West Coast Technologies (WCT)
+</a>
+  </div><div class="post-nav post-next">
+    <a href="http://ericcsinger.com/posts/vmware-dumping-the-c-client-for-good-in-the-next-release/">VMware dumping the c# client for good in the next release
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Related Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="http://ericcsinger.com/posts/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/">Powershell Scripting: Get-ECSVMwareVirtualDiskToWindowsLogicalDiskMapping
+</a>
+          <span class="float-end post-date">Sat, 26 Dec 2015 21:56:08 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/powershell-scripting-get-physicaldisktologicaldisk/">Powershell Scripting: Get-ECSPhysicalDiskToLogicalDiskMapping
+</a>
+          <span class="float-end post-date">Sun, 20 Dec 2015 16:50:39 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-5-realization-of-a-failure/">Backup Storage Part 5: Realization of a failure
+</a>
+          <span class="float-end post-date">Tue, 20 Oct 2015 22:27:15 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-4a-windows-storage-spaces-gotchas/">Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s
+</a>
+          <span class="float-end post-date">Sat, 26 Sep 2015 18:16:34 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-3c-cloud-storage/">Backup Storage Part 3c: Cloud Storage
+</a>
+          <span class="float-end post-date">Sun, 23 Aug 2015 15:33:43 &#43;0000
+</span>
+        </li></ul>
+    </div>
+  </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
+   width="2316" height="3088"
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a></nav>
+</div>
+  </div>
+</section>
+  <div class="post-toc row mb-4 card component" id="postTOC">
+  <div class="card-header">
+    <h2 class="card-title">Contents</h2>
+  </div>
+  <div class="card-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-we-did-it">How we did it:</a>
+      <ul>
+        <li><a href="#the-easy-stuff">The easy stuff:</a></li>
+        <li><a href="#the-harder-stuff">The harder stuff:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div><section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="http://ericcsinger.com/Microsofts-Biggest-Security-Failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/azure-powershell-jobs-and-hash-tables/">Azure, PowerShell jobs, and hash tables
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
+            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
+            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
+            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/storage-spaces/" class="badge rounded post-taxonomy" title="storage spaces">
+            storage spaces<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
+<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

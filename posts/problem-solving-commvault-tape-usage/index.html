@@ -1,0 +1,385 @@
+<!doctype html><html lang="en"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem Solving: CommVault tape usage - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+<meta name="keywords" content="" />
+<meta name="description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks." /><meta itemprop="name" content="Problem Solving: CommVault tape usage">
+<meta itemprop="description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks."><meta itemprop="datePublished" content="2016-08-10T23:52:51+00:00" />
+<meta itemprop="dateModified" content="2016-08-10T23:52:51+00:00" />
+<meta itemprop="wordCount" content="1352">
+<meta itemprop="keywords" content="automation,backup,commvault,JAMS," /><meta property="og:title" content="Problem Solving: CommVault tape usage" />
+<meta property="og:description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ericcsinger.com/posts/problem-solving-commvault-tape-usage/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-08-10T23:52:51+00:00" />
+<meta property="article:modified_time" content="2016-08-10T23:52:51+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Problem Solving: CommVault tape usage"/>
+<meta name="twitter:description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks."/>
+<meta property="og:image" content="http://ericcsinger.com/false"/>
+  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Problem%20Solving%3a%20CommVault%20tape%20usage&url=http%3a%2f%2fericcsinger.com%2fposts%2fproblem-solving-commvault-tape-usage%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fposts%2fproblem-solving-commvault-tape-usage%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="http://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: CommVault tape usage</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Problem Solving: CommVault tape usage
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2016-08-10 19:52:51 -0400 EDT.">
+    Wed, 10 Aug 2016 23:52:51 &#43;0000
+  </span><span class="post-reading-time">
+    7 min read
+  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/tags/automation/" class="badge post-taxonomy">automation</a><a href="http://ericcsinger.com/tags/backup/" class="badge post-taxonomy">backup</a><a href="http://ericcsinger.com/tags/commvault/" class="badge post-taxonomy">commvault</a><a href="http://ericcsinger.com/tags/jams/" class="badge post-taxonomy">JAMS</a></span>
+</div>
+<div class="post-content mb-3"><h1 id="introduction">Introduction:<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h1>
+<p>I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks. What makes matters worse is when you have to deal with MORE tapes.</p>
+<p>Now that you know tapes are one of my personal seven levels of hell in IT, you’ll know why I put a bit of time into this solution. Anything I can do to reduce the number of tapes getting exported every day, ultimately leads to some reduction in the PITA scale of tapes.</p>
+<h1 id="the-issue">The issue:<a class="anchor ms-1" href="#the-issue"><i class="fas fa-link"></i></a></h1>
+<p>To provide a better understanding of the issue at hand, for years I’ve been seeing way too many tapes being used by CV. We’d kick out tapes that had 5% or 10% consumption, and the number of tapes with that level of consumption varied based on what phase of our backup strategy we were in, and what day of the week it was. It could be anything as small as 4 partially filled tapes, to times where we had 10+ tapes that weren’t filled all the way up. If the consumed data should fit on 16 tapes, and we’re kicking out 26 tapes, that’s a problem IMO. I’m sure many of you out there have contended with this in CV specifically, and I’d bet those of you using other vendors products have run into this too. I’m going to first explain why the problem is occurring, and then I’ll go over how I’ve reduced most of the waste.</p>
+<p><strong>The Why?</strong></p>
+<p>In CV, we have storage policies, and short of going into an explanation of what they are for others not familiar with CV, just think of it as an island of backup data. That island of data doesn’t co-mingle with other islands of data on disk, and tape is no exclusion. What that means is when you backup data to a storage policy and want to copy it to tape, that data getting copied to tape will automatically reserve the entire tape being used. In turn, each storage policy then reserves its own unique tapes so that data does not co-mingle together. This means for every storage policy you have, you’re guaranteed at least one unique tape per storage policy at a minimum. Now, each storage policy can have a number of streams configured. To keep things simple, let’s just ignore multiplexing for now. When a storage policy has a stream limit of 1, that means only 1 tape drive will be used, when it has a stream policy of 4, that means 4 tape drives will be used. Now, as you copy data to tape, you normally have more than 1 streams worth of data, you probably have at least one for each client in your environment (and likely much more than that). This is a good thing, having more streams means we can run data copy operations in parallel. In the case of the 4 streams example, that means we can use 4 tape drives in parallel to copy data for the example storage policy. What this also means is depending on circumstances, we could end up with 4 tapes not being filled all the way as well. Streams are optimized for performance, NOT for improving tape utilization. Now, imagine you have more than one storage policy, let’s just say 4 storage polices, each being their own island, and each with a stream limit of 2. That means you could end up with up to 8 tapes not being fully utilized. I’m also ignoring for now that in CV, you can separate incremental and fulls to different storage policies which exacerbates the problem further (taking one island and making it two).</p>
+<p>In our case, we have 4 storage policies and we had gone through a process of merging our Fulls and Incs into a single storage policy to consolidate tapes already. We have a total of 6 tape drives, which means if we just configured the storage policies to fight over the tape drives @6 streams each, we could end up in theory with 24 partially filled tapes. We’re smarter than that of course, so that wasn’t out problem. Our problem was finding the right balance between how many streams a storage policy needed to copy all its data in our window, and not making it so high that we ended up wasting tape. Pre-solution, we almost always had 4 – 6 tapes that were wasted, as in 100GB on a 2000GB tape. It was annoying and wasteful.</p>
+<h1 id="solution-problems-again-improved-solution">Solution, problems again, improved solution:<a class="anchor ms-1" href="#solution-problems-again-improved-solution"><i class="fas fa-link"></i></a></h1>
+<p>There are two main components to the solution.</p>
+<ul>
+<li>Scripting storage policy stream modification via task scheduler (MVP JAMS in our case).</li>
+<li>CommVault introducing Global Tape Policies in v11
+<ul>
+<li>This allows tapes to be shared, no longer residing on an island as mentioned above. So storage policy 1, 2, 3 and 4 can all share the same tape. Way more efficient.</li>
+</ul>
+</li>
+</ul>
+<p>In our case, when we saw the global tape policy, it was like a halo of light and angels singing, going off in our head. This was it, our problems were FINALLY solved. After going through the very tedious task of migrating to this solution, we found that we were still using 4 – 6 tapes a day more than we needed. The problem was not that data was not co-mingling, it was. No, the problem was that we set the global tape policy to 6 streams, and every day, it was using 6 tape drives for backups. At first we tried to solve the problem by limiting the aux copy streams via a scheduled task in CV (start the job with 1 stream only as an example) but we had 4 storage polices, so that only reduced the tape usage to 4. The problem again was that each storage police was scheduled and run in parallel. So while we restricted any one storage policy, ultimately we were still letting more tape drives being used than needed and in turn more tapes than was needed. We had set 6 streams, because we wanted to make sure that our FULL jobs had enough tape drives to complete over the weekend.</p>
+<p>At this stage, I came to the conclusion that we needed a way to dynamically control the streams for the global tape policy so that during the week days it was restricted to 1 tape drive (all we needed) and on the weekend, we could start out with 6 and slowly ramp back down to 1, and hopefully more fully fill our tapes. With a bit of research and some discussions with CV, I found out that they have a CLI option for controlling storage policy streams (found <a href="https://documentation.commvault.com/commvault/v10/article?p=features/storage_policies/storage_policy_xml_edit.htm" target="_blank" rel="noopener noreferrer">https://documentation.commvault.com/commvault/v10/article?p=features/storage_policies/storage_policy_xml_edit.htm)</a>). Using my trusty scheduling tool, I setup a basic system where on Sunday @4PM we would set the streams to “1”, and then on Friday @4PM we would raise them to “6” and Saturday @7am we would drop them to “2”. This basically solved our problem, and I’m happy to say that on week days, tapes are filled as much as is possible (1 – 2 tapes depending on which client ran a full), and on the weekend, 2 – 4 tapes are still being used. I’m still tuning the whole thing, for the fulls (it’s a balance of utilization and performance), but its better than its ever been. Its also worth noting, we went back and modified our aux copy schedules and told them to use all available streams since we now choke point it at the global tape policy. This allows any storage policy to go as fast as possible (although potentially blocking other ones).</p>
+<p>It’s a hack no doubt. IMO, CV should develop this concept in their storage policies. Basically creating a schedule window to dynamically control the queue depth. For now, this is working well.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-left"></i>
+    <a href="http://ericcsinger.com/posts/sql-query-microsoft-wsus-computers-update-status/">SQL Query: Microsoft – WSUS – Computers Update Status
+</a>
+  </div><div class="post-nav post-next">
+    <a href="http://ericcsinger.com/posts/wish-list-nimble-storage-2016/">Wish list: Nimble Storage (2016)
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Related Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="http://ericcsinger.com/posts/problem-solving-chasing-sqls-dump/">Problem Solving: Chasing SQL&#39;s Dump
+</a>
+          <span class="float-end post-date">Sun, 15 May 2016 19:57:35 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-5-realization-of-a-failure/">Backup Storage Part 5: Realization of a failure
+</a>
+          <span class="float-end post-date">Tue, 20 Oct 2015 22:27:15 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-4a-windows-storage-spaces-gotchas/">Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s
+</a>
+          <span class="float-end post-date">Sat, 26 Sep 2015 18:16:34 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-3c-cloud-storage/">Backup Storage Part 3c: Cloud Storage
+</a>
+          <span class="float-end post-date">Sun, 23 Aug 2015 15:33:43 &#43;0000
+</span>
+        </li><li>
+          <a href="http://ericcsinger.com/posts/backup-storage-part-3a-deduplication-targets/">Backup Storage Part 3a: Deduplication Targets
+</a>
+          <span class="float-end post-date">Tue, 02 Jun 2015 21:08:31 &#43;0000
+</span>
+        </li></ul>
+    </div>
+  </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
+   width="2316" height="3088"
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a></nav>
+</div>
+  </div>
+</section>
+  <section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="http://ericcsinger.com/Microsofts-Biggest-Security-Failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/posts/azure-powershell-jobs-and-hash-tables/">Azure, PowerShell jobs, and hash tables
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
+            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
+            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
+            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/storage-spaces/" class="badge rounded post-taxonomy" title="storage spaces">
+            storage spaces<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
+<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

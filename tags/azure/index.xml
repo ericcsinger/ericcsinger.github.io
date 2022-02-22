@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Azure on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/azure/</link>
+    <description>Recent content in Azure on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sat, 06 Feb 2021 16:00:00 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PowerShell: Find orphaned disks in Azure and their cost</title>
+      <link>http://ericcsinger.com/posts/powershell-find-orphaned-disks-in-azure-and-their-cost/</link>
+      <pubDate>Sat, 06 Feb 2021 16:00:00 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/powershell-find-orphaned-disks-in-azure-and-their-cost/</guid>
+      <description>PowerShell: Find orphaned disks in Azure and their costVersion: 1.0.1
+Introduction:Just wanted to get something super simple out there. I was curious how many unattatched disks our Azure portal had and what it was costing us. This little script will give us the basic answer to that question.
+The scriptThis will loop through all subscriptions and gather all disks with a status of &amp;ldquo;unattatched&amp;rdquo;. Then it will try to find out how much they cost.</description>
+    </item>
+    
+  </channel>
+</rss>

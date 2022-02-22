@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NAS on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/nas/</link>
+    <description>Recent content in NAS on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sat, 09 Feb 2019 22:11:53 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HCI storage independence vs. SAN</title>
+      <link>http://ericcsinger.com/posts/hci-storage-independence-vs-san/</link>
+      <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/posts/hci-storage-independence-vs-san/</guid>
+      <description>I love chatting about tech and anytime I get to do so with folks like Josh Odgers, Cody Hosterman, Exchange Goddess, Dan the builder, Duncan Epping, Frank Denneman, Chrissy LeMair, etc. it’s a good day. They’re all IT celebrities in my books, and I failed to even scratch the surface of all the folks I’m following / interact with. Some folks follow their sports heroes, I follow my IT hero’s.</description>
+    </item>
+    
+  </channel>
+</rss>
