@@ -1,34 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>active directory on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/tags/active-directory/</link>
-    <description>Recent content in active directory on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Thu, 26 Nov 2020 20:00:00 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>PowerShell: Remove a failed domain controller</title>
-      <link>http://ericcsinger.com/posts/powershell-remove-a-failed-domain-controller/</link>
-      <pubDate>Thu, 26 Nov 2020 20:00:00 +0000</pubDate>
-      
-      <guid>http://ericcsinger.com/posts/powershell-remove-a-failed-domain-controller/</guid>
-      <description>PowerShell: Remove a failed domain controllerVersion: 1.0.1
-Introduction:Let&amp;rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
-ParametersLet&amp;rsquo;s start by estalishing some parameters
-#Array to hold roles of original DC $All_Roles_To_Move = New-Object -TypeName &amp;#34;System.</description>
-    </item>
-    
-    <item>
-      <title>Deleting msExchActiveSyncDevice container after migrating to Office 365</title>
-      <link>http://ericcsinger.com/posts/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</link>
-      <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
-      
-      <guid>http://ericcsinger.com/posts/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</guid>
-      <description>We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.
-&amp;lt;pre class=&amp;quot;brush: powershell; title: ; notranslate&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;$UserNamePattern = &amp;quot;*singer*&amp;quot;$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.</description>
-    </item>
-    
-  </channel>
-</rss>
