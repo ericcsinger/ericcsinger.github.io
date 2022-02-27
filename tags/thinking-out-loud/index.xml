@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thinking out loud on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/thinking-out-loud/</link>
+    <description>Recent content in thinking out loud on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sun, 20 Aug 2017 20:10:29 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/thinking-out-loud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thinking out loud: VMware, this is what I want from you</title>
+      <link>http://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</link>
+      <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</guid>
+      <description>Warning:This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
+Disclaimer:Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
+Introduction:I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.</description>
+    </item>
+    
+    <item>
+      <title>Thinking out loud: Why do server vendors still struggle with driver and firmware management?</title>
+      <link>http://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</link>
+      <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
+      <description>History:Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.</description>
+    </item>
+    
+    <item>
+      <title>Thinking out loud: What HP &#43; Nimble means to me</title>
+      <link>http://ericcsinger.com/thinking-out-loud-what-hp-nimble-means-to-me/</link>
+      <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-what-hp-nimble-means-to-me/</guid>
+      <description>Disclaimer:These are opinions, not facts and these opinions are mine, not my employers.
+Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.</description>
+    </item>
+    
+    <item>
+      <title>Thinking out loud: Hyper converged storages missing link</title>
+      <link>http://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</link>
+      <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</guid>
+      <description>Introduction:In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.</description>
+    </item>
+    
+    <item>
+      <title>Thinking out loud:  The cloud (IaaS) delusion</title>
+      <link>http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
+      <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
+      <description>Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.</description>
+    </item>
+    
+  </channel>
+</rss>

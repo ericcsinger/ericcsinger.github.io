@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RDC on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/rdc/</link>
+    <description>Recent content in RDC on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Wed, 13 May 2020 18:30:00 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/rdc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RDP: An internal error has occurred</title>
+      <link>http://ericcsinger.com/rdp-an-internal-error-has-occurred/</link>
+      <pubDate>Wed, 13 May 2020 18:30:00 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/rdp-an-internal-error-has-occurred/</guid>
+      <description>RDP: An internal error has occurredProblem overviewOne of my colleagues hit me up about an issue they were seeing when trying to RDP into a DC. The error from RDP was &amp;ldquo;An internal error has occurred&amp;rdquo;. Totally useful right :-).
+We could console in so that was a slight sigh of relief.
+Other symptomsWhen I consoled into the system and look at the event logs, the following event entry was created after each RDP attempt.</description>
+    </item>
+    
+  </channel>
+</rss>

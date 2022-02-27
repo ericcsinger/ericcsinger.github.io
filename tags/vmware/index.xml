@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmware on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/vmware/</link>
+    <description>Recent content in vmware on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Mon, 19 Mar 2018 12:52:31 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Solving: VMware VM not reading VMDK serial number in OS</title>
+      <link>http://ericcsinger.com/problem-solving-vmware-vm-not-reading-vmdk-serial-number-in-os/</link>
+      <pubDate>Mon, 19 Mar 2018 12:52:31 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/problem-solving-vmware-vm-not-reading-vmdk-serial-number-in-os/</guid>
+      <description>I created a function while ago that utilizes the VMDK serial number to map which VMDK is used for a Windows volume. Starting with Windows 10 / Server 2016, I noticed that I could no longer see the serial number of a VMDK insides the OS. After reaching out to VMware, turned out to be a really simple fix.
+First let me share the relevant KB:
+https://kb.vmware.com/s/article/52815
+I would suggest you make sure this setting is present on all VM’s.</description>
+    </item>
+    
+    <item>
+      <title>VMware DRS default memory load balancing</title>
+      <link>http://ericcsinger.com/vmware-drs-default-memory-load-balancing/</link>
+      <pubDate>Sun, 14 Jan 2018 22:47:37 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/vmware-drs-default-memory-load-balancing/</guid>
+      <description>In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down.</description>
+    </item>
+    
+    <item>
+      <title>Review: 5 years virtualizing Microsoft SQL Server</title>
+      <link>http://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</link>
+      <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
+      <description>Introduction:I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
+Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).</description>
+    </item>
+    
+    <item>
+      <title>Thinking out loud: VMware, this is what I want from you</title>
+      <link>http://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</link>
+      <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</guid>
+      <description>Warning:This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
+Disclaimer:Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
+Introduction:I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.</description>
+    </item>
+    
+    <item>
+      <title>Powershell Scripting: Get-ECSESXHostVIBToPCIDevices</title>
+      <link>http://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/</link>
+      <pubDate>Fri, 30 Jun 2017 21:20:28 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/</guid>
+      <description>Introduction:If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
+VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowing if you have the correct drivers is to find which VIB matches which PCI device.</description>
+    </item>
+    
+    <item>
+      <title>Thinking out loud: Why do server vendors still struggle with driver and firmware management?</title>
+      <link>http://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</link>
+      <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
+      <description>History:Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.</description>
+    </item>
+    
+  </channel>
+</rss>

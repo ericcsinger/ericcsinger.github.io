@@ -1,0 +1,414 @@
+<!doctype html><html lang="en"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Backup Storage Part 3b: Scale Out Storage - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+<meta name="keywords" content="" />
+<meta name="description" content="While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
+Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.
+SANs like the EMC VNX are what I’ll refer to as more traditional storage." /><meta itemprop="name" content="Backup Storage Part 3b: Scale Out Storage">
+<meta itemprop="description" content="While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
+Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.
+SANs like the EMC VNX are what I’ll refer to as more traditional storage."><meta itemprop="datePublished" content="2015-07-11T14:56:14+00:00" />
+<meta itemprop="dateModified" content="2015-07-11T14:56:14+00:00" />
+<meta itemprop="wordCount" content="1335">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Backup Storage Part 3b: Scale Out Storage" />
+<meta property="og:description" content="While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
+Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.
+SANs like the EMC VNX are what I’ll refer to as more traditional storage." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ericcsinger.com/backup-storage-part-3b-scale-out-storage/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-07-11T14:56:14+00:00" />
+<meta property="article:modified_time" content="2015-07-11T14:56:14+00:00" />
+<meta property="og:see_also" content="http://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/" /><meta property="og:see_also" content="http://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/" /><meta property="og:see_also" content="http://ericcsinger.com/backup-storage-part-3d-traditional-san-/-nas/" /><meta property="og:see_also" content="http://ericcsinger.com/backup-storage-part-3c-cloud-storage/" /><meta property="og:see_also" content="http://ericcsinger.com/backup-storage-part-3a-deduplication-targets/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Backup Storage Part 3b: Scale Out Storage"/>
+<meta name="twitter:description" content="While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
+Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.
+SANs like the EMC VNX are what I’ll refer to as more traditional storage."/>
+<meta property="og:image" content="http://ericcsinger.com/false"/>
+  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Backup%20Storage%20Part%203b%3a%20Scale%20Out%20Storage&url=http%3a%2f%2fericcsinger.com%2fbackup-storage-part-3b-scale-out-storage%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fbackup-storage-part-3b-scale-out-storage%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="http://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Backup Storage Part 3b: Scale Out Storage</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Backup Storage Part 3b: Scale Out Storage
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2015-07-11 10:56:14 -0400 EDT.">
+    Sat, 11 Jul 2015 14:56:14 &#43;0000
+  </span><span class="post-reading-time">
+    7 min read
+  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/categories/uncategorized/" class="badge post-taxonomy">Uncategorized</a><a href="http://ericcsinger.com/series/backup-storage/" class="badge post-taxonomy">Backup Storage</a></span>
+</div>
+<div class="post-content mb-3"><p>While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.</p>
+<p>Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.</p>
+<p>SANs like the EMC VNX are what I’ll refer to as more traditional storage. Typically they’re deployed with two controllers, and each controller shares access to one or more JBODs. Within this architecture, there are a few typical “limitations”. I’m putting limitations in quotes as in a lot cases most folks don’t run into these limitations when a system is properly designed.</p>
+<ol>
+<li>A controller is really jut an x86 server and like any server it is only going to have so many PCI slots. Just like you would in any server you need to balance the use of those PCI slots. In most cases, you’re going to be balancing how many slots are used for host uplinks (targets) or use for storage connections (initiator).</li>
+<li>While some high end SAN’s support true active / active (and more than two controllers BTW), your average configuration is going to have one controller active and the other one waiting to take over. Meaning, 50% of your controllers are doing nothing all day long.</li>
+<li>Some people will divide their storage up, and have both controllers hosting LUNs. Meaning if there is 50 disks, 25 disks may be active on controller 1, and the remaining 25 will be active on controller 2. In the case of a two controller configuration, your net worst case performance will be that of a single controller.</li>
+<li>When you max out the number of disks, CPU, or target/initiator ports that a SAN can host, you need to deploy another SAN. At this point, its likely you’re leaving some amount of resources on an island never to be utilized again. Maybe its free spaces, maybe its the CPU, no matter what, something is being left under-utilized.</li>
+<li>This has a negative effect when we start talking about things like file shares. Now this means spreading your file system over non-related storage units, it can get messy quick.</li>
+</ol>
+<p>This is the way most shops run, and honestly its not a bad thing. Having some extra of something isn’t always a negative, as long as its the right extra.</p>
+<p>So how does scale out fit into all of this? What does any of this have to do with backup? Well first, lets start with the basics of scale out storage. There are few things to keep in mind.</p>
+<ol>
+<li>Scale out no longer uses shared disk. There is instead 1 controller to 1 set of disks and this forms a node or a brick. You then connect multiple nodes together over a backbone network (think a private network used for node to node communication only). This forms a scale out cluster. Over the scale out cluster you typically have one file system, or rather one contiguous allocated amount of space.</li>
+<li>The number of nodes in a cluster is mostly limited by the number of backbone connections that can be provisioned. In the case of a 48 port infiniband switch, that means you basically have room for 48 nodes in a single cluster.</li>
+<li>Resiliency within the cluster is maintained by providing copies or parity at not only and individual disk level, but also a node level.</li>
+<li>Typically (not always) scale out is accessed over SMB/NFS and not iSCSI or FC.</li>
+</ol>
+<p>So what makes this architecture so great, and why did we look at it for backup? Well I’m going to highlight what we learned from speaking with EMC about Isilon.</p>
+<p>First, what makes the architecture slick.</p>
+<ol>
+<li>Theres a lot less waste (at scale) in this architecture. You don’t have pools of capacity spread across multiple SANs being unused. With scaleout, its one massive pool of storage.</li>
+<li>A cluster is made up 3 or more like nodes</li>
+<li>Node can be divided up into tiers based on their performance. Each performance tier must have a minimum of three nodes to be added into a cluster.</li>
+<li>To grow capacity, you simply add a node into the cluster. Depending on your resiliency scheme, you may end up adding 100% of the nodes capacity into the cluster.</li>
+<li>One big win with scaleout that most traditional SAN’s don’t have, is when you do add capacity, the data in use is re-balanced across all nodes, thus ensuring every node is being evenly used.</li>
+<li>Isilon offer some pretty slick management capabilities. For example, being able to control the resiliency settings at not only the cluster level but also down to the folder / file level. Maybe that archive you have doesn’t need the same resiliency as your active files. This same management capability also applies to performance polices. Your archive data can reside on slow spinning disk and your active data can reside on their 10k RPM tier.</li>
+<li>Performance increases linearly as you add nodes.</li>
+</ol>
+<p>So what makes this potentially great for backup?</p>
+<ol>
+<li>The lack of wasted space means you’re able to suck 100% of the capacity from your storage (after parity). This means no space being wasted across luns or different SAN units. 100% space is allocated across these devices.</li>
+<li>Due to the simplicity of adding nodes hot and thus adding capacity, if you start running out of space, there’s no need to do crazy things like expand luns, move data to new luns, migrated data within a storage pool so that its rebalanced. All this stuff goes away with scale out.</li>
+<li>The amount of space in general supported by this solution should be able to hold a lot of your data for a long period of time.</li>
+<li>Throughput is pretty good on this architecture and it only gets better as you add nodes.</li>
+</ol>
+<p>All this said, no architecture is perfect and Isilon is no exception. There were a few negatives that ultimately led to us passing on it at the time of evaluation.</p>
+<ol>
+<li>We planned to backup to the Isilon unit and then backup the Isilon unit to tape. The only way to do this (correctly) was to purchase their NDMP appliance. This wouldn’t have been an issue per say, except that the NDMP appliance IIRC has some pretty terrible backup throughput numbers. I don’t recall the exact numbers, but I want to say something like 200MBps. We are going to be backing up over 100TB of data, and 200MBps wasn’t going to cut it.</li>
+<li>Isilon is cool and it has a hot price tag along with it. While I’m sure at scale the cost per GB would be decent, it just wasn’t something we could afford. You have to buy three nodes at a minimum and we’d only have one nodes capacity. it would have blown our storage budget and we would have ended up with a lot less capacity than other solutions.</li>
+<li>Performance does scale as you add nodes, but it takes A LOT of nodes to equal the performance of some other solutions we were looking at. So again, at scale, this may have been a contender, but not at the levels we were thinking about.</li>
+<li>They had no cloud solution, meaning I couldn’t replicate to an Isilon unit in AWS. This wasn’t a deal breaker but it wasn’t ideal either.</li>
+<li>Like most EMC solutions, it was mired with all kinds of licensing features and various ways to nick and dime you to death. Half of the cool features we heard about were a la carte license features, each jacking the price up more and more.</li>
+</ol>
+<p>All in all, a very cool solution that’s unfortunately too expensive, and too limiting for us. I think if we were contending with PB’s of data, this solution would be the only right way to tackle it, but in our case, a few hundred TB can easily be managed by plenty of other solutions.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-left"></i>
+    <a href="http://ericcsinger.com/backup-storage-part-3a-deduplication-targets/">Backup Storage Part 3a: Deduplication Targets
+</a>
+  </div><div class="post-nav post-next">
+    <a href="http://ericcsinger.com/backup-storage-part-3c-cloud-storage/">Backup Storage Part 3c: Cloud Storage
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
+   width="2316" height="3088"
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a></nav>
+</div>
+  </div>
+</section>
+  <section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="http://ericcsinger.com/microsofts-biggest-security-failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/azure-powershell-jobs-and-hash-tables/">Azure, PowerShell jobs, and hash tables
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
+            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
+            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
+            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/storage-spaces/" class="badge rounded post-taxonomy" title="storage spaces">
+            storage spaces<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section><section class="categories-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/categories">Categories</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
+            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="http://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
+            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
+            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
+            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
+            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
+      </div>
+    </section><section class="series-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/series">Series</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
+            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
+<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

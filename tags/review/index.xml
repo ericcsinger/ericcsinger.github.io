@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>review on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/review/</link>
+    <description>Recent content in review on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Mon, 27 Nov 2017 15:56:13 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Review: 5 years virtualizing Microsoft SQL Server</title>
+      <link>http://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</link>
+      <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
+      <description>Introduction:I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
+Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).</description>
+    </item>
+    
+    <item>
+      <title>Review: 877stockcar.com exotic experiences</title>
+      <link>http://ericcsinger.com/review-877stockcar.com-exotic-experiences/</link>
+      <pubDate>Sat, 23 Sep 2017 19:44:46 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/review-877stockcar.com-exotic-experiences/</guid>
+      <description>Introduction:This post is 100% off topic, it’s about my “exotic car” experience through 877stockcar.com. In general, my blog is for tech stuff, but I figure it might be fun to write about something non-tech for once. This is about the https://877stockcar.com/experiences/exotic-experiences/ located at Pocono Raceway.
+I wanted to write this for anyone that might be thinking of dropping up to $700 on their package, so you know what you’re in for.</description>
+    </item>
+    
+    <item>
+      <title>Quicky Review: GPO/GPP vs. DSC</title>
+      <link>http://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</link>
+      <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
+      <description>Introduction:If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.</description>
+    </item>
+    
+    <item>
+      <title>Review: 2.5 years with Nimble Storage</title>
+      <link>http://ericcsinger.com/review-2.5-years-with-nimble-storage/</link>
+      <pubDate>Sat, 21 Nov 2015 21:27:56 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/review-2.5-years-with-nimble-storage/</guid>
+      <description>Disclaimer: I’m not getting paid for this review, nor have I been asked to do this by anyone. These views are my own, and not my employers, and they’re opinions not facts .
+Intro:To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.</description>
+    </item>
+    
+  </channel>
+</rss>

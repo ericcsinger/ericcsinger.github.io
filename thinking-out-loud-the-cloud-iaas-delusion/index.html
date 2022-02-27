@@ -1,0 +1,447 @@
+<!doctype html><html lang="en"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thinking out loud:  The cloud (IaaS) delusion - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+<meta name="keywords" content="" />
+<meta name="description" content="Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses." /><meta itemprop="name" content="Thinking out loud:  The cloud (IaaS) delusion">
+<meta itemprop="description" content="Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses."><meta itemprop="datePublished" content="2015-12-30T17:13:39+00:00" />
+<meta itemprop="dateModified" content="2015-12-30T17:13:39+00:00" />
+<meta itemprop="wordCount" content="4325">
+<meta itemprop="keywords" content="cloud,thinking out loud," /><meta property="og:title" content="Thinking out loud:  The cloud (IaaS) delusion" />
+<meta property="og:description" content="Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-12-30T17:13:39+00:00" />
+<meta property="article:modified_time" content="2015-12-30T17:13:39+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Thinking out loud:  The cloud (IaaS) delusion"/>
+<meta name="twitter:description" content="Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses."/>
+<meta property="og:image" content="http://ericcsinger.com/false"/>
+  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
+  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Thinking%20out%20loud%3a%20%20The%20cloud%20%28IaaS%29%20delusion&url=http%3a%2f%2fericcsinger.com%2fthinking-out-loud-the-cloud-iaas-delusion%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fthinking-out-loud-the-cloud-iaas-delusion%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<section class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<section class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</section>
+<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></section>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="http://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main role="main" class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Thinking out loud:  The cloud (IaaS) delusion</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper">
+  <div class="d-flex flex-column component rounded post-panel">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Thinking out loud:  The cloud (IaaS) delusion
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2015-12-30 12:13:39 -0500 EST.">
+    Wed, 30 Dec 2015 17:13:39 &#43;0000
+  </span><span class="post-reading-time">
+    21 min read
+  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/categories/cloud/" class="badge post-taxonomy">cloud</a><a href="http://ericcsinger.com/categories/thinking-out-loud/" class="badge post-taxonomy">thinking out loud</a><a href="http://ericcsinger.com/tags/cloud/" class="badge post-taxonomy">cloud</a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge post-taxonomy">thinking out loud</a></span>
+</div>
+<div class="post-content mb-3"><h1 id="introduction">Introduction:<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h1>
+<p>Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses. Additionally, I think its worth noting that in general, like any technology, I’m a fan of what makes my life easier, what’s better for my employer, and what’s financially sound. In many cases cloud fits those requirement, and I currently run and have run cloud solutions (long before being trendy). I’m not anti cloud, I’m anti throwing money away, which is what IaaS is mostly doing.</p>
+<p>Where is this stemming from? After working with Azure for the past month, and reading why I’m a cranky old SysAdmin for not wanting to move my datacenter to the cloud, I wanted to speak up on why in contrary, I think you’re a fool if you do. Don’t get me wrong, I think there are perfectly valid reasons to use IaaS, there are things that don’t make sense to do in house, but running a primary (and at times a DR) datacenter in the cloud, is just waisting money and limiting your companies capabilities. Let’s dig into why…</p>
+<h1 id="basic-iaas-history">Basic IaaS History:<a class="anchor ms-1" href="#basic-iaas-history"><i class="fas fa-link"></i></a></h1>
+<p>Let’s start with a little history as I know it on how IaaS was initially used, and IMO, this is still the best fit for IaaS.</p>
+<p><strong>I need more power… Ok, I’m done, you can have it back.</strong></p>
+<p>There are companies out there (not mine) that do all kinds of crazy calculations, data crunching and other compute intensive operations. They needed huge amounts of compute capacity for relatively short periods of time (or at least that was the ideal setup). Meaning, they were striving to get the work done as fast as possible, and for arguments sake, let’s just say their process scaled linearly as they added compute nodes. There was only so much time, so much power, so much cooling, and so much budget to be able to house all these physical servers for solving what is in essence one big complex math equation. What they were left with was a balancing act of buying as much compute as they could manage, without being excessively wasteful. After all, if they purchased so much compute that they could solve the problem in a minimal amount of time, unless they were keeping those server busy, once the problem was solved, it was a waste of capital. About 10 years ago (taking a rough guess here), AWS releases this awesome product capable of renting compute by the hour, and offering whats basically unlimited amounts of cpu / gpu power. Now all of a sudden a company that would have had to operate a massive datacenter has a new option of renting mass amounts of compute by the hour. This company could fire up as many compute nodes as they could afford, and not only could they solve their problem quicker, but they only had to pay for the time they used.</p>
+<p><strong>I want to scale my web platform on demand…. and then shrink it, and then scale it, and then shrink it.</strong></p>
+<p>It evolved further, if its affordable for mass scale up and scale down for folks that fold genomes, or trend the stock market, why not for running things like next generation web scale architectures. Sort of a similar principle, except that you run everything in the cloud. To make it affordable, and scalable, they designed their web infrastructure so that it could scale out, and scale on demand. Again, we’re not talking about a few massive database servers, and a few massive web servers, we’re talking about tons of smaller web infrastructure components, all broken out into smaller independently scalable components. Again the cloud model worked brilliantly here, because it was built on a premise that you designed small nodes, and scaled them out on demand as load increased, and destroyed nodes as demand dwindled. You could never have this level of dynamic capacity affordably on prem.</p>
+<p><strong>I want a datacenter for my remote office, but I don’t need a full server, let alone multiples for redundancy.</strong></p>
+<p>At this stage IaaS is working great for the DNA crunchers and your favorite web scale company, and all the while, its getting more and more development time, more functionally, and finally gaining the attention of more folks for different use cases. I’m talking about folks that are sick of waiting on their SysAdmins to deploy test servers, or folks that needed a handful of servers in a remote location, folks that only needed a handful of small servers in general, and didn’t need a big expensive SAN or server. Again, it worked mostly well for these folks. They saved money by not needing to manage 20 small datacenters, or they were able to test that code on demand and on the platform they wanted, and things were good.</p>
+<h1 id="the-delusion-begins">The delusion begins…<a class="anchor ms-1" href="#the-delusion-begins"><i class="fas fa-link"></i></a></h1>
+<p>Fast forward to now, and everyone thinks that if the cloud worked for the genome folders, the web scale companies and finally for small datacenter replacements, then it must also be great for my relatively speaking static, large legacy enterprise environment. At least that’s what every cloud peddling vendor and blogger would have you believe, and thus the cloud delusion was born.</p>
+<p>Why do I call it the cloud delusion? Simple, your enterprise architecture is likely NOT getting the same degrees of wins that these types of companies were/are getting out of IaaS.</p>
+<p>Let’s break it down the wins that cloud offered and offers you. In essence, if this is functionality that you need, then the cloud MAY make sense for you.</p>
+<ol>
+<li><strong>Scale on demand:</strong> Do you find your self frequently needing to scale servers by the hundreds every, day, week or even month? Shucks, I’ll even give you same leeway and ask if you’re adding multiple hundred servers every year? In turn are you finding that you are also destroying said servers in this quantity? We’re trying to find out if you really need the dynamic scale on demand advantage that the cloud brings over your on prem solution.</li>
+<li><strong>Programatic Infrastructure:</strong> Now I want to be very clear with this from the start, while on prem may not be as advanced as IaaS, infrastructure is mostly programatic on prem, so weigh this pro carefully. Do you find that you hate using a GUI to manage your infrastructure, or need something that you can that can be highly repeatable, and fully configurable via a few JSON files and a few scripts? I mean really think about that. How many of you right now are just drowning because you haven’t automated your infrastructure, and are currently head first in automating every single task you do? If so, the cloud may be a good fit then because practically everything can be done via a script and some config files. If however, you’re still running through a GUI, or using a handful of simple scripts, and really have no intention of doing everything through a JSON file / script, its likely that IaaS isn’t offering you a big win here. Even if you are, you have to question if your on prem solution offers similar capabilities, and if so, whats the win that a cloud provider offers that your on prem does not.</li>
+<li><strong>Supplement infrastructure personnel:</strong> Do you find your infrastructure folks are holding you back? If only they didn’t have to waste time on all that low level stuff like managing hypervisors, SANs, switches, firewalls, and other solutions, they’d have so much free time to do other things. I’m talking about things like patching firmware, racking / unracking equipment, installing hypervisors, provisioning switch ports. We’re talking about all of this consuming a considerable portion of your infrastructure teams time. If they’re not spending that much time on this stuff (and chances are very high that they’re not), then this is not going to be a big win for you. Again, companies that would have teams busy with this stuff all the time, probably have problem number 1 that I identified. I’d also like to add that even if this is an issue you have, there is still a limited amount of gain you’ll get out of this. You’re still going to need to provision storage, networking and compute, but now instead of in the HW, it will simply be transferred to a CLI / GUI. Mostly the same problem, just a different interface. Again, unless you plan to solve this problem ALONG with problem 2, its not going to be a huge win.</li>
+<li>V<strong>M’s on demand for all:</strong> Do you plan on giving all your folks (developers, DBA, QA, etc.) access to your portal to deploy VM’s? IaaS has an awesome on demand capability that’s easy to delegate to folks. if you’re needing something like this, without having to worry about them killing your production workload, then IaaS might be great for you. Don’t get me wrong, we can do this on prem too, but there’s a bit more work and planning involved. Then again, letting anyone deploy as much as they want, can be an equally expensive proposition. Also, let’s not forget problem number 2, chances are pretty high, your folks need some pre-setup tasks performed, and unless you’ve got that problem figured out, VM’s on demand probably isn’t going to work well anywhere, let alone the cloud.</li>
+<li><strong>At least 95% of your infrastructure is going to the cloud:</strong> While the number may seem arbitrary (and to some degree it is a guess), you need a critical mass of some sort for it to make financial sense to send you infrastructure to the cloud (if you’re not fixing a point problem). What good is it to send 70% of your infrastructure to the cloud, if you have to keep 30% on prem. You’re still dealing with all the on prem issues, but now your economies of scale are reduced. If you can’t move the lions share of your infrastructure to the cloud, then what’s the point in moving random parts of it? I’m not saying don’t move certain workloads to the cloud. For example, if you have a mission critical web site, but everything else its ok to have an outage for, then move that component to the cloud. However, if most of your infrastructure needs five 9’s, and you can only move 70% of it, then you’re still stuck supporting five 9’s on prem, so again, what’s the point?</li>
+</ol>
+<p><strong>Disclaimer:</strong> Extreme amounts of snark are coming, be prepared.</p>
+<p>Ok, ok maybe you don’t <!-- raw HTML omitted -->need<!-- raw HTML omitted --> any of these features, but you’ve got money to burn, you want these features just because you might use them at some point, everyone else is “going cloud” so why not you, or who knows whatever reason you might be coming up with for why the cloud is the best decision. What’s the big deal, I mean you’re probably thinking you lose nothing, but gain all kinds of great things. Well that my friend is where you’d be wrong. Now my talking points are going to be coming from my short experience with Azure, so I can’t say these apply to all clouds.</p>
+<ol>
+<li>No matter what, you still need on prem infrastructure. Maybe its not a hoard of servers, but you’ll need stuff.</li>
+<li>Networking isn’t going anywhere (should have been a network engineer). Maybe you won’t have as many datacenter switches to contend with (and you shouldn’t have a lot if your infrastructure is modern and not greater than a few thousand VM’s), but you’ll still need access switches for you staff. You’re going to need VPN’s and routers. Oh, and NOW you’re going to need a MUCH bigger router and firewall (err… more expensive). All that data you were accessing locally now has to go across the WAN, if you’re encrypting that data, that’s going to take more horsepower, and that means bigger badder WAN networking.</li>
+<li>You’re probably still going to have some form of servers on site. In a windows shop that will be at least a few domain controllers, you’ll also have file server caching appliances, and possibly other WAN acceleration devices depending on what apps you’re running in the cloud.</li>
+<li>Well, you’ve got this super critical networking and file caching HW in place, you need to make sure it stays on. That potentially is going to lead back to UPS’s at a minimum and maybe even a generator. Then again, being fair, if the power is out, perhaps its out for your desktops too, so no one is working anyway. That’s a call you need to make.</li>
+<li>Is your phone system moving to the cloud too? No… guess you’re going to need to maintain servers and other proprietary equipment for that too.</li>
+<li>How about application “x”? Can you move it to the cloud, will it even run in the cloud? Its based on Windows 2003, and Azure doesn’t support Windows 2003. What are application “X”‘s dependencies and how will they effect the application if they’re in the cloud? That might mean more servers staying on prem.</li>
+<li>They told you it would be cheaper right, I mean the cloud saves you on so much infrastructure, so much personnel power, and it provides this unlimited flexibility and scalability that you don’t actually need.</li>
+<li>Every VM you build now actually has a hard cost. Sorry, but there’s no such thing as “over provisioning” in the cloud. Your cloud provider gets to milk that benefit out of you and make a nice profit. Yeah I can run a hundred small VM’s on a single host, those same VM’s I’d pay per in a cloud solution. But hey, its cheaper in the cloud, or so the cloud providers have told me.</li>
+<li>Well at least the storage is cheaper, except that to get decent performance in the cloud, you need to run on premium storage and premium storage isn’t cheap (and not really all that premium either). You don’t get to enjoy the nice low latency, high iop, high throughput, adaptive caching (or all flash) that your on prem SAN provided. And if you want to try and match what you can get on prem, you’ll need to over-provision your storage, and do crazy in guest disk stripping techniques.</li>
+<li>What about your networking? I mean what is one of the most expensive reoccurring networking costs to a business? The WAN links… well they just got A LOT more expensive. So on top of now spending more capex on a router and firewall, you also need to pump more money into the WAN link so your users have a good experience. Then again, they’ll never have the same sub-millisecond latency that they had when the app was local to them.
+<ol>
+<li>No problem you say, I’ll just move my desktop to the cloud, and then you remember that the latency still exists, its just been moved from client and application, to the user interfacing with the client. Not really sure which is worse.
+<ol>
+<li>Even if you’re not deterred by this, now you’re incurring the costs of running your desktops in the cloud. You know, the folks that you force 5 years or older desktops on.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>How many IP’s or how many NIC’s does your VM have? I hope its one and one. You see there are limitations (in Azure) of one IP per NIC, and in order to run multiple NIC’s per server, you need a larger VM. Ouch…</li>
+<li>I hope you weren’t thinking you’d run exactly 8 vCPU’s and 8GB of vRAM because that’s all your server needs. Sorry, that’s not the way the cloud works. You can have any size VM you want, as long as its the sizes that your cloud provider offers. So you may end up paying for a VM that has 8 vCPU and 64GB of RAM because that’s the closest fit. But wait, there’s more… what if you don’t need a ton of CPU or RAM, but you have a ton of data, say a file server. Sorry, again, the cloud provider only enables a certain number of disks per vCPU, so you now need to bump up your VM size to support the disk size you need.</li>
+<li>At least with cloud, everything will be easy, I mean yeah it might cost more, but oh… the simplicity of it all. Yep, because having a year 2005 limitation of 1TB disks just makes everything easy. Hope you’re really good with dynamic disks, windows storage spaces, or LVM (Linux) because you’re going to need it Also, I hope you have everything pre-thought out if you plan to stripe disks in guest. MS has the most unforgiving disk stripping capabilities if you don’t.</li>
+<li>Snapshots, they at least have snapshots… right? Well sort of, except its totally convoluted, not something you’d probably never want to implement for fear of wrecking your VM (which is what you were trying to avoid with the snap right?).</li>
+<li>Ok, ok, well how about dynamically resizing your VM’s? They can at least do that right? Yes, sort of, so long as your sizing up in a specific VM class. Otherwise TMK, you have to rebuild once you outgrow a given VM class. For example, the “D series” can be scaled until you reach the maximum for the “D”. You can’t easily convert it to a “G” series in a few clicks to continue growing it.</li>
+<li>Changes are quick and non-disruptive right? LOL, sure with any other hypervisor they might be, but this is the cloud (Azure) and from what I can see, its iffy if your VM’s don’t need to be shutdown, or even worse, if you do something that is supported hot, you may see longer than normal stuns.</li>
+<li>Ever need to troubleshoot something in the console? Me too, a shame because Azure doesn’t let you access the console.</li>
+<li>Well at least they have a GUI for everything right? Nope, I found I need to go drop into PS more often than not. Want to resize that premium storage disk, that’s gonna take a powershell cmdlet. That’s good though right, I mean you like wasting time finding the disk guid, digging into a CLI, just to resize one disk, which BTW is a powered off operation, WIN!</li>
+<li>You like being in control of maintenance windows right? Of course you do, but with cloud you don’t get a say.</li>
+</ol>
+<p>I could keep going on, but honestly I think you get the point. There are caveats in spades when switching to the cloud as a primary (or even DR) datacenter. Its not a simple case of paying more for features you don’t have, you lose flexibility / performance, and you pay more for it too.</p>
+<p>Alright, but what about all those bad things they say about on prem, or things like TCO they’re trying to woo you to the cloud for. Well lets dig into it a bit.</p>
+<ol>
+<li>Despite what “they” tell you, they’re likely out of touch. Most of the cloud folks you’re dealing with, have been chewing their own dog food so long, they don’t have a clue about what exists in the on prem world, let alone dealing with your infrastructure and all its nuances. They might convince you they’re infrastructure experts, but only THEIR infrastructure, not yours and certainly not on prem in general. Believe me, most of them have been in their bubble for half a decade at least, and we all know how fast things change in technology, they’re new school in cloud, but a dinosaur in on prem. Don’t misunderstand me, I’m not saying they’re not smart, I’m saying I doubt they have the on prem knowledge you do, and if you’re smart, you’ll educate yourself in cloud so you’re prepared to evaluate if IaaS really is a good fit for you and your employer.</li>
+<li>Going cloud is NOT like virtualization. With virtualization you didn’t change the app, you didn’t’ lose control and more importantly it actually saved you money and DID provide more flexibility, scalability and simplicity. Cloud does not guarantee any of those for a traditional infrastructure. Or rather it may offer different benefits, that are not as equally needed.</li>
+<li>They’ll tell you the TCO for cloud is better and they MAY be right if you’re doing foolish things like.</li>
+<li>Leasing servers and swapping them every three years. A total waste of money. There’s very few good reason you aren’t financing a server (capex) and re-purposing that server through a proper lifecycle. Five years is the minimum maximum life cycle for a modern server. You have DR, and other things you can use older HW for.</li>
+<li>You’re not maxing out the cores in your server to maximize licensing costs, reduce network connectivity costs, and also reduce power, cooling and rack space. An average dual socket 18 core server can run 150 average VM’s without breaking a sweat.</li>
+<li>Your threshold for a maxed out cluster is too low. There’s nothing wrong with a 10:1 or even a 15:1 vCPU to pCPU ratio so long as your performance is ok. Your milage may vary, but be honest with yourself before buying more servers based on arbitrary numbers like these.</li>
+<li>You take advice from a greedy VAR. Do yourself a favor and just hire a smart person that knows infrastructure. They’ll be cheaper than all the money you waste on a VAR, or cloud. You should be pushing for someone that is border line architect, if not an architect.
+<ol>
+<li>FYI, I’m not saying all VARs are greedy, but more are than not. I can’t tell you how many interviews I’ve had where I go “yeah, you got up sold”.</li>
+</ol>
+</li>
+<li>Stop with this BS of only buying “EMC” or “Cisco” or “Juniper” or whatever your arbitrary preferred vendor is. Choose the solution based on price, reliability, performance, scalability and simplicity, not by its name. I picked Nimble when NetApp would have been an easy, but expensive choice. Again, see point 4 about getting the right person on staff.</li>
+<li>Total datacenter costs (Power, UPS, generator and cooling) are worth considering, but are often not as expensive as the providers would have you think. If this is the only cost saving’s point they have you sold on, you should consider colocation first which takes care of some of that, but also incurs some of the same costs/caveats that come with cloud (but not nearly as many). Again, I personally think this is FUD, and in a lot of cases, IT departments, let alone businesses don’t even see the bill for all of this. Even things like DC space, if you’re using newer equipment, the rack density you get through virtualization is astounding.</li>
+<li>You’re not shopping your solution, ever. I know folks that just love to go out to lunch (takes one to know one), and their VAR’s and vendors are happy to oblige. If your management team isn’t pushing back on price, and lets you run around throwing PO’s like monopoly money, there’s a good chance you’re paying more for something than you need to.</li>
+<li>You suck at your job, or you’ve hired the wrong person. Sounds a little harsh,but again, going back to point 4. if you have the right people on staff,you’ll get the right solutions, they’ll be implemented better, and they’ll get implemented quicker. Cloud by the way, only fixes certain aspects of this problem.</li>
+<li>They’ll tell you can’t do it better than them, they scale better, and it would cost you millions to get to their level. They’re right, they can build a 100,000 VM host datacenter better than you or I, and they can run it better. But you don’t need that scale, and more importantly, they’re not passing those economies of scale on to you. That’s their profit margin. Remember, they’re not doing this to save you money, they’re doing this to make money. In your case, if your DC is small enough (but not too small) you can probably do it MUCH cheaper than what you’d pay for in a cloud, and it will likely run much better.</li>
+<li>They’ll tell you’ll be getting rid of a SysAdmin or two thanks to cloud. Total BS… An average sysadmin (contrary to marketing slides) does not spend a ton of time with the mundane task or racking HW, patching hypervisors (unless its Microsoft :-)), etc. They spend most of their time managing the OS layer, doing deployments, etc, which BTW all still need to be done in the cloud.</li>
+</ol>
+<p>For now, that’s all I’ve got. I wrote this because I was so tired of hearing folks spew pro cloud dogma from their mouthes without even having a simplistic understanding of what it takes to run infrastructure in the cloud or on prem. Maybe I am the cranky main frame guy, and maybe I’m the one who is delusional and wrong. I’m not saying the cloud doesn’t have its place, and I’m not even saying that IaaS won’t be the home of my DC in ten years. What I am saying is right now, at this point in time, I see moving to the cloud as big expensive mistake if your goal is to simply replace your on prem DC. If you’re truly being strategic with what you’re using IaaS for, and there are pain points that are difficult to solve on prem, then by all means go for it. Just don’t tell me that IaaS is ready for general masses, because IMO, it has a long ways to go yet.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-left"></i>
+    <a href="http://ericcsinger.com/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/">Powershell Scripting: Get-ECSVMwareVirtualDiskToWindowsLogicalDiskMapping
+</a>
+  </div><div class="post-nav post-next">
+    <a href="http://ericcsinger.com/review-1.5-years-with-veeam/">Review: 1.5 years with Veeam
+</a>
+    <i class="fas fa-fw fa-chevron-right"></i>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Related Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="http://ericcsinger.com/backup-storage-part-3c-cloud-storage/">Backup Storage Part 3c: Cloud Storage
+</a>
+          <span class="float-end post-date">Sun, 23 Aug 2015 15:33:43 &#43;0000
+</span>
+        </li></ul>
+    </div>
+  </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <section class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
+   width="2316" height="3088"
+   />
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a></nav>
+</div>
+  </div>
+</section>
+  <section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="http://ericcsinger.com/microsofts-biggest-security-failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+</a>
+      </li><li>
+        <a href="http://ericcsinger.com/azure-powershell-jobs-and-hash-tables/">Azure, PowerShell jobs, and hash tables
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
+            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
+            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
+            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/storage-spaces/" class="badge rounded post-taxonomy" title="storage spaces">
+            storage spaces<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section><section class="categories-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/categories">Categories</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
+            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="http://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
+            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
+            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
+            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
+            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
+      </div>
+    </section><section class="series-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="http://ericcsinger.com/series">Series</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="http://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
+            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a></div>
+      </div>
+    </section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
+<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

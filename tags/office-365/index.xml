@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>office 365 on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/office-365/</link>
+    <description>Recent content in office 365 on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sat, 02 Mar 2019 22:03:38 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/office-365/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deleting msExchActiveSyncDevice container after migrating to Office 365</title>
+      <link>http://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</link>
+      <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</guid>
+      <description>We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.
+&amp;lt;pre class=&amp;quot;brush: powershell; title: ; notranslate&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;$UserNamePattern = &amp;quot;*singer*&amp;quot;$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.</description>
+    </item>
+    
+  </channel>
+</rss>

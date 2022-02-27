@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nimble storage on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/nimble-storage/</link>
+    <description>Recent content in nimble storage on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 17:41:16 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/nimble-storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thinking out loud: What HP &#43; Nimble means to me</title>
+      <link>http://ericcsinger.com/thinking-out-loud-what-hp-nimble-means-to-me/</link>
+      <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/thinking-out-loud-what-hp-nimble-means-to-me/</guid>
+      <description>Disclaimer:These are opinions, not facts and these opinions are mine, not my employers.
+Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.</description>
+    </item>
+    
+    <item>
+      <title>Wish list: Nimble Storage (2016)</title>
+      <link>http://ericcsinger.com/wish-list-nimble-storage-2016/</link>
+      <pubDate>Fri, 19 Aug 2016 23:45:00 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/wish-list-nimble-storage-2016/</guid>
+      <description>Introduction:These are just some random things that I would love to see implemented by Nimble Storage in their solution. I don’t actually expect most of this stuff to happen in a year, but it would be interesting to see how many do. Some are more realistic than others of course, but part of the fun in this is asking for some stuff that perhaps is a bit of a stretch.</description>
+    </item>
+    
+    <item>
+      <title>Review: 2.5 years with Nimble Storage</title>
+      <link>http://ericcsinger.com/review-2.5-years-with-nimble-storage/</link>
+      <pubDate>Sat, 21 Nov 2015 21:27:56 +0000</pubDate>
+      
+      <guid>http://ericcsinger.com/review-2.5-years-with-nimble-storage/</guid>
+      <description>Disclaimer: I’m not getting paid for this review, nor have I been asked to do this by anyone. These views are my own, and not my employers, and they’re opinions not facts .
+Intro:To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.</description>
+    </item>
+    
+  </channel>
+</rss>
