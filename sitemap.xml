@@ -2,22 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ericcsinger.com/tags/arm/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/tags/automation/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/tags/azure/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/tags/bicep/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
     <loc>http://ericcsinger.com/</loc>
-    <lastmod>2021-02-21T16:00:00+00:00</lastmod>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/tags/iac/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/series/iac-creativity/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/iac-creativity-introduction/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
   </url><url>
     <loc>http://ericcsinger.com/tags/microsoft/</loc>
-    <lastmod>2021-02-21T16:00:00+00:00</lastmod>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/posts/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/series/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>http://ericcsinger.com/tags/</loc>
+    <lastmod>2021-03-05T12:00:00+05:00</lastmod>
   </url><url>
     <loc>http://ericcsinger.com/microsofts-biggest-security-failure/</loc>
     <lastmod>2021-02-21T16:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ericcsinger.com/posts/</loc>
-    <lastmod>2021-02-21T16:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://ericcsinger.com/tags/security/</loc>
-    <lastmod>2021-02-21T16:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ericcsinger.com/tags/</loc>
     <lastmod>2021-02-21T16:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ericcsinger.com/tags/windows/</loc>
@@ -25,9 +49,6 @@
   </url><url>
     <loc>http://ericcsinger.com/about/</loc>
     <lastmod>2021-02-14T16:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ericcsinger.com/tags/azure/</loc>
-    <lastmod>2021-02-06T16:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ericcsinger.com/tags/powershell/</loc>
     <lastmod>2021-02-06T16:00:00+00:00</lastmod>
@@ -272,9 +293,6 @@
     <loc>http://ericcsinger.com/naming-conventions-introduction/</loc>
     <lastmod>2016-11-13T16:18:53+00:00</lastmod>
   </url><url>
-    <loc>http://ericcsinger.com/tags/automation/</loc>
-    <lastmod>2016-09-18T16:10:12+00:00</lastmod>
-  </url><url>
     <loc>http://ericcsinger.com/tags/dsc/</loc>
     <lastmod>2016-09-18T16:10:12+00:00</lastmod>
   </url><url>
@@ -378,9 +396,6 @@
     <lastmod>2015-10-20T22:27:15+00:00</lastmod>
   </url><url>
     <loc>http://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</loc>
-    <lastmod>2015-10-20T22:27:15+00:00</lastmod>
-  </url><url>
-    <loc>http://ericcsinger.com/series/</loc>
     <lastmod>2015-10-20T22:27:15+00:00</lastmod>
   </url><url>
     <loc>http://ericcsinger.com/tags/storage-spaces/</loc>

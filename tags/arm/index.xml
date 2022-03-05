@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arm on Eric&#39;s Blog</title>
+    <link>http://ericcsinger.com/tags/arm/</link>
+    <description>Recent content in arm on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Fri, 05 Mar 2021 12:00:00 +0500</lastBuildDate><atom:link href="http://ericcsinger.com/tags/arm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IaC Creativity: Introduction</title>
+      <link>http://ericcsinger.com/iac-creativity-introduction/</link>
+      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      
+      <guid>http://ericcsinger.com/iac-creativity-introduction/</guid>
+      <description>Version: 1.0.0
+IntroductionAs many know, I&amp;rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&amp;rsquo;ve had an on again / off again relationship with Azure ARM.</description>
+    </item>
+    
+  </channel>
+</rss>
