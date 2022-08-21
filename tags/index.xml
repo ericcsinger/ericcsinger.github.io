@@ -2,540 +2,540 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/tags/</link>
+    <link>https://ericcsinger.com/tags/</link>
     <description>Recent content in Tags on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Fri, 05 Mar 2021 12:00:00 +0500</lastBuildDate><atom:link href="http://ericcsinger.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>arm</title>
-      <link>http://ericcsinger.com/tags/arm/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <link>https://ericcsinger.com/tags/arm/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/arm/</guid>
+      <guid>https://ericcsinger.com/tags/arm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>automation</title>
-      <link>http://ericcsinger.com/tags/automation/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <link>https://ericcsinger.com/tags/automation/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/automation/</guid>
+      <guid>https://ericcsinger.com/tags/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure</title>
-      <link>http://ericcsinger.com/tags/azure/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <link>https://ericcsinger.com/tags/azure/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/azure/</guid>
+      <guid>https://ericcsinger.com/tags/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bicep</title>
-      <link>http://ericcsinger.com/tags/bicep/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <link>https://ericcsinger.com/tags/bicep/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/bicep/</guid>
+      <guid>https://ericcsinger.com/tags/bicep/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IaC</title>
-      <link>http://ericcsinger.com/tags/iac/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <link>https://ericcsinger.com/tags/iac/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/iac/</guid>
+      <guid>https://ericcsinger.com/tags/iac/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Microsoft</title>
-      <link>http://ericcsinger.com/tags/microsoft/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <link>https://ericcsinger.com/tags/microsoft/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/microsoft/</guid>
+      <guid>https://ericcsinger.com/tags/microsoft/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>http://ericcsinger.com/tags/security/</link>
+      <link>https://ericcsinger.com/tags/security/</link>
       <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/security/</guid>
+      <guid>https://ericcsinger.com/tags/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows</title>
-      <link>http://ericcsinger.com/tags/windows/</link>
+      <link>https://ericcsinger.com/tags/windows/</link>
       <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/windows/</guid>
+      <guid>https://ericcsinger.com/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
       <title>powershell</title>
-      <link>http://ericcsinger.com/tags/powershell/</link>
+      <link>https://ericcsinger.com/tags/powershell/</link>
       <pubDate>Sat, 06 Feb 2021 16:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/powershell/</guid>
+      <guid>https://ericcsinger.com/tags/powershell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>active directory</title>
-      <link>http://ericcsinger.com/tags/active-directory/</link>
+      <link>https://ericcsinger.com/tags/active-directory/</link>
       <pubDate>Thu, 26 Nov 2020 20:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/active-directory/</guid>
+      <guid>https://ericcsinger.com/tags/active-directory/</guid>
       <description></description>
     </item>
     
     <item>
       <title>certificate</title>
-      <link>http://ericcsinger.com/tags/certificate/</link>
+      <link>https://ericcsinger.com/tags/certificate/</link>
       <pubDate>Wed, 13 May 2020 18:30:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/certificate/</guid>
+      <guid>https://ericcsinger.com/tags/certificate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RDC</title>
-      <link>http://ericcsinger.com/tags/rdc/</link>
+      <link>https://ericcsinger.com/tags/rdc/</link>
       <pubDate>Wed, 13 May 2020 18:30:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/rdc/</guid>
+      <guid>https://ericcsinger.com/tags/rdc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RDP</title>
-      <link>http://ericcsinger.com/tags/rdp/</link>
+      <link>https://ericcsinger.com/tags/rdp/</link>
       <pubDate>Wed, 13 May 2020 18:30:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/rdp/</guid>
+      <guid>https://ericcsinger.com/tags/rdp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>remote desktop</title>
-      <link>http://ericcsinger.com/tags/remote-desktop/</link>
+      <link>https://ericcsinger.com/tags/remote-desktop/</link>
       <pubDate>Wed, 13 May 2020 18:30:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/remote-desktop/</guid>
+      <guid>https://ericcsinger.com/tags/remote-desktop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wsus</title>
-      <link>http://ericcsinger.com/tags/wsus/</link>
+      <link>https://ericcsinger.com/tags/wsus/</link>
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/wsus/</guid>
+      <guid>https://ericcsinger.com/tags/wsus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>exchange</title>
-      <link>http://ericcsinger.com/tags/exchange/</link>
+      <link>https://ericcsinger.com/tags/exchange/</link>
       <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/exchange/</guid>
+      <guid>https://ericcsinger.com/tags/exchange/</guid>
       <description></description>
     </item>
     
     <item>
       <title>office 365</title>
-      <link>http://ericcsinger.com/tags/office-365/</link>
+      <link>https://ericcsinger.com/tags/office-365/</link>
       <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/office-365/</guid>
+      <guid>https://ericcsinger.com/tags/office-365/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HCI</title>
-      <link>http://ericcsinger.com/tags/hci/</link>
+      <link>https://ericcsinger.com/tags/hci/</link>
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/hci/</guid>
+      <guid>https://ericcsinger.com/tags/hci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NAS</title>
-      <link>http://ericcsinger.com/tags/nas/</link>
+      <link>https://ericcsinger.com/tags/nas/</link>
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/nas/</guid>
+      <guid>https://ericcsinger.com/tags/nas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nutanix</title>
-      <link>http://ericcsinger.com/tags/nutanix/</link>
+      <link>https://ericcsinger.com/tags/nutanix/</link>
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/nutanix/</guid>
+      <guid>https://ericcsinger.com/tags/nutanix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SAN</title>
-      <link>http://ericcsinger.com/tags/san/</link>
+      <link>https://ericcsinger.com/tags/san/</link>
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/san/</guid>
+      <guid>https://ericcsinger.com/tags/san/</guid>
       <description></description>
     </item>
     
     <item>
       <title>storage</title>
-      <link>http://ericcsinger.com/tags/storage/</link>
+      <link>https://ericcsinger.com/tags/storage/</link>
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/storage/</guid>
+      <guid>https://ericcsinger.com/tags/storage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vmware</title>
-      <link>http://ericcsinger.com/tags/vmware/</link>
+      <link>https://ericcsinger.com/tags/vmware/</link>
       <pubDate>Mon, 19 Mar 2018 12:52:31 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/vmware/</guid>
+      <guid>https://ericcsinger.com/tags/vmware/</guid>
       <description></description>
     </item>
     
     <item>
       <title>drs</title>
-      <link>http://ericcsinger.com/tags/drs/</link>
+      <link>https://ericcsinger.com/tags/drs/</link>
       <pubDate>Sun, 14 Jan 2018 22:47:37 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/drs/</guid>
+      <guid>https://ericcsinger.com/tags/drs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>memory</title>
-      <link>http://ericcsinger.com/tags/memory/</link>
+      <link>https://ericcsinger.com/tags/memory/</link>
       <pubDate>Sun, 14 Jan 2018 22:47:37 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/memory/</guid>
+      <guid>https://ericcsinger.com/tags/memory/</guid>
       <description></description>
     </item>
     
     <item>
       <title>review</title>
-      <link>http://ericcsinger.com/tags/review/</link>
+      <link>https://ericcsinger.com/tags/review/</link>
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/review/</guid>
+      <guid>https://ericcsinger.com/tags/review/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SQL</title>
-      <link>http://ericcsinger.com/tags/sql/</link>
+      <link>https://ericcsinger.com/tags/sql/</link>
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/sql/</guid>
+      <guid>https://ericcsinger.com/tags/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Thanksgiving</title>
-      <link>http://ericcsinger.com/tags/thanksgiving/</link>
+      <link>https://ericcsinger.com/tags/thanksgiving/</link>
       <pubDate>Thu, 16 Nov 2017 00:40:55 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/thanksgiving/</guid>
+      <guid>https://ericcsinger.com/tags/thanksgiving/</guid>
       <description></description>
     </item>
     
     <item>
       <title>T-SQL</title>
-      <link>http://ericcsinger.com/tags/t-sql/</link>
+      <link>https://ericcsinger.com/tags/t-sql/</link>
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/t-sql/</guid>
+      <guid>https://ericcsinger.com/tags/t-sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>off topic</title>
-      <link>http://ericcsinger.com/tags/off-topic/</link>
+      <link>https://ericcsinger.com/tags/off-topic/</link>
       <pubDate>Sat, 23 Sep 2017 19:44:46 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/off-topic/</guid>
+      <guid>https://ericcsinger.com/tags/off-topic/</guid>
       <description></description>
     </item>
     
     <item>
       <title>thinking out loud</title>
-      <link>http://ericcsinger.com/tags/thinking-out-loud/</link>
+      <link>https://ericcsinger.com/tags/thinking-out-loud/</link>
       <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/thinking-out-loud/</guid>
+      <guid>https://ericcsinger.com/tags/thinking-out-loud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IIS</title>
-      <link>http://ericcsinger.com/tags/iis/</link>
+      <link>https://ericcsinger.com/tags/iis/</link>
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/iis/</guid>
+      <guid>https://ericcsinger.com/tags/iis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>problem solving</title>
-      <link>http://ericcsinger.com/tags/problem-solving/</link>
+      <link>https://ericcsinger.com/tags/problem-solving/</link>
       <pubDate>Tue, 13 Jun 2017 16:49:54 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/problem-solving/</guid>
+      <guid>https://ericcsinger.com/tags/problem-solving/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows 10</title>
-      <link>http://ericcsinger.com/tags/windows-10/</link>
+      <link>https://ericcsinger.com/tags/windows-10/</link>
       <pubDate>Tue, 13 Jun 2017 16:49:54 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/windows-10/</guid>
+      <guid>https://ericcsinger.com/tags/windows-10/</guid>
       <description></description>
     </item>
     
     <item>
       <title>backup</title>
-      <link>http://ericcsinger.com/tags/backup/</link>
+      <link>https://ericcsinger.com/tags/backup/</link>
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/backup/</guid>
+      <guid>https://ericcsinger.com/tags/backup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>commvault</title>
-      <link>http://ericcsinger.com/tags/commvault/</link>
+      <link>https://ericcsinger.com/tags/commvault/</link>
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/commvault/</guid>
+      <guid>https://ericcsinger.com/tags/commvault/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reviews</title>
-      <link>http://ericcsinger.com/tags/reviews/</link>
+      <link>https://ericcsinger.com/tags/reviews/</link>
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/reviews/</guid>
+      <guid>https://ericcsinger.com/tags/reviews/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dell</title>
-      <link>http://ericcsinger.com/tags/dell/</link>
+      <link>https://ericcsinger.com/tags/dell/</link>
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/dell/</guid>
+      <guid>https://ericcsinger.com/tags/dell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>servers</title>
-      <link>http://ericcsinger.com/tags/servers/</link>
+      <link>https://ericcsinger.com/tags/servers/</link>
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/servers/</guid>
+      <guid>https://ericcsinger.com/tags/servers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HP</title>
-      <link>http://ericcsinger.com/tags/hp/</link>
+      <link>https://ericcsinger.com/tags/hp/</link>
       <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/hp/</guid>
+      <guid>https://ericcsinger.com/tags/hp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nimble storage</title>
-      <link>http://ericcsinger.com/tags/nimble-storage/</link>
+      <link>https://ericcsinger.com/tags/nimble-storage/</link>
       <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/nimble-storage/</guid>
+      <guid>https://ericcsinger.com/tags/nimble-storage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>centralized job management</title>
-      <link>http://ericcsinger.com/tags/centralized-job-management/</link>
+      <link>https://ericcsinger.com/tags/centralized-job-management/</link>
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/centralized-job-management/</guid>
+      <guid>https://ericcsinger.com/tags/centralized-job-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cron</title>
-      <link>http://ericcsinger.com/tags/cron/</link>
+      <link>https://ericcsinger.com/tags/cron/</link>
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/cron/</guid>
+      <guid>https://ericcsinger.com/tags/cron/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JAMS</title>
-      <link>http://ericcsinger.com/tags/jams/</link>
+      <link>https://ericcsinger.com/tags/jams/</link>
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/jams/</guid>
+      <guid>https://ericcsinger.com/tags/jams/</guid>
       <description></description>
     </item>
     
     <item>
       <title>task scheduler</title>
-      <link>http://ericcsinger.com/tags/task-scheduler/</link>
+      <link>https://ericcsinger.com/tags/task-scheduler/</link>
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/task-scheduler/</guid>
+      <guid>https://ericcsinger.com/tags/task-scheduler/</guid>
       <description></description>
     </item>
     
     <item>
       <title>naming conventions</title>
-      <link>http://ericcsinger.com/tags/naming-conventions/</link>
+      <link>https://ericcsinger.com/tags/naming-conventions/</link>
       <pubDate>Wed, 23 Nov 2016 00:46:14 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/naming-conventions/</guid>
+      <guid>https://ericcsinger.com/tags/naming-conventions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DSC</title>
-      <link>http://ericcsinger.com/tags/dsc/</link>
+      <link>https://ericcsinger.com/tags/dsc/</link>
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/dsc/</guid>
+      <guid>https://ericcsinger.com/tags/dsc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GPO</title>
-      <link>http://ericcsinger.com/tags/gpo/</link>
+      <link>https://ericcsinger.com/tags/gpo/</link>
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/gpo/</guid>
+      <guid>https://ericcsinger.com/tags/gpo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GPP</title>
-      <link>http://ericcsinger.com/tags/gpp/</link>
+      <link>https://ericcsinger.com/tags/gpp/</link>
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/gpp/</guid>
+      <guid>https://ericcsinger.com/tags/gpp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hyper converged infrastucture</title>
-      <link>http://ericcsinger.com/tags/hyper-converged-infrastucture/</link>
+      <link>https://ericcsinger.com/tags/hyper-converged-infrastucture/</link>
       <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/hyper-converged-infrastucture/</guid>
+      <guid>https://ericcsinger.com/tags/hyper-converged-infrastucture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wish list</title>
-      <link>http://ericcsinger.com/tags/wish-list/</link>
+      <link>https://ericcsinger.com/tags/wish-list/</link>
       <pubDate>Fri, 19 Aug 2016 23:45:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/wish-list/</guid>
+      <guid>https://ericcsinger.com/tags/wish-list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scripting</title>
-      <link>http://ericcsinger.com/tags/scripting/</link>
+      <link>https://ericcsinger.com/tags/scripting/</link>
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/scripting/</guid>
+      <guid>https://ericcsinger.com/tags/scripting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kudos</title>
-      <link>http://ericcsinger.com/tags/kudos/</link>
+      <link>https://ericcsinger.com/tags/kudos/</link>
       <pubDate>Sat, 30 Apr 2016 20:54:49 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/kudos/</guid>
+      <guid>https://ericcsinger.com/tags/kudos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LogicMonitor</title>
-      <link>http://ericcsinger.com/tags/logicmonitor/</link>
+      <link>https://ericcsinger.com/tags/logicmonitor/</link>
       <pubDate>Wed, 06 Apr 2016 21:53:04 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/logicmonitor/</guid>
+      <guid>https://ericcsinger.com/tags/logicmonitor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Monitoring</title>
-      <link>http://ericcsinger.com/tags/monitoring/</link>
+      <link>https://ericcsinger.com/tags/monitoring/</link>
       <pubDate>Wed, 06 Apr 2016 21:53:04 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/monitoring/</guid>
+      <guid>https://ericcsinger.com/tags/monitoring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cloud</title>
-      <link>http://ericcsinger.com/tags/cloud/</link>
+      <link>https://ericcsinger.com/tags/cloud/</link>
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/cloud/</guid>
+      <guid>https://ericcsinger.com/tags/cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>storage spaces</title>
-      <link>http://ericcsinger.com/tags/storage-spaces/</link>
+      <link>https://ericcsinger.com/tags/storage-spaces/</link>
       <pubDate>Tue, 20 Oct 2015 22:27:15 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/storage-spaces/</guid>
+      <guid>https://ericcsinger.com/tags/storage-spaces/</guid>
       <description></description>
     </item>
     
     <item>
       <title>workflow</title>
-      <link>http://ericcsinger.com/tags/workflow/</link>
+      <link>https://ericcsinger.com/tags/workflow/</link>
       <pubDate>Sat, 26 Sep 2015 18:28:41 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/workflow/</guid>
+      <guid>https://ericcsinger.com/tags/workflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>deduplication</title>
-      <link>http://ericcsinger.com/tags/deduplication/</link>
+      <link>https://ericcsinger.com/tags/deduplication/</link>
       <pubDate>Tue, 02 Jun 2015 21:08:31 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/tags/deduplication/</guid>
+      <guid>https://ericcsinger.com/tags/deduplication/</guid>
       <description></description>
     </item>
     

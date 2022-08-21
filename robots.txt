@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://ericcsinger.com/sitemap.xml
+Sitemap: https://ericcsinger.com/sitemap.xml

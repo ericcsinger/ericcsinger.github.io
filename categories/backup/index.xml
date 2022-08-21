@@ -2,69 +2,69 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backup on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/categories/backup/</link>
+    <link>https://ericcsinger.com/categories/backup/</link>
     <description>Recent content in Backup on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Sun, 11 Jun 2017 19:39:36 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/categories/backup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jun 2017 19:39:36 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/backup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 5 years with CommVault</title>
-      <link>http://ericcsinger.com/review-5-years-with-commvault/</link>
+      <link>https://ericcsinger.com/review-5-years-with-commvault/</link>
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/review-5-years-with-commvault/</guid>
-      <description>Introduction:Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.</description>
+      <guid>https://ericcsinger.com/review-5-years-with-commvault/</guid>
+      <description>Introduction: Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.</description>
     </item>
     
     <item>
       <title>Problem Solving: Chasing SQL&#39;s Dump</title>
-      <link>http://ericcsinger.com/problem-solving-chasing-sqls-dump/</link>
+      <link>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</link>
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description>The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.</description>
+      <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
+      <description>The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.</description>
     </item>
     
     <item>
       <title>Review: 1.5 years with Veeam</title>
-      <link>http://ericcsinger.com/review-1.5-years-with-veeam/</link>
+      <link>https://ericcsinger.com/review-1.5-years-with-veeam/</link>
       <pubDate>Sun, 28 Feb 2016 21:54:49 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/review-1.5-years-with-veeam/</guid>
-      <description>Disclaimer:These are my opinions, these are not facts. Take them with a grain of salt, and use your own judgement. These are also my personal views, not those of my employer.
+      <guid>https://ericcsinger.com/review-1.5-years-with-veeam/</guid>
+      <description>Disclaimer: These are my opinions, these are not facts. Take them with a grain of salt, and use your own judgement. These are also my personal views, not those of my employer.
 Also, no one is paying me for this, no one asked me to write this. It’s not un-biased, but its also not a hired review.
-Introduction:As you may know from reading my backup storage series, we were going from a backup migration of native CommVault to Veeam + CommVault.</description>
+Introduction: As you may know from reading my backup storage series, we were going from a backup migration of native CommVault to Veeam + CommVault.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 3a: Deduplication Targets</title>
-      <link>http://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</link>
+      <link>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</link>
       <pubDate>Tue, 02 Jun 2015 21:08:31 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</guid>
       <description>Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.
- Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</description>
+Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 2: What we wanted</title>
-      <link>http://ericcsinger.com/backup-storage-part-2-what-we-wanted/</link>
+      <link>https://ericcsinger.com/backup-storage-part-2-what-we-wanted/</link>
       <pubDate>Fri, 01 May 2015 20:59:30 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-2-what-we-wanted/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-2-what-we-wanted/</guid>
       <description>In part 1, I went over our legacy backup storage solution, and why it needed to change. This section, I’m going to outline what we were looking for in our next storage refresh.
 Also, just to give you a little more context, while evaluating storage, were also looking at new backup solutions. CommVault, Veeam, EMC (Avamar and Networker), NetVault, Microsoft DPM, and a handful of cloud solutions. Point being, there were a lot of moving parts and a lot of things to consider.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 1: Why it needed to change</title>
-      <link>http://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</link>
+      <link>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</link>
       <pubDate>Tue, 21 Apr 2015 16:46:46 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
-      <description>Introduction:This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
-Backup Storage Part 1: The “Why” it needed to changeLast year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.</description>
+      <guid>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
+      <description>Introduction: This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
+Backup Storage Part 1: The “Why” it needed to change Last year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.</description>
     </item>
     
   </channel>

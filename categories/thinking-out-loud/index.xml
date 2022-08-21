@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>thinking out loud on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/categories/thinking-out-loud/</link>
+    <link>https://ericcsinger.com/categories/thinking-out-loud/</link>
     <description>Recent content in thinking out loud on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Sat, 30 Apr 2016 16:22:05 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/categories/thinking-out-loud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Apr 2016 16:22:05 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/thinking-out-loud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: The broken talent acquisition process</title>
-      <link>http://ericcsinger.com/thinking-out-loud-the-broken-talent-acquisition-process/</link>
+      <link>https://ericcsinger.com/thinking-out-loud-the-broken-talent-acquisition-process/</link>
       <pubDate>Sat, 30 Apr 2016 16:22:05 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/thinking-out-loud-the-broken-talent-acquisition-process/</guid>
+      <guid>https://ericcsinger.com/thinking-out-loud-the-broken-talent-acquisition-process/</guid>
       <description>I was scanning through my LinkedIn feed the other day and stumbled across an interesting picture / chart showing common mistakes that interview candidates make posted by a former colleague. To basically summarize, it was a culmination of physical characteristics (slouching, not smiling, clothing not too trendy, but not too outdated, etc.), knowing a lot about the company and position, and various other common do’s and don’ts.
 My first reaction was “no duh”, but then I paused for a moment and said to myself “Why?</description>
     </item>
     
     <item>
       <title>Thinking out loud:  The cloud (IaaS) delusion</title>
-      <link>http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
+      <link>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
-      <description>Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.</description>
+      <guid>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
+      <description>Introduction: Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.</description>
     </item>
     
     <item>
       <title>Thinking out loud: CLI vs. GUI, a pointless debate</title>
-      <link>http://ericcsinger.com/thinking-out-loud-cli-vs.-gui-a-pointless-debate/</link>
+      <link>https://ericcsinger.com/thinking-out-loud-cli-vs.-gui-a-pointless-debate/</link>
       <pubDate>Sat, 11 Apr 2015 21:57:39 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/thinking-out-loud-cli-vs.-gui-a-pointless-debate/</guid>
-      <description>I see this come up occasionally and I really don’t get why its always an “x is better than y”. A lot of times folks are talking about what works best for them in theirworld, and for all intents and purposes stating that if its best for them, its best for all. I’d like to challenge this reasoning and also challenge the notion that both a CLI and GUI have their place.</description>
+      <guid>https://ericcsinger.com/thinking-out-loud-cli-vs.-gui-a-pointless-debate/</guid>
+      <description>I see this come up occasionally and I really don’t get why its always an “x is better than y”. A lot of times folks are talking about what works best for them in their world, and for all intents and purposes stating that if its best for them, its best for all. I’d like to challenge this reasoning and also challenge the notion that both a CLI and GUI have their place.</description>
     </item>
     
     <item>
       <title>Thinking out loud: Core vs. Socket Licensing</title>
-      <link>http://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</link>
+      <link>https://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</link>
       <pubDate>Sun, 05 Apr 2015 16:05:51 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</guid>
+      <guid>https://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</guid>
       <description>I recall when Microsoft changed their SQL licensing model from per socket to per core. It was not a well received model and it certainly wasn’t following the industry standard. I’d even say it ranked up there with VMware vRAM tax debacle. The big difference being that VMware reversed their licensing model. To this day, other than perhaps Oracle, I don’t know of any other product / manufacture using this model.</description>
     </item>
     

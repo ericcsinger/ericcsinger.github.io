@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Monitoring on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/tags/monitoring/</link>
+    <link>https://ericcsinger.com/tags/monitoring/</link>
     <description>Recent content in Monitoring on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Wed, 06 Apr 2016 21:53:04 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Apr 2016 21:53:04 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 1 year with LogicMonitor</title>
-      <link>http://ericcsinger.com/review-1-year-with-logicmonitor/</link>
+      <link>https://ericcsinger.com/review-1-year-with-logicmonitor/</link>
       <pubDate>Wed, 06 Apr 2016 21:53:04 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/review-1-year-with-logicmonitor/</guid>
-      <description>Disclaimer:This is unsolicited feedback. These are my own opinions and not those of my employer.
-Terminology:I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
- LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers.</description>
+      <guid>https://ericcsinger.com/review-1-year-with-logicmonitor/</guid>
+      <description>Disclaimer: This is unsolicited feedback. These are my own opinions and not those of my employer.
+Terminology: I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
+LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers.</description>
     </item>
     
   </channel>

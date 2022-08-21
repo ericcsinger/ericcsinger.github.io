@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloud on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/tags/cloud/</link>
+    <link>https://ericcsinger.com/tags/cloud/</link>
     <description>Recent content in cloud on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Wed, 30 Dec 2015 17:13:39 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2015 17:13:39 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud:  The cloud (IaaS) delusion</title>
-      <link>http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
+      <link>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
-      <description>Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.</description>
+      <guid>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
+      <description>Introduction: Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 3c: Cloud Storage</title>
-      <link>http://ericcsinger.com/backup-storage-part-3c-cloud-storage/</link>
+      <link>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</link>
       <pubDate>Sun, 23 Aug 2015 15:33:43 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
       <description>Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.</description>
     </item>
     

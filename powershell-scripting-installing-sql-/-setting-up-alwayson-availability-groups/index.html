@@ -1,37 +1,39 @@
-<!doctype html><html lang="en"
+<!doctype html><html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="en"
+  
+   data-palette="blue"
   >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="http://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
-<link rel="icon" href="http://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="http://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
-<link rel="icon" href="http://ericcsinger.com/images/icons/favicon.ico">
-<link rel="manifest" href="http://ericcsinger.com/manifest.json">
+    <title>Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="https://ericcsinger.com/manifest.json">
 <meta name="keywords" content="" />
-<meta name="description" content="Introduction:We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well." /><meta itemprop="name" content="Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups">
-<meta itemprop="description" content="Introduction:We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well."><meta itemprop="datePublished" content="2017-12-25T19:39:00+00:00" />
+<meta name="description" content="Introduction: We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well." /><meta itemprop="name" content="Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups">
+<meta itemprop="description" content="Introduction: We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well."><meta itemprop="datePublished" content="2017-12-25T19:39:00+00:00" />
 <meta itemprop="dateModified" content="2017-12-25T19:39:00+00:00" />
-<meta itemprop="wordCount" content="6888">
+<meta itemprop="wordCount" content="6889">
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups" />
-<meta property="og:description" content="Introduction:We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well." />
+<meta property="og:description" content="Introduction: We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://ericcsinger.com/powershell-scripting-installing-sql-/-setting-up-alwayson-availability-groups/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://ericcsinger.com/powershell-scripting-installing-sql-/-setting-up-alwayson-availability-groups/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-12-25T19:39:00+00:00" />
 <meta property="article:modified_time" content="2017-12-25T19:39:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups"/>
-<meta name="twitter:description" content="Introduction:We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well."/>
-<meta property="og:image" content="http://ericcsinger.com/false"/>
-  <meta name="twitter:image" content="http://ericcsinger.com/false"/><link rel="stylesheet" href="http://ericcsinger.com/css/main.min.507afbe6e4670fa3e961a0b35816b5daeb36029866fd6bd7b9d7871fcf88faa5.css" integrity="sha256-UHr75uRnD6PpYaCzWBa12us2Aphm/WvXudeHH8&#43;I&#43;qU=" crossorigin="anonymous"><link rel="stylesheet" href="http://ericcsinger.com/css/katex.min.d080a89e03e1eb850f547d835c186b4273f69879aa497eb8b0e88c1578bf1f0b.css" integrity="sha256-0ICongPh64UPVH2DXBhrQnP2mHmqSX64sOiMFXi/Hws=" crossorigin="anonymous">
-<link rel="stylesheet" href="http://ericcsinger.com/css/viewer.min.3d228794bcedbbfa0412beb8fbc1ec6973202945e42af7004f742a4d7bd620ab.css" integrity="sha256-PSKHlLztu/oEEr64&#43;8HsaXMgKUXkKvcAT3QqTXvWIKs=" crossorigin="anonymous"></head>
-  <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<meta name="twitter:description" content="Introduction: We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS &#43; SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well."/>
+
+<link rel="stylesheet" href="https://ericcsinger.com/assets/main/bundle.min.e6db9af00d2fec196e812d3df0ec971c50d590f26e91631f9dde7678f1aa9bce.css" integrity="sha256-5tua8A0v7BlugS098OyXHFDVkPJukWMfnd52ePGqm84=" crossorigin="anonymous"><link rel="stylesheet" href="https://ericcsinger.com/assets/katex/bundle.min.c7738aed5534d96f5c4eb1790af05b44a2ca1cc7d0cb6d5de1dcf95595d3f91a.css" integrity="sha256-x3OK7VU02W9cTrF5CvBbRKLKHMfQy21d4dz5VZXT&#43;Ro=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ericcsinger.com/assets/viewer/bundle.min.05d84cef8ecf0f936293c62c90ebe16275bf8f5f5649297e1a4338e63676ba2b.css" integrity="sha256-BdhM747PD5Nik8YskOvhYnW/j19WSSl&#43;GkM45jZ2uis=" crossorigin="anonymous"></head>
+  <body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
   <div class="container">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
-    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="http://ericcsinger.com/">Eric&#39;s Blog
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="https://ericcsinger.com/">Eric&#39;s Blog
     </a>
     <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
   <div class="offcanvas-header">
@@ -42,11 +44,11 @@
   </div>
   <div class="offcanvas-body">
     <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=Powershell%20Scripting%3a%20Installing%20SQL%20%2f%20Setting%20up%20AlwaysOn%20Availability%20Groups&url=http%3a%2f%2fericcsinger.com%2fpowershell-scripting-installing-sql-%2f-setting-up-alwayson-availability-groups%2f">
+      target="_blank" href="https://twitter.com/intent/tweet?title=Powershell%20Scripting%3a%20Installing%20SQL%20%2f%20Setting%20up%20AlwaysOn%20Availability%20Groups&url=https%3a%2f%2fericcsinger.com%2fpowershell-scripting-installing-sql-%2f-setting-up-alwayson-availability-groups%2f">
       <i class="fab fa-fw fa-twitter"></i> Twitter
     </a>
     <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
-      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fericcsinger.com%2fpowershell-scripting-installing-sql-%2f-setting-up-alwayson-availability-groups%2f">
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fpowershell-scripting-installing-sql-%2f-setting-up-alwayson-availability-groups%2f">
       <i class="fab fa-fw fa-facebook-f"></i> Facebook
     </a>
   </div>
@@ -65,7 +67,7 @@
   </div>
   <div class="offcanvas-body d-flex flex-column">
 
-<section class="setting">
+<div class="setting">
   <form class="row">
     <div class="col-auto">
       <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
@@ -76,10 +78,10 @@
       </div>
     </div>
   </form>
-</section>
+</div>
 
 
-<section class="setting palettes">
+<div class="setting palettes">
   <form class="row">
     <div class="col-auto">
       <label><i class="fas fa-fw fa-palette"></i> Palette</label>
@@ -115,33 +117,33 @@
       </button><button type="button" id="palette-yellow" aria-label="Yellow"
         class="btn btn-sm w-100 palette" data-palette="yellow">
       </button></div>
-</section>
-<section class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+</div>
+<div class="setting actions d-flex justify-content-around mt-auto overflow-auto">
   <a role="button" class="action action-go-back" href="javascript: window.history.back();">
-    <span class="action-icon"><i class="fas fa-2x fa-arrow-left"></i></span> Go back
+    <span class="action-icon"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
   </a>
   <a role="button" class="action action-reload-page">
     <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
   </a>
   <a role="button" class="action action-copy-url">
     <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
-  </a><a class="action action-social-share" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+  </a><a class="action action-social-share" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
     aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
     <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
-  </a></section>
+  </a></div>
 
 </div>
 </div>
 
     <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
-      <form class="search-bar my-1" action="http://ericcsinger.com/search">
+      <form class="search-bar my-1" action="https://ericcsinger.com/search">
   <div class="input-group input-group-sm">
     <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
     <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
   </div>
 </form>
       <ul class="navbar-nav ms-auto"><li class="nav-item">
-          <a class="nav-link" href="http://ericcsinger.com/about/">
+          <a class="nav-link" href="https://ericcsinger.com/about/">
             About
           </a>
         </li></ul>
@@ -149,15 +151,15 @@
   </div>
 </nav>
 </header>
-<main role="main" class="container">
+<main class="container">
       <div class="row content">
 <div class="col-lg-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body">
-    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="http://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="http://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups</li></ol>
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Powershell Scripting: Installing SQL / Setting up AlwaysOn Availability Groups</li></ol>
   </div>
-</nav><div class="post-panel-wrapper">
-  <div class="d-flex flex-column component rounded post-panel">
+</nav><div class="post-panel-wrapper position-sticky">
+  <div class="d-flex flex-column component rounded post-panel position-absolute">
     
     <a class="action action-panel-toggler" role="button" title="Panel toggler">
       <i class="fas fa-fw fa-chevron-circle-down"></i>
@@ -189,7 +191,7 @@
     Mon, 25 Dec 2017 19:39:00 &#43;0000
   </span><span class="post-reading-time">
     33 min read
-  </span><span class="post-taxonomies"><a href="http://ericcsinger.com/categories/uncategorized/" class="badge post-taxonomy">Uncategorized</a></span>
+  </span><span class="post-taxonomies"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge post-taxonomy">Uncategorized</a></span>
 </div>
 <div class="post-content mb-3"><h1 id="introduction">Introduction:<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h1>
 <p>We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS + SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well. As such, I started developing a bunch of script blocks to automate setting up SQL a few years ago. Over that time, I’ve added more and more functionality, with the finally feature being able to setup a SQL AAG via Powershell. The only thing I don’t have fully automated, is an AlwaysOn Failover Cluster, but that’s because we don’t deploy them typically.</p>
@@ -197,8 +199,11 @@
 <p>Also, if you’re reading this in an RSS tool, all my script text is going to be messed up unless you view it on the site. At the very bottom i’ve included a txt file of my script that you can download, which will probably be a lot easier to read.</p>
 <h1 id="special-thanks">Special Thanks:<a class="anchor ms-1" href="#special-thanks"><i class="fas fa-link"></i></a></h1>
 <p>Before going too far ahead, I want to make a special call out to two folks that have helped me accomplish this as a SysAdmin (non-DBA). They didn’t go out of their way to help me specifically, but their blogs posts are gold.</p>
-<p>Brent Ozar if you haven’t heard of him, is my go to blog for SQL. I’ve been following him for a long time (Quest days). While I can’t say I always agree with his philosophies on virtualizing SQL / SAN, when it comes to native SQL stuff, he (and his all-star team) are my go to source of info. I suspect if you’re googling anything SQL related, you’ve probably seen his blog show up in the top section of results. The one thing I’ve always relied on as a SysAdmin is his server setup checklist <a href="https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-1-before-the-install/" target="_blank" rel="noopener noreferrer">https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-1-before-the-install/</a> and here <a href="https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-2-after-the-install/" target="_blank" rel="noopener noreferrer">https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-2-after-the-install/</a></p>
-<p>Newer to my SQL blog roll, and the person’s blog post who ultimately helped me setup AlwaysOn Availability Group is Edwin M Sarmiento. I signed up for his failover clustering training, which if you’re new to clustering is worth checking out. Anyway, Googling for “setup AlwaysOn Availability Groups Powershell” led me to his post here <a href="https://www.mssqltips.com/sqlservertip/2635/enable-sql-server-2012-alwayson-availability-groups-using-windows-powershell/" target="_blank" rel="noopener noreferrer">https://www.mssqltips.com/sqlservertip/2635/enable-sql-server-2012-alwayson-availability-groups-using-windows-powershell/</a>. What you’ll see in my post is a lot of copies from his post. I want to be clear, most of this is Edwins work, not mine (AAG wise). What you’ll see in my post, is I’ve modified his script commands to merge into my greater script and I also added some bits to make setting up a SQL 2017 AAG with seeding instead of the former backup / restore option.</p>
+<p>Brent Ozar if you haven’t heard of him, is my go to blog for SQL. I’ve been following him for a long time (Quest days). While I can’t say I always agree with his philosophies on virtualizing SQL / SAN, when it comes to native SQL stuff, he (and his all-star team) are my go to source of info. I suspect if you’re googling anything SQL related, you’ve probably seen his blog show up in the top section of results. The one thing I’ve always relied on as a SysAdmin is his server setup checklist <a href="https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-1-before-the-install/" target="_blank" rel="noopener noreferrer">https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-1-before-the-install/<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ and here <a href="https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-2-after-the-install/" target="_blank" rel="noopener noreferrer">https://www.brentozar.com/archive/2008/03/sql-server-2005-setup-checklist-part-2-after-the-install/<i class="fas fa-external-link-square-alt ms-1"></i></a>
+</p>
+<p>Newer to my SQL blog roll, and the person’s blog post who ultimately helped me setup AlwaysOn Availability Group is Edwin M Sarmiento. I signed up for his failover clustering training, which if you’re new to clustering is worth checking out. Anyway, Googling for “setup AlwaysOn Availability Groups Powershell” led me to his post here <a href="https://www.mssqltips.com/sqlservertip/2635/enable-sql-server-2012-alwayson-availability-groups-using-windows-powershell/" target="_blank" rel="noopener noreferrer">https://www.mssqltips.com/sqlservertip/2635/enable-sql-server-2012-alwayson-availability-groups-using-windows-powershell/<i class="fas fa-external-link-square-alt ms-1"></i></a>
+. What you’ll see in my post is a lot of copies from his post. I want to be clear, most of this is Edwins work, not mine (AAG wise). What you’ll see in my post, is I’ve modified his script commands to merge into my greater script and I also added some bits to make setting up a SQL 2017 AAG with seeding instead of the former backup / restore option.</p>
 <h1 id="prerequisites">Prerequisites:<a class="anchor ms-1" href="#prerequisites"><i class="fas fa-link"></i></a></h1>
 <p>Like anything, you’ve got to have the prerequisites figured out before you start, so let’s go over what you want to figure out before you get to the scripting part.</p>
 <ol>
@@ -250,7 +255,8 @@
 <ol>
 <li>The first couple of sections go over a copying functions, ISO’s, and configuration files. You’ll need to provide a source and destination for these files. I like to copy them locally. You’ll see the K: drive mentioned in my examples as a destination.</li>
 <li>You’ll need that SQL config file that we’ll talk about creating right now.</li>
-<li>When I created mine, I walked through a SQL install, checked all the boxes I wanted, configured all the file paths, all the rights, etc. Before clicking install, there’s a location in the final page where you can grab a config file. Do that, once you have the config file, make the following changes. You can read more about it here <a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-using-a-configuration-file" target="_blank" rel="noopener noreferrer">https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-using-a-configuration-file</a> .
+<li>When I created mine, I walked through a SQL install, checked all the boxes I wanted, configured all the file paths, all the rights, etc. Before clicking install, there’s a location in the final page where you can grab a config file. Do that, once you have the config file, make the following changes. You can read more about it here <a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-using-a-configuration-file" target="_blank" rel="noopener noreferrer">https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-using-a-configuration-file<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ .
 <ol>
 <li>I change the refreences for your SQL agent account and SQL service accounts to something generic like below so we use a script to do a find / replace. In my script, these are the generic strings I use.
 <ol>
@@ -270,7 +276,7 @@
 <li>Similarly, I do the same for our backup share location. In this case, I’m using node 1 as the final folder name, but your needs may vary.</li>
 <li>The rest are what I call dynamic parameters, they pull information either using previous parameters or they pull information from the system its self. There is only two things worth of note. I ask you to fill in the password for the service account and agent. This will allow us to install SQL unattended.</li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -280,51 +286,51 @@
 
 #File Path to local GPO function.
 
-$LocalGPOFunctionName = &quot;Add-ECSLocalGPOUserRightAssignment.ps1&quot;
+$LocalGPOFunctionName = &#34;Add-ECSLocalGPOUserRightAssignment.ps1&#34;
 
-$LocalGPOFunctionFilePath = &quot;\\a1-file-04\SysAdminStuff\SQL Servers\Functions&quot; + &quot;\&quot; + $LocalGPOFunctionName
+$LocalGPOFunctionFilePath = &#34;\\a1-file-04\SysAdminStuff\SQL Servers\Functions&#34; + &#34;\&#34; + $LocalGPOFunctionName
 
 
 
 #File Path to SQL config file
 
-$ConfigFileName = &quot;ConfigurationFile_Template_2017plus.ini&quot;
+$ConfigFileName = &#34;ConfigurationFile_Template_2017plus.ini&#34;
 
-$ConfigFileSource = &quot;\\a1-file-04\SysAdminStuff\SQL Servers\&quot; + $ConfigFileName
+$ConfigFileSource = &#34;\\a1-file-04\SysAdminStuff\SQL Servers\&#34; + $ConfigFileName
 
-$ConfigFileDestination = &quot;K:\&quot; + $ConfigFileName
+$ConfigFileDestination = &#34;K:\&#34; + $ConfigFileName
 
 
 
 #File path to SSMS
 
-$SSMSFileName = &quot;SSMS-Setup-ENU.exe&quot;
+$SSMSFileName = &#34;SSMS-Setup-ENU.exe&#34;
 
-$SSMSFileSource = &quot;\\YOURDOMAINHERE.local\Servers\ISG Software\Microsoft\SQL Server Management Studio\17.4\&quot; + $SSMSFileName
+$SSMSFileSource = &#34;\\YOURDOMAINHERE.local\Servers\ISG Software\Microsoft\SQL Server Management Studio\17.4\&#34; + $SSMSFileName
 
-$SSMSFileDestination = &quot;K:\&quot; + $SSMSFileName
+$SSMSFileDestination = &#34;K:\&#34; + $SSMSFileName
 
 
 
 #File Path to SQL ISO of your choice
 
-$ISOFileName = &quot;SW_DVD9_NTRL_SQL_Svr_Ent_Core_2017_64Bit_English_OEM_VL_X21-56995.ISO&quot;
+$ISOFileName = &#34;SW_DVD9_NTRL_SQL_Svr_Ent_Core_2017_64Bit_English_OEM_VL_X21-56995.ISO&#34;
 
-$ISOFileSource = &quot;\\YOURDOMAINHERE.local\Servers\ISG Software\Microsoft\SQL Enterprise 2017\&quot; + $ISOFileName
+$ISOFileSource = &#34;\\YOURDOMAINHERE.local\Servers\ISG Software\Microsoft\SQL Enterprise 2017\&#34; + $ISOFileName
 
-$ISOFileDestination = &quot;K:\&quot; + $ISOFileName
+$ISOFileDestination = &#34;K:\&#34; + $ISOFileName
 
 
 
 #Service Account
 
-$sqlserviceuserNoDomain = &quot;usrsqlpc15svc&quot;
+$sqlserviceuserNoDomain = &#34;usrsqlpc15svc&#34;
 
-$sqlserviceuser = &quot;YOURDOMAINHERE\&quot; + $sqlserviceuserNoDomain
+$sqlserviceuser = &#34;YOURDOMAINHERE\&#34; + $sqlserviceuserNoDomain
 
-$sqlagentuserNoDomain = &quot;usrsqlpc15agt&quot;
+$sqlagentuserNoDomain = &#34;usrsqlpc15agt&#34;
 
-$sqlagentuser = &quot;YOURDOMAINHERE\&quot; + $sqlagentuserNoDomain
+$sqlagentuser = &#34;YOURDOMAINHERE\&#34; + $sqlagentuserNoDomain
 
 
 
@@ -332,39 +338,39 @@ $sqlagentuser = &quot;YOURDOMAINHERE\&quot; + $sqlagentuserNoDomain
 
 ##Clustering
 
-$node1 = &quot;a1-sqlpcn1-15&quot;
+$node1 = &#34;a1-sqlpcn1-15&#34;
 
-$node2 = &quot;a1-sqlpcn2-15&quot;
+$node2 = &#34;a1-sqlpcn2-15&#34;
 
-$clusterip = &quot;192.168.1.19&quot;
+$clusterip = &#34;192.168.1.19&#34;
 
-$ClusterCNO = &quot;a1-sqlpc-15&quot;
+$ClusterCNO = &#34;a1-sqlpc-15&#34;
 
-$DB1Name = &quot;Test1&quot;
+$DB1Name = &#34;Test1&#34;
 
-$DB2Name = &quot;Test2&quot;
+$DB2Name = &#34;Test2&#34;
 
-$DB3Name = &quot;Test3&quot;
+$DB3Name = &#34;Test3&#34;
 
-$DB4Name = &quot;Test4&quot;
+$DB4Name = &#34;Test4&#34;
 
-$SQLAAGEndPointName = &quot;Hadr_endpoint&quot;
+$SQLAAGEndPointName = &#34;Hadr_endpoint&#34;
 
-$AAG1Name = &quot;a1-sqlpcdg1-15&quot;
+$AAG1Name = &#34;a1-sqlpcdg1-15&#34;
 
-$AAG2Name = &quot;a1-sqlpcdg2-15&quot;
+$AAG2Name = &#34;a1-sqlpcdg2-15&#34;
 
-$AAG3Name = &quot;a1-sqlpcdg3-15&quot;
+$AAG3Name = &#34;a1-sqlpcdg3-15&#34;
 
-$AAG4Name = &quot;a1-sqlpcdg4-15&quot;
+$AAG4Name = &#34;a1-sqlpcdg4-15&#34;
 
-$AAG1IP = &quot;192.168.1.20/255.255.255.0&quot;
+$AAG1IP = &#34;192.168.1.20/255.255.255.0&#34;
 
-$AAG2IP = &quot;192.168.1.21/255.255.255.0&quot;
+$AAG2IP = &#34;192.168.1.21/255.255.255.0&#34;
 
-$AAG3IP = &quot;192.168.1.22/255.255.255.0&quot;
+$AAG3IP = &#34;192.168.1.22/255.255.255.0&#34;
 
-$AAG4IP = &quot;192.168.1.23/255.255.255.0&quot;
+$AAG4IP = &#34;192.168.1.23/255.255.255.0&#34;
 
 
 
@@ -372,9 +378,9 @@ $AAG4IP = &quot;192.168.1.23/255.255.255.0&quot;
 
 
 
-&lt;# Note 1: FSW is only needed if you're setting up an AAG. Traditional failover clusters, don't need this, instead they need a quorum disk. This script does not cover that. Note 2: There are currently four different file share wittness locations. See below Odd numbered clusters (for example a1-sqluc-01, 03, 05, etc.) go here UAT = \\a1-fswus1-02\Clusters PRD = \\a1-fswps1-02\Clusters Even numbered clusters (for example a1-sqluc-02, 04, 06, etc.) go here UAT = \\a1-fswus2-02\Clusters PRD = \\a1-fswps2-02\Clusters #&gt;
+&lt;# Note 1: FSW is only needed if you&#39;re setting up an AAG. Traditional failover clusters, don&#39;t need this, instead they need a quorum disk. This script does not cover that. Note 2: There are currently four different file share wittness locations. See below Odd numbered clusters (for example a1-sqluc-01, 03, 05, etc.) go here UAT = \\a1-fswus1-02\Clusters PRD = \\a1-fswps1-02\Clusters Even numbered clusters (for example a1-sqluc-02, 04, 06, etc.) go here UAT = \\a1-fswus2-02\Clusters PRD = \\a1-fswps2-02\Clusters #&gt;
 
-$filesharewitness = &quot;\\a1-fswps1-02\Clusters\$($ClusterCNO)&quot;
+$filesharewitness = &#34;\\a1-fswps1-02\Clusters\$($ClusterCNO)&#34;
 
 
 
@@ -382,29 +388,29 @@ $filesharewitness = &quot;\\a1-fswps1-02\Clusters\$($ClusterCNO)&quot;
 
 
 
-&lt;# This step is only needed if you're setting up an AAG, otherwise the DBA's will do this. Here are the following paths \\YOURDOMAINHERE.local\Backups\SQL Backups 2\DEV \\YOURDOMAINHERE.local\Backups\SQL Backups 2\PRD \\YOURDOMAINHERE.local\Backups\SQL Backups 2\STG \\YOURDOMAINHERE.local\Backups\SQL Backups 2\TST \\YOURDOMAINHERE.local\Backups\SQL Backups 2\UAT #&gt;
+&lt;# This step is only needed if you&#39;re setting up an AAG, otherwise the DBA&#39;s will do this. Here are the following paths \\YOURDOMAINHERE.local\Backups\SQL Backups 2\DEV \\YOURDOMAINHERE.local\Backups\SQL Backups 2\PRD \\YOURDOMAINHERE.local\Backups\SQL Backups 2\STG \\YOURDOMAINHERE.local\Backups\SQL Backups 2\TST \\YOURDOMAINHERE.local\Backups\SQL Backups 2\UAT #&gt;
 
-$BackupSharePath = &quot;\\YOURDOMAINHERE.local\Backups\SQL Backups 2\PRD\$($node1)&quot;
+$BackupSharePath = &#34;\\YOURDOMAINHERE.local\Backups\SQL Backups 2\PRD\$($node1)&#34;
 
 
 
 #DB backup names
 
-$TestDB1FullPath = $BackupSharePath + &quot;\&quot; + $DB1Name + &quot;.bak&quot;
+$TestDB1FullPath = $BackupSharePath + &#34;\&#34; + $DB1Name + &#34;.bak&#34;
 
-$TestDB2FullPath = $BackupSharePath + &quot;\&quot; + $DB2Name + &quot;.bak&quot;
+$TestDB2FullPath = $BackupSharePath + &#34;\&#34; + $DB2Name + &#34;.bak&#34;
 
-$TestDB3FullPath = $BackupSharePath + &quot;\&quot; + $DB3Name + &quot;.bak&quot;
+$TestDB3FullPath = $BackupSharePath + &#34;\&#34; + $DB3Name + &#34;.bak&#34;
 
-$TestDB4FullPath = $BackupSharePath + &quot;\&quot; + $DB4Name + &quot;.bak&quot;
+$TestDB4FullPath = $BackupSharePath + &#34;\&#34; + $DB4Name + &#34;.bak&#34;
 
-$TestLog1FullPath = $BackupSharePath + &quot;\&quot; + $DB1Name + &quot;.log&quot;
+$TestLog1FullPath = $BackupSharePath + &#34;\&#34; + $DB1Name + &#34;.log&#34;
 
-$TestLog2FullPath = $BackupSharePath + &quot;\&quot; + $DB2Name + &quot;.log&quot;
+$TestLog2FullPath = $BackupSharePath + &#34;\&#34; + $DB2Name + &#34;.log&#34;
 
-$TestLog3FullPath = $BackupSharePath + &quot;\&quot; + $DB3Name + &quot;.log&quot;
+$TestLog3FullPath = $BackupSharePath + &#34;\&#34; + $DB3Name + &#34;.log&#34;
 
-$TestLog4FullPath = $BackupSharePath + &quot;\&quot; + $DB4Name + &quot;.log&quot;
+$TestLog4FullPath = $BackupSharePath + &#34;\&#34; + $DB4Name + &#34;.log&#34;
 
 
 
@@ -420,25 +426,25 @@ $TestLog4FullPath = $BackupSharePath + &quot;\&quot; + $DB4Name + &quot;.log&quo
 
 #These passwords will be used to automate the setup of SQL.
 
-$sqlagentuserpassword = Read-Host -Prompt &quot;Enter your SQL Agent Account Password Here&quot;
+$sqlagentuserpassword = Read-Host -Prompt &#34;Enter your SQL Agent Account Password Here&#34;
 
-While ($sqlagentuserpassword -eq $null -or $sqlagentuserpassword -eq &quot;&quot;)
+While ($sqlagentuserpassword -eq $null -or $sqlagentuserpassword -eq &#34;&#34;)
 
 {
 
-$sqlagentuserpassword = Read-Host -Prompt &quot;Enter your SQL Agent Account Password Here&quot;
+$sqlagentuserpassword = Read-Host -Prompt &#34;Enter your SQL Agent Account Password Here&#34;
 
 }
 
 
 
-$sqlserviceuserpassword = Read-Host -Prompt &quot;Enter your SQL Service Account Password Here&quot;
+$sqlserviceuserpassword = Read-Host -Prompt &#34;Enter your SQL Service Account Password Here&#34;
 
-While ($sqlserviceuserpassword -eq $null -or $sqlserviceuserpassword -eq &quot;&quot;)
+While ($sqlserviceuserpassword -eq $null -or $sqlserviceuserpassword -eq &#34;&#34;)
 
 {
 
-$sqlserviceuserpassword = Read-Host -Prompt &quot;Enter your SQL Service Account Password Here&quot;
+$sqlserviceuserpassword = Read-Host -Prompt &#34;Enter your SQL Service Account Password Here&#34;
 
 }
 
@@ -446,22 +452,21 @@ $sqlserviceuserpassword = Read-Host -Prompt &quot;Enter your SQL Service Account
 
 #Temp Directory
 
-$TempDirectory = Get-childitem -Path env: | where-object {$_.name -eq &quot;Temp&quot;} | select-object -ExpandProperty value
+$TempDirectory = Get-childitem -Path env: | where-object {$_.name -eq &#34;Temp&#34;} | select-object -ExpandProperty value
 
-$LocalGPOFunctionNameTempPath = $TempDirectory + &quot;\&quot; + $LocalGPOFunctionName
+$LocalGPOFunctionNameTempPath = $TempDirectory + &#34;\&#34; + $LocalGPOFunctionName
 
 
 
 #ComputerName
 
-$ComputerName = Get-childitem -path env: | where-object {$_.name -like &quot;ComputerName&quot;} | select-object -expandproperty value
+$ComputerName = Get-childitem -path env: | where-object {$_.name -like &#34;ComputerName&#34;} | select-object -expandproperty value
 
 
 
 #END Parameters
 
 #######################################################################################################
-
 </code></pre><h1 id="setting-up-the-disks">Setting up the disks:<a class="anchor ms-1" href="#setting-up-the-disks"><i class="fas fa-link"></i></a></h1>
 <p>The next section is all about setting up the disks, partitions, folder structure and finally permissions. Now this is likely going to be different in your environment, but I did want to show how I tackle it incase you are curious. We deploy all our VMware VM’s with a consistent disk configuration as I described above. This allows us to know which disk is used for what purpose and ultimately automate the whole setup.</p>
 <p>The basic steps are as follows:</p>
@@ -481,7 +486,7 @@ $ComputerName = Get-childitem -path env: | where-object {$_.name -like &quot;Com
 </ol>
 </li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -489,9 +494,9 @@ $ComputerName = Get-childitem -path env: | where-object {$_.name -like &quot;Com
 
 
 
-#Get all offline disks, should be any disks you've created
+#Get all offline disks, should be any disks you&#39;ve created
 
-$OfflineDisks = Get-Disk | Where-Object {$_.OperationalStatus -eq &quot;Offline&quot;}
+$OfflineDisks = Get-Disk | Where-Object {$_.OperationalStatus -eq &#34;Offline&#34;}
 
 
 
@@ -531,7 +536,7 @@ $OfflineDisks | Initialize-Disk -PartitionStyle GPT
 
 
 
-#Microsoft in their infinite wisdom, continues to change f'ing property values around, so below is the server 2016 specific scsi id
+#Microsoft in their infinite wisdom, continues to change f&#39;ing property values around, so below is the server 2016 specific scsi id
 
 
 
@@ -539,15 +544,15 @@ Foreach ($disk in $OfflineDisks)
 
 {
 
-#This will give us the view of which SCSI card and port we're in.
+#This will give us the view of which SCSI card and port we&#39;re in.
 
-#Note: property &quot;SCSIPort&quot; actually equals SCSI card in WMI, and &quot;SCSITargetId&quot; equals the SCSI port for the card
-
-
+#Note: property &#34;SCSIPort&#34; actually equals SCSI card in WMI, and &#34;SCSITargetId&#34; equals the SCSI port for the card
 
 
 
-$WMIDiskInformation = get-wmiobject -Class win32_diskdrive | where-object {$_.DeviceID -like &quot;*$($disk.number)&quot;}
+
+
+$WMIDiskInformation = get-wmiobject -Class win32_diskdrive | where-object {$_.DeviceID -like &#34;*$($disk.number)&#34;}
 
 
 
@@ -557,13 +562,13 @@ if ($WMIDiskInformation.SCSIPort -eq 2 -and $WMIDiskInformation.SCSITargetId -eq
 
 {
 
-echo &quot;K:&quot;
+echo &#34;K:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 4096 -NewFileSystemLabel &quot;Misc&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 4096 -NewFileSystemLabel &#34;Misc&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter k
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter k
 
 }
 
@@ -573,13 +578,13 @@ Elseif ($WMIDiskInformation.SCSIPort -eq 3 -and $WMIDiskInformation.SCSITargetId
 
 {
 
-echo &quot;V:&quot;
+echo &#34;V:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 4096 -NewFileSystemLabel &quot;TempLog&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 4096 -NewFileSystemLabel &#34;TempLog&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter V
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter V
 
 }
 
@@ -587,13 +592,13 @@ Elseif ($WMIDiskInformation.SCSIPort -eq 3 -and $WMIDiskInformation.SCSITargetId
 
 {
 
-echo &quot;w:&quot;
+echo &#34;w:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &quot;TempDB&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &#34;TempDB&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter w
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter w
 
 }
 
@@ -601,13 +606,13 @@ Elseif ($WMIDiskInformation.SCSIPort -eq 4 -and $WMIDiskInformation.SCSITargetId
 
 {
 
-echo &quot;F:&quot;
+echo &#34;F:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &quot;UserDB1&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &#34;UserDB1&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter f
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter f
 
 }
 
@@ -615,13 +620,13 @@ Elseif ($WMIDiskInformation.SCSIPort -eq 4 -and $WMIDiskInformation.SCSITargetId
 
 {
 
-echo &quot;N:&quot;
+echo &#34;N:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &quot;Index1&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &#34;Index1&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter n
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter n
 
 }
 
@@ -629,13 +634,13 @@ Elseif ($WMIDiskInformation.SCSIPort -eq 5 -and $WMIDiskInformation.SCSITargetId
 
 {
 
-echo &quot;J:&quot;
+echo &#34;J:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 4096 -NewFileSystemLabel &quot;UserLog1&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 4096 -NewFileSystemLabel &#34;UserLog1&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter j
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter j
 
 }
 
@@ -643,13 +648,13 @@ Elseif ($WMIDiskInformation.SCSIPort -eq 4 -and $WMIDiskInformation.SCSITargetId
 
 {
 
-echo &quot;G:&quot;
+echo &#34;G:&#34;
 
 $disk | New-Partition -UseMaximumSize
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &quot;UserDB2&quot; -Confirm:$false
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Format-Volume -FileSystem NTFS -AllocationUnitSize 8192 -NewFileSystemLabel &#34;UserDB2&#34; -Confirm:$false
 
-$disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Partition -NewDriveLetter G
+$disk | Get-Partition | Where-Object {$_.type -eq &#34;Basic&#34;} | Set-Partition -NewDriveLetter G
 
 }
 
@@ -669,13 +674,13 @@ $disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Parti
 
 
 
-# Note 1: If you have more than the standard F, J, K, N, V and W drives, you'll need to mananually setup the folder structure and permsissions
+# Note 1: If you have more than the standard F, J, K, N, V and W drives, you&#39;ll need to mananually setup the folder structure and permsissions
 
-# Note 2: As part of the SQL install, SQL will configure the modify permissions for the default DB, Log, TempLog and TempDB folders, which is why I don't configure them.
+# Note 2: As part of the SQL install, SQL will configure the modify permissions for the default DB, Log, TempLog and TempDB folders, which is why I don&#39;t configure them.
 
-# NOte 3: Keep an eye on the folder permissions, you shouldn't see a lot of errors, if you do, something went wrong.
+# NOte 3: Keep an eye on the folder permissions, you shouldn&#39;t see a lot of errors, if you do, something went wrong.
 
-# Note 4: These are based on default disk locations and default disk requests. if you get a request for a G: drive for example, we don't have that scripted at the moment.
+# Note 4: These are based on default disk locations and default disk requests. if you get a request for a G: drive for example, we don&#39;t have that scripted at the moment.
 
 
 
@@ -685,19 +690,19 @@ $disk | Get-Partition | Where-Object {$_.type -eq &quot;Basic&quot;} | Set-Parti
 
 #F: Drive
 
-If ((Test-Path &quot;F:\MSSQLDB\Data&quot;) -eq $false)
+If ((Test-Path &#34;F:\MSSQLDB\Data&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;F:\MSSQLDB\Data&quot; -ItemType Container
+New-Item -Path &#34;F:\MSSQLDB\Data&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;F:\OLAP\Data&quot;) -eq $false)
+If ((Test-Path &#34;F:\OLAP\Data&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;F:\OLAP\Data&quot; -ItemType Container
+New-Item -Path &#34;F:\OLAP\Data&#34; -ItemType Container
 
 }
 
@@ -705,19 +710,19 @@ New-Item -Path &quot;F:\OLAP\Data&quot; -ItemType Container
 
 #J: Drive
 
-If ((Test-Path &quot;J:\MSSQLDB\Log&quot;) -eq $false)
+If ((Test-Path &#34;J:\MSSQLDB\Log&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;J:\MSSQLDB\Log&quot; -ItemType Container
+New-Item -Path &#34;J:\MSSQLDB\Log&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;J:\OLAP\Log&quot;) -eq $false)
+If ((Test-Path &#34;J:\OLAP\Log&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;J:\OLAP\Log&quot; -ItemType Container
+New-Item -Path &#34;J:\OLAP\Log&#34; -ItemType Container
 
 }
 
@@ -725,43 +730,43 @@ New-Item -Path &quot;J:\OLAP\Log&quot; -ItemType Container
 
 #K: Drive
 
-If ((Test-Path &quot;K:\Config&quot;) -eq $false)
+If ((Test-Path &#34;K:\Config&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;K:\Config&quot; -ItemType Container
+New-Item -Path &#34;K:\Config&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;K:\MSSQL&quot;) -eq $false)
+If ((Test-Path &#34;K:\MSSQL&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;K:\MSSQL&quot; -ItemType Container
+New-Item -Path &#34;K:\MSSQL&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;K:\MSSQLDB&quot;) -eq $false)
+If ((Test-Path &#34;K:\MSSQLDB&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;K:\MSSQLDB&quot; -ItemType Container
+New-Item -Path &#34;K:\MSSQLDB&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;K:\OLAP\config&quot;) -eq $false)
+If ((Test-Path &#34;K:\OLAP\config&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;K:\OLAP\config&quot; -ItemType Container
+New-Item -Path &#34;K:\OLAP\config&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;K:\Support&quot;) -eq $false)
+If ((Test-Path &#34;K:\Support&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;K:\Support&quot; -ItemType Container
+New-Item -Path &#34;K:\Support&#34; -ItemType Container
 
 }
 
@@ -769,11 +774,11 @@ New-Item -Path &quot;K:\Support&quot; -ItemType Container
 
 #N: Drive
 
-If ((Test-Path &quot;N:\MSSQLDB\Index&quot;) -eq $false)
+If ((Test-Path &#34;N:\MSSQLDB\Index&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;N:\MSSQLDB\Index&quot; -ItemType Container
+New-Item -Path &#34;N:\MSSQLDB\Index&#34; -ItemType Container
 
 }
 
@@ -781,11 +786,11 @@ New-Item -Path &quot;N:\MSSQLDB\Index&quot; -ItemType Container
 
 #V: Drive
 
-If ((Test-Path &quot;V:\MSSQLDB\Log&quot;) -eq $false)
+If ((Test-Path &#34;V:\MSSQLDB\Log&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;V:\MSSQLDB\Log&quot; -ItemType Container
+New-Item -Path &#34;V:\MSSQLDB\Log&#34; -ItemType Container
 
 }
 
@@ -793,19 +798,19 @@ New-Item -Path &quot;V:\MSSQLDB\Log&quot; -ItemType Container
 
 #W: Drive
 
-If ((Test-Path &quot;W:\MSSQLDB\Data&quot;) -eq $false)
+If ((Test-Path &#34;W:\MSSQLDB\Data&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;W:\MSSQLDB\Data&quot; -ItemType Container
+New-Item -Path &#34;W:\MSSQLDB\Data&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;W:\OLAP\Temp&quot;) -eq $false)
+If ((Test-Path &#34;W:\OLAP\Temp&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;W:\OLAP\Temp&quot; -ItemType Container
+New-Item -Path &#34;W:\OLAP\Temp&#34; -ItemType Container
 
 }
 
@@ -813,7 +818,7 @@ New-Item -Path &quot;W:\OLAP\Temp&quot; -ItemType Container
 
 #Adding a catch for the G: drive
 
-$GDRive = Get-PSDrive | Where-Object {$_.root -like &quot;G:*&quot;}
+$GDRive = Get-PSDrive | Where-Object {$_.root -like &#34;G:*&#34;}
 
 
 
@@ -821,19 +826,19 @@ If ($GDRive -ne $null)
 
 {
 
-If ((Test-Path &quot;G:\MSSQLDB\Data&quot;) -eq $false)
+If ((Test-Path &#34;G:\MSSQLDB\Data&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;G:\MSSQLDB\Data&quot; -ItemType Container
+New-Item -Path &#34;G:\MSSQLDB\Data&#34; -ItemType Container
 
 }
 
-If ((Test-Path &quot;G:\OLAP\Data&quot;) -eq $false)
+If ((Test-Path &#34;G:\OLAP\Data&#34;) -eq $false)
 
 {
 
-New-Item -Path &quot;G:\OLAP\Data&quot; -ItemType Container
+New-Item -Path &#34;G:\OLAP\Data&#34; -ItemType Container
 
 }
 
@@ -849,89 +854,89 @@ New-Item -Path &quot;G:\OLAP\Data&quot; -ItemType Container
 
 #F: Drive
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;f:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;f:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;f:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;f:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;f:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;f:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;f: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;f: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;f: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;f: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
 
 
 #J: Drive
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;j:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;j:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;j:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;j:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;j:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;j:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;j: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;j: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;j: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;j: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
 
 
 #K: Drive
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;k:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;k:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;k:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;k:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;k:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;k:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;k: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(M) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;k: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(M) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;k: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(M) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;k: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(M) /C&#34; -NoNewWindow -Wait
 
 
 
 #N: Drive
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;n:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;n:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;n:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;n:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;n:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;n:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;n: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;n: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;n: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;n: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;N:\MSSQLDB\Index /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;N:\MSSQLDB\Index /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;N:\MSSQLDB\Index /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;N:\MSSQLDB\Index /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
 
 
 #V: Drive
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;v:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;v:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;v:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;v:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;v:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;v:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;v: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;v: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;v: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;v: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
 
 
 #W: Drive
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;w:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;w:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;w:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;w:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;w:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;w:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;w: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;w: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;w: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;w: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
 
 
@@ -941,23 +946,23 @@ If ($GDRive -ne $null)
 
 {
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\ /remove Everyone /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\ /remove Everyone /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\ /remove &quot;&quot;Creator Owner&quot;&quot; /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\ /remove &#34;&#34;Creator Owner&#34;&#34; /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\ /remove BUILTIN\Users /T&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\ /remove BUILTIN\Users /T&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g: /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g: /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g: /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(RX) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g: /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(RX) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\MSSQLDB\Data /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\MSSQLDB\Data /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\MSSQLDB\Data /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\MSSQLDB\Data /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\OLAP\DATA /grant:rx &quot;&quot;$sqlserviceuser&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\OLAP\DATA /grant:rx &#34;&#34;$sqlserviceuser&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\OLAP\DATA /grant:rx &quot;&quot;$sqlagentuser&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;g:\OLAP\DATA /grant:rx &#34;&#34;$sqlagentuser&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
 }
 
@@ -966,9 +971,8 @@ Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;g:\OLAP\DATA 
 #END Setting up the folder paths and permissions
 
 #######################################################################################################
-
 </code></pre><p>At this stage, we have all our disks setup and ready to go. Next we want to grant the SQL service accounts the “perform volume maintenance tasks” right. I don’t have my function published yet, still working on honing it a bit more. However, you can easily do this step manually, or until I release the function, which should be soon. I did however want to show the code.</p>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 
 &lt;h6&gt;#################################################################################################&lt;/h6&gt;
@@ -1000,20 +1004,19 @@ Copy-item -Path $LocalGPOFunctionFilePath -Destination $TempDirectory -Force -Co
 
 #Add the service account
 
-Add-ECSLocalGPOUserRightAssignment -UserOrGroup $sqlserviceuser -UserRightAssignment &quot;SeManageVolumePrivilege&quot;
+Add-ECSLocalGPOUserRightAssignment -UserOrGroup $sqlserviceuser -UserRightAssignment &#34;SeManageVolumePrivilege&#34;
 
 
 
 #Add the agent account
 
-Add-ECSLocalGPOUserRightAssignment -UserOrGroup $sqlagentuser -UserRightAssignment &quot;SeManageVolumePrivilege&quot;
+Add-ECSLocalGPOUserRightAssignment -UserOrGroup $sqlagentuser -UserRightAssignment &#34;SeManageVolumePrivilege&#34;
 
 
 
 #END Add SQL service account and agent to perform volume maitanance tasks local GPO
 
 #######################################################################################################
-
 </code></pre><p>Time to install SQL. Basic steps are as follows:</p>
 <ol>
 <li>We copy the SQL ISO to the K: drive</li>
@@ -1024,7 +1027,7 @@ Add-ECSLocalGPOUserRightAssignment -UserOrGroup $sqlagentuser -UserRightAssignme
 <li>We install SQL using a few parameters. If it works correctly, you should see the progress without having to answer any questions.</li>
 <li>Similarly, we install SSMS. You again should see progress, but not have to answer any questions.</li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -1052,9 +1055,9 @@ Copy-item -path $SSMSFileSource -Destination $SSMSFileDestination -Force -Contai
 
 #Modfiy the config file to update it for our SQL accounts
 
-$ConfigFileContent = (Get-content -Path $ConfigFileDestination).Replace(&quot;YOURDOMAINHERE\SQLSERVICEACCOUNTTOCHANGE&quot;,$sqlserviceuser) | set-content -Path $ConfigFileDestination
+$ConfigFileContent = (Get-content -Path $ConfigFileDestination).Replace(&#34;YOURDOMAINHERE\SQLSERVICEACCOUNTTOCHANGE&#34;,$sqlserviceuser) | set-content -Path $ConfigFileDestination
 
-$ConfigFileContent = (Get-content -Path $ConfigFileDestination).Replace(&quot;YOURDOMAINHERE\SQLAGENTACCOUNTTOCHANGE&quot;,$sqlagentuser) | set-content -Path $ConfigFileDestination
+$ConfigFileContent = (Get-content -Path $ConfigFileDestination).Replace(&#34;YOURDOMAINHERE\SQLAGENTACCOUNTTOCHANGE&#34;,$sqlagentuser) | set-content -Path $ConfigFileDestination
 
 
 
@@ -1068,28 +1071,27 @@ $ISOVolume = $mountResult | Get-Volume
 
 #Define the SQL install path
 
-$SQLInstallPath = $($isovolume.driveletter) + &quot;:\setup.exe&quot;
+$SQLInstallPath = $($isovolume.driveletter) + &#34;:\setup.exe&#34;
 
 
 
 #Install SQL
 
-Start-Process -FilePath $SQLInstallPath -ArgumentList &quot;/SQLSVCPASSWORD=&quot;&quot;$sqlserviceuserpassword&quot;&quot; /AGTSVCPASSWORD=&quot;&quot;$sqlagentuserpassword&quot;&quot; /ISSVCPASSWORD=&quot;&quot;$sqlserviceuserpassword&quot;&quot; /ASSVCPASSWORD=&quot;&quot;$sqlserviceuserpassword&quot;&quot; /ConfigurationFile=$($ConfigFileDestination) /IAcceptSQLServerLicenseTerms&quot; -NoNewWindow -Wait
+Start-Process -FilePath $SQLInstallPath -ArgumentList &#34;/SQLSVCPASSWORD=&#34;&#34;$sqlserviceuserpassword&#34;&#34; /AGTSVCPASSWORD=&#34;&#34;$sqlagentuserpassword&#34;&#34; /ISSVCPASSWORD=&#34;&#34;$sqlserviceuserpassword&#34;&#34; /ASSVCPASSWORD=&#34;&#34;$sqlserviceuserpassword&#34;&#34; /ConfigurationFile=$($ConfigFileDestination) /IAcceptSQLServerLicenseTerms&#34; -NoNewWindow -Wait
 
 
 
 #Install SSSMS
 
-Start-Process -FilePath $SSMSFileDestination -ArgumentList &quot;/passive /norestart&quot; -NoNewWindow -Wait
+Start-Process -FilePath $SSMSFileDestination -ArgumentList &#34;/passive /norestart&#34; -NoNewWindow -Wait
 
 
 
 #END Install SQL
 
 #######################################################################################################
-
 </code></pre><p>Now let’s make sure we register the SPN’s for our DBA’s. You should probably do this as a best practice too.</p>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -1097,20 +1099,19 @@ Start-Process -FilePath $SSMSFileDestination -ArgumentList &quot;/passive /nores
 
 
 
-Start-process -FilePath setspn -ArgumentList &quot;-A MSSQLSvc/$($ComputerName).YOURDOMAINHERE.local:1433 $($sqlserviceuserNoDomain) &quot; -NoNewWindow -Wait -PassThru
+Start-process -FilePath setspn -ArgumentList &#34;-A MSSQLSvc/$($ComputerName).YOURDOMAINHERE.local:1433 $($sqlserviceuserNoDomain) &#34; -NoNewWindow -Wait -PassThru
 
-Start-process -FilePath setspn -ArgumentList &quot;-A MSSQLSvc/$($ComputerName).YOURDOMAINHERE.local $($sqlserviceuserNoDomain) &quot; -NoNewWindow -Wait -PassThru
+Start-process -FilePath setspn -ArgumentList &#34;-A MSSQLSvc/$($ComputerName).YOURDOMAINHERE.local $($sqlserviceuserNoDomain) &#34; -NoNewWindow -Wait -PassThru
 
 
 
 #END Register SPNs
 
 #######################################################################################################
-
 </code></pre><p>We need SQL Servers Powershell cmdlets, BUT SQL always installs and outdated version, plus your stuck waiting on CU’s for newer PS modules. Forget that, let’s pull them straight from the Powershell gallery where they’re kept up to data more frequently.</p>
 <p>***Note: I banged my head on setting powershell command errors because I didn’t have the latest versions, so another reason to keep us the PS gallery version. Bugs are fixed.</p>
 <p>Make sure you say “Y” to the questions asked about importing this modules.</p>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;&lt;/strong&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;&lt;/strong&gt;
 
 #######################################################################################################
 
@@ -1118,7 +1119,7 @@ Start-process -FilePath setspn -ArgumentList &quot;-A MSSQLSvc/$($ComputerName).
 
 
 
-#The included SQL module isn't kept up to date, so we're going to install the latest module from MS git
+#The included SQL module isn&#39;t kept up to date, so we&#39;re going to install the latest module from MS git
 
 Install-Module sqlserver -AllowClobber
 
@@ -1133,14 +1134,13 @@ Import-Module sqlserver -DisableNameChecking
 #End Auto Load SQL PS Module
 
 #######################################################################################################
-
 </code></pre><p>You should now have all sorts of great SQL PS commands. At this stage, we’re going to finish setting up a generic SQL server (non-clustered). There are a few things we do.</p>
 <ol>
 <li>We enable SQL contained DB’s</li>
 <li>We configure the max memory / min memory based on Brent Ozars generic recommendations.</li>
 <li>The only time I’ve had an issue with this, is when I’ve had 4GB or less of memory. Pretty obvious why.</li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;&lt;/strong&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;&lt;/strong&gt;
 
 #######################################################################################################
 
@@ -1168,21 +1168,20 @@ $MinMemory = $($server.PhysicalMemory) / 2
 
 
 
-Invoke-Sqlcmd -Database Master -Query &quot;EXEC sp_configure'Show Advanced Options',1;RECONFIGURE;&quot;
+Invoke-Sqlcmd -Database Master -Query &#34;EXEC sp_configure&#39;Show Advanced Options&#39;,1;RECONFIGURE;&#34;
 
-Invoke-Sqlcmd -Database Master -Query &quot;EXEC sp_configure'max server memory (MB)',$MaxMemory;RECONFIGURE;&quot;
+Invoke-Sqlcmd -Database Master -Query &#34;EXEC sp_configure&#39;max server memory (MB)&#39;,$MaxMemory;RECONFIGURE;&#34;
 
-Invoke-Sqlcmd -Database Master -Query &quot;EXEC sp_configure'min server memory (MB)',$MinMemory;RECONFIGURE;&quot;
+Invoke-Sqlcmd -Database Master -Query &#34;EXEC sp_configure&#39;min server memory (MB)&#39;,$MinMemory;RECONFIGURE;&#34;
 
 
 
 #End Configure SQL, all SQL servers
 
 #######################################################################################################
-
 </code></pre><p>Now at this point you should have a generic SQL server setup and ready to patch / hand off. If you want to setup an AAG, continue following along.</p>
 <p>To get the AAG setup, we need a cluster first. So let’s install the clustering feature on both nodes.</p>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;&lt;/strong&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;&lt;/strong&gt;
 
 #######################################################################################################
 
@@ -1197,7 +1196,6 @@ Install-WindowsFeature -Name Failover-Clustering –IncludeManagementTools
 #END Install Cluster feature
 
 #######################################################################################################
-
 </code></pre><p>Now that we have the cluster installed, you only need to run this next step from NODE 1. Whenever there is a task going forward that only needs to be done on a singular node, I do it on node 1.</p>
 <p>Here is what we’re doing.</p>
 <ol>
@@ -1207,7 +1205,7 @@ Install-WindowsFeature -Name Failover-Clustering –IncludeManagementTools
 <li>Now the next step is to stop the cluster. Listen up here, this is important. As you’ll see in the code comment, you need to take the newly created CCR / CNO and add it to the same AD group you put the cluster nodes into. This way the cluster has rights to create SQL listeners. If you don’t do this, creating the SQL listeners will fail. Once you’ve done that. Wait like 15 seconds are so before proceeding to the next step.</li>
 <li>Now we’re going to finally start up the cluster nodes. They should inherit the rights you assigned them in step 4.</li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -1235,13 +1233,13 @@ New-Item -Path $filesharewitness -ItemType Container
 
 #Set file share permissions
 
-Start-Process -FilePath &quot;icacls.exe&quot; -ArgumentList &quot;&quot;&quot;$filesharewitness&quot;&quot; /grant &quot;&quot;YOURDOMAINHERE\$ClusterCNO$&quot;&quot;:(OI)(CI)(F) /C&quot; -NoNewWindow -Wait
+Start-Process -FilePath &#34;icacls.exe&#34; -ArgumentList &#34;&#34;&#34;$filesharewitness&#34;&#34; /grant &#34;&#34;YOURDOMAINHERE\$ClusterCNO$&#34;&#34;:(OI)(CI)(F) /C&#34; -NoNewWindow -Wait
 
 
 
 #Set quorum for the cluster
 
-#Note 1: This is for AAG's only, if you are setting up a traditional cluster, you'll need to setup a disk based quorum
+#Note 1: This is for AAG&#39;s only, if you are setting up a traditional cluster, you&#39;ll need to setup a disk based quorum
 
 Set-ClusterQuorum –NodeAndFileShareMajority $filesharewitness
 
@@ -1270,9 +1268,8 @@ Get-Service -Name ClusSvc -ComputerName $node2 | Start-Service
 #END Setup and configure cluster (only one node)
 
 #######################################################################################################
-
 </code></pre><p>Run this next step on both nodes again. This enabled the SQL AAG’s on both nodes.</p>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -1293,7 +1290,6 @@ Enable-SqlAlwaysOn -ServerInstance $($env:ComputerName) -Confirm:$false -NoServi
 #End Enable SQL AAG, AAG only
 
 #######################################################################################################
-
 </code></pre><p>Now, until mentioned otherwise, we’re back to only running these steps from a single node. Again, I’m going to run these from node 1. If you only have a need for one aag, then only run the “1”. If you need 2, then run the 1 + 2 sections. If you’re in IT, I probably shouldn’t need to explain this to you.</p>
 <p>Also, just wanted to state again, most of these steps were copied from Edwins blog post, he gets most of the credit here not me. I fill in a few of the blanks that he didn’t, like backing up the DB’s, seeding settings, etc.</p>
 <p>Here is what we’re doing.</p>
@@ -1302,7 +1298,7 @@ Enable-SqlAlwaysOn -ServerInstance $($env:ComputerName) -Confirm:$false -NoServi
 <li>Now we make sure the backup share has our folder created. In my case, the service accounts have rights to this location already, because we took care of that in the prerequisites, and so did you… right?</li>
 <li>In order to use the newly created DB, we need to back it up, so that’s what we do next.</li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -1366,7 +1362,7 @@ New-Item -Path $BackupSharePath -ItemType Container
 
 
 
-#Now we need to backup all of the newly created DB's
+#Now we need to backup all of the newly created DB&#39;s
 
 Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB1Name -BackupFile $TestDB1FullPath
 
@@ -1381,7 +1377,6 @@ Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB4Name -Back
 #END Prepare SQL for new AAG (only one node)
 
 #######################################################################################################
-
 </code></pre><p>Now, the next steps are where we setup the AAG’s. There are two main sections. One where you setup older AAG’s like SQL 2012 / 2014. This is commented out right now. The next section is for SQL 2017, where we’re utilizing SQL’s newer seeding technique, which I like a lot better.</p>
 <p>Again, a lot of this was copied from Edwins post, I simply did things like use variables, and filled in blanks related to backing up / restoring, etc.</p>
 <p>The basic steps that are similar for non-seeded AAG’s and seeded AAG’s.</p>
@@ -1401,17 +1396,17 @@ Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB4Name -Back
 <li>Now we add the DB you backed up to node 1 and it should automatically have replicated to node 2</li>
 <li>Then we finally create the SQL listener and we’re done.</li>
 </ol>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 #######################################################################################################
 #Setup the AAG (only one node)
 
 #Create the endpoints for each SQL AAG replica
-New-SqlHADREndpoint -Path &quot;SQLSERVER:\SQL\$($node1)\Default&quot; -Name $($SQLAAGEndPointName) -Port 5022 -EncryptionAlgorithm Aes -Encryption Required
-New-SqlHADREndpoint -Path &quot;SQLSERVER:\SQL\$($node2)\Default&quot; -Name $($SQLAAGEndPointName) -Port 5022 -EncryptionAlgorithm Aes -Encryption Required
+New-SqlHADREndpoint -Path &#34;SQLSERVER:\SQL\$($node1)\Default&#34; -Name $($SQLAAGEndPointName) -Port 5022 -EncryptionAlgorithm Aes -Encryption Required
+New-SqlHADREndpoint -Path &#34;SQLSERVER:\SQL\$($node2)\Default&#34; -Name $($SQLAAGEndPointName) -Port 5022 -EncryptionAlgorithm Aes -Encryption Required
 
 #Stare the endpoints for each AAG replica
-Set-SqlHADREndpoint -Path &quot;SQLSERVER:\SQL\$($node1)\Default\Endpoints\$($SQLAAGEndPointName)&quot; -State Started
-Set-SqlHADREndpoint -Path &quot;SQLSERVER:\SQL\$($node2)\Default\Endpoints\$($SQLAAGEndPointName)&quot; -State Started
+Set-SqlHADREndpoint -Path &#34;SQLSERVER:\SQL\$($node1)\Default\Endpoints\$($SQLAAGEndPointName)&#34; -State Started
+Set-SqlHADREndpoint -Path &#34;SQLSERVER:\SQL\$($node2)\Default\Endpoints\$($SQLAAGEndPointName)&#34; -State Started
 
 #Create a SQL login for the SQL service account so each server can connect to each other.
 $createLogin = “CREATE LOGIN [$($sqlserviceuser)] FROM WINDOWS;”
@@ -1423,19 +1418,19 @@ Invoke-SqlCmd -ServerInstance $($node2) -Query $grantConnectPermissions
 
 #Create replicas
 
-##########This is for non-seeded AAG's (traditional backup / restore AAGs)
+##########This is for non-seeded AAG&#39;s (traditional backup / restore AAGs)
 
 #Create the replicas
-$primaryReplica = New-SqlAvailabilityReplica -Name $($node1) -EndpointUrl “TCP://$($node1).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode 'Automatic' -AsTemplate -Version $SQLObject.version
-$secondaryReplica = New-SqlAvailabilityReplica -Name $($node2) -EndpointUrl “TCP://$($node2).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode 'Automatic' -AsTemplate -Version $SQLObject.version
+$primaryReplica = New-SqlAvailabilityReplica -Name $($node1) -EndpointUrl “TCP://$($node1).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode &#39;Automatic&#39; -AsTemplate -Version $SQLObject.version
+$secondaryReplica = New-SqlAvailabilityReplica -Name $($node2) -EndpointUrl “TCP://$($node2).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode &#39;Automatic&#39; -AsTemplate -Version $SQLObject.version
 
-#Buildthe AAG's
+#Buildthe AAG&#39;s
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG1Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -Database $DB1Name -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG2Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -Database $DB2Name -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG3Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -Database $DB3Name -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG4Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -Database $DB4Name -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
 
-#Now we need to backup all db's (both full and log)
+#Now we need to backup all db&#39;s (both full and log)
 Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB1Name -BackupFile $TestDB1FullPath
 Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB2Name -BackupFile $TestDB2FullPath
 Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB3Name -BackupFile $TestDB3FullPath
@@ -1446,30 +1441,30 @@ Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB2Name -Back
 Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB3Name -BackupFile $TestLog3FullPath -BackupAction Log
 Backup-SqlDatabase -ServerInstance $($env:ComputerName) -database $DB4Name -BackupFile $TestLog4FullPath -BackupAction Log
 
-#Now we need to restore the DB's
+#Now we need to restore the DB&#39;s
 Restore-SqlDatabase -Database $DB1Name -BackupFile $TestDB1FullPath -ServerInstance $($node2) -NoRecovery
 Restore-SqlDatabase -Database $DB2Name -BackupFile $TestDB2FullPath -ServerInstance $($node2) -NoRecovery
 Restore-SqlDatabase -Database $DB3Name -BackupFile $TestDB3FullPath -ServerInstance $($node2) -NoRecovery
 Restore-SqlDatabase -Database $DB4Name -BackupFile $TestDB4FullPath -ServerInstance $($node2) -NoRecovery
 
-Restore-SqlDatabase -Database $DB1Name -BackupFile $TestLog1FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction 'Log'
-Restore-SqlDatabase -Database $DB2Name -BackupFile $TestLog2FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction 'Log'
-Restore-SqlDatabase -Database $DB3Name -BackupFile $TestLog3FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction 'Log'
-Restore-SqlDatabase -Database $DB4Name -BackupFile $TestLog4FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction 'Log'
+Restore-SqlDatabase -Database $DB1Name -BackupFile $TestLog1FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction &#39;Log&#39;
+Restore-SqlDatabase -Database $DB2Name -BackupFile $TestLog2FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction &#39;Log&#39;
+Restore-SqlDatabase -Database $DB3Name -BackupFile $TestLog3FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction &#39;Log&#39;
+Restore-SqlDatabase -Database $DB4Name -BackupFile $TestLog4FullPath -ServerInstance $($node2) -NoRecovery -RestoreAction &#39;Log&#39;
 
 #Now we need to join the secondary nodes copy of the DB to the AAG
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node2)\Default\AvailabilityGroups\$($AAG1Name)&quot; -Database $DB1Name
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node2)\default\AvailabilityGroups\$($AAG2Name)&quot; -Database $DB2Name
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node2)\default\AvailabilityGroups\$($AAG3Name)&quot; -Database $DB3Name
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node2)\default\AvailabilityGroups\$($AAG4Name)&quot; -Database $DB4Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node2)\Default\AvailabilityGroups\$($AAG1Name)&#34; -Database $DB1Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node2)\default\AvailabilityGroups\$($AAG2Name)&#34; -Database $DB2Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node2)\default\AvailabilityGroups\$($AAG3Name)&#34; -Database $DB3Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node2)\default\AvailabilityGroups\$($AAG4Name)&#34; -Database $DB4Name
 
-########## END This is for non-seeded AAG's (traditional backup / restore AAGs)
+########## END This is for non-seeded AAG&#39;s (traditional backup / restore AAGs)
 
-#This is for seeded DB's, which is what we're doing in SQL 2017+
+#This is for seeded DB&#39;s, which is what we&#39;re doing in SQL 2017+
 
-#Create the replica's
-$primaryReplica = New-SqlAvailabilityReplica -Name $($node1) -EndpointUrl “TCP://$($node1).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode 'Automatic' -AsTemplate -Version $SQLObject.version -SeedingMode Automatic
-$secondaryReplica = New-SqlAvailabilityReplica -Name $($node2) -EndpointUrl “TCP://$($node2).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode 'Automatic' -AsTemplate -Version $SQLObject.version -SeedingMode Automatic
+#Create the replica&#39;s
+$primaryReplica = New-SqlAvailabilityReplica -Name $($node1) -EndpointUrl “TCP://$($node1).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode &#39;Automatic&#39; -AsTemplate -Version $SQLObject.version -SeedingMode Automatic
+$secondaryReplica = New-SqlAvailabilityReplica -Name $($node2) -EndpointUrl “TCP://$($node2).YOURDOMAINHERE.local:5022” -AvailabilityMode “SynchronousCommit” -FailoverMode &#39;Automatic&#39; -AsTemplate -Version $SQLObject.version -SeedingMode Automatic
 
 #Create the AAG
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG1Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
@@ -1477,17 +1472,17 @@ New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG2Name -AvailabilityRep
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG3Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
 New-SqlAvailabilityGroup -InputObject $($node1) -Name $AAG4Name -AvailabilityReplica ($primaryReplica, $secondaryReplica) -DtcSupportEnabled -DatabaseHealthTrigger -ClusterType Wsfc
 
-#Join secondary node to the AAG's
+#Join secondary node to the AAG&#39;s
 Join-SqlAvailabilityGroup -Path “SQLSERVER:\SQL\$($node2)\Default” -Name $AAG1Name
 Join-SqlAvailabilityGroup -Path “SQLSERVER:\SQL\$($node2)\Default” -Name $AAG2Name
 Join-SqlAvailabilityGroup -Path “SQLSERVER:\SQL\$($node2)\Default” -Name $AAG3Name
 Join-SqlAvailabilityGroup -Path “SQLSERVER:\SQL\$($node2)\Default” -Name $AAG4Name
 
 #Grant the AAG the rights to create a DB (only needed for seeding mode)
-$AAG1CreateCommand = &quot;ALTER AVAILABILITY GROUP [$($AAG1Name)] GRANT CREATE ANY DATABASE&quot;
-$AAG2CreateCommand = &quot;ALTER AVAILABILITY GROUP [$($AAG2Name)] GRANT CREATE ANY DATABASE&quot;
-$AAG3CreateCommand = &quot;ALTER AVAILABILITY GROUP [$($AAG3Name)] GRANT CREATE ANY DATABASE&quot;
-$AAG4CreateCommand = &quot;ALTER AVAILABILITY GROUP [$($AAG4Name)] GRANT CREATE ANY DATABASE&quot;
+$AAG1CreateCommand = &#34;ALTER AVAILABILITY GROUP [$($AAG1Name)] GRANT CREATE ANY DATABASE&#34;
+$AAG2CreateCommand = &#34;ALTER AVAILABILITY GROUP [$($AAG2Name)] GRANT CREATE ANY DATABASE&#34;
+$AAG3CreateCommand = &#34;ALTER AVAILABILITY GROUP [$($AAG3Name)] GRANT CREATE ANY DATABASE&#34;
+$AAG4CreateCommand = &#34;ALTER AVAILABILITY GROUP [$($AAG4Name)] GRANT CREATE ANY DATABASE&#34;
 
 Invoke-SqlCmd -ServerInstance $($node1) -Query $AAG1CreateCommand
 Invoke-SqlCmd -ServerInstance $($node2) -Query $AAG1CreateCommand
@@ -1502,22 +1497,21 @@ Invoke-SqlCmd -ServerInstance $($node1) -Query $AAG4CreateCommand
 Invoke-SqlCmd -ServerInstance $($node2) -Query $AAG4CreateCommand
 
 #Now we need to join the primary nodes copy of the DB to the AAG
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node1)\Default\AvailabilityGroups\$($AAG1Name)&quot; -Database $DB1Name
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node1)\default\AvailabilityGroups\$($AAG2Name)&quot; -Database $DB2Name
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node1)\default\AvailabilityGroups\$($AAG3Name)&quot; -Database $DB3Name
-Add-SqlAvailabilityDatabase -Path &quot;SQLSERVER:\SQL\$($node1)\default\AvailabilityGroups\$($AAG4Name)&quot; -Database $DB4Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node1)\Default\AvailabilityGroups\$($AAG1Name)&#34; -Database $DB1Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node1)\default\AvailabilityGroups\$($AAG2Name)&#34; -Database $DB2Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node1)\default\AvailabilityGroups\$($AAG3Name)&#34; -Database $DB3Name
+Add-SqlAvailabilityDatabase -Path &#34;SQLSERVER:\SQL\$($node1)\default\AvailabilityGroups\$($AAG4Name)&#34; -Database $DB4Name
 
-#Now we need to setup the listners (for both seeded and non-seeded AAG's)
-New-SqlAvailabilityGroupListener -Name $($AAG1Name) -staticIP $AAG1IP -Port 1433 -Path &quot;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG1Name)&quot;
-New-SqlAvailabilityGroupListener -Name $($AAG2Name) -staticIP $AAG2IP -Port 1433 -Path &quot;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG2Name)&quot;
-New-SqlAvailabilityGroupListener -Name $($AAG3Name) -staticIP $AAG3IP -Port 1433 -Path &quot;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG3Name)&quot;
-New-SqlAvailabilityGroupListener -Name $($AAG4Name) -staticIP $AAG4IP -Port 1433 -Path &quot;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG4Name)&quot;
+#Now we need to setup the listners (for both seeded and non-seeded AAG&#39;s)
+New-SqlAvailabilityGroupListener -Name $($AAG1Name) -staticIP $AAG1IP -Port 1433 -Path &#34;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG1Name)&#34;
+New-SqlAvailabilityGroupListener -Name $($AAG2Name) -staticIP $AAG2IP -Port 1433 -Path &#34;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG2Name)&#34;
+New-SqlAvailabilityGroupListener -Name $($AAG3Name) -staticIP $AAG3IP -Port 1433 -Path &#34;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG3Name)&#34;
+New-SqlAvailabilityGroupListener -Name $($AAG4Name) -staticIP $AAG4IP -Port 1433 -Path &#34;SQLSERVER:\SQL\$($node1)\DEFAULT\AvailabilityGroups\$($AAG4Name)&#34;
 
 #End Setup the AAG (only one node)
 #######################################################################################################
-
 </code></pre><p>Finally, we need to fix the SQL listeners so that it only registers one IP address per site, and test the cluster for Microsoft support. Again, you only need to run this from one node.</p>
-<pre tabindex="0"><code>&lt;pre class=&quot;brush: powershell; title: ; notranslate&quot; title=&quot;&quot;&gt;
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
 
 #######################################################################################################
 
@@ -1527,13 +1521,13 @@ New-SqlAvailabilityGroupListener -Name $($AAG4Name) -staticIP $AAG4IP -Port 1433
 
 #Fix cluster multi-subnet SQL listner setting
 
-$ClusterResource = Get-ClusterResource | Where-Object {$_.ResourceType -eq &quot;network name&quot; -and $_.ownergroup -ne &quot;Cluster Group&quot;}
+$ClusterResource = Get-ClusterResource | Where-Object {$_.ResourceType -eq &#34;network name&#34; -and $_.ownergroup -ne &#34;Cluster Group&#34;}
 
 $ClusterResource | Set-ClusterParameter -Create RegisterAllProvidersIP 0
 
 $ClusterResource | ForEach-Object {Stop-ClusterResource -Name $_.Name}
 
-Get-ClusterResource | Where-Object {$_.ResourceType -eq &quot;SQL Server Availability Group&quot;} | foreach-object {Start-ClusterResource -Name $_.Name}
+Get-ClusterResource | Where-Object {$_.ResourceType -eq &#34;SQL Server Availability Group&#34;} | foreach-object {Start-ClusterResource -Name $_.Name}
 
 
 
@@ -1546,20 +1540,20 @@ Test-Cluster
 #END Fix cluster setting and test cluster post AAG(only one node)
 
 #######################################################################################################
-
 </code></pre><h1 id="conclusion">Conclusion:<a class="anchor ms-1" href="#conclusion"><i class="fas fa-link"></i></a></h1>
 <p>That’s all I have. I know it’s a big post, I know it’s probably a little hard to follow along, but hopefully you’ve gleaned something from this. I’ve taken a SQL server setup from a day, down to only a few hours with this script. Most of that time BTW is waiting for SQL to install and completing the prep work. I know it’s a lot to take in, so if you have any questions, leave them in the comments.</p>
 <p>Also, I hope to have that local GPO function published this week or at the latest January.</p>
-<p>One last thing, I know the formatting is a bit hard to read on a blog. <a href="http://www.ericcsinger.com/wp-content/uploads/2017/12/SQL-Powershell-Setup.txt" target="_blank" rel="noopener noreferrer">SQL Powershell Setup</a> I have the txt version of the PS script for you here.</p>
+<p>One last thing, I know the formatting is a bit hard to read on a blog. <a href="http://www.ericcsinger.com/wp-content/uploads/2017/12/SQL-Powershell-Setup.txt" target="_blank" rel="noopener noreferrer">SQL Powershell Setup<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ I have the txt version of the PS script for you here.</p>
 </div></div>
   <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
-    <i class="fas fa-fw fa-chevron-left"></i>
-    <a href="http://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/">Review: 5 years virtualizing Microsoft SQL Server
+    <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
+    <a href="https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/">Review: 5 years virtualizing Microsoft SQL Server
 </a>
   </div><div class="post-nav post-next">
-    <a href="http://ericcsinger.com/vmware-drs-default-memory-load-balancing/">VMware DRS default memory load balancing
+    <a href="https://ericcsinger.com/vmware-drs-default-memory-load-balancing/">VMware DRS default memory load balancing
 </a>
-    <i class="fas fa-fw fa-chevron-right"></i>
+    <i class="fas fa-fw fa-chevron-circle-down post-next-icon" data-fa-transform="rotate-270"></i>
   </div></div></div>
 </article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
@@ -1588,13 +1582,15 @@ Test-Cluster
 </div><aside class="col-lg-4 sidebar d-flex">
   <div class="container d-flex flex-column">
     
-    <section class="card row text-center profile component">
+    <div class="card row text-center profile component">
   <div class="card-body">
-    <div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="http://ericcsinger.com/about/headshot.webp" loading="lazy"
-   width="2316" height="3088"
-   />
+    <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible
+    
+     width="2316" height="3088"
+     />
+</picture>
 </div>
-    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="http://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
         <i class="fa-fw fa-2x fab fa-github"></i>
       </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
         <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
@@ -1602,109 +1598,132 @@ Test-Cluster
         <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
       </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
         <i class="fa-fw fa-2x fab fa-twitter"></i>
-      </a></nav>
+      </a><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
 </div>
   </div>
-</section>
-  <section class="recent-posts row card component">
+</div>
+<section class="recent-posts row card component">
   <div class="card-header">
     <h2 class="card-title">Recent Posts</h2>
   </div>
   <div class="card-body">
     <ul class="post-list"><li>
-        <a href="http://ericcsinger.com/iac-creativity-introduction/">IaC Creativity: Introduction
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
 </a>
       </li><li>
-        <a href="http://ericcsinger.com/microsofts-biggest-security-failure/">Microsoft&#39;s Biggest Security Failure
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
 </a>
       </li><li>
-        <a href="http://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+        <a href="https://ericcsinger.com/iac-creativity-introduction/">IaC Creativity: Introduction
 </a>
       </li><li>
-        <a href="http://ericcsinger.com/powershell-remove-a-failed-domain-controller/">PowerShell: Remove a failed domain controller
+        <a href="https://ericcsinger.com/microsofts-biggest-security-failure/">Microsoft&#39;s Biggest Security Failure
 </a>
       </li><li>
-        <a href="http://ericcsinger.com/rdp-an-internal-error-has-occurred/">RDP: An internal error has occurred
+        <a href="https://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
 </a>
       </li></ul>
   </div>
 </section><section class="tags-taxonomies row card component">
       <div class="card-header">
         <h2 class="card-title">
-          <a href="http://ericcsinger.com/tags">Tags</a>
+          <a href="https://ericcsinger.com/tags">Tags</a>
         </h2>
       </div>
       <div class="card-body">
-        <div class="py-2"><a href="http://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
-            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="http://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
-            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="http://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
-            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
-            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
-            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
-            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
-            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="http://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
-            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
-            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
-            automation<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
-            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
-            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
-            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
-            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
-            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
-            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
-            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
-            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
-            Azure<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
-            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
-            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/dell/" class="badge rounded post-taxonomy" title="dell">
-            dell<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/exchange/" class="badge rounded post-taxonomy" title="exchange">
-            exchange<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/hci/" class="badge rounded post-taxonomy" title="HCI">
-            HCI<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="http://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
-            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+        <div class="py-2"><a href="https://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="https://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
+            Azure<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
+            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/arm/" class="badge rounded post-taxonomy" title="arm">
+            arm<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/bicep/" class="badge rounded post-taxonomy" title="bicep">
+            bicep<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/iac/" class="badge rounded post-taxonomy" title="IaC">
+            IaC<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags" class="badge rounded post-taxonomy" title='ALL'>
+          ALL
+          <span class="badge badge-sm text-white bg-accent ms-1">59</span>
+        </a></div>
       </div>
     </section><section class="categories-taxonomies row card component">
       <div class="card-header">
         <h2 class="card-title">
-          <a href="http://ericcsinger.com/categories">Categories</a>
+          <a href="https://ericcsinger.com/categories">Categories</a>
         </h2>
       </div>
       <div class="card-body">
-        <div class="py-2"><a href="http://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
-            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="http://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
-            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="http://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
-            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
-            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="http://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
-            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="http://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
-            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
-            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
-            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="http://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
+        <div class="py-2"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
+            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="https://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
+            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
+            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
+            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
+            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
             servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
       </div>
     </section><section class="series-taxonomies row card component">
       <div class="card-header">
         <h2 class="card-title">
-          <a href="http://ericcsinger.com/series">Series</a>
+          <a href="https://ericcsinger.com/series">Series</a>
         </h2>
       </div>
       <div class="card-body">
-        <div class="py-2"><a href="http://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
-            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="http://ericcsinger.com/series/iac-creativity/" class="badge rounded post-taxonomy" title="IaC Creativity">
-            IaC Creativity<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
+        <div class="py-2"><a href="https://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
+            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge rounded post-taxonomy" title="Azure Bicep Conditional Properties">
+            Azure Bicep Conditional Properties<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
       </div>
-    </section>
+    </section><section class="row card component">
+    <div class="card-header">
+      <h2 class="card-title">Archives</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list">
+        <li>2022(2)</li>
+        <li>2021(3)</li>
+        <li>2020(4)</li>
+        <li>2019(7)</li>
+        <li>2018(7)</li>
+        <li>2017(17)</li>
+        <li>2016(17)</li>
+        <li>2015(16)</li>
+      </ul>
+    </div>
+</section>
     
   </div>
 </aside>
 </div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"></nav>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
 <div class="copyright mb-2">
   ©2022, Eric C. Singer
 </div>
 <div class="powered-by mb-2">
   Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
 </div></footer>
-<script src="http://ericcsinger.com/js/main.13905e4ec3071a5b5a88bf7350a6574e53573c580c8896dd804a44d99e480e32.js" integrity="sha256-E5BeTsMHGltaiL9zUKZXTlNXPFgMiJbdgEpE2Z5IDjI=" crossorigin="anonymous" defer></script><script src="http://ericcsinger.com/js/icons.min.8ddcaafc364ff0296c2209c5495287f0de039b852da9b24847f94c198b7639b6.js" integrity="sha256-jdyq/DZP8ClsIgnFSVKH8N4Dm4UtqbJIR/lMGYt2ObY=" crossorigin="anonymous" defer></script>
-<script src="http://ericcsinger.com/js/viewer.min.652118a9fbf3403cdfde4026209f97ace22f9e334f0b45a33431a221b3db46a8.js" integrity="sha256-ZSEYqfvzQDzf3kAmIJ&#43;XrOIvnjNPC0WjNDGiIbPbRqg=" crossorigin="anonymous" defer></script><script defer src="http://ericcsinger.com/js/katex.min.a575e93a07f02f7e58ee9002aea3b4e75163d4fa8ea3a627e90e7fafd5c718fa.js" integrity="sha256-pXXpOgfwL35Y7pACrqO051Fj1PqOo6Yn6Q5/r9XHGPo=" crossorigin="anonymous"></script>
+<script src="https://ericcsinger.com/assets/main/bundle.min.69dd265b7b270a75f0d2ce19f594093d378399295fba2b2234fd081bd7ce1d55.js" integrity="sha256-ad0mW3snCnXw0s4Z9ZQJPTeDmSlfuisiNP0IG9fOHVU=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.bfb722e9ecdba11fdaece2d3d9e7da457ad9d980216913567b7d92a092522be5.js" integrity="sha256-v7ci6ezboR/a7OLT2efaRXrZ2YAhaRNWe32SoJJSK&#43;U=" crossorigin="anonymous" defer></script>
+<script src="https://ericcsinger.com/assets/viewer/bundle.min.8a04279f4c01c6129efc48d87356904980c31656ec5a60da26fb51a1d784e1e2.js" integrity="sha256-igQnn0wBxhKe/EjYc1aQSYDDFlbsWmDaJvtRodeE4eI=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.5d4e21071a95ce5b1f635fc99cc98e30d14b157ff223fb4f76117fdf4029c3a5.js" integrity="sha256-XU4hBxqVzlsfY1/JnMmOMNFLFX/yI/tPdhF/30Apw6U=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;

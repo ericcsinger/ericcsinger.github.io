@@ -1,0 +1,758 @@
+<!doctype html><html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="en"
+  
+   data-palette="blue"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure Bicep Conditional Properties Part 02, Parameters - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="https://ericcsinger.com/manifest.json">
+<meta name="keywords" content="iac, azure, bicep, arm, automation, microsoft, deployment" />
+<meta name="description" content="Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this." /><meta itemprop="name" content="Azure Bicep Conditional Properties Part 02, Parameters">
+<meta itemprop="description" content="Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this."><meta itemprop="datePublished" content="2022-08-21T13:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-08-21T13:00:00+00:00" />
+<meta itemprop="wordCount" content="1351">
+<meta itemprop="keywords" content="arm,automation,azure,bicep,IaC,microsoft," /><meta property="og:title" content="Azure Bicep Conditional Properties Part 02, Parameters" />
+<meta property="og:description" content="Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-21T13:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-21T13:00:00+00:00" />
+<meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Azure Bicep Conditional Properties Part 02, Parameters"/>
+<meta name="twitter:description" content="Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this."/>
+
+<link rel="stylesheet" href="https://ericcsinger.com/assets/main/bundle.min.e6db9af00d2fec196e812d3df0ec971c50d590f26e91631f9dde7678f1aa9bce.css" integrity="sha256-5tua8A0v7BlugS098OyXHFDVkPJukWMfnd52ePGqm84=" crossorigin="anonymous"><link rel="stylesheet" href="https://ericcsinger.com/assets/katex/bundle.min.c7738aed5534d96f5c4eb1790af05b44a2ca1cc7d0cb6d5de1dcf95595d3f91a.css" integrity="sha256-x3OK7VU02W9cTrF5CvBbRKLKHMfQy21d4dz5VZXT&#43;Ro=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ericcsinger.com/assets/viewer/bundle.min.05d84cef8ecf0f936293c62c90ebe16275bf8f5f5649297e1a4338e63676ba2b.css" integrity="sha256-BdhM747PD5Nik8YskOvhYnW/j19WSSl&#43;GkM45jZ2uis=" crossorigin="anonymous"></head>
+  <body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="https://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Azure%20Bicep%20Conditional%20Properties%20Part%2002%2c%20Parameters&url=https%3a%2f%2fericcsinger.com%2fazure-bicep-conditional-properties-part-02-parameters%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fazure-bicep-conditional-properties-part-02-parameters%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<div class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</div>
+<div class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></div>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="https://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="https://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Azure Bicep Conditional Properties Part 02, Parameters</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-sticky">
+  <div class="d-flex flex-column component rounded post-panel position-absolute">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    <a class="action" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Azure Bicep Conditional Properties Part 02, Parameters
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2022-08-21 09:00:00 -0400 EDT.">
+    Sun, 21 Aug 2022 13:00:00 &#43;0000
+  </span><span class="post-reading-time">
+    7 min read
+  </span><span class="post-taxonomies"><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge post-taxonomy">Azure Bicep Conditional Properties</a><a href="https://ericcsinger.com/tags/arm/" class="badge post-taxonomy">arm</a><a href="https://ericcsinger.com/tags/automation/" class="badge post-taxonomy">automation</a><a href="https://ericcsinger.com/tags/azure/" class="badge post-taxonomy">Azure</a><a href="https://ericcsinger.com/tags/bicep/" class="badge post-taxonomy">bicep</a><a href="https://ericcsinger.com/tags/iac/" class="badge post-taxonomy">IaC</a><a href="https://ericcsinger.com/tags/microsoft/" class="badge post-taxonomy">Microsoft</a></span>
+</div>
+<div class="post-content mb-3"><p><em>Version: 1.0.0</em></p>
+<h2 id="series-introduction">Series Introduction<a class="anchor ms-1" href="#series-introduction"><i class="fas fa-link"></i></a></h2>
+<p>Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties.  Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively.  At least not as of yet.  I was surprised when writing this, to not see a whole lot of articles showing how work around this.</p>
+<p>In this series, I&rsquo;m going to show you a few ways you can work a round this.  All of them are convoluted, but they do work.  Each one will have pros and cons, and it will be up to you determine which one you like best.  Of course, you don&rsquo;t have to stick to one or other.  Like most things in technology, use what works best in your situation.</p>
+<h3 id="series-index">Series Index<a class="anchor ms-1" href="#series-index"><i class="fas fa-link"></i></a></h3>
+<ul>
+<li><a href="/azure-bicep-conditional-properties-part-01-introduction">Part 01, Introduction</a>
+</li>
+<li><a href="/azure-bicep-conditional-properties-part-02-parameters">Part 02, Parameters</a>
+</li>
+</ul>
+<h3 id="series-demo-setup">Series Demo Setup<a class="anchor ms-1" href="#series-demo-setup"><i class="fas fa-link"></i></a></h3>
+<p>In this series demo, I&rsquo;ll show you how I solved the issue with conditional properties in the virtual network &ldquo;subnet&rdquo; properties.  This was a particularly challenging one as it&rsquo;s an array of objects.  I chose this for our series example to show you how to handle conditional properties in more complex scenarios.</p>
+<p>Throughout this series, we&rsquo;ll use a common set of files to demonstrate both working and non-working examples.  The contents of the files will change throughout each post, so I would suggest creating a folder structure that looks something like this.</p>
+<ul>
+<li>Root Directory
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+<p>You can store a copy of the files used in the demo in each folder.  This will allow you to walk through each option, and go back to previous posts if you need to review.</p>
+<h2 id="article-introduction">Article Introduction<a class="anchor ms-1" href="#article-introduction"><i class="fas fa-link"></i></a></h2>
+<p>You may or may not have noticed I&rsquo;m utilizing a PowerShell script as a parameters file.  This is something I do for just about any type of configuration that I&rsquo;ll be consuming / executing with PowerShell.  While I could probably extol all the great virtues of why a scripting language can make an excellent configuration file.  A great blog post by Sedat Kapanoglu <a href="https://ssg.dev/powershell-accidentally-created-a-nice-configuration-format-3efde5448090" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ already handles that.   Instead, I will preface this by saying, you don&rsquo;t have to limit yourself to PowerShell.  If you prefer Python, Perl, BaSH, etc., it doesn&rsquo;t matter.  The point here is to have something that can dynamically generate a hashtable object, or a raw JSON file which can be consumed by Azure&rsquo;s deployment command.</p>
+<p>What we&rsquo;re going to show here, is how we can get rid of those properties we&rsquo;re not using.  That&rsquo;s the ultimate solution being proposed in this article.  That is, have a perfectly crafted set of parameters which can be executed without any Bicep tricks.  Above, I explained I&rsquo;m utilizing a scripting language to handle this.  However, if you&rsquo;re more of a purest.  You could solve this with some find / replace functionality as well.</p>
+<h2 id="article-demo-setup">Article Demo Setup<a class="anchor ms-1" href="#article-demo-setup"><i class="fas fa-link"></i></a></h2>
+<p>For this article, you will need the following files.</p>
+<ul>
+<li>parameters.ps1: This file is used to define / generate our deployment parameters.</li>
+<li>template.bicep: This file is the main bicep template that consumes the deployment parameters and ultimately executes the deployment.</li>
+<li>deploy.ps1:  This file is used to execute the deployment.</li>
+</ul>
+<p>You can find the snippets of each file below.  Keep in mind, these might change from article to article, so I suggest overwriting your local copies if you&rsquo;re following along.</p>
+<h3 id="parametersps1">parameters.ps1<a class="anchor ms-1" href="#parametersps1"><i class="fas fa-link"></i></a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Parameters</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">CmdletBinding</span>()]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$TeamName = <span style="color:#e6db74">&#39;team1&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Parameters</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Variables</span>
+</span></span><span style="display:flex;"><span>$networkPrefix = <span style="color:#e6db74">&#34;10.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$googleDNSServer = @{
+</span></span><span style="display:flex;"><span>    dhcpOptions = @{
+</span></span><span style="display:flex;"><span>        dnsServers = @(
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;8.8.8.8&#39;</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#########################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: allSubnets</span>
+</span></span><span style="display:flex;"><span>$allSubnets = @(
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#########################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: GatewaySubnet</span>
+</span></span><span style="display:flex;"><span>    @{
+</span></span><span style="display:flex;"><span>    name = <span style="color:#e6db74">&#34;GatewaySubnet&#34;</span>
+</span></span><span style="display:flex;"><span>    properties = @{
+</span></span><span style="display:flex;"><span>        addressPrefix = <span style="color:#e6db74">&#34;</span>$($networkPrefix)<span style="color:#e6db74">.0.0/24&#34;</span>
+</span></span><span style="display:flex;"><span>        applicationGatewayIpConfigurations = @()
+</span></span><span style="display:flex;"><span>        delegations = @()
+</span></span><span style="display:flex;"><span>        natGateway = @()
+</span></span><span style="display:flex;"><span>        networkSecurityGroup = @{}
+</span></span><span style="display:flex;"><span>        privateEndpointNetworkPolicies = <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>        privateLinkServiceNetworkPolicies = <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>        routeTable= @{}
+</span></span><span style="display:flex;"><span>        serviceEndpointPolicies = @()
+</span></span><span style="display:flex;"><span>        serviceEndpoints = @()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END: GatewaySubnet</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#########################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#########################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: webFarmSubnet</span>
+</span></span><span style="display:flex;"><span>    @{
+</span></span><span style="display:flex;"><span>    name = <span style="color:#e6db74">&#34;webFarm1&#34;</span>
+</span></span><span style="display:flex;"><span>    properties = @{
+</span></span><span style="display:flex;"><span>        addressPrefix = <span style="color:#e6db74">&#34;</span>$($networkPrefix)<span style="color:#e6db74">.10.0/24&#34;</span>
+</span></span><span style="display:flex;"><span>        applicationGatewayIpConfigurations = @()
+</span></span><span style="display:flex;"><span>        delegations = @(
+</span></span><span style="display:flex;"><span>            @{
+</span></span><span style="display:flex;"><span>            name = <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>
+</span></span><span style="display:flex;"><span>            properties = @{
+</span></span><span style="display:flex;"><span>                serviceName = <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        natGateway = @{}
+</span></span><span style="display:flex;"><span>        networkSecurityGroup = @{}
+</span></span><span style="display:flex;"><span>        privateEndpointNetworkPolicies = <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>        privateLinkServiceNetworkPolicies = <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>        routeTable = @{}
+</span></span><span style="display:flex;"><span>        serviceEndpointPolicies = @()
+</span></span><span style="display:flex;"><span>        serviceEndpoints = @()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END: webFarmSubnet</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#########################################</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Remove empty properties</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$allSubnetPropertiesToRemove = <span style="color:#66d9ef">Foreach</span> ($subnet <span style="color:#66d9ef">in</span> $allSubnets)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Foreach</span> ($subnetPropertyKey <span style="color:#66d9ef">in</span> $subnet.properties.Keys)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> (<span style="color:#66d9ef">[string]</span>::IsNullOrEmpty($subnet.properties.$($subnetPropertyKey) ) <span style="color:#f92672">-eq</span> $true <span style="color:#f92672">-or</span> $subnet.properties.$($subnetPropertyKey).count <span style="color:#f92672">-eq</span> 0)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;We found an empty property of </span>$($subnetPropertyKey)<span style="color:#e6db74"> in subnet </span>$($subnet.name)<span style="color:#e6db74">, marking property for removal&#34;</span> -ForegroundColor Yellow
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">[PSCustomObject]</span>@{
+</span></span><span style="display:flex;"><span>                subnetName = $($subnet.name) 
+</span></span><span style="display:flex;"><span>                propertyName = $($subnetPropertyKey)
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;The property of </span>$($subnetPropertyKey)<span style="color:#e6db74"> in subnet </span>$($subnet.name)<span style="color:#e6db74"> is NOT empty&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Foreach</span> ($subnetPropertyToRemove <span style="color:#66d9ef">in</span> $allSubnetPropertiesToRemove)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    ($allSubnets | Where-Object {$_.Name <span style="color:#f92672">-eq</span> $($subnetPropertyToRemove.subnetName)}).properties.remove($subnetPropertyToRemove.propertyName)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Remove empty properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Base Template</span>
+</span></span><span style="display:flex;"><span>$template = @{
+</span></span><span style="display:flex;"><span>    name = <span style="color:#e6db74">&#34;vnet</span>$($TeamName)<span style="color:#e6db74">&#34;</span> <span style="color:#75715e">#notice we now have a dynamic name vnet based on the team name</span>
+</span></span><span style="display:flex;"><span>    location = <span style="color:#e6db74">&#39;eastUS&#39;</span>
+</span></span><span style="display:flex;"><span>    tags = @{environment = <span style="color:#e6db74">&#39;sandbox&#39;</span>}
+</span></span><span style="display:flex;"><span>    properties = @{
+</span></span><span style="display:flex;"><span>        addressSpace = @{
+</span></span><span style="display:flex;"><span>            addressPrefixes = @(
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;</span>$($networkPrefix)<span style="color:#e6db74">.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#Notice we have no dhcpOption property specified</span>
+</span></span><span style="display:flex;"><span>        enableDdosProtection = $false
+</span></span><span style="display:flex;"><span>        enableVmProtection = $false
+</span></span><span style="display:flex;"><span>        subnets = $allSubnets
+</span></span><span style="display:flex;"><span>        virtualNetworkPeerings = @()
+</span></span><span style="display:flex;"><span>        }   
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Base Template</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Conditional update</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">If</span> ($TeamName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;One&#34;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $template.properties.add(<span style="color:#e6db74">&#39;dhcpOptions&#39;</span>, $googleDNSServer.dhcpOptions)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Conditional update</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Output Object</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$template
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Output Object</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span></code></pre></div><h3 id="templatebicep">template.bicep<a class="anchor ms-1" href="#templatebicep"><i class="fas fa-link"></i></a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//START: res_networkVirtualNetwork</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> deploymentObject <span style="color:#66d9ef">object</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//END: res_networkVirtualNetwork</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//START: res_networkVirtualNetwork</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> res_networkVirtualNetwork <span style="color:#e6db74">&#39;Microsoft.Network/virtualNetworks@2021-03-01&#39;</span> = {
+</span></span><span style="display:flex;"><span>  name: deploymentObject.name
+</span></span><span style="display:flex;"><span>  location: deploymentObject.location
+</span></span><span style="display:flex;"><span>  tags: deploymentObject.tags
+</span></span><span style="display:flex;"><span>  properties: deploymentObject.properties
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//END: res_networkVirtualNetwork</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span></code></pre></div><h3 id="deployps1">deploy.ps1<a class="anchor ms-1" href="#deployps1"><i class="fas fa-link"></i></a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>$deploymentObject = &amp; .\parameters.ps1 -TeamName <span style="color:#e6db74">&#39;One&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$resourceGroupDeploymentSplat = @{
+</span></span><span style="display:flex;"><span>    Name = <span style="color:#e6db74">&#34;ericsDemoDeployment&#34;</span>
+</span></span><span style="display:flex;"><span>    ResourceGroupName = <span style="color:#e6db74">&#34;eric-sandbox&#34;</span>
+</span></span><span style="display:flex;"><span>    deploymentObject = $deploymentObject
+</span></span><span style="display:flex;"><span>    TemplateFile = <span style="color:#e6db74">&#39;.\template.bicep&#39;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>New-AzResourceGroupDeployment @resourceGroupDeploymentSplat
+</span></span></code></pre></div><h2 id="demo-execution">Demo Execution<a class="anchor ms-1" href="#demo-execution"><i class="fas fa-link"></i></a></h2>
+<p>To run the demo, all we need to do is execute the deploy.ps1 file.  This can be accomplished by the following command.\</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>. .\deploy.ps1
+</span></span></code></pre></div><h2 id="demo-result">Demo Result<a class="anchor ms-1" href="#demo-result"><i class="fas fa-link"></i></a></h2>
+<p>Upon completion of the script, you should now see your virtual network deployed, and your subnets.  And best of all, no errors.</p>
+<h3 id="demo-result-explanation">Demo Result Explanation<a class="anchor ms-1" href="#demo-result-explanation"><i class="fas fa-link"></i></a></h3>
+<p>To understand how I accomplished this, let&rsquo;s look at the new section I added to our parameters.ps1 file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Remove empty properties</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$allSubnetPropertiesToRemove = <span style="color:#66d9ef">Foreach</span> ($subnet <span style="color:#66d9ef">in</span> $allSubnets)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Foreach</span> ($subnetPropertyKey <span style="color:#66d9ef">in</span> $subnet.properties.Keys)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> (<span style="color:#66d9ef">[string]</span>::IsNullOrEmpty($subnet.properties.$($subnetPropertyKey) ) <span style="color:#f92672">-eq</span> $true <span style="color:#f92672">-or</span> $subnet.properties.$($subnetPropertyKey).count <span style="color:#f92672">-eq</span> 0)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;We found an empty property of </span>$($subnetPropertyKey)<span style="color:#e6db74"> in subnet </span>$($subnet.name)<span style="color:#e6db74">, marking property for removal&#34;</span> -ForegroundColor Yellow
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">[PSCustomObject]</span>@{
+</span></span><span style="display:flex;"><span>                subnetName = $($subnet.name) 
+</span></span><span style="display:flex;"><span>                propertyName = $($subnetPropertyKey)
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;The property of </span>$($subnetPropertyKey)<span style="color:#e6db74"> in subnet </span>$($subnet.name)<span style="color:#e6db74"> is NOT empty&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Foreach</span> ($subnetPropertyToRemove <span style="color:#66d9ef">in</span> $allSubnetPropertiesToRemove)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    ($allSubnets | Where-Object {$_.Name <span style="color:#f92672">-eq</span> $($subnetPropertyToRemove.subnetName)}).properties.remove($subnetPropertyToRemove.propertyName)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Remove empty properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
+</span></span></code></pre></div><p>What&rsquo;s going on here?  Well, once the subnets are defined in the top parameters section.  We loop through each subnet object, and prune out any properties that are not defined.  This is a prime example of why using a scripting language to generate our parameters file is so powerful.  We&rsquo;re able to keep a consistent schema for an admin to update (or not) at the top, and let the script handle getting rid of what doesn&rsquo;t work.</p>
+<p>How else can we validate this?  The same way we validated the non-working example.</p>
+<h3 id="generate-json-artifact">Generate JSON artifact<a class="anchor ms-1" href="#generate-json-artifact"><i class="fas fa-link"></i></a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$deploymentObject | ConvertTo-Json -Depth 100
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;addressSpace&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;subnets&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;GatewaySubnet&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.0.0/24&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;webFarm1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;delegations&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;serviceName&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>
+</span></span><span style="display:flex;"><span>              }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.10.0/24&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: [],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dhcpOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;dnsServers&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;eastUS&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;vnetOne&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tags&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;environment&#34;</span>: <span style="color:#e6db74">&#34;sandbox&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Notice now that all empty properties are cleared.  The JSON artifact shows that we&rsquo;re only sending properties that have values.</p>
+<h2 id="article-conclusion">Article Conclusion<a class="anchor ms-1" href="#article-conclusion"><i class="fas fa-link"></i></a></h2>
+<p>In this article, I showed a working example of utilizing conditional properties up stream before your template attempts to deploy it.  While it&rsquo;s technically not conditional properties inside Bicep, it is ultimately achieving the goal of having conditional properties.  Of course, because the conditional property is a script, you can utilize any number of programable techniques to accomplish your goal.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
+    <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+</a>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Related Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+</a>
+          <span class="float-end post-date">Sun, 21 Aug 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/iac-creativity-introduction/">IaC Creativity: Introduction
+</a>
+          <span class="float-end post-date">Fri, 05 Mar 2021 12:00:00 &#43;0500
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/">Quicky Review: GPO/GPP vs. DSC
+</a>
+          <span class="float-end post-date">Sun, 18 Sep 2016 16:10:12 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/problem-solving-commvault-tape-usage/">Problem Solving: CommVault tape usage
+</a>
+          <span class="float-end post-date">Wed, 10 Aug 2016 23:52:51 &#43;0000
+</span>
+        </li></ul>
+    </div>
+  </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <div class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible
+    
+     width="2316" height="3088"
+     />
+</picture>
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
+</div>
+  </div>
+</div>
+<div class="post-toc row mb-4 card component" id="postTOC">
+  <div class="card-header">
+    <h2 class="card-title">Contents</h2>
+  </div>
+  <div class="card-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#series-introduction">Series Introduction</a>
+      <ul>
+        <li><a href="#series-index">Series Index</a></li>
+        <li><a href="#series-demo-setup">Series Demo Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#article-introduction">Article Introduction</a></li>
+    <li><a href="#article-demo-setup">Article Demo Setup</a>
+      <ul>
+        <li><a href="#parametersps1">parameters.ps1</a></li>
+        <li><a href="#templatebicep">template.bicep</a></li>
+        <li><a href="#deployps1">deploy.ps1</a></li>
+      </ul>
+    </li>
+    <li><a href="#demo-execution">Demo Execution</a></li>
+    <li><a href="#demo-result">Demo Result</a>
+      <ul>
+        <li><a href="#demo-result-explanation">Demo Result Explanation</a></li>
+        <li><a href="#generate-json-artifact">Generate JSON artifact</a></li>
+      </ul>
+    </li>
+    <li><a href="#article-conclusion">Article Conclusion</a></li>
+  </ul>
+</nav>
+  </div>
+</div><section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/iac-creativity-introduction/">IaC Creativity: Introduction
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/microsofts-biggest-security-failure/">Microsoft&#39;s Biggest Security Failure
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/">PowerShell: Find orphaned disks in Azure and their cost
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="https://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
+            Azure<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
+            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/arm/" class="badge rounded post-taxonomy" title="arm">
+            arm<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/bicep/" class="badge rounded post-taxonomy" title="bicep">
+            bicep<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/iac/" class="badge rounded post-taxonomy" title="IaC">
+            IaC<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags" class="badge rounded post-taxonomy" title='ALL'>
+          ALL
+          <span class="badge badge-sm text-white bg-accent ms-1">59</span>
+        </a></div>
+      </div>
+    </section><section class="categories-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/categories">Categories</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
+            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="https://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
+            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
+            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
+            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
+            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
+      </div>
+    </section><section class="series-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/series">Series</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
+            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge rounded post-taxonomy" title="Azure Bicep Conditional Properties">
+            Azure Bicep Conditional Properties<span class="badge badge-sm text-white bg-accent ms-1">2</span></a></div>
+      </div>
+    </section><section class="row card component">
+    <div class="card-header">
+      <h2 class="card-title">Archives</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list">
+        <li>2022(2)</li>
+        <li>2021(3)</li>
+        <li>2020(4)</li>
+        <li>2019(7)</li>
+        <li>2018(7)</li>
+        <li>2017(17)</li>
+        <li>2016(17)</li>
+        <li>2015(16)</li>
+      </ul>
+    </div>
+</section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="https://ericcsinger.com/assets/main/bundle.min.69dd265b7b270a75f0d2ce19f594093d378399295fba2b2234fd081bd7ce1d55.js" integrity="sha256-ad0mW3snCnXw0s4Z9ZQJPTeDmSlfuisiNP0IG9fOHVU=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.bfb722e9ecdba11fdaece2d3d9e7da457ad9d980216913567b7d92a092522be5.js" integrity="sha256-v7ci6ezboR/a7OLT2efaRXrZ2YAhaRNWe32SoJJSK&#43;U=" crossorigin="anonymous" defer></script>
+<script src="https://ericcsinger.com/assets/viewer/bundle.min.8a04279f4c01c6129efc48d87356904980c31656ec5a60da26fb51a1d784e1e2.js" integrity="sha256-igQnn0wBxhKe/EjYc1aQSYDDFlbsWmDaJvtRodeE4eI=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.5d4e21071a95ce5b1f635fc99cc98e30d14b157ff223fb4f76117fdf4029c3a5.js" integrity="sha256-XU4hBxqVzlsfY1/JnMmOMNFLFX/yI/tPdhF/30Apw6U=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

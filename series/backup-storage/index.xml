@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backup Storage on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/series/backup-storage/</link>
+    <link>https://ericcsinger.com/series/backup-storage/</link>
     <description>Recent content in Backup Storage on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Tue, 20 Oct 2015 22:27:15 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/series/backup-storage/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2015 22:27:15 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/series/backup-storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Backup Storage Part 5: Realization of a failure</title>
-      <link>http://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</link>
+      <link>https://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</link>
       <pubDate>Tue, 20 Oct 2015 22:27:15 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</guid>
       <description>No one likes admitting they’re wrong, and I’m certainly no different. Being a mature person means being able to admit you’re wrong, even if it means doing it publicly, and that is what I’m about to do.
 I’ve been writing this series slowly over the past few months, and during that time, I’ve noticed an increasing number of instances where my storage space virtual disks NTFS would go corrupt. Basically, I’d see Veeam errors writing to our repository, and when investigating, I would find files not deleting (old VBK’s).</description>
     </item>
     
     <item>
       <title>Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s</title>
-      <link>http://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</link>
+      <link>https://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</link>
       <pubDate>Sat, 26 Sep 2015 18:16:34 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</guid>
       <description>The pro and the con of a software defined storage is that its not a turn key solution. Not only do you have the power to customize your solution, you also have no choice but to design your solution. With Storage Spaces, we figured most of this stuff out before selecting it as our new backup storage solution. At the time, there was some documentation on storage spaces, but it was very much a learning process.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 3d: Traditional SAN / NAS</title>
-      <link>http://ericcsinger.com/backup-storage-part-3d-traditional-san-/-nas/</link>
+      <link>https://ericcsinger.com/backup-storage-part-3d-traditional-san-/-nas/</link>
       <pubDate>Sun, 13 Sep 2015 20:17:08 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-3d-traditional-san-/-nas/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-3d-traditional-san-/-nas/</guid>
       <description>Of all the types of storage we looked at, this was the one type that I kept coming back to. It was a storage technology that I had the most personal experience with, and having just finished implementing my companies first SAN, I was pretty well versed in what was out on the market.
 There were other reasons as well. Traditional storage is arguably the most familiar storage technology out there.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 3c: Cloud Storage</title>
-      <link>http://ericcsinger.com/backup-storage-part-3c-cloud-storage/</link>
+      <link>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</link>
       <pubDate>Sun, 23 Aug 2015 15:33:43 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
       <description>Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 3b: Scale Out Storage</title>
-      <link>http://ericcsinger.com/backup-storage-part-3b-scale-out-storage/</link>
+      <link>https://ericcsinger.com/backup-storage-part-3b-scale-out-storage/</link>
       <pubDate>Sat, 11 Jul 2015 14:56:14 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-3b-scale-out-storage/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-3b-scale-out-storage/</guid>
       <description>While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
 Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.
 SANs like the EMC VNX are what I’ll refer to as more traditional storage.</description>
@@ -59,32 +59,32 @@ SANs like the EMC VNX are what I’ll refer to as more traditional storage.</des
     
     <item>
       <title>Backup Storage Part 3a: Deduplication Targets</title>
-      <link>http://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</link>
+      <link>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</link>
       <pubDate>Tue, 02 Jun 2015 21:08:31 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</guid>
       <description>Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.
- Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</description>
+Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 2: What we wanted</title>
-      <link>http://ericcsinger.com/backup-storage-part-2-what-we-wanted/</link>
+      <link>https://ericcsinger.com/backup-storage-part-2-what-we-wanted/</link>
       <pubDate>Fri, 01 May 2015 20:59:30 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-2-what-we-wanted/</guid>
+      <guid>https://ericcsinger.com/backup-storage-part-2-what-we-wanted/</guid>
       <description>In part 1, I went over our legacy backup storage solution, and why it needed to change. This section, I’m going to outline what we were looking for in our next storage refresh.
 Also, just to give you a little more context, while evaluating storage, were also looking at new backup solutions. CommVault, Veeam, EMC (Avamar and Networker), NetVault, Microsoft DPM, and a handful of cloud solutions. Point being, there were a lot of moving parts and a lot of things to consider.</description>
     </item>
     
     <item>
       <title>Backup Storage Part 1: Why it needed to change</title>
-      <link>http://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</link>
+      <link>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</link>
       <pubDate>Tue, 21 Apr 2015 16:46:46 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
-      <description>Introduction:This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
-Backup Storage Part 1: The “Why” it needed to changeLast year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.</description>
+      <guid>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
+      <description>Introduction: This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
+Backup Storage Part 1: The “Why” it needed to change Last year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.</description>
     </item>
     
   </channel>

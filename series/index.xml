@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/series/</link>
+    <link>https://ericcsinger.com/series/</link>
     <description>Recent content in Series on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Fri, 05 Mar 2021 12:00:00 +0500</lastBuildDate><atom:link href="http://ericcsinger.com/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>IaC Creativity</title>
-      <link>http://ericcsinger.com/series/iac-creativity/</link>
-      <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
+      <title>Azure Bicep Conditional Properties</title>
+      <link>https://ericcsinger.com/series/azure-bicep-conditional-properties/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/series/iac-creativity/</guid>
+      <guid>https://ericcsinger.com/series/azure-bicep-conditional-properties/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Backup Storage</title>
-      <link>http://ericcsinger.com/series/backup-storage/</link>
+      <link>https://ericcsinger.com/series/backup-storage/</link>
       <pubDate>Tue, 20 Oct 2015 22:27:15 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/series/backup-storage/</guid>
+      <guid>https://ericcsinger.com/series/backup-storage/</guid>
       <description></description>
     </item>
     

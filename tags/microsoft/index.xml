@@ -2,30 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microsoft on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/tags/microsoft/</link>
+    <link>https://ericcsinger.com/tags/microsoft/</link>
     <description>Recent content in Microsoft on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Fri, 05 Mar 2021 12:00:00 +0500</lastBuildDate><atom:link href="http://ericcsinger.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure Bicep Conditional Properties Part 02, Parameters</title>
+      <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/</link>
+      <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/</guid>
+      <description>Version: 1.0.0
+Series Introduction Whether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+    </item>
+    
+    <item>
+      <title>Azure Bicep Conditional Properties Part 01, Introduction</title>
+      <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/</link>
+      <pubDate>Sun, 21 Aug 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/</guid>
+      <description>Version: 1.0.0
+Series Introduction Whether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+    </item>
+    
     <item>
       <title>IaC Creativity: Introduction</title>
-      <link>http://ericcsinger.com/iac-creativity-introduction/</link>
+      <link>https://ericcsinger.com/iac-creativity-introduction/</link>
       <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
       
-      <guid>http://ericcsinger.com/iac-creativity-introduction/</guid>
+      <guid>https://ericcsinger.com/iac-creativity-introduction/</guid>
       <description>Version: 1.0.0
-IntroductionAs many know, I&amp;rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&amp;rsquo;ve had an on again / off again relationship with Azure ARM.</description>
+Introduction As many know, I&amp;rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&amp;rsquo;ve had an on again / off again relationship with Azure ARM.</description>
     </item>
     
     <item>
       <title>Microsoft&#39;s Biggest Security Failure</title>
-      <link>http://ericcsinger.com/microsofts-biggest-security-failure/</link>
+      <link>https://ericcsinger.com/microsofts-biggest-security-failure/</link>
       <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/microsofts-biggest-security-failure/</guid>
+      <guid>https://ericcsinger.com/microsofts-biggest-security-failure/</guid>
       <description>Version: 1.0.1
-IntroductionLook we all know the running joke is &amp;ldquo;Microsoft Security&amp;rdquo; is an oxymoron. Over the years though, Microsoft has made large strides in improving security. In fact, one could make a case that they have defined newer standards that others have lacked.
+Introduction Look we all know the running joke is &amp;ldquo;Microsoft Security&amp;rdquo; is an oxymoron. Over the years though, Microsoft has made large strides in improving security. In fact, one could make a case that they have defined newer standards that others have lacked.
 That said, I&amp;rsquo;d like to discuss an area that has left companies exposed for malicious intent. Monitoring in a Microsoft Windows environment.
 Finally, before continuing. These are my opinions shaped from my own experience.</description>
     </item>

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IIS on Eric&#39;s Blog</title>
-    <link>http://ericcsinger.com/tags/iis/</link>
+    <link>https://ericcsinger.com/tags/iis/</link>
     <description>Recent content in IIS on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Mon, 03 Jul 2017 22:14:22 +0000</lastBuildDate><atom:link href="http://ericcsinger.com/tags/iis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jul 2017 22:14:22 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/iis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Powershell Scripting: Microsoft Exchange, Configure client-specific message size limits</title>
-      <link>http://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</link>
+      <link>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</link>
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
       
-      <guid>http://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
-      <description>Introduction:If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.</description>
+      <guid>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
+      <description>Introduction: If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.</description>
     </item>
     
   </channel>
