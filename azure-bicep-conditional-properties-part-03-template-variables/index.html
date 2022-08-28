@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Azure Bicep Conditional Properties Part 02, Parameters - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+    <title>Azure Bicep Conditional Properties Part 03, Template Variables - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
 <link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
 <link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
@@ -13,24 +13,24 @@
 <meta name="keywords" content="iac, azure, bicep, arm, automation, microsoft, deployment" />
 <meta name="description" content="Version: 1.0.0
 Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&rsquo;m going to show you a few ways you can work a round this." /><meta itemprop="name" content="Azure Bicep Conditional Properties Part 02, Parameters">
+In this series, I&rsquo;m going to show you a few ways you can work a round this." /><meta itemprop="name" content="Azure Bicep Conditional Properties Part 03, Template Variables">
 <meta itemprop="description" content="Version: 1.0.0
 Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&rsquo;m going to show you a few ways you can work a round this."><meta itemprop="datePublished" content="2022-08-21T13:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-08-21T13:00:00+00:00" />
-<meta itemprop="wordCount" content="1355">
-<meta itemprop="keywords" content="arm,automation,azure,bicep,IaC,microsoft," /><meta property="og:title" content="Azure Bicep Conditional Properties Part 02, Parameters" />
+In this series, I&rsquo;m going to show you a few ways you can work a round this."><meta itemprop="datePublished" content="2022-08-28T12:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-08-28T12:00:00+00:00" />
+<meta itemprop="wordCount" content="2242">
+<meta itemprop="keywords" content="arm,automation,azure,bicep,IaC,microsoft," /><meta property="og:title" content="Azure Bicep Conditional Properties Part 03, Template Variables" />
 <meta property="og:description" content="Version: 1.0.0
 Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-21T13:00:00+00:00" />
-<meta property="article:modified_time" content="2022-08-21T13:00:00+00:00" />
-<meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/" /><meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/" />
+<meta property="og:url" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-28T12:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-28T12:00:00+00:00" />
+<meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/" /><meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Azure Bicep Conditional Properties Part 02, Parameters"/>
+<meta name="twitter:title" content="Azure Bicep Conditional Properties Part 03, Template Variables"/>
 <meta name="twitter:description" content="Version: 1.0.0
 Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this."/>
@@ -53,11 +53,11 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
   </div>
   <div class="offcanvas-body">
     <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=Azure%20Bicep%20Conditional%20Properties%20Part%2002%2c%20Parameters&url=https%3a%2f%2fericcsinger.com%2fazure-bicep-conditional-properties-part-02-parameters%2f">
+      target="_blank" href="https://twitter.com/intent/tweet?title=Azure%20Bicep%20Conditional%20Properties%20Part%2003%2c%20Template%20Variables&url=https%3a%2f%2fericcsinger.com%2fazure-bicep-conditional-properties-part-03-template-variables%2f">
       <i class="fab fa-fw fa-twitter"></i> Twitter
     </a>
     <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
-      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fazure-bicep-conditional-properties-part-02-parameters%2f">
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fazure-bicep-conditional-properties-part-03-template-variables%2f">
       <i class="fab fa-fw fa-facebook-f"></i> Facebook
     </a>
   </div>
@@ -165,7 +165,7 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 <div class="col-lg-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body">
-    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Azure Bicep Conditional Properties Part 02, Parameters</li></ol>
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Azure Bicep Conditional Properties Part 03, Template Variables</li></ol>
   </div>
 </nav><div class="post-panel-wrapper position-sticky">
   <div class="d-flex flex-column component rounded post-panel position-absolute">
@@ -194,14 +194,14 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 </div>
 <article class="row card component mb-4 post">
   <div class="card-header ">
-    <h1 class="card-title post-title">Azure Bicep Conditional Properties Part 02, Parameters
+    <h1 class="card-title post-title">Azure Bicep Conditional Properties Part 03, Template Variables
 </h1>
   </div>
   <div class="card-body"><div class="post-meta">
-  <span class="post-date" title="created on 2022-08-21 09:00:00 -0400 EDT.">
-    Sun, 21 Aug 2022 13:00:00 &#43;0000
+  <span class="post-date" title="created on 2022-08-28 08:00:00 -0400 EDT.">
+    Sun, 28 Aug 2022 12:00:00 &#43;0000
   </span><span class="post-reading-time">
-    7 min read
+    11 min read
   </span><span class="post-taxonomies"><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge post-taxonomy">Azure Bicep Conditional Properties</a><a href="https://ericcsinger.com/tags/arm/" class="badge post-taxonomy">arm</a><a href="https://ericcsinger.com/tags/automation/" class="badge post-taxonomy">automation</a><a href="https://ericcsinger.com/tags/azure/" class="badge post-taxonomy">Azure</a><a href="https://ericcsinger.com/tags/bicep/" class="badge post-taxonomy">bicep</a><a href="https://ericcsinger.com/tags/iac/" class="badge post-taxonomy">IaC</a><a href="https://ericcsinger.com/tags/microsoft/" class="badge post-taxonomy">Microsoft</a></span>
 </div>
 <div class="post-content mb-3"><p><em>Version: 1.0.0</em></p>
@@ -232,9 +232,7 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 </ul>
 <p>You can store a copy of the files used in the demo in each folder.  This will allow you to walk through each option, and go back to previous posts if you need to review.</p>
 <h2 id="article-introduction">Article Introduction<a class="anchor ms-1" href="#article-introduction"><i class="fas fa-link"></i></a></h2>
-<p>You may or may not have noticed I&rsquo;m utilizing a PowerShell script as a parameters file.  This is something I do for just about any type of configuration that I&rsquo;ll be consuming / executing with PowerShell.  While I could probably extol all the great virtues of why a scripting language can make an excellent configuration file.  A great blog post by Sedat Kapanoglu <a href="https://ssg.dev/powershell-accidentally-created-a-nice-configuration-format-3efde5448090" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>
- already handles that.   Instead, I will preface this by saying, you don&rsquo;t have to limit yourself to PowerShell.  If you prefer Python, Perl, BaSH, etc., it doesn&rsquo;t matter.  The point here is to have something that can dynamically generate a hashtable object, or a raw JSON file which can be consumed by Azure&rsquo;s deployment command.</p>
-<p>What we&rsquo;re going to show here, is how we can get rid of those properties we&rsquo;re not using.  That&rsquo;s the ultimate solution being proposed in this article.  That is, have a perfectly crafted set of parameters which can be executed without any Bicep tricks.  Above, I explained I&rsquo;m utilizing a scripting language to handle this.  However, if you&rsquo;re more of a purest.  You could solve this with some find / replace functionality as well.</p>
+<p>Bicep isn&rsquo;t a scripting language.  At least not a full featured one.  However, that doesn&rsquo;t mean there aren&rsquo;t creative ways we can&rsquo;t solve certain programmatic needs.  Utilizing our series example, I&rsquo;ll show you how we can utilized a few Bicep object functions to build a the ultimate object we need for deployment.</p>
 <h2 id="article-demo-setup">Article Demo Setup<a class="anchor ms-1" href="#article-demo-setup"><i class="fas fa-link"></i></a></h2>
 <p>For this article, you will need the following files.</p>
 <ul>
@@ -356,20 +354,16 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Base Template</span>
 </span></span><span style="display:flex;"><span>$template = @{
 </span></span><span style="display:flex;"><span>    name = <span style="color:#e6db74">&#34;vnet</span>$($TeamName)<span style="color:#e6db74">&#34;</span> <span style="color:#75715e">#notice we now have a dynamic name vnet based on the team name</span>
-</span></span><span style="display:flex;"><span>    location = <span style="color:#e6db74">&#39;eastUS&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#location = &#39;eastUS&#39;</span>
 </span></span><span style="display:flex;"><span>    tags = @{environment = <span style="color:#e6db74">&#39;sandbox&#39;</span>}
-</span></span><span style="display:flex;"><span>    properties = @{
-</span></span><span style="display:flex;"><span>        addressSpace = @{
-</span></span><span style="display:flex;"><span>            addressPrefixes = @(
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;</span>$($networkPrefix)<span style="color:#e6db74">.0.0/16&#34;</span>
-</span></span><span style="display:flex;"><span>                )
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#Notice we have no dhcpOption property specified</span>
-</span></span><span style="display:flex;"><span>        enableDdosProtection = $false
-</span></span><span style="display:flex;"><span>        enableVmProtection = $false
-</span></span><span style="display:flex;"><span>        subnets = $allSubnets
-</span></span><span style="display:flex;"><span>        virtualNetworkPeerings = @()
-</span></span><span style="display:flex;"><span>        }   
+</span></span><span style="display:flex;"><span>    addressPrefixes = @(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($networkPrefix)<span style="color:#e6db74">.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Notice we have no dhcpOption property specified</span>
+</span></span><span style="display:flex;"><span>    enableDdosProtection = $false
+</span></span><span style="display:flex;"><span>    enableVmProtection = $false
+</span></span><span style="display:flex;"><span>    subnets = $allSubnets
+</span></span><span style="display:flex;"><span>    virtualNetworkPeerings = @()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Base Template</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
@@ -379,7 +373,12 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">If</span> ($TeamName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;One&#34;</span>)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>    $template.properties.add(<span style="color:#e6db74">&#39;dhcpOptions&#39;</span>, $googleDNSServer.dhcpOptions)
+</span></span><span style="display:flex;"><span>    $template.add(<span style="color:#e6db74">&#39;dhcpOptions&#39;</span>, $googleDNSServer.dhcpOptions)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">If</span> ($TeamName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;Two&#34;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $template.remove(<span style="color:#e6db74">&#39;subnets&#39;</span>)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Conditional update</span>
@@ -400,125 +399,340 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//START: variables</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> defaultLocation = <span style="color:#e6db74">&#39;EastUs&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create a base property</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> baseProperties = {
+</span></span><span style="display:flex;"><span>  addressSpace: {
+</span></span><span style="display:flex;"><span>    addressPrefixes: deploymentObject.addressPrefixes
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Dynamically check the paramters for each property to see if it exists.  If so, we define it, if not, we create a blank object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> dhcpOptions = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;dhcpOptions&#39;</span>) ? {dhcpOptions: deploymentObject.dhcpOptions} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;subnets&#39;</span>) ? {subnets: deploymentObject.subnets} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableDdosProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableDdosProtection&#39;</span>) ? {enableDdosProtection: deploymentObject.enableDdosProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableVmProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableVmProtection&#39;</span>) ? {enableVmProtection: deploymentObject.enableVmProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> virtualNetworkPeerings = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;virtualNetworkPeerings&#39;</span>) ? {virtualNetworkPeerings: deploymentObject.virtualNetworkPeerings} : {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Merge all of the objects together into the complete object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> properties = <span style="color:#a6e22e">union</span>(baseProperties<span style="color:#960050;background-color:#1e0010">,</span>dhcpOptions<span style="color:#960050;background-color:#1e0010">,</span>subnets<span style="color:#960050;background-color:#1e0010">,</span>enableDdosProtection<span style="color:#960050;background-color:#1e0010">,</span>enableVmProtection<span style="color:#960050;background-color:#1e0010">,</span>virtualNetworkPeerings)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//END: variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: res_networkVirtualNetwork</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> res_networkVirtualNetwork <span style="color:#e6db74">&#39;Microsoft.Network/virtualNetworks@2021-03-01&#39;</span> = {
 </span></span><span style="display:flex;"><span>  name: deploymentObject.name
-</span></span><span style="display:flex;"><span>  location: deploymentObject.location
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//Dynamic property value for location</span>
+</span></span><span style="display:flex;"><span>  location: <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;location&#39;</span>) ? deploymentObject.location : defaultLocation
 </span></span><span style="display:flex;"><span>  tags: deploymentObject.tags
-</span></span><span style="display:flex;"><span>  properties: deploymentObject.properties
+</span></span><span style="display:flex;"><span>  properties: properties
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: res_networkVirtualNetwork</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
-</span></span></code></pre></div><h3 id="deployps1">deploy.ps1<a class="anchor ms-1" href="#deployps1"><i class="fas fa-link"></i></a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>$deploymentObject = &amp; .\parameters.ps1 -TeamName <span style="color:#e6db74">&#39;One&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$resourceGroupDeploymentSplat = @{
-</span></span><span style="display:flex;"><span>    Name = <span style="color:#e6db74">&#34;ericsDemoDeployment&#34;</span>
-</span></span><span style="display:flex;"><span>    ResourceGroupName = <span style="color:#e6db74">&#34;eric-sandbox&#34;</span>
-</span></span><span style="display:flex;"><span>    deploymentObject = $deploymentObject
-</span></span><span style="display:flex;"><span>    TemplateFile = <span style="color:#e6db74">&#39;.\template.bicep&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">///////////////////////////////////////</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//START: res_networkVirtualNetwork</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> outputProperties <span style="color:#66d9ef">object</span> = properties
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//END: res_networkVirtualNetwork</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
+</span></span></code></pre></div><h3 id="deployps1">deploy.ps1<a class="anchor ms-1" href="#deployps1"><i class="fas fa-link"></i></a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $ErrorActionPreference = <span style="color:#e6db74">&#34;Stop&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">###################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Team One</span>
+</span></span><span style="display:flex;"><span>    $deploymentObject = &amp; .\parameters.ps1 -TeamName <span style="color:#e6db74">&#39;One&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $resourceGroupDeploymentSplat = @{
+</span></span><span style="display:flex;"><span>        Name = <span style="color:#e6db74">&#34;ericsDemoDeployment&#34;</span>
+</span></span><span style="display:flex;"><span>        ResourceGroupName = <span style="color:#e6db74">&#34;eric-sandbox&#34;</span>
+</span></span><span style="display:flex;"><span>        deploymentObject = $deploymentObject
+</span></span><span style="display:flex;"><span>        TemplateFile = <span style="color:#e6db74">&#39;.\template.bicep&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    New-AzResourceGroupDeployment @resourceGroupDeploymentSplat
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END Team One</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">###################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">###################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Team Two</span>
+</span></span><span style="display:flex;"><span>    $deploymentObject = &amp; .\parameters.ps1 -TeamName <span style="color:#e6db74">&#39;Two&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $resourceGroupDeploymentSplat = @{
+</span></span><span style="display:flex;"><span>        Name = <span style="color:#e6db74">&#34;ericsDemoDeployment2&#34;</span>
+</span></span><span style="display:flex;"><span>        ResourceGroupName = <span style="color:#e6db74">&#34;eric-sandbox&#34;</span>
+</span></span><span style="display:flex;"><span>        deploymentObject = $deploymentObject
+</span></span><span style="display:flex;"><span>        TemplateFile = <span style="color:#e6db74">&#39;.\template.bicep&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    New-AzResourceGroupDeployment @resourceGroupDeploymentSplat
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END Team Two</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">###################################################</span>
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>New-AzResourceGroupDeployment @resourceGroupDeploymentSplat
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">catch</span> 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $ExceptionObject = @(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;############################################&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;ExceptionMessage: &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($_.Exception.Message)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;############################################&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Line: &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($_.InvocationInfo.ScriptLineNumber)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;############################################&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;ScriptName: &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($_.InvocationInfo.ScriptName)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;############################################&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Command: &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($_.InvocationInfo.MyCommand)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;############################################&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;#Parameters (JSON): &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($_.InvocationInfo.BoundParameters | ConvertTo-Json -Depth 10)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Write-Host $($ExceptionObject | Out-String ) 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Throw</span> $($ExceptionObject | Where-Object {$PSItem <span style="color:#f92672">-notlike</span> <span style="color:#e6db74">&#34;#*&#34;</span>} | Out-String)
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><h2 id="demo-execution">Demo Execution<a class="anchor ms-1" href="#demo-execution"><i class="fas fa-link"></i></a></h2>
 <p>To run the demo, all we need to do is execute the deploy.ps1 file.  This can be accomplished by the following command.\</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>. .\deploy.ps1
 </span></span></code></pre></div><h2 id="demo-result">Demo Result<a class="anchor ms-1" href="#demo-result"><i class="fas fa-link"></i></a></h2>
-<p>Upon completion of the script, you should now see your virtual network deployed, and your subnets.  And best of all, no errors.</p>
+<p>Upon completion of the script, here is what you&rsquo;ll see that is different.</p>
+<ol>
+<li>You will now have <strong>two</strong> virtual networks.</li>
+<li>vnetOne is the same as it always was.  That is, it contains a custom DNS server and a set of subnets.</li>
+<li>vnetTwo is slightly different than vnetOne.  vnetTwo does not have a custom DNS server, nor any subnets.</li>
+<li>The template now has an output, this is so we can see the results of our conditional properties.</li>
+</ol>
 <h3 id="demo-result-explanation">Demo Result Explanation<a class="anchor ms-1" href="#demo-result-explanation"><i class="fas fa-link"></i></a></h3>
-<p>To understand how I accomplished this, let&rsquo;s look at the new section I added to our parameters.ps1 file.</p>
+<p>To understand how I accomplished this, let&rsquo;s look at a few changes I made.</p>
+<h4 id="parametersps1-changes">parameters.ps1 changes<a class="anchor ms-1" href="#parametersps1-changes"><i class="fas fa-link"></i></a></h4>
+<p>You&rsquo;ll notice overall, the parameters file got a <em>little</em> simpler.</p>
+<h5 id="template-variables-changes">Template variables changes<a class="anchor ms-1" href="#template-variables-changes"><i class="fas fa-link"></i></a></h5>
+<p>Here is a list of changes specific to the templates variable.</p>
+<ul>
+<li>The location property is now commented out.  This was to show that we can either choose to have a location handled by the parameters file, or create a default one in the template.  This is more of a conditional <em>value</em> then property.  However I wanted to show it regardless.</li>
+<li>There is no longer a full Bicep property structure.  Instead we have a mostly flat object key value pairs.  This is because we moved the complexity to the template instead of the parameters file.  The only exception to this is the subnets and addressprefixes.  We&rsquo;ll address the subnets in an upcoming article.</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Remove empty properties</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$allSubnetPropertiesToRemove = <span style="color:#66d9ef">Foreach</span> ($subnet <span style="color:#66d9ef">in</span> $allSubnets)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Foreach</span> ($subnetPropertyKey <span style="color:#66d9ef">in</span> $subnet.properties.Keys)
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> (<span style="color:#66d9ef">[string]</span>::IsNullOrEmpty($subnet.properties.$($subnetPropertyKey) ) <span style="color:#f92672">-eq</span> $true <span style="color:#f92672">-or</span> $subnet.properties.$($subnetPropertyKey).count <span style="color:#f92672">-eq</span> 0)
-</span></span><span style="display:flex;"><span>            {
-</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;We found an empty property of </span>$($subnetPropertyKey)<span style="color:#e6db74"> in subnet </span>$($subnet.name)<span style="color:#e6db74">, marking property for removal&#34;</span> -ForegroundColor Yellow
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">[PSCustomObject]</span>@{
-</span></span><span style="display:flex;"><span>                subnetName = $($subnet.name) 
-</span></span><span style="display:flex;"><span>                propertyName = $($subnetPropertyKey)
-</span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> 
-</span></span><span style="display:flex;"><span>            {
-</span></span><span style="display:flex;"><span>            Write-Host <span style="color:#e6db74">&#34;The property of </span>$($subnetPropertyKey)<span style="color:#e6db74"> in subnet </span>$($subnet.name)<span style="color:#e6db74"> is NOT empty&#34;</span> -ForegroundColor Green
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Base Template</span>
+</span></span><span style="display:flex;"><span>$template = @{
+</span></span><span style="display:flex;"><span>    name = <span style="color:#e6db74">&#34;vnet</span>$($TeamName)<span style="color:#e6db74">&#34;</span> <span style="color:#75715e">#notice we now have a dynamic name vnet based on the team name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#location = &#39;eastUS&#39;</span>
+</span></span><span style="display:flex;"><span>    tags = @{environment = <span style="color:#e6db74">&#39;sandbox&#39;</span>}
+</span></span><span style="display:flex;"><span>    addressPrefixes = @(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$($networkPrefix)<span style="color:#e6db74">.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Notice we have no dhcpOption property specified</span>
+</span></span><span style="display:flex;"><span>    enableDdosProtection = $false
+</span></span><span style="display:flex;"><span>    enableVmProtection = $false
+</span></span><span style="display:flex;"><span>    subnets = $allSubnets
+</span></span><span style="display:flex;"><span>    virtualNetworkPeerings = @()
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Foreach</span> ($subnetPropertyToRemove <span style="color:#66d9ef">in</span> $allSubnetPropertiesToRemove)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>    ($allSubnets | Where-Object {$_.Name <span style="color:#f92672">-eq</span> $($subnetPropertyToRemove.subnetName)}).properties.remove($subnetPropertyToRemove.propertyName)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Remove empty properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Base Template</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
-</span></span></code></pre></div><p>What&rsquo;s going on here?  Well, once the subnets are defined in the top parameters section.  We loop through each subnet object, and prune out any properties that are not defined.  This is a prime example of why using a scripting language to generate our parameters file is so powerful.  We&rsquo;re able to keep a consistent schema for an admin to update (or not) at the top, and let the script handle getting rid of what doesn&rsquo;t work.</p>
-<p>How else can we validate this?  The same way we validated the non-working example.</p>
-<h3 id="generate-json-artifact">Generate JSON artifact<a class="anchor ms-1" href="#generate-json-artifact"><i class="fas fa-link"></i></a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$deploymentObject | ConvertTo-Json -Depth 100
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;properties&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;addressSpace&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>
-</span></span><span style="display:flex;"><span>      ]
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;subnets&#34;</span>: [
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;GatewaySubnet&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;properties&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.0.0/24&#34;</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;webFarm1&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;properties&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;delegations&#34;</span>: [
-</span></span><span style="display:flex;"><span>            {
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>,
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;properties&#34;</span>: {
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;serviceName&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>
-</span></span><span style="display:flex;"><span>              }
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>          ],
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.10.0/24&#34;</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: [],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dhcpOptions&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;dnsServers&#34;</span>: [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>
-</span></span><span style="display:flex;"><span>      ]
+</span></span></code></pre></div><h5 id="team-two-variables-changes">Team two variables changes<a class="anchor ms-1" href="#team-two-variables-changes"><i class="fas fa-link"></i></a></h5>
+<p>Here is a list of changes specific to the dynamic properties based on the team parameter</p>
+<ul>
+<li>To demonstrate not having a subnets property specified, we remove the subnets property when team <strong>two</strong> is specified.  This was to enforce the ability of the template to cope with the variations.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#66d9ef">If</span> ($TeamName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;Two&#34;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $template.remove(<span style="color:#e6db74">&#39;subnets&#39;</span>)
 </span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h4 id="generate-json-artifact-to-validate-this">Generate JSON artifact to validate this<a class="anchor ms-1" href="#generate-json-artifact-to-validate-this"><i class="fas fa-link"></i></a></h4>
+<p>Here is how we can validate that what is mentioned above, is in fact true.</p>
+<h5 id="team-one">Team One<a class="anchor ms-1" href="#team-one"><i class="fas fa-link"></i></a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span> . .\parameters.ps1 -TeamName <span style="color:#e6db74">&#34;one&#34;</span> | ConvertTo-Json -Depth 100
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;subnets&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;GatewaySubnet&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.0.0/24&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;webFarm1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.10.0/24&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;delegations&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;serviceName&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;vnetone&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dhcpOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dnsServers&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;eastUS&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;vnetOne&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tags&#34;</span>: {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;environment&#34;</span>: <span style="color:#e6db74">&#34;sandbox&#34;</span>
-</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Notice now that all empty properties are cleared.  The JSON artifact shows that we&rsquo;re only sending properties that have values.</p>
+</span></span></code></pre></div><h5 id="team-two">Team Two<a class="anchor ms-1" href="#team-two"><i class="fas fa-link"></i></a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span> . .\parameters.ps1 -TeamName <span style="color:#e6db74">&#34;two&#34;</span> | ConvertTo-Json -Depth 100
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;vnettwo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tags&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;environment&#34;</span>: <span style="color:#e6db74">&#34;sandbox&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Notice how much emptier team two&rsquo;s deployment artifact is?</p>
+<h4 id="templatebicep-changes">template.bicep changes<a class="anchor ms-1" href="#templatebicep-changes"><i class="fas fa-link"></i></a></h4>
+<p>In exchange for having a simpler parameters file, we&rsquo;ve now moved the complexity into the Bicep template.</p>
+<h5 id="adding-dynamic-variables">Adding dynamic variables<a class="anchor ms-1" href="#adding-dynamic-variables"><i class="fas fa-link"></i></a></h5>
+<p>We now have a variables section inside the template.  See below for the snippet of what we added.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> defaultLocation = <span style="color:#e6db74">&#39;EastUs&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create a base property</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> baseProperties = {
+</span></span><span style="display:flex;"><span>  addressSpace: {
+</span></span><span style="display:flex;"><span>    addressPrefixes: deploymentObject.addressPrefixes
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Dynamically check the paramters for each property to see if it exists.  If so, we define it, if not, we create a blank object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> dhcpOptions = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;dhcpOptions&#39;</span>) ? {dhcpOptions: deploymentObject.dhcpOptions} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;subnets&#39;</span>) ? {subnets: deploymentObject.subnets} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableDdosProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableDdosProtection&#39;</span>) ? {enableDdosProtection: deploymentObject.enableDdosProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableVmProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableVmProtection&#39;</span>) ? {enableVmProtection: deploymentObject.enableVmProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> virtualNetworkPeerings = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;virtualNetworkPeerings&#39;</span>) ? {virtualNetworkPeerings: deploymentObject.virtualNetworkPeerings} : {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Merge all of the objects together into the complete object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> properties = <span style="color:#a6e22e">union</span>(baseProperties<span style="color:#960050;background-color:#1e0010">,</span>dhcpOptions<span style="color:#960050;background-color:#1e0010">,</span>subnets<span style="color:#960050;background-color:#1e0010">,</span>enableDdosProtection<span style="color:#960050;background-color:#1e0010">,</span>enableVmProtection<span style="color:#960050;background-color:#1e0010">,</span>virtualNetworkPeerings)
+</span></span></code></pre></div><p>Now to explain what is going on.</p>
+<p>The defaultLocation variable is a value we&rsquo;re setting to use later on.  This will be in the event that no location is mentioned in the template.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> defaultLocation = <span style="color:#e6db74">&#39;EastUs&#39;</span>
+</span></span></code></pre></div><p>The baseProperties object is use defining the start of what will ultimately be a more full properties object.  I like to start by defining an object with all known properties that will <strong>not</strong> be dynamic.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">// Create a base property</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> baseProperties = {
+</span></span><span style="display:flex;"><span>  addressSpace: {
+</span></span><span style="display:flex;"><span>    addressPrefixes: deploymentObject.addressPrefixes
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>The next section, we are evaluating the parameters object.  Essentially we&rsquo;re looking for all the potential properties that exist in the parameters.  Utilizing the <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-object#contains" target="_blank" rel="noopener noreferrer"><em>contains()</em><i class="fas fa-external-link-square-alt ms-1"></i></a>
+ template function, we can check for the existence of the property.  This is where the term <strong>conditional properties</strong> is coming from.</p>
+<p>We have two actions we take for each variable.</p>
+<ol>
+<li>If the parameters object contains the property, we use it&rsquo;s value.</li>
+<li>If the parameters object does not contain the property, we create a blank object.</li>
+</ol>
+<p>In terms of PowerShell or other scripting languages, this is the way the <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-object#contains" target="_blank" rel="noopener noreferrer">contains()<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ function works.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$dhcpOptions = <span style="color:#66d9ef">If</span> ($deploymentObject.keys <span style="color:#f92672">-contains</span> <span style="color:#e6db74">&#39;dhcpOptions&#39;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#dhcp options object</span>
+</span></span><span style="display:flex;"><span>    @{dhcpOptions = $deploymentObject.dhcpOptions}
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Blank object</span>
+</span></span><span style="display:flex;"><span>    @{}
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">// Dynamically check the paramters for each property to see if it exists.  If so, we define it, if not, we create a blank object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> dhcpOptions = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;dhcpOptions&#39;</span>) ? {dhcpOptions: deploymentObject.dhcpOptions} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;subnets&#39;</span>) ? {subnets: deploymentObject.subnets} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableDdosProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableDdosProtection&#39;</span>) ? {enableDdosProtection: deploymentObject.enableDdosProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableVmProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableVmProtection&#39;</span>) ? {enableVmProtection: deploymentObject.enableVmProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> virtualNetworkPeerings = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;virtualNetworkPeerings&#39;</span>) ? {virtualNetworkPeerings: deploymentObject.virtualNetworkPeerings} : {}
+</span></span></code></pre></div><p>After all these evaluations are complete, we will have set of independent variables, which either contain an object, or are simply a blank object.  It&rsquo;s important when utilizing this strategy, that you understand the value <em>type</em>.  Meaning, whether the ultimate property should be an object, int, array, string, etc.</p>
+<p>Now that we have all these independent values / evaluations complete, we can merge them into one complete object.  We accomplish this with the <strong><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-object#union" target="_blank" rel="noopener noreferrer">union()<i class="fas fa-external-link-square-alt ms-1"></i></a>
+</strong> function.  It&rsquo;s important to keep in mind you need at least two parameters to utilize the union object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">// Merge all of the objects together into the complete object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> properties = <span style="color:#a6e22e">union</span>(baseProperties<span style="color:#960050;background-color:#1e0010">,</span>dhcpOptions<span style="color:#960050;background-color:#1e0010">,</span>subnets<span style="color:#960050;background-color:#1e0010">,</span>enableDdosProtection<span style="color:#960050;background-color:#1e0010">,</span>enableVmProtection<span style="color:#960050;background-color:#1e0010">,</span>virtualNetworkPeerings)
+</span></span></code></pre></div><p>The union function will discard empty object (or ignore them) and we&rsquo;ll end up with a complete properties object.</p>
+<p>How do you know it&rsquo;s working?  Well besides the results, we can look at the output to take a look.</p>
+<h5 id="vnetone-output">vNetOne Output<a class="anchor ms-1" href="#vnetone-output"><i class="fas fa-link"></i></a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;addressSpace&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dhcpOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dnsServers&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;subnets&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;GatewaySubnet&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.0.0/24&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;webFarm1&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;addressPrefix&#34;</span>: <span style="color:#e6db74">&#34;10.0.10.0/24&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;delegations&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#34;serviceName&#34;</span>: <span style="color:#e6db74">&#34;Microsoft.Web/serverFarms&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateLinkServiceNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;privateEndpointNetworkPolicies&#34;</span>: <span style="color:#e6db74">&#34;Disabled&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: []
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="vnettwo-output">vNetTwo Output<a class="anchor ms-1" href="#vnettwo-output"><i class="fas fa-link"></i></a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;addressSpace&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: []
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Huge difference right?</p>
 <h2 id="article-conclusion">Article Conclusion<a class="anchor ms-1" href="#article-conclusion"><i class="fas fa-link"></i></a></h2>
-<p>In this article, I showed a working example of utilizing conditional properties up stream before your template attempts to deploy it.  While it&rsquo;s technically not conditional properties inside Bicep, it is ultimately achieving the goal of having conditional properties.  Of course, because the conditional property is a script, you can utilize any number of programable techniques to accomplish your goal.</p>
+<p>In this article, we went over ways you can dynamically or <em>conditionally</em> set properties.  This technique is something I use a lot to simplify the parameters file.  Enabling the person doing the deployment to spend less time trying to figure out how to craft the deployment parameters, and focus more on simply deploying.</p>
 </div></div>
   <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
     <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
-    <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+    <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
 </a>
-  </div><div class="post-nav post-next">
-    <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
-</a>
-    <i class="fas fa-fw fa-chevron-circle-down post-next-icon" data-fa-transform="rotate-270"></i>
   </div></div></div>
 </article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
@@ -537,6 +751,11 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
     </div>
     <div class="card-body">
       <ul class="post-list"><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
+</a>
+          <span class="float-end post-date">Sun, 21 Aug 2022 13:00:00 &#43;0000
+</span>
+        </li><li>
           <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
 </a>
           <span class="float-end post-date">Sun, 21 Aug 2022 12:00:00 &#43;0000
@@ -621,7 +840,6 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
     <li><a href="#demo-result">Demo Result</a>
       <ul>
         <li><a href="#demo-result-explanation">Demo Result Explanation</a></li>
-        <li><a href="#generate-json-artifact">Generate JSON artifact</a></li>
       </ul>
     </li>
     <li><a href="#article-conclusion">Article Conclusion</a></li>
