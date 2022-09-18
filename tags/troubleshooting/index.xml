@@ -1,24 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>troubleshooting on Eric&#39;s Blog</title>
-    <link>https://ericcsinger.com/tags/troubleshooting/</link>
-    <description>Recent content in troubleshooting on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Sat, 10 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Troubleshooting: Windows DNS SERVFAIL in Azure</title>
-      <link>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</link>
-      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</guid>
-      <description>Version: 1.0.0
-Introduction I have been troubleshooting a fairly tricky DNS issue and wanted to share some of my findings incase it helps anyone else. The title contains Azure, because Azure in a way presents some interesting DNS designs to enable resolution inside Azure, as well as your active directory domain.
-We have a fairly standard DNS setup in Azure, as outlined below.
-graph LRDNSClient --&gt; WindowsDNSServer --Forward unknown queries to Azure--&gt; AzureDNSWindowsDNSServer --Conditionally Forward ad.</description>
-    </item>
-    
-  </channel>
-</rss>
