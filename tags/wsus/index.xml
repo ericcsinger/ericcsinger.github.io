@@ -14,7 +14,7 @@
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</guid>
-      <description>Functions released in this module: Get-ECSWSUSUpdateReport </description>
+      <description>Functions released in this module:Get-ECSWSUSUpdateReport </description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</guid>
       <description>This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
 I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.
-Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here .</description>
+Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.</description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@ Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTa
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description>Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
+      <description>Introduction:I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
 I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.</description>
     </item>
     
@@ -63,7 +63,7 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
       <pubDate>Tue, 05 Jul 2016 16:54:36 +0000</pubDate>
       
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</guid>
-      <description>This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here .
+      <description>This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
 There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.
 By default, my query returns the computer target location based on the child object.</description>
     </item>

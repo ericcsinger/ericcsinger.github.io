@@ -14,9 +14,9 @@
       <pubDate>Sat, 06 Feb 2021 16:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/</guid>
-      <description>PowerShell: Find orphaned disks in Azure and their cost Version: 1.0.1
-Introduction: Just wanted to get something super simple out there. I was curious how many unattatched disks our Azure portal had and what it was costing us. This little script will give us the basic answer to that question.
-The script This will loop through all subscriptions and gather all disks with a status of &amp;ldquo;unattatched&amp;rdquo;. Then it will try to find out how much they cost.</description>
+      <description>PowerShell: Find orphaned disks in Azure and their costVersion: 1.0.1
+Introduction:Just wanted to get something super simple out there. I was curious how many unattatched disks our Azure portal had and what it was costing us. This little script will give us the basic answer to that question.
+The scriptThis will loop through all subscriptions and gather all disks with a status of &amp;ldquo;unattatched&amp;rdquo;. Then it will try to find out how much they cost.</description>
     </item>
     
     <item>
@@ -25,9 +25,9 @@ The script This will loop through all subscriptions and gather all disks with a 
       <pubDate>Thu, 26 Nov 2020 20:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-remove-a-failed-domain-controller/</guid>
-      <description>PowerShell: Remove a failed domain controller Version: 1.0.1
-Introduction: Let&amp;rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
-Parameters Let&amp;rsquo;s start by estalishing some parameters
+      <description>PowerShell: Remove a failed domain controllerVersion: 1.0.1
+Introduction:Let&amp;rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
+ParametersLet&amp;rsquo;s start by estalishing some parameters
 #Array to hold roles of original DC $All_Roles_To_Move = New-Object -TypeName &amp;#34;System.</description>
     </item>
     
@@ -37,7 +37,7 @@ Parameters Let&amp;rsquo;s start by estalishing some parameters
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</guid>
-      <description>Functions released in this module: Get-ECSWSUSUpdateReport </description>
+      <description>Functions released in this module:Get-ECSWSUSUpdateReport </description>
     </item>
     
     <item>
@@ -69,7 +69,7 @@ ECS.WSUS 1.1.0 </description>
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</guid>
       <description>This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
 I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.
-Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here .</description>
+Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@ Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTa
       <guid>https://ericcsinger.com/powershell-module-release-ecs.localgpo-v2.1.0/</guid>
       <description>This is the second release of my LocalGPO module. Mostly code enhancement, but a few property changes as well.
 Functions released in this module:
-Add-ECSLocalGPOUserRightAssignment Get-ECSLocalGPOUserRightAssignment Remove-ECSLocalGPOUserRightAssignment Show-ECSLocalGPOUserRightAssignment You can learn more about the module here .</description>
+Add-ECSLocalGPOUserRightAssignment Get-ECSLocalGPOUserRightAssignment Remove-ECSLocalGPOUserRightAssignment Show-ECSLocalGPOUserRightAssignment You can learn more about the module here.</description>
     </item>
     
     <item>
@@ -91,7 +91,7 @@ Add-ECSLocalGPOUserRightAssignment Get-ECSLocalGPOUserRightAssignment Remove-ECS
       <guid>https://ericcsinger.com/powershell-module-release-ecs.all-v2.1.0/</guid>
       <description>This is the second release of my all encompassing module. This is the easiest way to install all my modules in one shot.
 Sub-modules released in this module:
-ECS.LocalGPO v2.1.0 ECS.WindowsGeneric v1.1.0 You can learn more about the module here .</description>
+ECS.LocalGPO v2.1.0 ECS.WindowsGeneric v1.1.0 You can learn more about the module here.</description>
     </item>
     
     <item>
@@ -102,7 +102,7 @@ ECS.LocalGPO v2.1.0 ECS.WindowsGeneric v1.1.0 You can learn more about the modul
       <guid>https://ericcsinger.com/powershell-module-release-ecs.windowsgeneric-v1.0.1/</guid>
       <description>This is the first release of what I hope to be more Powershell modules. As mentioned in my earlier posts, I won’t go into details of the module in my posts, instead I’ll direct you to my GitHub page where you can read about the modules, it’s functions and release notes.
 Functions released in this module:
-Convert ECSSIDToAccount Convert ECSAccountToSID You can learn more about the module here .</description>
+Convert ECSSIDToAccount Convert ECSAccountToSID You can learn more about the module here.</description>
     </item>
     
     <item>
@@ -113,7 +113,7 @@ Convert ECSSIDToAccount Convert ECSAccountToSID You can learn more about the mod
       <guid>https://ericcsinger.com/problem-solving-vmware-vm-not-reading-vmdk-serial-number-in-os/</guid>
       <description>I created a function while ago that utilizes the VMDK serial number to map which VMDK is used for a Windows volume. Starting with Windows 10 / Server 2016, I noticed that I could no longer see the serial number of a VMDK insides the OS. After reaching out to VMware, turned out to be a really simple fix.
 First let me share the relevant KB:
-https://kb.vmware.com/s/article/52815 I would suggest you make sure this setting is present on all VM’s.</description>
+https://kb.vmware.com/s/article/52815I would suggest you make sure this setting is present on all VM’s.</description>
     </item>
     
     <item>
@@ -122,7 +122,7 @@ https://kb.vmware.com/s/article/52815 I would suggest you make sure this setting
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description>Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
+      <description>Introduction:I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
 I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.</description>
     </item>
     
@@ -132,7 +132,7 @@ I wanted an ability to gather data on a given WSUS computer(s), and work with it
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
-      <description>Introduction: If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.</description>
+      <description>Introduction:If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.</description>
     </item>
     
     <item>
@@ -141,7 +141,7 @@ I wanted an ability to gather data on a given WSUS computer(s), and work with it
       <pubDate>Fri, 30 Jun 2017 21:20:28 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/</guid>
-      <description>Introduction: If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
+      <description>Introduction:If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
 VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowing if you have the correct drivers is to find which VIB matches which PCI device.</description>
     </item>
     
@@ -151,7 +151,7 @@ VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowin
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
-      <description>Introduction: If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.</description>
+      <description>Introduction:If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.</description>
     </item>
     
     <item>
@@ -161,7 +161,7 @@ VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowin
       
       <guid>https://ericcsinger.com/powershell-scripting-invoke-ecssqlquery/</guid>
       <description>Quick Powershell post for those of you that may on occasion want to retrieve data out of a SQL table via Powershell. I didn’t personally do most of the heavy lifting in this, I simply took some work that various folks out there did and put it into a repeatable function instead.
-Firstly, head over to here to my GitHub if you want to grab it. I’ll be keeping it updated as change requests come in, or as I get new ideas, so make sure if you do use my function, that you check back in on occasion for new versions.</description>
+Firstly, head over to hereto my GitHub if you want to grab it. I’ll be keeping it updated as change requests come in, or as I get new ideas, so make sure if you do use my function, that you check back in on occasion for new versions.</description>
     </item>
     
     <item>
@@ -170,7 +170,7 @@ Firstly, head over to here to my GitHub if you want to grab it. I’ll be keepin
       <pubDate>Sat, 26 Dec 2015 21:56:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/</guid>
-      <description>Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping : which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
+      <description>Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping: which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
 This function has the following dependencies and assumptions:
 It depends on my windows physical to logical function and all its dependencies. It assumes your VM name matches your windows server name It assumes you’ve pre-loaded the VMware powershell snap-in.</description>
     </item>

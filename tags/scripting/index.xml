@@ -14,7 +14,7 @@
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description>The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.</description>
+      <description>The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Sat, 26 Dec 2015 21:56:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/</guid>
-      <description>Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping : which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
+      <description>Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping: which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
 This function has the following dependencies and assumptions:
 It depends on my windows physical to logical function and all its dependencies. It assumes your VM name matches your windows server name It assumes you’ve pre-loaded the VMware powershell snap-in.</description>
     </item>

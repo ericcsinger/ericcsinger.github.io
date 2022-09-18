@@ -14,7 +14,7 @@
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
-      <description>Introduction: If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.</description>
+      <description>Introduction:If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.</description>
     </item>
     
   </channel>

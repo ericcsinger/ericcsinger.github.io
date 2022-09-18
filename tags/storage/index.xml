@@ -23,7 +23,7 @@
       <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</guid>
-      <description>Introduction: In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.</description>
+      <description>Introduction:In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@
       
       <guid>https://ericcsinger.com/review-2.5-years-with-nimble-storage/</guid>
       <description>Disclaimer: I’m not getting paid for this review, nor have I been asked to do this by anyone. These views are my own, and not my employers, and they’re opinions not facts .
-Intro: To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.</description>
+Intro:To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.</description>
     </item>
     
     <item>

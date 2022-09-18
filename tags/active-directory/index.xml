@@ -14,9 +14,9 @@
       <pubDate>Thu, 26 Nov 2020 20:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-remove-a-failed-domain-controller/</guid>
-      <description>PowerShell: Remove a failed domain controller Version: 1.0.1
-Introduction: Let&amp;rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
-Parameters Let&amp;rsquo;s start by estalishing some parameters
+      <description>PowerShell: Remove a failed domain controllerVersion: 1.0.1
+Introduction:Let&amp;rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
+ParametersLet&amp;rsquo;s start by estalishing some parameters
 #Array to hold roles of original DC $All_Roles_To_Move = New-Object -TypeName &amp;#34;System.</description>
     </item>
     

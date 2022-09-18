@@ -14,7 +14,7 @@
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-1.5-years-with-mvp-systems-job-automation-scheduler-jams/</guid>
-      <description>Introduction: I wrote a really quick review here about MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.</description>
+      <description>Introduction:I wrote a really quick review hereabout MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.</description>
     </item>
     
     <item>
