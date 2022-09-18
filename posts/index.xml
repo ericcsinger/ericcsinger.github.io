@@ -20,18 +20,6 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
     </item>
     
     <item>
-      <title>Troubleshooting: Windows DNS SERVFAIL in Azure</title>
-      <link>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</link>
-      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</guid>
-      <description>Version: 1.0.0
-Introduction I have been troubleshooting a fairly tricky DNS issue and wanted to share some of my findings incase it helps anyone else. The title contains Azure, because Azure in a way presents some interesting DNS designs to enable resolution inside Azure, as well as your active directory domain.
-We have a fairly standard DNS setup in Azure, as outlined below.
-graph LRDNSClient --&gt; WindowsDNSServer --Forward unknown queries to Azure--&gt; AzureDNSWindowsDNSServer --Conditionally Forward ad.</description>
-    </item>
-    
-    <item>
       <title>Azure Bicep Conditional Properties Part 03, Template Variables</title>
       <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</link>
       <pubDate>Sun, 28 Aug 2022 12:00:00 +0000</pubDate>
