@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ericcsinger.com/test/</loc>
+    <lastmod>2022-09-18T10:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ericcsinger.com/tags/arm/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
@@ -18,6 +21,9 @@
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/bicep/</loc>
+    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/dns/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/</loc>
@@ -38,6 +44,15 @@
     <loc>https://ericcsinger.com/tags/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ericcsinger.com/tags/troubleshooting/</loc>
+    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</loc>
+    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/windows/</loc>
+    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</loc>
     <lastmod>2022-08-28T12:00:00+00:00</lastmod>
   </url><url>
@@ -54,9 +69,6 @@
     <lastmod>2021-02-21T16:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/security/</loc>
-    <lastmod>2021-02-21T16:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/windows/</loc>
     <lastmod>2021-02-21T16:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/about/</loc>

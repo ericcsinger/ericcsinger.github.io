@@ -45,6 +45,15 @@
     </item>
     
     <item>
+      <title>dns</title>
+      <link>https://ericcsinger.com/tags/dns/</link>
+      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>IaC</title>
       <link>https://ericcsinger.com/tags/iac/</link>
       <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
@@ -63,20 +72,29 @@
     </item>
     
     <item>
-      <title>Security</title>
-      <link>https://ericcsinger.com/tags/security/</link>
-      <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
+      <title>troubleshooting</title>
+      <link>https://ericcsinger.com/tags/troubleshooting/</link>
+      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
       
-      <guid>https://ericcsinger.com/tags/security/</guid>
+      <guid>https://ericcsinger.com/tags/troubleshooting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows</title>
       <link>https://ericcsinger.com/tags/windows/</link>
-      <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
+      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://ericcsinger.com/tags/security/</link>
+      <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/tags/security/</guid>
       <description></description>
     </item>
     

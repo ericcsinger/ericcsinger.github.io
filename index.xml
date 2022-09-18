@@ -9,6 +9,15 @@
     <copyright>©2022, Eric C. Singer</copyright>
     <lastBuildDate>Sat, 10 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Test Diagram</title>
+      <link>https://ericcsinger.com/test/</link>
+      <pubDate>Sun, 18 Sep 2022 10:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/test/</guid>
+      <description>Test Diagram graph LRDNSClient --&gt; WindowsDNSServer --Forward unknown queries to Azure--&gt; AzureDNSWindowsDNSServer --Conditionally Forward ad.domain.com domain queries to DC&#39;s--&gt;ADDNSServers</description>
+    </item>
+    
+    <item>
       <title>Azure Bicep Conditional Properties Part 04, Helper Modules</title>
       <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</link>
       <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
@@ -17,6 +26,18 @@
       <description>Version: 1.0.0
 Series Introduction Whether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting: Windows DNS SERVFAIL in Azure</title>
+      <link>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</link>
+      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/troubleshooting-windows-dns-servfail-in-azure/</guid>
+      <description>Version: 1.0.0
+Introduction I have been troubleshooting a fairly tricky DNS issue and wanted to share some of my findings incase it helps anyone else. The title contains Azure, because Azure in a way presents some interesting DNS designs to enable resolution inside Azure, as well as your active directory domain.
+We have a fairly standard DNS setup in Azure, as outlined below.
+graph LRDNSClient --&gt; WindowsDNSServer --Forward unknown queries to Azure--&gt; AzureDNSWindowsDNSServer --Conditionally Forward ad.</description>
     </item>
     
     <item>
