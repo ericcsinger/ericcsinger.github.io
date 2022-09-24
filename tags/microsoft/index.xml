@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Sat, 10 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Solving: Windows DNS Server in Azure returns SERVFAIL</title>
+      <link>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</link>
+      <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</guid>
+      <description>IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&amp;rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&amp;rsquo;ve had to adjust default setting, but that&amp;rsquo;s exactly what I&amp;rsquo;ve had to do.</description>
+    </item>
+    
     <item>
       <title>Azure Bicep Conditional Properties Part 04, Helper Modules</title>
       <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</link>

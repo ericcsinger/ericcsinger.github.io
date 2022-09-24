@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ericcsinger.com/tags/azure/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/dns/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/microsoft/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/posts/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/</loc>
+    <lastmod>2022-09-24T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ericcsinger.com/test/</loc>
     <lastmod>2022-09-18T10:00:00+00:00</lastmod>
   </url><url>
@@ -9,9 +30,6 @@
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/automation/</loc>
-    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/azure/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/series/azure-bicep-conditional-properties/</loc>
@@ -23,22 +41,10 @@
     <loc>https://ericcsinger.com/tags/bicep/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/</loc>
-    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ericcsinger.com/tags/iac/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/tags/microsoft/</loc>
-    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/posts/</loc>
-    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ericcsinger.com/series/</loc>
-    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</loc>

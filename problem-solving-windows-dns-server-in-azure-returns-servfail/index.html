@@ -1,0 +1,642 @@
+<!doctype html><html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="en"
+  
+   data-palette="blue"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem Solving: Windows DNS Server in Azure returns SERVFAIL - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="https://ericcsinger.com/manifest.json">
+<meta name="keywords" content="dns, SERVFAIL, windows, azure, forwarder, microsoft, 168.63.129.16, timeout" />
+<meta name="description" content="IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do." /><meta itemprop="name" content="Problem Solving: Windows DNS Server in Azure returns SERVFAIL">
+<meta itemprop="description" content="IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do."><meta itemprop="datePublished" content="2022-09-24T12:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-24T12:00:00+00:00" />
+<meta itemprop="wordCount" content="1912">
+<meta itemprop="keywords" content="dns,azure,azure,microsoft," /><meta property="og:title" content="Problem Solving: Windows DNS Server in Azure returns SERVFAIL" />
+<meta property="og:description" content="IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-24T12:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-24T12:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Problem Solving: Windows DNS Server in Azure returns SERVFAIL"/>
+<meta name="twitter:description" content="IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do."/>
+
+<link rel="stylesheet" href="https://ericcsinger.com/assets/main/bundle.min.e6db9af00d2fec196e812d3df0ec971c50d590f26e91631f9dde7678f1aa9bce.css" integrity="sha256-5tua8A0v7BlugS098OyXHFDVkPJukWMfnd52ePGqm84=" crossorigin="anonymous"><link rel="stylesheet" href="https://ericcsinger.com/assets/katex/bundle.min.c7738aed5534d96f5c4eb1790af05b44a2ca1cc7d0cb6d5de1dcf95595d3f91a.css" integrity="sha256-x3OK7VU02W9cTrF5CvBbRKLKHMfQy21d4dz5VZXT&#43;Ro=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ericcsinger.com/assets/viewer/bundle.min.05d84cef8ecf0f936293c62c90ebe16275bf8f5f5649297e1a4338e63676ba2b.css" integrity="sha256-BdhM747PD5Nik8YskOvhYnW/j19WSSl&#43;GkM45jZ2uis=" crossorigin="anonymous"></head>
+  <body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="https://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Problem%20Solving%3a%20Windows%20DNS%20Server%20in%20Azure%20returns%20SERVFAIL&url=https%3a%2f%2fericcsinger.com%2fproblem-solving-windows-dns-server-in-azure-returns-servfail%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fproblem-solving-windows-dns-server-in-azure-returns-servfail%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<div class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</div>
+<div class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></div>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="https://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="https://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: Windows DNS Server in Azure returns SERVFAIL</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-sticky">
+  <div class="d-flex flex-column component rounded post-panel position-absolute">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    <a class="action" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2022-09-24 08:00:00 -0400 EDT.">
+    Sat, 24 Sep 2022 12:00:00 &#43;0000
+  </span><span class="post-reading-time">
+    9 min read
+  </span><span class="post-taxonomies"><a href="https://ericcsinger.com/tags/azure/" class="badge post-taxonomy">Azure</a><a href="https://ericcsinger.com/tags/dns/" class="badge post-taxonomy">dns</a><a href="https://ericcsinger.com/tags/microsoft/" class="badge post-taxonomy">Microsoft</a></span>
+</div>
+<div class="post-content mb-3"><h2 id="introduction">Introduction<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h2>
+<p>I had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you.  Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage.  I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do.</p>
+<p>In this article, I will walk you through the following areas.</p>
+<ul>
+<li>What our DNS resolution path looked like before</li>
+<li>Describing the problem I ran into.</li>
+<li>Setting up the diagnostics to capture the problem</li>
+<li>Research I did to understand what was going on</li>
+<li>How I solved it</li>
+<li>General recommendations</li>
+</ul>
+<h2 id="dns-setup">DNS Setup<a class="anchor ms-1" href="#dns-setup"><i class="fas fa-link"></i></a></h2>
+<p>Our server looks pretty straight forward.  Keep in mind, the purpose of this Windows DNS server, was to provide DNS resolution for domain joined VM&rsquo;s.  Up until very recently, Azure had no native means to forward DNS requests to a domain controller.  This forced you to either statically set DNS servers on your Azure VM ipConfiguration, or update the whole virtual network to forward DNS requests to a Windows DNS server.  As of this writing, there is a new preview feature called <a href="https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview" target="_blank" rel="noopener noreferrer">Azure DNS Private Resolver<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ which looks to mitigate the need for this setup.  It&rsquo;s something I&rsquo;ll be exploring once it&rsquo;s out of preview.</p>
+<div class="mermaid">
+
+graph LR
+    DNSClient((DNS Client))
+
+    subgraph Windows DNS Server
+        dnsServerIp[DNS Server IP]
+
+        subgraph DNS Forwarders
+            azureDNS[Azure DNS]
+            end
+
+        subgraph Conditional Forwarder Active Directory Domain
+            DC1[Domain Controller 1 IP]
+            DC2[Domain Controller 2 IP]
+            end   
+        end
+
+    externalDNSServer[External DNS Server / Azure]
+    adServers[Active Directory DNS Lookup]
+
+    DNSClient --Lookup-->dnsServerIp
+    dnsServerIp --Unknown Lookup-->azureDNS--Lookup external name server -->externalDNSServer
+    dnsServerIp --AD Lookup-->DC1 & DC2 --Lookup Domain DNS--> adServers
+
+</div>
+
+<h2 id="discovering-and-understanding-the-problem">Discovering and understanding the problem<a class="anchor ms-1" href="#discovering-and-understanding-the-problem"><i class="fas fa-link"></i></a></h2>
+<p>There were two primary ways we discovered this issue.</p>
+<ol>
+<li>Azure Insights informed us that our apps were throwing an exception.</li>
+<li>Our proactive web health check would also inform us that one of our sites was intermittently offline.</li>
+</ol>
+<p>An example of the errors we would see in both tools, are below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The remote name could not be resolved: &#39;record.domain.com&#39; 
+</span></span><span style="display:flex;"><span>The remote name could not be resolved: &#39;record2.domain.com&#39;
+</span></span></code></pre></div><p>While the error was pretty self explanatory, we were never able to reproduce it.  Typically, the errors were only blips, lasting a few seconds and then returning to healthy.  This made the issue incredibly difficult to troubleshoot.</p>
+<h2 id="diagnostics">Diagnostics<a class="anchor ms-1" href="#diagnostics"><i class="fas fa-link"></i></a></h2>
+<p>Fortunately, we were using Windows DNS.  One of the good things about running your own infrastructure, is you have the ability to see what&rsquo;s going on.  I knew Windows DNS had some pretty verbose logging capabilities, so that&rsquo;s what I enabled.  You can see the diagnostic settings I enabled via PowerShell.  I have almost every option enabled.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Get-DnsServerDiagnostics
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SaveLogsToPersistentStorage          : False
+</span></span><span style="display:flex;"><span>Queries                              : True
+</span></span><span style="display:flex;"><span>Answers                              : True
+</span></span><span style="display:flex;"><span>Notifications                        : True
+</span></span><span style="display:flex;"><span>Update                               : True
+</span></span><span style="display:flex;"><span>QuestionTransactions                 : True
+</span></span><span style="display:flex;"><span>UnmatchedResponse                    : True
+</span></span><span style="display:flex;"><span>SendPackets                          : True
+</span></span><span style="display:flex;"><span>ReceivePackets                       : True
+</span></span><span style="display:flex;"><span>TcpPackets                           : True
+</span></span><span style="display:flex;"><span>UdpPackets                           : True
+</span></span><span style="display:flex;"><span>FullPackets                          : True
+</span></span><span style="display:flex;"><span>FilterIPAddressList                  : 
+</span></span><span style="display:flex;"><span>EventLogLevel                        : 7
+</span></span><span style="display:flex;"><span>UseSystemEventLog                    : False
+</span></span><span style="display:flex;"><span>EnableLoggingToFile                  : True
+</span></span><span style="display:flex;"><span>EnableLogFileRollover                : False
+</span></span><span style="display:flex;"><span>LogFilePath                          : C:\DNS\debug.txt
+</span></span><span style="display:flex;"><span>MaxMBFileSize                        : 500000000
+</span></span><span style="display:flex;"><span>WriteThrough                         : False
+</span></span><span style="display:flex;"><span>EnableLoggingForLocalLookupEvent     : False
+</span></span><span style="display:flex;"><span>EnableLoggingForPluginDllEvent       : False
+</span></span><span style="display:flex;"><span>EnableLoggingForRecursiveLookupEvent : True
+</span></span><span style="display:flex;"><span>EnableLoggingForRemoteServerEvent    : True
+</span></span><span style="display:flex;"><span>EnableLoggingForServerStartStopEvent : False
+</span></span><span style="display:flex;"><span>EnableLoggingForTombstoneEvent       : False
+</span></span><span style="display:flex;"><span>EnableLoggingForZoneDataWriteEvent   : False
+</span></span><span style="display:flex;"><span>EnableLoggingForZoneLoadingEvent     : False
+</span></span></code></pre></div><h3 id="diagnostic-results">Diagnostic Results<a class="anchor ms-1" href="#diagnostic-results"><i class="fas fa-link"></i></a></h3>
+<p>Once I saw the error occur again, I <em>gleefully</em> started combing the logs.  I was really hopeful it would be something simple / straight forward.  Alas, the logs did not paint a picture that was easy to understand.  Looking back with the information I&rsquo;ll share further down.  All the answers were there, I just didn&rsquo;t understand it at the time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>9/13/2022 5:00:01 PM 02EC PACKET  0000015D4AE3B560 UDP Rcv redactedIpAddress        2d20   Q [0001   D   NOERROR] A      (5)record(16)domain(3)com(0)
+</span></span><span style="display:flex;"><span>9/13/2022 5:00:01 PM 02EC PACKET  0000015D4B368D80 UDP Snd 168.63.129.16            bd32   Q [0001   D   NOERROR] A      (5)record(16)domain(3)com(0)
+</span></span><span style="display:flex;"><span>9/13/2022 5:00:01 PM 02EC PACKET  0000015D4A022070 UDP Rcv redactedIpAddress        2d20   Q [0001   D   NOERROR] A      (5)record(16)domain(3)com(0)
+</span></span><span style="display:flex;"><span>9/13/2022 5:00:02 PM 02EC PACKET  0000015D4CFA9570 UDP Rcv redactedIpAddress        2d20   Q [0001   D   NOERROR] A      (5)record(16)domain(3)com(0)
+</span></span><span style="display:flex;"><span>9/13/2022 5:00:04 PM 02EC PACKET  0000015D4B0D7990 UDP Rcv redactedIpAddress        2d20   Q [0001   D   NOERROR] A      (5)record(16)domain(3)com(0)
+</span></span><span style="display:flex;"><span>9/13/2022 5:00:05 PM 179C PACKET  0000015D4AE3B560 UDP Snd redactedIpAddress        2d20 R Q [8281   DR SERVFAIL] A      (5)record(16)domain(3)com(0)
+</span></span><span style="display:flex;"><span>9/13/2022 5:00:05 PM 02EC PACKET  0000015D4CF40C80 UDP Rcv 168.63.129.16            bd32 R Q [8081   DR  NOERROR] A      (5)record(16)domain(3)com(0)
+</span></span></code></pre></div><p>Searching &ldquo;DNS SERVFAIL&rdquo; and many other combinations of texts didn&rsquo;t provide a ton of helpful information.  Most of the errors simply stated the authoritative DNS server was having issues.  In this case, while it would have been easy to say &ldquo;must be the authoritative server having issues&rdquo;, I had no proof of it per se.  Part of the issue, is the DNS request is forwarded to Azure, which leaves me blind for part of the resolution path.</p>
+<p>Over the course of a week or so, I thought maybe it was related to Azure, so I started playing around with different forwarders.  First I sent it to Google and CloudFlare.  Same issue occurred, so it <strong>had</strong> to be on the authoritative server right?  We were not dealing with recursion yet (this particular record would ultimately need to be recursed), but this was failing on the first lookup.</p>
+<p>I started suspecting there might be some timeout issue or some sort of throttling going on.  After tracking down the Microsoft DNS timeouts article (below), it seemed like I might be on to something.</p>
+<ol>
+<li><a href="https://docs.microsoft.com/en-US/troubleshoot/windows-server/networking/dns-client-resolution-timeouts" target="_blank" rel="noopener noreferrer">DNS Client Timeouts<i class="fas fa-external-link-square-alt ms-1"></i></a>
+</li>
+<li><a href="https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/forwarders-resolution-timeouts" target="_blank" rel="noopener noreferrer">DNS Forwarder Timeouts<i class="fas fa-external-link-square-alt ms-1"></i></a>
+</li>
+</ol>
+<p>It took me a bit to break down each timeout, and walk through the log snippet to see if any of them were reached.  It was important to keep in mind, that each timeout is independent of each other.  However, any one of them reaching their maximum elapsed time, would end the DNS resolution process.  With that in mind, let&rsquo;s diagram the exact set of events in the log snippet, so you can visualize what occurred.  Then we can break it down after the diagram.</p>
+<ul>
+<li>In green, you can see the <strong>client</strong> portion of the timeout.</li>
+<li>In blue, you can see the DNS <strong>forwarder</strong> portion of the timeout.</li>
+<li>in purple, you can see the DNS <strong>recursion</strong> portion of the timeout.</li>
+</ul>
+<div class="mermaid">
+
+sequenceDiagram
+    autonumber
+    actor  DNSClient
+    participant WindowsDNS
+    participant DNSForwarder
+    participant ExternalDNS
+    DNSClient->>WindowsDNS: record.domain.com?
+        rect rgb(0, 255, 0)
+        note over DNSClient: Starting timer for DNS client, elapsed time 0 seconds
+        end
+    
+    WindowsDNS->>DNSForwarder: record.domain.com?
+    note over WindowsDNS: I don't have this in cache, forwarding
+        rect rgb(24, 14, 161)
+        note over WindowsDNS: Starting timer for DNS Forwarder, elapsed time, 0 seconds
+        end
+        rect rgb(126, 12, 207)
+        note over WindowsDNS: Starting timer for DNS Recursion, elapsed time, 0 seconds
+        end
+    DNSForwarder->>ExternalDNS: record.domain.com?
+        rect rgb(0, 255, 0)
+        note over DNSClient: Asking again, elapsed time 1 second
+        end
+    DNSClient->>WindowsDNS: record.domain.com?
+        rect rgb(24, 14, 161)
+        note over WindowsDNS: elapsed time, 1 second
+        end
+        rect rgb(126, 12, 207)
+        note over WindowsDNS: elapsed time, 1 second
+        end
+
+        rect rgb(0, 255, 0)
+        note over DNSClient: Asking again, elapsed time 2 seconds
+        end
+        DNSClient->>WindowsDNS: record.domain.com?
+
+        rect rgb(24, 14, 161)
+        note over WindowsDNS: elapsed time, 2 seconds
+        end
+        rect rgb(126, 12, 207)
+        note over WindowsDNS: elapsed time, 2 seconds
+        end
+    
+        rect rgb(24, 14, 161)
+        note over WindowsDNS: elapsed time, 3 seconds, no response from forwarder, time to end
+        end
+        WindowsDNS->>DNSClient: record.domain.com, had an error SERVFAIL
+        rect rgb(126, 12, 207)
+        note over WindowsDNS: elapsed time, 3 seconds
+        end
+    
+    note over DNSClient: :(
+
+        rect rgb(126, 12, 207)
+        note over WindowsDNS: elapsed time, between 3 and 4 seconds
+        end
+    DNSForwarder->>WindowsDNS: record.domain.com is located here
+    note over WindowsDNS: Too late, my forwarder timeout expired!  Told the client you didn't respond.
+
+</div>
+
+<p>In this case, the DNS forwarder was timing out before it got an answer.  It was taking over 3 seconds for the DNS forwarder (Azure&rsquo;s DNS) to complete it&rsquo;s first lookup.  You can see that ultimately Azure DNS <strong>does</strong> respond, but it&rsquo;s too late.  Since DNS forwarder timed out already, the client is sent a SERVFAIL response.  This is different than an NXDOMAIN response, which is confirmation that a given record or domain does not exist.  Ultimately the source of the SERVFAIL would have been a easier to identify <strong>if</strong> Windows DNS logging have simply said, something like &ldquo;forwarder timeout exceeded waiting for a response, sending SERVFAIL&rdquo;.  Instead, the logging does nothing to help you understand what has happened.</p>
+<p>The 3 second timeout, is mentioned <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/forwarders-resolution-timeouts#what-is-the-default-behavior-of-a-dns-server-when-more-than-two-dns-servers-are-configured-as-forwarders" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>
+, under the section <strong>ForwardingTimeout</strong>.</p>
+<h2 id="why-should-a-dns-server-in-azure-be-different">Why should a DNS server in Azure be different?<a class="anchor ms-1" href="#why-should-a-dns-server-in-azure-be-different"><i class="fas fa-link"></i></a></h2>
+<p>In most non-Azure DNS setups, you&rsquo;d probably have more than one forwarder, and you&rsquo;d likely have root hints enabled as a backup.  We do not, and it&rsquo;s for the reasons below.</p>
+<ol>
+<li>Azure only has one DNS server IP to send requests to.</li>
+<li>It&rsquo;s not scalable long term to add conditional forwarders for Azure private DNS zones.  You&rsquo;d probably be ok managing a few, but it&rsquo;s not something you&rsquo;d want across the board.</li>
+<li>We can use conditional forwarder with multiple servers for specific domains, like active directory domain integrated ones.  As an aside, if your DNS server happens to be an domain controller, it&rsquo;s likely your DNS server is also authoritative for your domain.</li>
+<li>We don&rsquo;t want root hints, or secondary resolvers like Google DNS.  The primary reason is in cases of split horizon / private DNS zones.  Private zones for this example, would be things like Azure Private Endpoint name resolution <strong>or</strong> DNS zones that only exist internally.  If the Azure DNS server times out and you failover to a non-Azure server, one of a few things will happen.
+<ol>
+<li>You&rsquo;ll resolve the <strong>public facing IP</strong> instead of your desired private IP.</li>
+<li>You will get an NXDOMAIN because that DNS record / zone does not exist publicly.</li>
+</ol>
+</li>
+</ol>
+<p>If you&rsquo;re running in Azure and do NOT need to resolve Azure private DNS zones, then you can probably get away with this standard configuration.</p>
+<h2 id="recommendation--solution">Recommendation / Solution<a class="anchor ms-1" href="#recommendation--solution"><i class="fas fa-link"></i></a></h2>
+<p>This is what I&rsquo;m going to do, and I&rsquo;ll report back if I start running into other unexpected issues.</p>
+<p>Below is a list of what we had in-place before, and this is not changing.</p>
+<ol>
+<li>Set the DNS forwarder to 168.63.129.16 <strong>only</strong>.</li>
+<li>Leverage conditional forwarders for any other domain specific use case like AD.</li>
+<li>Disable root hints.</li>
+</ol>
+<p>As for what I changed that made the difference?  I changed the default dns forwarder timeout of 3 seconds to 6.  This is a more than reasonable timeout in a single forwarder design in my opinion.  The spirit of the default timeouts were likely based around an assumption that you would have at least two forwarders, and also failover to root hints.</p>
+<h2 id="alternative-ideas">Alternative ideas?<a class="anchor ms-1" href="#alternative-ideas"><i class="fas fa-link"></i></a></h2>
+<p>I suppose you <em>could</em> still increase the default forwarder timeout to something greater than 3 seconds, and then add a backup forwarder for internet resolution.  However, <strong>I</strong> feel that if internal Azure DNS resolution is important to your infrastructure, this could cause more harm than it would solve.  Yes, you would be able to resolve public addresses, but that also might be a problem to.</p>
+<h2 id="closing">Closing<a class="anchor ms-1" href="#closing"><i class="fas fa-link"></i></a></h2>
+<p>Most DNS servers respond in less than 4 seconds, which is why this was such a tough issue for us to troubleshoot.  Even in this case, the issues was very sporadic and at most twice a day.  Ultimately, if a DNS resolution is taking longer than 3 seconds to respond, that&rsquo;s an issue.  However, taking longer than 3 seconds, and not responding at all are two completely different.  This change gives the external DNS resolution a bit more time to complete.</p>
+<p>Hopefully this helps you if you&rsquo;re running into similar issues, or just wanted to know how to troubleshoot Windows DNS.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
+    <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
+</a>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Related Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
+</a>
+          <span class="float-end post-date">Sat, 10 Sep 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
+</a>
+          <span class="float-end post-date">Sun, 28 Aug 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
+</a>
+          <span class="float-end post-date">Sun, 21 Aug 2022 13:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+</a>
+          <span class="float-end post-date">Sun, 21 Aug 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/iac-creativity-introduction/">IaC Creativity: Introduction
+</a>
+          <span class="float-end post-date">Fri, 05 Mar 2021 12:00:00 &#43;0500
+</span>
+        </li></ul>
+    </div>
+  </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <div class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible
+    
+     width="2316" height="3088"
+     />
+</picture>
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
+</div>
+  </div>
+</div>
+<div class="post-toc row mb-4 card component" id="postTOC">
+  <div class="card-header">
+    <h2 class="card-title">Contents</h2>
+  </div>
+  <div class="card-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#dns-setup">DNS Setup</a></li>
+    <li><a href="#discovering-and-understanding-the-problem">Discovering and understanding the problem</a></li>
+    <li><a href="#diagnostics">Diagnostics</a>
+      <ul>
+        <li><a href="#diagnostic-results">Diagnostic Results</a></li>
+      </ul>
+    </li>
+    <li><a href="#why-should-a-dns-server-in-azure-be-different">Why should a DNS server in Azure be different?</a></li>
+    <li><a href="#recommendation--solution">Recommendation / Solution</a></li>
+    <li><a href="#alternative-ideas">Alternative ideas?</a></li>
+    <li><a href="#closing">Closing</a></li>
+  </ul>
+</nav>
+  </div>
+</div><section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">17</span></a><a href="https://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
+            Azure<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
+            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/arm/" class="badge rounded post-taxonomy" title="arm">
+            arm<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/bicep/" class="badge rounded post-taxonomy" title="bicep">
+            bicep<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/iac/" class="badge rounded post-taxonomy" title="IaC">
+            IaC<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags" class="badge rounded post-taxonomy" title='ALL'>
+          ALL
+          <span class="badge badge-sm text-white bg-accent ms-1">60</span>
+        </a></div>
+      </div>
+    </section><section class="categories-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/categories">Categories</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
+            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="https://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
+            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
+            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
+            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
+            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
+      </div>
+    </section><section class="series-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/series">Series</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
+            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge rounded post-taxonomy" title="Azure Bicep Conditional Properties">
+            Azure Bicep Conditional Properties<span class="badge badge-sm text-white bg-accent ms-1">4</span></a></div>
+      </div>
+    </section><section class="row card component">
+    <div class="card-header">
+      <h2 class="card-title">Archives</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list">
+        <li>2022(5)</li>
+        <li>2021(3)</li>
+        <li>2020(4)</li>
+        <li>2019(7)</li>
+        <li>2018(7)</li>
+        <li>2017(17)</li>
+        <li>2016(17)</li>
+        <li>2015(16)</li>
+      </ul>
+    </div>
+</section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="https://ericcsinger.com/assets/main/bundle.min.69dd265b7b270a75f0d2ce19f594093d378399295fba2b2234fd081bd7ce1d55.js" integrity="sha256-ad0mW3snCnXw0s4Z9ZQJPTeDmSlfuisiNP0IG9fOHVU=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.bfb722e9ecdba11fdaece2d3d9e7da457ad9d980216913567b7d92a092522be5.js" integrity="sha256-v7ci6ezboR/a7OLT2efaRXrZ2YAhaRNWe32SoJJSK&#43;U=" crossorigin="anonymous" defer></script>
+<script src="https://ericcsinger.com/assets/viewer/bundle.min.8a04279f4c01c6129efc48d87356904980c31656ec5a60da26fb51a1d784e1e2.js" integrity="sha256-igQnn0wBxhKe/EjYc1aQSYDDFlbsWmDaJvtRodeE4eI=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.5d4e21071a95ce5b1f635fc99cc98e30d14b157ff223fb4f76117fdf4029c3a5.js" integrity="sha256-XU4hBxqVzlsfY1/JnMmOMNFLFX/yI/tPdhF/30Apw6U=" crossorigin="anonymous"></script>
+<script defer src="https://ericcsinger.com/assets/mermaid/bundle.min.585db03dd865e10ab1eaae65ea9b132f53cf859b19d535244b352babb6ed4509.js" integrity="sha256-WF2wPdhl4Qqx6q5l6psTL1PPhZsZ1TUkSzUrq7btRQk=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
