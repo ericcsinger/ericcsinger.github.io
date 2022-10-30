@@ -7,13 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©{year}, Eric C. Singer</copyright>
-    <lastBuildDate>Sat, 24 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Oct 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>api</title>
+      <link>https://ericcsinger.com/tags/api/</link>
+      <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/tags/api/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Azure</title>
       <link>https://ericcsinger.com/tags/azure/</link>
-      <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microsoft</title>
+      <link>https://ericcsinger.com/tags/microsoft/</link>
+      <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>naming conventions</title>
+      <link>https://ericcsinger.com/tags/naming-conventions/</link>
+      <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/tags/naming-conventions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>https://ericcsinger.com/tags/powershell/</link>
+      <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/tags/powershell/</guid>
       <description></description>
     </item>
     
@@ -23,15 +59,6 @@
       <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/tags/dns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microsoft</title>
-      <link>https://ericcsinger.com/tags/microsoft/</link>
-      <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/tags/microsoft/</guid>
       <description></description>
     </item>
     
@@ -86,15 +113,6 @@
       <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>powershell</title>
-      <link>https://ericcsinger.com/tags/powershell/</link>
-      <pubDate>Sat, 06 Feb 2021 16:00:00 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/tags/powershell/</guid>
       <description></description>
     </item>
     
@@ -419,15 +437,6 @@
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
       <guid>https://ericcsinger.com/tags/task-scheduler/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>naming conventions</title>
-      <link>https://ericcsinger.com/tags/naming-conventions/</link>
-      <pubDate>Wed, 23 Nov 2016 00:46:14 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/tags/naming-conventions/</guid>
       <description></description>
     </item>
     

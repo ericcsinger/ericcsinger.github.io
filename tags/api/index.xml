@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>api on Eric&#39;s Blog</title>
+    <link>https://ericcsinger.com/tags/api/</link>
+    <description>Recent content in api on Eric&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>©{year}, Eric C. Singer</copyright>
+    <lastBuildDate>Sun, 30 Oct 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Naming Conventions: Azure Locations</title>
+      <link>https://ericcsinger.com/naming-conventions-azure-locations/</link>
+      <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/naming-conventions-azure-locations/</guid>
+      <description>IntroductionIt&amp;rsquo;s been a while since I&amp;rsquo;ve blogged about naming conventions. For most it&amp;rsquo;s not an interesting topic, and for many, it&amp;rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&amp;rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.</description>
+    </item>
+    
+  </channel>
+</rss>

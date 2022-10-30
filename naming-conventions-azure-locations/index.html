@@ -1,0 +1,1019 @@
+<!doctype html><html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="en"
+  
+   data-palette="blue"
+  >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Naming Conventions: Azure Locations - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
+<link rel="manifest" href="https://ericcsinger.com/manifest.json">
+<meta name="keywords" content="azure, location, region, name, iso3166, microsoft, geo, api, powershell, naming conventions" />
+<meta name="description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name." /><meta itemprop="name" content="Naming Conventions: Azure Locations">
+<meta itemprop="description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name."><meta itemprop="datePublished" content="2022-10-30T12:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-10-30T12:00:00+00:00" />
+<meta itemprop="wordCount" content="2458">
+<meta itemprop="keywords" content="azure,microsoft,api,powershell,naming conventions," /><meta property="og:title" content="Naming Conventions: Azure Locations" />
+<meta property="og:description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericcsinger.com/naming-conventions-azure-locations/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-30T12:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-30T12:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Naming Conventions: Azure Locations"/>
+<meta name="twitter:description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name."/>
+
+<link rel="stylesheet" href="https://ericcsinger.com/assets/main/bundle.min.9f6ce38df21b9268646dcb9418a866629fed513a90854bd0b085577f5ea61003.css" integrity="sha256-n2zjjfIbkmhkbcuUGKhmYp/tUTqQhUvQsIVXf16mEAM=" crossorigin="anonymous"><link rel="stylesheet" href="https://ericcsinger.com/assets/katex/bundle.min.c7738aed5534d96f5c4eb1790af05b44a2ca1cc7d0cb6d5de1dcf95595d3f91a.css" integrity="sha256-x3OK7VU02W9cTrF5CvBbRKLKHMfQy21d4dz5VZXT&#43;Ro=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ericcsinger.com/assets/viewer/bundle.min.6070b2af84f19b1663683173befd7b511e21bd766215f77447dbbd91caa83083.css" integrity="sha256-YHCyr4TxmxZjaDFzvv17UR4hvXZiFfd0R9u9kcqoMIM=" crossorigin="anonymous"></head>
+  <body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="https://ericcsinger.com/">Eric&#39;s Blog
+    </a>
+    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Share</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=Naming%20Conventions%3a%20Azure%20Locations&url=https%3a%2f%2fericcsinger.com%2fnaming-conventions-azure-locations%2f">
+      <i class="fab fa-fw fa-twitter"></i> Twitter
+    </a>
+    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
+      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fnaming-conventions-azure-locations%2f">
+      <i class="fab fa-fw fa-facebook-f"></i> Facebook
+    </a>
+  </div>
+</div>
+    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
+  aria-controls="offcanvasSettings" aria-label="Toggle settings">
+  <i class="fas fa-ellipsis-v"></i>
+</button>
+
+<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">Settings</h3>
+    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+<div class="setting">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="setting palettes">
+  <form class="row">
+    <div class="col-auto">
+      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
+    </div>
+    <div class="col-auto ms-auto">
+      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
+        <i class="fas fa-eye-dropper"></i>
+      </a>
+    </div>
+  </form>
+  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
+        class="btn btn-sm w-100 palette" data-palette="blue">
+      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
+        class="btn btn-sm w-100 palette" data-palette="blue-gray">
+      </button><button type="button" id="palette-brown" aria-label="Brown"
+        class="btn btn-sm w-100 palette" data-palette="brown">
+      </button><button type="button" id="palette-cyan" aria-label="Cyan"
+        class="btn btn-sm w-100 palette" data-palette="cyan">
+      </button><button type="button" id="palette-green" aria-label="Green"
+        class="btn btn-sm w-100 palette" data-palette="green">
+      </button><button type="button" id="palette-indigo" aria-label="Indigo"
+        class="btn btn-sm w-100 palette" data-palette="indigo">
+      </button><button type="button" id="palette-orange" aria-label="Orange"
+        class="btn btn-sm w-100 palette" data-palette="orange">
+      </button><button type="button" id="palette-pink" aria-label="Pink"
+        class="btn btn-sm w-100 palette" data-palette="pink">
+      </button><button type="button" id="palette-purple" aria-label="Purple"
+        class="btn btn-sm w-100 palette" data-palette="purple">
+      </button><button type="button" id="palette-red" aria-label="Red"
+        class="btn btn-sm w-100 palette" data-palette="red">
+      </button><button type="button" id="palette-teal" aria-label="Teal"
+        class="btn btn-sm w-100 palette" data-palette="teal">
+      </button><button type="button" id="palette-yellow" aria-label="Yellow"
+        class="btn btn-sm w-100 palette" data-palette="yellow">
+      </button></div>
+</div>
+<div class="setting actions d-flex justify-content-around mt-auto overflow-auto">
+  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
+    <span class="action-icon"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+  </a>
+  <a role="button" class="action action-reload-page">
+    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+  </a>
+  <a role="button" class="action action-copy-url">
+    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
+  </a><a class="action action-social-share" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
+    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
+    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
+  </a></div>
+
+</div>
+</div>
+
+    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
+      <form class="search-bar my-1" action="https://ericcsinger.com/search">
+  <div class="input-group input-group-sm">
+    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
+  </div>
+</form>
+      <ul class="navbar-nav ms-auto"><li class="nav-item">
+          <a class="nav-link" href="https://ericcsinger.com/about/">
+            About
+          </a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main class="container">
+      <div class="row content">
+<div class="col-lg-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body">
+    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Naming Conventions: Azure Locations</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-sticky">
+  <div class="d-flex flex-column component rounded post-panel position-absolute">
+    
+    <a class="action action-panel-toggler" role="button" title="Panel toggler">
+      <i class="fas fa-fw fa-chevron-circle-down"></i>
+    </a>
+    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+
+    
+    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    <a class="action" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    
+  </div>
+</div>
+<article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title">Naming Conventions: Azure Locations
+</h1>
+  </div>
+  <div class="card-body"><div class="post-meta">
+  <span class="post-date" title="created on 2022-10-30 08:00:00 -0400 EDT.">
+    Sun, 30 Oct 2022 12:00:00 &#43;0000
+  </span><span class="post-reading-time">
+    12 min read
+  </span><span class="post-taxonomies"><a href="https://ericcsinger.com/tags/api/" class="badge post-taxonomy">api</a><a href="https://ericcsinger.com/tags/azure/" class="badge post-taxonomy">Azure</a><a href="https://ericcsinger.com/tags/microsoft/" class="badge post-taxonomy">Microsoft</a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge post-taxonomy">naming conventions</a><a href="https://ericcsinger.com/tags/powershell/" class="badge post-taxonomy">powershell</a></span>
+</div>
+<div class="post-content mb-3"><h2 id="introduction">Introduction<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h2>
+<p>It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions.  For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind.  While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride.  For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.</p>
+<h2 id="the-problem">The problem<a class="anchor ms-1" href="#the-problem"><i class="fas fa-link"></i></a></h2>
+<p>Azure&rsquo;s location naming scheme leaves a bit to be desired.  It looks like they kind of changed their scheme part of the way through.  Or maybe they thought they were making it easier to understand.  Honestly, I&rsquo;m a little lost on why they picked what they picked, and why they shifted directions.</p>
+<p>Let&rsquo;s run this PowerShell commands below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$AllMicrosoftAzureLocations = Get-AzLocation | Where-Object {$PSItem.RegionType <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;Physical&#34;</span>}
+</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocations | Sort-Object -Property Location | Select-Object -Property Location
+</span></span></code></pre></div><p>Your output should looks something like this.  And depending on when you&rsquo;re reading this article, there may be more locations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>australiacentral
+</span></span><span style="display:flex;"><span>australiacentral2
+</span></span><span style="display:flex;"><span>australiaeast
+</span></span><span style="display:flex;"><span>australiasoutheast
+</span></span><span style="display:flex;"><span>brazilsouth
+</span></span><span style="display:flex;"><span>brazilsoutheast
+</span></span><span style="display:flex;"><span>canadacentral
+</span></span><span style="display:flex;"><span>canadaeast
+</span></span><span style="display:flex;"><span>centralindia
+</span></span><span style="display:flex;"><span>centralus
+</span></span><span style="display:flex;"><span>centraluseuap
+</span></span><span style="display:flex;"><span>eastasia
+</span></span><span style="display:flex;"><span>eastus
+</span></span><span style="display:flex;"><span>eastus2
+</span></span><span style="display:flex;"><span>eastus2euap
+</span></span><span style="display:flex;"><span>francecentral
+</span></span><span style="display:flex;"><span>francesouth
+</span></span><span style="display:flex;"><span>germanynorth
+</span></span><span style="display:flex;"><span>germanywestcentral
+</span></span><span style="display:flex;"><span>japaneast
+</span></span><span style="display:flex;"><span>japanwest
+</span></span><span style="display:flex;"><span>koreacentral
+</span></span><span style="display:flex;"><span>koreasouth
+</span></span><span style="display:flex;"><span>northcentralus
+</span></span><span style="display:flex;"><span>northeurope
+</span></span><span style="display:flex;"><span>norwayeast
+</span></span><span style="display:flex;"><span>norwaywest
+</span></span><span style="display:flex;"><span>qatarcentral
+</span></span><span style="display:flex;"><span>southafricanorth
+</span></span><span style="display:flex;"><span>southafricawest
+</span></span><span style="display:flex;"><span>southcentralus
+</span></span><span style="display:flex;"><span>southeastasia
+</span></span><span style="display:flex;"><span>southindia
+</span></span><span style="display:flex;"><span>swedencentral
+</span></span><span style="display:flex;"><span>switzerlandnorth
+</span></span><span style="display:flex;"><span>switzerlandwest
+</span></span><span style="display:flex;"><span>uaecentral
+</span></span><span style="display:flex;"><span>uaenorth
+</span></span><span style="display:flex;"><span>uksouth
+</span></span><span style="display:flex;"><span>ukwest
+</span></span><span style="display:flex;"><span>westcentralus
+</span></span><span style="display:flex;"><span>westeurope
+</span></span><span style="display:flex;"><span>westindia
+</span></span><span style="display:flex;"><span>westus
+</span></span><span style="display:flex;"><span>westus2
+</span></span><span style="display:flex;"><span>westus3
+</span></span></code></pre></div><p>I see three different naming patterns, how many do you see?</p>
+<h3 id="example-1-cardinal-direction--country--region-number-or-not">Example 1, Cardinal Direction + Country + Region Number (or not)<a class="anchor ms-1" href="#example-1-cardinal-direction--country--region-number-or-not"><i class="fas fa-link"></i></a></h3>
+<p>Here are a few examples of this naming scheme</p>
+<pre tabindex="0"><code class="language-output" data-lang="output">eastus
+westus3
+southindia
+</code></pre><h3 id="example-2-cardinal-direction--continent--region-number-or-not">Example 2, Cardinal Direction + Continent + Region Number (or not)<a class="anchor ms-1" href="#example-2-cardinal-direction--continent--region-number-or-not"><i class="fas fa-link"></i></a></h3>
+<pre tabindex="0"><code class="language-output" data-lang="output">eastasia
+westeurope
+</code></pre><h3 id="example-3-country--cardinal-direction--region-number-or-not">Example 3, Country + Cardinal Direction + Region Number (or not)<a class="anchor ms-1" href="#example-3-country--cardinal-direction--region-number-or-not"><i class="fas fa-link"></i></a></h3>
+<pre tabindex="0"><code class="language-output" data-lang="output">southafricanorth
+brazilsouth
+uaenorth
+</code></pre><h3 id="what-is-the-problem-with-this">What is the problem with this<a class="anchor ms-1" href="#what-is-the-problem-with-this"><i class="fas fa-link"></i></a></h3>
+<p>For me, a naming scheme should be first and foremost consistent.  Bonus points if it&rsquo;s intuitive.  In this case, I don&rsquo;t find it to be either.  You could argue the names are self explanatory from a human eye, but programmatically speaking, it&rsquo;s inconsistent.</p>
+<p>Think of it like this, if you were going to write a scripted (automated) process to read the location, and dynamically make a unique location name from the data above could you?</p>
+<p>Another problem to consider is the length of the location names.  Azure has a number of resources that have very short naming requirements.  In a case like that, it would be problematic to use the full location name, regardless of it&rsquo;s consistency.  Just to give you an example, the longest location name is 18 characters long.</p>
+<h2 id="iso3166">ISO3166<a class="anchor ms-1" href="#iso3166"><i class="fas fa-link"></i></a></h2>
+<p>If you are not familiar with <a href="https://www.iso.org/iso-3166-country-codes.html" target="_blank" rel="noopener noreferrer">ISO3166<i class="fas fa-external-link-square-alt ms-1"></i></a>
+, it is a naming scheme for countries and their subdivisions.  This standard ensures there is a unique identifier for each country and in turn each countries subdivisions.  There are two useful (for us) versions of the ISO3166.</p>
+<h3 id="iso3166-1">ISO3166-1<a class="anchor ms-1" href="#iso3166-1"><i class="fas fa-link"></i></a></h3>
+<p>This standard contains the following three basic properties.</p>
+<ol>
+<li>Numeric:  This is a unique number assigned to a country</li>
+<li>Alpha 2:  This an abbreviated two character identifier for each country in the world.</li>
+<li>Alpha 3:  Similar to above, but allowing one more character.</li>
+</ol>
+<h3 id="iso3166-2">ISO3166-2<a class="anchor ms-1" href="#iso3166-2"><i class="fas fa-link"></i></a></h3>
+<p>This standard contains unique identifiers for localites within a given country.  In the US, that would be states.  The name is comprised of the alpha 2 of the country, and then a unique two digit alpha for the given locality in that country.</p>
+<h2 id="hope-is-not-lost">Hope is not lost<a class="anchor ms-1" href="#hope-is-not-lost"><i class="fas fa-link"></i></a></h2>
+<p>While Microsoft has made it difficult to get this information, they have provided a way for us to hunt it down ourselves.  Let&rsquo;s take a look at the results of a Get-AzLocation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">Location         </span>: <span style="color:#ae81ff">eastus</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">DisplayName      </span>: <span style="color:#ae81ff">East US</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Type             </span>: <span style="color:#ae81ff">Region</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Longitude        </span>: -<span style="color:#ae81ff">79.8164</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Latitude         </span>: <span style="color:#ae81ff">37.3719</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">PhysicalLocation </span>: <span style="color:#ae81ff">Virginia</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">RegionType       </span>: <span style="color:#ae81ff">Physical</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">RegionCategory   </span>: <span style="color:#ae81ff">Recommended</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">GeographyGroup   </span>: <span style="color:#ae81ff">US</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">PairedRegion     </span>: [
+</span></span><span style="display:flex;"><span>                     {
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">&#34;Name&#34;: </span><span style="color:#e6db74">&#34;westus&#34;</span>,
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">&#34;Id&#34;: </span><span style="color:#e6db74">&#34;/subscriptions/REDACTED GUID/locations/westus&#34;</span>,
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">&#34;SubscriptionId&#34;: </span><span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>                     }
+</span></span><span style="display:flex;"><span>                   ]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Providers        </span>: {<span style="color:#ae81ff">microsoft.insights, Microsoft.OperationsManagement, Microsoft.ContainerRegistry, Microsoft.Cache…}</span>
+</span></span></code></pre></div><p>Do you see the two interesting data points I do?  It&rsquo;s not anything that&rsquo;s name related.  If you haven&rsquo;t guessed it, it&rsquo;s the Latitude and Longitude.  Check out this link <a href="https://www.google.com/maps/place/37%C2%B022%2718.8%22N&#43;79%C2%B048%2759.0%22W/@37.3719042,-79.8185887,17z" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ and we can see the exact location of where the EastUS data center is located.</p>
+<h2 id="what-can-we-do-with-gps">What can we do with GPS<a class="anchor ms-1" href="#what-can-we-do-with-gps"><i class="fas fa-link"></i></a></h2>
+<p>What we need, is a geolocation based API.  The first place I checked was Google Maps.  And while the API does exist, I had zero desire to enter a credit card in to tap their database.  I gave Bing Maps API a try, but didn&rsquo;t really like the information I was getting out of them (no surprise).  I stumbled on this slick host called Position Stack, located (here)[https://positionstack.com/documentation].</p>
+<h2 id="other-locational-information">Other locational information<a class="anchor ms-1" href="#other-locational-information"><i class="fas fa-link"></i></a></h2>
+<p>While I was on the hunt for ISO3166 and GPS based data, I grabbed one more dataset from <a href="https://www.ip2location.com" target="_blank" rel="noopener noreferrer">IP2Location<i class="fas fa-external-link-square-alt ms-1"></i></a>
+.</p>
+<h2 id="script">SCRIPT<a class="anchor ms-1" href="#script"><i class="fas fa-link"></i></a></h2>
+<h3 id="requirements">Requirements<a class="anchor ms-1" href="#requirements"><i class="fas fa-link"></i></a></h3>
+<ol>
+<li>You will need the file &ldquo;AllLocationInformationJoinedHashTable.json&rdquo; located  <a href="https://github.com/ericcsinger/Gists/blob/master/locationInformation/AllLocationInformationJoinedHashTable.json" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>
+ in my Gists repo.
+<ol>
+<li>Place this file in the same path as this script below.</li>
+</ol>
+</li>
+<li>You will need an access key of your own for PositionStack.  At this point in time, you can sign up <a href="https://positionstack.com/product" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>
+.
+<ol>
+<li>The credential object is looking for just the access key.  You can enter whatever you want for the username, the password is where the access key goes.</li>
+</ol>
+</li>
+<li>You will need the AzModules and you will need to be connected to Azure.</li>
+</ol>
+<h3 id="allmicrosoftazurelocationsps1">allMicrosoftAzureLocations.ps1<a class="anchor ms-1" href="#allmicrosoftazurelocationsps1"><i class="fas fa-link"></i></a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">CmdletBinding</span>()]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> 
+</span></span><span style="display:flex;"><span>    (
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[System.Management.Automation.PSCredential]</span>$Credential,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExportFilePath
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Variables</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$basGeoURL = $null
+</span></span><span style="display:flex;"><span>$basGeoURL = <span style="color:#e6db74">&#34;http://api.positionstack.com/v1&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$regexPatternAllCardinalDirections = $null
+</span></span><span style="display:flex;"><span>$regexPatternAllCardinalDirections =  <span style="color:#e6db74">&#39;north|east|south|west|central&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced = $null
+</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced = <span style="color:#66d9ef">[ordered]</span>@{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AccessKey = $Credential.GetNetworkCredential().Password
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Import additional location information</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AllAdditionalLocationInformation = $null
+</span></span><span style="display:flex;"><span>$AllAdditionalLocationInformation = Get-Content -Path <span style="color:#e6db74">&#39;.\AllLocationInformationJoinedHashTable.json&#39;</span> | ConvertFrom-Json -Depth 100 -AsHashtable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Import additional location information</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: All Az Locations</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$allAzLocations = $null
+</span></span><span style="display:flex;"><span>$allAzLocations = Get-AzLocation | Where-Object {$PSItem.RegionType <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;Physical&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: All Az Locations</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Reverse Lookup</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($azLocation <span style="color:#66d9ef">in</span> $allAzLocations)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#If you want to explore data of a particular location, uncomment and adjust accordingly.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    If ($azLocation.DisplayName -like &#34;&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        #;break
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    #&gt;</span>
+</span></span><span style="display:flex;"><span>    Write-Host <span style="color:#e6db74">&#34;Working on location </span>$($azLocation.Location)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Reverse Lookup</span>
+</span></span><span style="display:flex;"><span>    $ReverseLookup = $null
+</span></span><span style="display:flex;"><span>    $ReverseLookup = Invoke-RestMethod -Uri <span style="color:#e6db74">&#34;</span>$($basGeoURL)<span style="color:#e6db74">/reverse?access_key=</span>$($AccessKey)<span style="color:#e6db74">&amp;query=</span>$($azLocation.Latitude)<span style="color:#e6db74">,</span>$($azLocation.Longitude)<span style="color:#e6db74">&amp;limit=1&amp;timezone_module=1&#34;</span> | Select-Object -ExpandProperty Data
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#If you want to see all objects within the vicinity</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#$ReverseLookup = Invoke-RestMethod -Uri &#34;$($basGeoURL)/reverse?access_key=$($AccessKey)&amp;query=$($azLocation.Latitude),$($azLocation.Longitude)&amp;timezone_module=1&#34; | Select-Object -ExpandProperty Data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Reverse Lookup</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Analyze if country name has cardinal directions in name</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatches = $null
+</span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatches = $ReverseLookup.country | Select-String -Pattern $regexPatternAllCardinalDirections -AllMatches | Select-Object -ExpandProperty Matches | Select-Object -ExpandProperty value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatchesCount = 0
+</span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatchesCount = $AllCountryCardinalDirectionMatches | Measure-Object | Select-Object -ExpandProperty Count
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Analyze if country name has cardinal directions in name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Determine Cardinal Direction in Azure</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    $allAzureLocationCardinalDirectionsPreCompare = $null
+</span></span><span style="display:flex;"><span>    $allAzureLocationCardinalDirectionsPreCompare = $azLocation.Location | Select-String -Pattern $regexPatternAllCardinalDirections -AllMatches | Select-Object -ExpandProperty Matches | Select-Object -ExpandProperty value
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    $allAzureLocationCardinalDirectionsPreCompareCount = $null
+</span></span><span style="display:flex;"><span>    $allAzureLocationCardinalDirectionsPreCompareCount = $allAzureLocationCardinalDirectionsPreCompare | Measure-Object | Select-Object -ExpandProperty Count
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END: Determine Cardinal Direction in Azure</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: If country name has a cardinal direction, exclude direction from analysis</span>
+</span></span><span style="display:flex;"><span>    $allAzureLocationCardinalDirections = $null
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($AllCountryCardinalDirectionMatchesCount <span style="color:#f92672">-ge</span> 1 <span style="color:#f92672">-and</span> $allAzureLocationCardinalDirectionsPreCompareCount <span style="color:#f92672">-ge</span> 2)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $CompareCountryNameToAzureLocation = $null
+</span></span><span style="display:flex;"><span>        $CompareCountryNameToAzureLocation = Compare-Object -ReferenceObject $AllCountryCardinalDirectionMatches -DifferenceObject $allAzureLocationCardinalDirectionsPreCompare
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        $allAzureLocationCardinalDirections = $CompareCountryNameToAzureLocation | Where-Object {$_.SideIndicator <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#39;=&gt;&#39;</span>} | Select-Object -ExpandProperty InputObject
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $allAzureLocationCardinalDirections = $allAzureLocationCardinalDirectionsPreCompare
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END: If country name has a cardinal direction, exclude direction from analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Azure Location Cardinal Direction</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($null <span style="color:#f92672">-ne</span> (Get-Variable -Name <span style="color:#e6db74">&#39;cardinalDirectionPrimary&#39;</span> -ErrorAction SilentlyContinue))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        Remove-Variable -Name cardinalDirectionPrimary -Force -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false
+</span></span><span style="display:flex;"><span>        $cardinalDirectionPrimary = $null
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Else</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $cardinalDirectionPrimary = $null
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($null <span style="color:#f92672">-ne</span> (Get-Variable -Name <span style="color:#e6db74">&#39;cardinalDirectionSecondary&#39;</span> -ErrorAction SilentlyContinue))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        Remove-Variable -Name cardinalDirectionSecondary -Force -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false
+</span></span><span style="display:flex;"><span>        $cardinalDirectionSecondary = $null
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $cardinalDirectionSecondary = $null
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">:</span>SwitchAllAzureLocationCardinalDirectionsCount <span style="color:#66d9ef">switch</span> ($allAzureLocationCardinalDirections.Count)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> 0} {
+</span></span><span style="display:flex;"><span>            Write-Warning <span style="color:#e6db74">&#34;No cardinal direction found&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> SwitchAllAzureLocationCardinalDirectionsCount
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> 1} {
+</span></span><span style="display:flex;"><span>            $cardinalDirectionPrimary = $allAzureLocationCardinalDirections | Select-Object -First 1
+</span></span><span style="display:flex;"><span>            $cardinalDirectionSecondary = $allAzureLocationCardinalDirections | Select-Object -First 1
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> SwitchAllAzureLocationCardinalDirectionsCount
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> 2} {
+</span></span><span style="display:flex;"><span>            $cardinalDirectionPrimary = $allAzureLocationCardinalDirections | Select-Object -First 1
+</span></span><span style="display:flex;"><span>            $cardinalDirectionSecondary = $allAzureLocationCardinalDirections | Select-Object -Skip 1 -First 1
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> SwitchAllAzureLocationCardinalDirectionsCount
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-gt</span> 2} {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">Throw</span> <span style="color:#e6db74">&#34;More than 2 matches&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Azure Location Cardinal Direction</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Determine datacenter Region Number</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    $AzureLocationNumberExists = $null
+</span></span><span style="display:flex;"><span>    $AzureLocationNumberExists = $azLocation.Location <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#39;\d+&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $AzureLocationNumber = $null
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($AzureLocationNumberExists <span style="color:#f92672">-eq</span> $true)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $AzureLocationNumber = $azLocation.Location | Select-String -Pattern <span style="color:#e6db74">&#34;\d+&#34;</span> | Select-Object -ExpandProperty Matches | Select-Object -ExpandProperty value
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $AzureLocationNumber = 0
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Determine Region Number</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START:Find additional location info</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    $LocationInfo = $null
+</span></span><span style="display:flex;"><span>    $LocationInfo = $AllAdditionalLocationInformation.$($ReverseLookup.country_code.ToLower())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $LocationInfoSubDivisions = $null
+</span></span><span style="display:flex;"><span>    $LocationInfoSubDivisions = $LocationInfo.allSubdivisions.keys | ForEach-Object {<span style="color:#66d9ef">[pscustomobject]</span>$LocationInfo.allSubdivisions.$PSItem}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        $ISO3166TwoCode = $null
+</span></span><span style="display:flex;"><span>        $ISO3166TwoCode = <span style="color:#66d9ef">If</span> ((<span style="color:#66d9ef">[string]</span>::IsNullOrWhiteSpace($ReverseLookup.region_code) <span style="color:#f92672">-eq</span> $false))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;</span>$($LocationInfo.<span style="color:#e6db74">&#39;iso3166-1_alpha2&#39;</span>.ToLower())<span style="color:#e6db74">-</span>$($ReverseLookup.region_code.ToLower())<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        $LocationSubDivision = $null
+</span></span><span style="display:flex;"><span>        $LocationSubDivision = $LocationInfoSubDivisions | Where-Object {
+</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.region <span style="color:#f92672">-or</span> 
+</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.locality <span style="color:#f92672">-or</span> 
+</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.county <span style="color:#f92672">-or</span> 
+</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.neighbourhood <span style="color:#f92672">-or</span> 
+</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $azLocation.PhysicalLocation } | Select-Object -First 1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#Only using as last resort</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> ($null <span style="color:#f92672">-eq</span> $LocationSubDivision)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            $LocationSubDivision = $LocationInfoSubDivisions | Where-Object {$PSItem.<span style="color:#e6db74">&#39;iso3166-2_code&#39;</span> <span style="color:#f92672">-eq</span> $ISO3166TwoCode}
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">Throw</span> $($_.Exception.Message)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-eq</span> $LocationSubDivision) {Write-Warning -Message <span style="color:#e6db74">&#34;Could not find subdivision for </span>$($azLocation.Location)<span style="color:#e6db74">&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Find additional location info</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Create the object</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    $microsoftAzureLocationHashTable = $null
+</span></span><span style="display:flex;"><span>    $microsoftAzureLocationHashTable = <span style="color:#66d9ef">[ordered]</span>@{
+</span></span><span style="display:flex;"><span>        azureCardinalDirectionPrimary = $cardinalDirectionPrimary
+</span></span><span style="display:flex;"><span>        azureCardinalDirectionSecondary = $cardinalDirectionSecondary
+</span></span><span style="display:flex;"><span>        azureDisplayName = $azLocation.DisplayName
+</span></span><span style="display:flex;"><span>        azureGeographyGroup = $azLocation.GeographyGroup
+</span></span><span style="display:flex;"><span>        azureLatitude = $azLocation.Latitude
+</span></span><span style="display:flex;"><span>        azureLocation = $azLocation.Location
+</span></span><span style="display:flex;"><span>        azureLocationNumber = $AzureLocationNumber
+</span></span><span style="display:flex;"><span>        azureLongitude = $azLocation.Longitude
+</span></span><span style="display:flex;"><span>        azurePairedRegion = $azLocation.PairedRegion.name
+</span></span><span style="display:flex;"><span>        azurePhysicalLocation = $azLocation.PhysicalLocation
+</span></span><span style="display:flex;"><span>        azureRegionType = $azLocation.RegionType
+</span></span><span style="display:flex;"><span>        reverseLookupContinent = $ReverseLookup.continent
+</span></span><span style="display:flex;"><span>        reverseLookupCountry = $ReverseLookup.country
+</span></span><span style="display:flex;"><span>        reverseLookupCountryCode = $ReverseLookup.country_code
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166OneAlpha2 =  $LocationInfo.<span style="color:#e6db74">&#39;iso3166-1_alpha2&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166OneAlpha3 =  $LocationInfo.<span style="color:#e6db74">&#39;iso3166-1_alpha3&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166OneName =  $LocationInfo.<span style="color:#e6db74">&#39;iso3166-1_name&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166OneNumeric =  $LocationInfo.<span style="color:#e6db74">&#39;iso3166-1_numeric&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166TwoCode = $LocationSubDivision.<span style="color:#e6db74">&#39;iso3166-2_code&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166TwoName = $LocationSubDivision.<span style="color:#e6db74">&#39;iso3166-2_Name&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoISO3166TwoType = $LocationSubDivision.<span style="color:#e6db74">&#39;iso3166-2_Type&#39;</span>
+</span></span><span style="display:flex;"><span>        locationInfoCapital =  $LocationInfo.capital
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        reverseLookupLabel = $ReverseLookup.label
+</span></span><span style="display:flex;"><span>        reverseLookupLocality = $ReverseLookup.locality
+</span></span><span style="display:flex;"><span>        reverseLookupName = $ReverseLookup.name
+</span></span><span style="display:flex;"><span>        reverseLookupNeighborhood = $ReverseLookup.neighbourhood
+</span></span><span style="display:flex;"><span>        reverseLookupPostalCode = $ReverseLookup.postal_code
+</span></span><span style="display:flex;"><span>        reverseLookupRegion = $ReverseLookup.region
+</span></span><span style="display:flex;"><span>        reverseLookupRegionCode = $ReverseLookup.region_code
+</span></span><span style="display:flex;"><span>        reverseLookupTimeZoneName = $ReverseLookup.timezone_module.name
+</span></span><span style="display:flex;"><span>        reverseLookupTimeZoneOffsetSec = $ReverseLookup.timezone_module.offset_sec
+</span></span><span style="display:flex;"><span>        reverseLookupTimeZoneOffsetString = $ReverseLookup.timezone_module.offset_string
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    $allMicrosoftAzureLocationsEnhanced.add($microsoftAzureLocationHashTable.azureLocation, $microsoftAzureLocationHashTable)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#END: Create the object</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Reverse Lookup</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Output</span>
+</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced | ConvertTo-Json -Depth 100 | Out-File -FilePath $ExportFilePath
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
+</span></span></code></pre></div><h3 id="output-example-eastus">Output Example (EastUS)<a class="anchor ms-1" href="#output-example-eastus"><i class="fas fa-link"></i></a></h3>
+<pre tabindex="0"><code class="language-output" data-lang="output">azureCardinalDirectionPrimary  east
+azureCardinalDirectionSeconda… east
+azureDisplayName               East US
+azureGeographyGroup            US
+azureLatitude                  37.3719
+azureLocation                  eastus
+azureLocationNumber            0
+azureLongitude                 -79.8164
+azurePairedRegion              westus
+azurePhysicalLocation          Virginia
+azureRegionType                Physical
+reverseLookupContinent         North America
+reverseLookupCountry           United States
+reverseLookupCountryCode       USA
+locationInfoISO3166OneAlpha2   us
+locationInfoISO3166OneAlpha3   usa
+locationInfoISO3166OneName     united states
+locationInfoISO3166OneNumeric  840
+locationInfoISO3166TwoCode     us-va
+locationInfoISO3166TwoName     Virginia
+locationInfoISO3166TwoType     State
+locationInfoCapital            Washington, D.C.
+reverseLookupLabel             5 Silverbirch Dr, Blue Ridge, VA, USA
+reverseLookupLocality          Blue Ridge
+reverseLookupName              5 Silverbirch Dr
+reverseLookupNeighborhood
+reverseLookupPostalCode        24064
+reverseLookupRegion            Virginia
+reverseLookupRegionCode        VA
+reverseLookupTimeZoneName      America/Kentucky/Monticello
+reverseLookupTimeZoneOffsetSec -14400
+reverseLookupTimeZoneOffsetSt… -04:00
+</code></pre><h3 id="explanation-of-output">Explanation of output<a class="anchor ms-1" href="#explanation-of-output"><i class="fas fa-link"></i></a></h3>
+<p>I could walk through the script, but that&rsquo;s not really what this post is about.  The script is there for your use, and you can do with it as you want.  However, the output of the script, that is what this post is primarily about.</p>
+<p>There are three main outputs.</p>
+<ol>
+<li>Data directly from the <code>Get-AzLocation</code> command.  These properties start with &ldquo;azure&rdquo;.</li>
+<li>Data from PositionStack.  Those properties start with &ldquo;reverseLookup&rdquo;.</li>
+<li>Other data from ISO3166, and IP2Location.  Those properties start with &ldquo;locationInfo&rdquo;</li>
+</ol>
+<p>I want to highlight some of the properties that were proprietary to myself.  Meaning, these were properties I had extracted from the azure properties.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">azureCardinalDirectionPrimary</span>: <span style="color:#ae81ff">east</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">azureCardinalDirectionSecondary</span>: <span style="color:#ae81ff">east</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">azureLocationNumber</span>: <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h4 id="cardinal-direction">Cardinal Direction<a class="anchor ms-1" href="#cardinal-direction"><i class="fas fa-link"></i></a></h4>
+<ol>
+<li>Some of Azures locations use a country name.  And some some country names include cardinal directions.  For example, South Africa.  In those cases, I excluded the <strong>first</strong> &ldquo;south&rdquo; from any cardinal direction hits.</li>
+<li>Many of the Azure locations only contain one cardinal direction.  In those cases I doubled set the secondary as the primary for consistency.  That is, EastUS, will have a primary of &ldquo;east&rdquo; and a secondary of &ldquo;east&rdquo; as well.</li>
+<li>Something like SouthCentralUS, will have &ldquo;South&rdquo; as primary and a secondary of &ldquo;Central&rdquo;.</li>
+</ol>
+<h4 id="location-number">Location Number<a class="anchor ms-1" href="#location-number"><i class="fas fa-link"></i></a></h4>
+<ol>
+<li>Some of Azures locations have a trailing number after the name.  Like EastUS2, but some don&rsquo;t.  In the spirit of &ldquo;consistency&rdquo; I looked for a number in the name, and if I did not find one, I utilized a zero in it&rsquo;s place.  So EastUS is &ldquo;EastUS 0&rdquo;</li>
+</ol>
+<h2 id="fun-with-the-data">Fun with the data<a class="anchor ms-1" href="#fun-with-the-data"><i class="fas fa-link"></i></a></h2>
+<p>Now that we have this data, what can we do with it?</p>
+<h3 id="import-the-data-we-exported">Import the data we exported<a class="anchor ms-1" href="#import-the-data-we-exported"><i class="fas fa-link"></i></a></h3>
+<p>This puts the data into a couple of formats to help us with access it in different ways.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">###################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Import data</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedHashTable = Get-Content -Path <span style="color:#e6db74">&#34;.\AllLocationInformationJoinedHashTable.json&#34;</span> -Raw | ConvertFrom-Json -AsHashtable -Depth 100
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedPSObject = Get-Content -Path <span style="color:#e6db74">&#34;.\AllLocationInformationJoinedHashTable.json&#34;</span> -Raw | ConvertFrom-Json -Depth 100 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedArray = <span style="color:#66d9ef">Foreach</span> ($Location <span style="color:#66d9ef">in</span> $AllMicrosoftAzureLocationsEnhancedHashTable.Keys)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $AllMicrosoftAzureLocationsEnhancedPSObject.$($Location)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Import data</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AllOptions = <span style="color:#66d9ef">Foreach</span> ($Location <span style="color:#66d9ef">in</span> $AllMicrosoftAzureLocationsEnhancedArray)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    $SubdivisionCode = $null
+</span></span><span style="display:flex;"><span>    $SubdivisionCode = <span style="color:#66d9ef">If</span> ((<span style="color:#66d9ef">[string]</span>::IsNullOrWhiteSpace($Location.locationInfoISO3166TwoCode) <span style="color:#f92672">-eq</span> $true))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> ((<span style="color:#66d9ef">[string]</span>::IsNullOrWhiteSpace($Location.reverseLookupRegionCode) <span style="color:#f92672">-eq</span> $true))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            Write-Warning <span style="color:#e6db74">&#34;Location </span>$($Location.azureLocation)<span style="color:#e6db74"> has no identifier for subdivision&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            $Location.reverseLookupRegionCode.ToLower()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        ($Location.locationInfoISO3166TwoCode <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)<span style="color:#e6db74">-&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>).ToLower()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[pscustomobject]</span>@{
+</span></span><span style="display:flex;"><span>        Location = $location.azureLocation
+</span></span><span style="display:flex;"><span>        Option1 = <span style="color:#e6db74">&#34;</span>$($location.reverseLookupCountry <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\s&#39;</span>)$($Location.azureCardinalDirectionPrimary)$($Location.azureCardinalDirectionSecondary)$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option2 = <span style="color:#e6db74">&#34;</span>$($location.reverseLookupCountry <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\s&#39;</span>)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.Substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option3 = <span style="color:#e6db74">&#34;</span>$($Location.reverseLookupContinent)<span style="color:#e6db74">_</span>$($location.reverseLookupCountry)<span style="color:#e6db74">_</span>$($Location.azureCardinalDirectionPrimary)<span style="color:#e6db74">_</span>$($Location.azureCardinalDirectionSecondary)<span style="color:#e6db74">_</span>$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Option4 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha3)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option5 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option6 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneNumeric)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Option7 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)$($SubdivisionCode)$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AllOptions | Sort-Object -Property Option6 | FT
+</span></span></code></pre></div><h3 id="example-output-of-eastus">Example output of EastUS<a class="anchor ms-1" href="#example-output-of-eastus"><i class="fas fa-link"></i></a></h3>
+<pre tabindex="0"><code class="language-output" data-lang="output">$AllOptions | Where-Object {$_.Location -eq &#39;EastUS&#39;}
+
+Location : eastus
+Option1  : unitedstateseasteast0
+Option2  : unitedstatesee0
+Option3  : North America_United States_east_east_0
+Option4  : usaee0
+Option5  : usee0 
+Option6  : 840ee0
+Option7  : usva0 
+</code></pre><h3 id="explaining-the-output-options">Explaining the output options<a class="anchor ms-1" href="#explaining-the-output-options"><i class="fas fa-link"></i></a></h3>
+<ol>
+<li><strong>Location:</strong> This is the default location name provided by Microsoft.</li>
+<li><strong>Option1:</strong>  This what a location name would look like if it was created with the following standard properties in a predictable order
+<ol>
+<li>Country Name (no space)</li>
+<li>Cardinal Direction Primary</li>
+<li>Cardinal Direction Secondary</li>
+<li>Location Number</li>
+</ol>
+</li>
+<li><strong>Option2:</strong> This is the same as Option1, except we abbreviate the cardinal directions.  Instead of &ldquo;easteast&rdquo; we do &ldquo;ee&rdquo;</li>
+<li><strong>Option3:</strong> If we take option1 and prepend it with the continent.  Now you can really get a geographic understanding of where the Azure location is.</li>
+<li><strong>Option4:</strong> This is an abbreviated version of the location name.  This is what I use for identifying the location in most of my resource names
+<ol>
+<li>iso3166 alpha3</li>
+<li>abbreviated cardinal directions</li>
+<li>location number</li>
+</ol>
+</li>
+<li><strong>Option5:</strong> Same as above, but instead utilizing the ISO3166 alpha2</li>
+<li><strong>Option6:</strong> Same as option4, but using the ISO numeric3.  This is a little to cryptic for me.</li>
+<li><strong>Option7:</strong> This one would be the most ideal, and it works for all but one instances.  Keeping uniqueness in mind, it unfortunately fails the uniqueness test for Microsoft&rsquo;s India locations, as MS has two locations in the same subdivision.
+<ol>
+<li>iso3166 alpha2</li>
+<li>subdivision code</li>
+<li>location number.</li>
+</ol>
+</li>
+</ol>
+<p>To summarize the outputs, option1 - option3 are friendly location names, and option4 - option7 are examples of something you could use in a resource naming convention.</p>
+<h2 id="final-thoughts">Final thoughts<a class="anchor ms-1" href="#final-thoughts"><i class="fas fa-link"></i></a></h2>
+<p>This is probably one of those blog posts that most folks will find boring.  For me, I enjoyed the ability of exploring what data we could join together to enhance what we know about a given Azure location.  More so, I found that being able to programmatically name a given Azure location consistently, was a big win.  Utilizing these techniques, you can not only prepopulate your location names, but also ensure they follow a consistent predictable standard.</p>
+<p>While written in the context of Microsoft Azure, ultimately these techniques could be used for pretty much any location information.</p>
+</div></div>
+  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+    <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
+    <a href="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+</a>
+  </div></div></div>
+</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+    <div class="card-header">
+      <h2 class="card-title">Related Posts</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list"><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/">Azure Bicep Conditional Properties Part 01, Introduction
+</a>
+          <span class="float-end post-date">Sun, 21 Aug 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+</a>
+          <span class="float-end post-date">Sat, 24 Sep 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
+</a>
+          <span class="float-end post-date">Sat, 10 Sep 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
+</a>
+          <span class="float-end post-date">Sun, 28 Aug 2022 12:00:00 &#43;0000
+</span>
+        </li><li>
+          <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
+</a>
+          <span class="float-end post-date">Sun, 21 Aug 2022 13:00:00 &#43;0000
+</span>
+        </li></ul>
+    </div>
+  </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script></div>
+</div></div>
+</div><aside class="col-lg-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    <div class="card row text-center profile component">
+  <div class="card-body">
+    <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible
+    
+     width="2316" height="3088"
+     />
+</picture>
+</div>
+    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-github"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
+        <i class="fa-fw fa-2x fab fa-twitter"></i>
+      </a><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
+</div>
+  </div>
+</div>
+<div class="post-toc row mb-4 card component" id="postTOC">
+  <div class="card-header">
+    <h2 class="card-title">Contents</h2>
+  </div>
+  <div class="card-body">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-problem">The problem</a>
+      <ul>
+        <li><a href="#example-1-cardinal-direction--country--region-number-or-not">Example 1, Cardinal Direction + Country + Region Number (or not)</a></li>
+        <li><a href="#example-2-cardinal-direction--continent--region-number-or-not">Example 2, Cardinal Direction + Continent + Region Number (or not)</a></li>
+        <li><a href="#example-3-country--cardinal-direction--region-number-or-not">Example 3, Country + Cardinal Direction + Region Number (or not)</a></li>
+        <li><a href="#what-is-the-problem-with-this">What is the problem with this</a></li>
+      </ul>
+    </li>
+    <li><a href="#iso3166">ISO3166</a>
+      <ul>
+        <li><a href="#iso3166-1">ISO3166-1</a></li>
+        <li><a href="#iso3166-2">ISO3166-2</a></li>
+      </ul>
+    </li>
+    <li><a href="#hope-is-not-lost">Hope is not lost</a></li>
+    <li><a href="#what-can-we-do-with-gps">What can we do with GPS</a></li>
+    <li><a href="#other-locational-information">Other locational information</a></li>
+    <li><a href="#script">SCRIPT</a>
+      <ul>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#allmicrosoftazurelocationsps1">allMicrosoftAzureLocations.ps1</a></li>
+        <li><a href="#output-example-eastus">Output Example (EastUS)</a></li>
+        <li><a href="#explanation-of-output">Explanation of output</a></li>
+      </ul>
+    </li>
+    <li><a href="#fun-with-the-data">Fun with the data</a>
+      <ul>
+        <li><a href="#import-the-data-we-exported">Import the data we exported</a></li>
+        <li><a href="#example-output-of-eastus">Example output of EastUS</a></li>
+        <li><a href="#explaining-the-output-options">Explaining the output options</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-thoughts">Final thoughts</a></li>
+  </ul>
+</nav>
+  </div>
+</div><section class="recent-posts row card component">
+  <div class="card-header">
+    <h2 class="card-title">Recent Posts</h2>
+  </div>
+  <div class="card-body">
+    <ul class="post-list"><li>
+        <a href="https://ericcsinger.com/naming-conventions-azure-locations/">Naming Conventions: Azure Locations
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
+</a>
+      </li><li>
+        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
+</a>
+      </li></ul>
+  </div>
+</section><section class="tags-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/tags">Tags</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
+            powershell<span class="badge badge-sm text-white bg-accent ms-1">18</span></a><a href="https://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
+            Azure<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
+            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
+            automation<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
+            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
+            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
+            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
+            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
+            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/arm/" class="badge rounded post-taxonomy" title="arm">
+            arm<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/bicep/" class="badge rounded post-taxonomy" title="bicep">
+            bicep<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/iac/" class="badge rounded post-taxonomy" title="IaC">
+            IaC<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
+            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
+            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
+            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
+            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
+            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
+            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
+            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
+            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
+            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
+            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags" class="badge rounded post-taxonomy" title='ALL'>
+          ALL
+          <span class="badge badge-sm text-white bg-accent ms-1">61</span>
+        </a></div>
+      </div>
+    </section><section class="categories-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/categories">Categories</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
+            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="https://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
+            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
+            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
+            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
+            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
+            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
+            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
+            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
+            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
+      </div>
+    </section><section class="series-taxonomies row card component">
+      <div class="card-header">
+        <h2 class="card-title">
+          <a href="https://ericcsinger.com/series">Series</a>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="py-2"><a href="https://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
+            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge rounded post-taxonomy" title="Azure Bicep Conditional Properties">
+            Azure Bicep Conditional Properties<span class="badge badge-sm text-white bg-accent ms-1">4</span></a></div>
+      </div>
+    </section><section class="row card component">
+    <div class="card-header">
+      <h2 class="card-title">Archives</h2>
+    </div>
+    <div class="card-body">
+      <ul class="post-list">
+        <li>2022(6)</li>
+        <li>2021(3)</li>
+        <li>2020(4)</li>
+        <li>2019(7)</li>
+        <li>2018(7)</li>
+        <li>2017(17)</li>
+        <li>2016(17)</li>
+        <li>2015(16)</li>
+      </ul>
+    </div>
+</section>
+    
+  </div>
+</aside>
+</div>
+    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
+    <i class="fas fa-fw fa-2x fa-rss"></i>
+  </a></nav>
+<div class="copyright mb-2">
+  ©2022, Eric C. Singer
+</div>
+<div class="powered-by mb-2">
+  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
+</div></footer>
+<script src="https://ericcsinger.com/assets/main/bundle.min.a5767452c795c98f64bb960a9063f6daa2204dba4ec281b9011a3d9d5a69ddb6.js" integrity="sha256-pXZ0UseVyY9ku5YKkGP22qIgTbpOwoG5ARo9nVpp3bY=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.bfb722e9ecdba11fdaece2d3d9e7da457ad9d980216913567b7d92a092522be5.js" integrity="sha256-v7ci6ezboR/a7OLT2efaRXrZ2YAhaRNWe32SoJJSK&#43;U=" crossorigin="anonymous" defer></script>
+<script src="https://ericcsinger.com/assets/viewer/bundle.min.b2c956ed655d1524c8a69c20af2231a447129927161f7d32e978b66516fcfe00.js" integrity="sha256-sslW7WVdFSTIppwgryIxpEcSmScWH30y6Xi2ZRb8/gA=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.5d4e21071a95ce5b1f635fc99cc98e30d14b157ff223fb4f76117fdf4029c3a5.js" integrity="sha256-XU4hBxqVzlsfY1/JnMmOMNFLFX/yI/tPdhF/30Apw6U=" crossorigin="anonymous"></script>
+<script defer src="https://ericcsinger.com/assets/mermaid/bundle.min.e0678d67a61d9ab297dc3f1de9ca8e43614ce49e9e0d310b80787e532fca37a1.js" integrity="sha256-4GeNZ6YdmrKX3D8d6cqOQ2FM5J6eDTELgHh&#43;Uy/KN6E=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
