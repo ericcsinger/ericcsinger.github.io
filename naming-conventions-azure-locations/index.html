@@ -322,14 +322,14 @@ uaenorth
 <li>You will need the AzModules and you will need to be connected to Azure.</li>
 </ol>
 <h3 id="allmicrosoftazurelocationsps1">allMicrosoftAzureLocations.ps1<a class="anchor ms-1" href="#allmicrosoftazurelocationsps1"><i class="fas fa-link"></i></a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">CmdletBinding</span>()]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[CmdletBinding()]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> 
 </span></span><span style="display:flex;"><span>    (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[System.Management.Automation.PSCredential]</span>$Credential,
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.Management.Automation.PSCredential</span>]$Credential,
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExportFilePath
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExportFilePath
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
@@ -342,7 +342,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>$regexPatternAllCardinalDirections =  <span style="color:#e6db74">&#39;north|east|south|west|central&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced = $null
-</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced = <span style="color:#66d9ef">[ordered]</span>@{}
+</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced = [<span style="color:#66d9ef">ordered</span>]@{}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$AccessKey = $Credential.GetNetworkCredential().Password
 </span></span><span style="display:flex;"><span>
@@ -353,7 +353,7 @@ uaenorth
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Import additional location information</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$AllAdditionalLocationInformation = $null
-</span></span><span style="display:flex;"><span>$AllAdditionalLocationInformation = Get-Content -Path <span style="color:#e6db74">&#39;.\AllLocationInformationJoinedHashTable.json&#39;</span> | ConvertFrom-Json -Depth 100 -AsHashtable
+</span></span><span style="display:flex;"><span>$AllAdditionalLocationInformation = Get-Content -Path <span style="color:#e6db74">&#39;.\AllLocationInformationJoinedHashTable.json&#39;</span> | ConvertFrom-Json -Depth <span style="color:#ae81ff">100</span> -AsHashtable
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Import additional location information</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
@@ -398,7 +398,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatches = $null
 </span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatches = $ReverseLookup.country | Select-String -Pattern $regexPatternAllCardinalDirections -AllMatches | Select-Object -ExpandProperty Matches | Select-Object -ExpandProperty value
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatchesCount = 0
+</span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatchesCount = <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>    $AllCountryCardinalDirectionMatchesCount = $AllCountryCardinalDirectionMatches | Measure-Object | Select-Object -ExpandProperty Count
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Analyze if country name has cardinal directions in name</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
@@ -417,7 +417,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">##################################################</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: If country name has a cardinal direction, exclude direction from analysis</span>
 </span></span><span style="display:flex;"><span>    $allAzureLocationCardinalDirections = $null
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($AllCountryCardinalDirectionMatchesCount <span style="color:#f92672">-ge</span> 1 <span style="color:#f92672">-and</span> $allAzureLocationCardinalDirectionsPreCompareCount <span style="color:#f92672">-ge</span> 2)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($AllCountryCardinalDirectionMatchesCount <span style="color:#f92672">-ge</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-and</span> $allAzureLocationCardinalDirectionsPreCompareCount <span style="color:#f92672">-ge</span> <span style="color:#ae81ff">2</span>)
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>        $CompareCountryNameToAzureLocation = $null
 </span></span><span style="display:flex;"><span>        $CompareCountryNameToAzureLocation = Compare-Object -ReferenceObject $AllCountryCardinalDirectionMatches -DifferenceObject $allAzureLocationCardinalDirectionsPreCompare
@@ -436,7 +436,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Azure Location Cardinal Direction</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($null <span style="color:#f92672">-ne</span> (Get-Variable -Name <span style="color:#e6db74">&#39;cardinalDirectionPrimary&#39;</span> -ErrorAction SilentlyContinue))
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>        Remove-Variable -Name cardinalDirectionPrimary -Force -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false
+</span></span><span style="display:flex;"><span>        Remove-Variable -Name cardinalDirectionPrimary -Force -Confirm:$false
 </span></span><span style="display:flex;"><span>        $cardinalDirectionPrimary = $null
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Else</span> 
@@ -446,7 +446,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">If</span> ($null <span style="color:#f92672">-ne</span> (Get-Variable -Name <span style="color:#e6db74">&#39;cardinalDirectionSecondary&#39;</span> -ErrorAction SilentlyContinue))
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>        Remove-Variable -Name cardinalDirectionSecondary -Force -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false
+</span></span><span style="display:flex;"><span>        Remove-Variable -Name cardinalDirectionSecondary -Force -Confirm:$false
 </span></span><span style="display:flex;"><span>        $cardinalDirectionSecondary = $null
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> 
@@ -456,21 +456,21 @@ uaenorth
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">:</span>SwitchAllAzureLocationCardinalDirectionsCount <span style="color:#66d9ef">switch</span> ($allAzureLocationCardinalDirections.Count)
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> 0} {
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">0</span>} {
 </span></span><span style="display:flex;"><span>            Write-Warning <span style="color:#e6db74">&#34;No cardinal direction found&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> SwitchAllAzureLocationCardinalDirectionsCount
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> 1} {
-</span></span><span style="display:flex;"><span>            $cardinalDirectionPrimary = $allAzureLocationCardinalDirections | Select-Object -First 1
-</span></span><span style="display:flex;"><span>            $cardinalDirectionSecondary = $allAzureLocationCardinalDirections | Select-Object -First 1
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">1</span>} {
+</span></span><span style="display:flex;"><span>            $cardinalDirectionPrimary = $allAzureLocationCardinalDirections | Select-Object -First <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            $cardinalDirectionSecondary = $allAzureLocationCardinalDirections | Select-Object -First <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> SwitchAllAzureLocationCardinalDirectionsCount
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> 2} {
-</span></span><span style="display:flex;"><span>            $cardinalDirectionPrimary = $allAzureLocationCardinalDirections | Select-Object -First 1
-</span></span><span style="display:flex;"><span>            $cardinalDirectionSecondary = $allAzureLocationCardinalDirections | Select-Object -Skip 1 -First 1
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">2</span>} {
+</span></span><span style="display:flex;"><span>            $cardinalDirectionPrimary = $allAzureLocationCardinalDirections | Select-Object -First <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            $cardinalDirectionSecondary = $allAzureLocationCardinalDirections | Select-Object -Skip <span style="color:#ae81ff">1</span> -First <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span> SwitchAllAzureLocationCardinalDirectionsCount
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-gt</span> 2} {
+</span></span><span style="display:flex;"><span>        {$PSItem <span style="color:#f92672">-gt</span> <span style="color:#ae81ff">2</span>} {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">Throw</span> <span style="color:#e6db74">&#34;More than 2 matches&#34;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        }
@@ -491,7 +491,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> 
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>        $AzureLocationNumber = 0
+</span></span><span style="display:flex;"><span>        $AzureLocationNumber = <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
@@ -505,12 +505,12 @@ uaenorth
 </span></span><span style="display:flex;"><span>    $LocationInfo = $AllAdditionalLocationInformation.$($ReverseLookup.country_code.ToLower())
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    $LocationInfoSubDivisions = $null
-</span></span><span style="display:flex;"><span>    $LocationInfoSubDivisions = $LocationInfo.allSubdivisions.keys | ForEach-Object {<span style="color:#66d9ef">[pscustomobject]</span>$LocationInfo.allSubdivisions.$PSItem}
+</span></span><span style="display:flex;"><span>    $LocationInfoSubDivisions = $LocationInfo.allSubdivisions.keys | ForEach-Object {[<span style="color:#66d9ef">pscustomobject</span>]$LocationInfo.allSubdivisions.$PSItem}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> 
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>        $ISO3166TwoCode = $null
-</span></span><span style="display:flex;"><span>        $ISO3166TwoCode = <span style="color:#66d9ef">If</span> ((<span style="color:#66d9ef">[string]</span>::IsNullOrWhiteSpace($ReverseLookup.region_code) <span style="color:#f92672">-eq</span> $false))
+</span></span><span style="display:flex;"><span>        $ISO3166TwoCode = <span style="color:#66d9ef">If</span> (([<span style="color:#66d9ef">string</span>]::IsNullOrWhiteSpace($ReverseLookup.region_code) <span style="color:#f92672">-eq</span> $false))
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;</span>$($LocationInfo.<span style="color:#e6db74">&#39;iso3166-1_alpha2&#39;</span>.ToLower())<span style="color:#e6db74">-</span>$($ReverseLookup.region_code.ToLower())<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>            }
@@ -522,7 +522,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.locality <span style="color:#f92672">-or</span> 
 </span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.county <span style="color:#f92672">-or</span> 
 </span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $ReverseLookup.neighbourhood <span style="color:#f92672">-or</span> 
-</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $azLocation.PhysicalLocation } | Select-Object -First 1
+</span></span><span style="display:flex;"><span>            $PSItem.<span style="color:#e6db74">&#39;iso3166-2_name&#39;</span> <span style="color:#f92672">-eq</span> $azLocation.PhysicalLocation } | Select-Object -First <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">#Only using as last resort</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> ($null <span style="color:#f92672">-eq</span> $LocationSubDivision)
@@ -546,7 +546,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#START: Create the object</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    $microsoftAzureLocationHashTable = $null
-</span></span><span style="display:flex;"><span>    $microsoftAzureLocationHashTable = <span style="color:#66d9ef">[ordered]</span>@{
+</span></span><span style="display:flex;"><span>    $microsoftAzureLocationHashTable = [<span style="color:#66d9ef">ordered</span>]@{
 </span></span><span style="display:flex;"><span>        azureCardinalDirectionPrimary = $cardinalDirectionPrimary
 </span></span><span style="display:flex;"><span>        azureCardinalDirectionSecondary = $cardinalDirectionSecondary
 </span></span><span style="display:flex;"><span>        azureDisplayName = $azLocation.DisplayName
@@ -593,7 +593,7 @@ uaenorth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Output</span>
-</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced | ConvertTo-Json -Depth 100 | Out-File -FilePath $ExportFilePath
+</span></span><span style="display:flex;"><span>$allMicrosoftAzureLocationsEnhanced | ConvertTo-Json -Depth <span style="color:#ae81ff">100</span> | Out-File -FilePath $ExportFilePath
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Output</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
@@ -659,9 +659,9 @@ reverseLookupTimeZoneOffsetSt… -04:00
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">###################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Import data</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedHashTable = Get-Content -Path <span style="color:#e6db74">&#34;.\AllLocationInformationJoinedHashTable.json&#34;</span> -Raw | ConvertFrom-Json -AsHashtable -Depth 100
+</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedHashTable = Get-Content -Path <span style="color:#e6db74">&#34;.\AllLocationInformationJoinedHashTable.json&#34;</span> -Raw | ConvertFrom-Json -AsHashtable -Depth <span style="color:#ae81ff">100</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedPSObject = Get-Content -Path <span style="color:#e6db74">&#34;.\AllLocationInformationJoinedHashTable.json&#34;</span> -Raw | ConvertFrom-Json -Depth 100 
+</span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedPSObject = Get-Content -Path <span style="color:#e6db74">&#34;.\AllLocationInformationJoinedHashTable.json&#34;</span> -Raw | ConvertFrom-Json -Depth <span style="color:#ae81ff">100</span> 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$AllMicrosoftAzureLocationsEnhancedArray = <span style="color:#66d9ef">Foreach</span> ($Location <span style="color:#66d9ef">in</span> $AllMicrosoftAzureLocationsEnhancedHashTable.Keys)
 </span></span><span style="display:flex;"><span>    {
@@ -676,9 +676,9 @@ reverseLookupTimeZoneOffsetSt… -04:00
 </span></span><span style="display:flex;"><span>$AllOptions = <span style="color:#66d9ef">Foreach</span> ($Location <span style="color:#66d9ef">in</span> $AllMicrosoftAzureLocationsEnhancedArray)
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>    $SubdivisionCode = $null
-</span></span><span style="display:flex;"><span>    $SubdivisionCode = <span style="color:#66d9ef">If</span> ((<span style="color:#66d9ef">[string]</span>::IsNullOrWhiteSpace($Location.locationInfoISO3166TwoCode) <span style="color:#f92672">-eq</span> $true))
+</span></span><span style="display:flex;"><span>    $SubdivisionCode = <span style="color:#66d9ef">If</span> (([<span style="color:#66d9ef">string</span>]::IsNullOrWhiteSpace($Location.locationInfoISO3166TwoCode) <span style="color:#f92672">-eq</span> $true))
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> ((<span style="color:#66d9ef">[string]</span>::IsNullOrWhiteSpace($Location.reverseLookupRegionCode) <span style="color:#f92672">-eq</span> $true))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> (([<span style="color:#66d9ef">string</span>]::IsNullOrWhiteSpace($Location.reverseLookupRegionCode) <span style="color:#f92672">-eq</span> $true))
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>            Write-Warning <span style="color:#e6db74">&#34;Location </span>$($Location.azureLocation)<span style="color:#e6db74"> has no identifier for subdivision&#34;</span>
 </span></span><span style="display:flex;"><span>            }
@@ -692,14 +692,14 @@ reverseLookupTimeZoneOffsetSt… -04:00
 </span></span><span style="display:flex;"><span>        ($Location.locationInfoISO3166TwoCode <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)<span style="color:#e6db74">-&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>).ToLower()
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[pscustomobject]</span>@{
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">pscustomobject</span>]@{
 </span></span><span style="display:flex;"><span>        Location = $location.azureLocation
 </span></span><span style="display:flex;"><span>        Option1 = <span style="color:#e6db74">&#34;</span>$($location.reverseLookupCountry <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\s&#39;</span>)$($Location.azureCardinalDirectionPrimary)$($Location.azureCardinalDirectionSecondary)$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
-</span></span><span style="display:flex;"><span>        Option2 = <span style="color:#e6db74">&#34;</span>$($location.reverseLookupCountry <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\s&#39;</span>)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.Substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option2 = <span style="color:#e6db74">&#34;</span>$($location.reverseLookupCountry <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;\s&#39;</span>)$($Location.azureCardinalDirectionPrimary.Substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($Location.azureCardinalDirectionSecondary.Substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
 </span></span><span style="display:flex;"><span>        Option3 = <span style="color:#e6db74">&#34;</span>$($Location.reverseLookupContinent)<span style="color:#e6db74">_</span>$($location.reverseLookupCountry)<span style="color:#e6db74">_</span>$($Location.azureCardinalDirectionPrimary)<span style="color:#e6db74">_</span>$($Location.azureCardinalDirectionSecondary)<span style="color:#e6db74">_</span>$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        Option4 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha3)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
-</span></span><span style="display:flex;"><span>        Option5 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
-</span></span><span style="display:flex;"><span>        Option6 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneNumeric)$($Location.azureCardinalDirectionPrimary.Substring(0,1))$($Location.azureCardinalDirectionSecondary.substring(0,1))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option4 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha3)$($Location.azureCardinalDirectionPrimary.Substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($Location.azureCardinalDirectionSecondary.substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option5 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)$($Location.azureCardinalDirectionPrimary.Substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($Location.azureCardinalDirectionSecondary.substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
+</span></span><span style="display:flex;"><span>        Option6 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneNumeric)$($Location.azureCardinalDirectionPrimary.Substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($Location.azureCardinalDirectionSecondary.substring(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>))$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        Option7 = <span style="color:#e6db74">&#34;</span>$($location.locationInfoISO3166OneAlpha2)$($SubdivisionCode)$($location.azureLocationNumber)<span style="color:#e6db74">&#34;</span>.ToLower()
 </span></span><span style="display:flex;"><span>        }
@@ -995,14 +995,14 @@ Option7  : usva0
     <i class="fas fa-fw fa-2x fa-rss"></i>
   </a></nav>
 <div class="copyright mb-2">
-  ©2022, Eric C. Singer
+  ©2023, Eric C. Singer
 </div>
 <div class="powered-by mb-2">
   Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
 </div></footer>
-<script src="https://ericcsinger.com/assets/main/bundle.min.a5767452c795c98f64bb960a9063f6daa2204dba4ec281b9011a3d9d5a69ddb6.js" integrity="sha256-pXZ0UseVyY9ku5YKkGP22qIgTbpOwoG5ARo9nVpp3bY=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.bfb722e9ecdba11fdaece2d3d9e7da457ad9d980216913567b7d92a092522be5.js" integrity="sha256-v7ci6ezboR/a7OLT2efaRXrZ2YAhaRNWe32SoJJSK&#43;U=" crossorigin="anonymous" defer></script>
-<script src="https://ericcsinger.com/assets/viewer/bundle.min.b2c956ed655d1524c8a69c20af2231a447129927161f7d32e978b66516fcfe00.js" integrity="sha256-sslW7WVdFSTIppwgryIxpEcSmScWH30y6Xi2ZRb8/gA=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.5d4e21071a95ce5b1f635fc99cc98e30d14b157ff223fb4f76117fdf4029c3a5.js" integrity="sha256-XU4hBxqVzlsfY1/JnMmOMNFLFX/yI/tPdhF/30Apw6U=" crossorigin="anonymous"></script>
-<script defer src="https://ericcsinger.com/assets/mermaid/bundle.min.e0678d67a61d9ab297dc3f1de9ca8e43614ce49e9e0d310b80787e532fca37a1.js" integrity="sha256-4GeNZ6YdmrKX3D8d6cqOQ2FM5J6eDTELgHh&#43;Uy/KN6E=" crossorigin="anonymous"></script>
+<script src="https://ericcsinger.com/assets/main/bundle.min.3d7a38d88604208446ccee497ced30637d3c73e2fac7ed35ba38670679770eb4.js" integrity="sha256-PXo42IYEIIRGzO5JfO0wY308c&#43;L6x&#43;01ujhnBnl3DrQ=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.0d067d9d39772448ad823fd74fb864bf7f76f28c53c66e87db7a83b3c3f41ae8.js" integrity="sha256-DQZ9nTl3JEitgj/XT7hkv3928oxTxm6H23qDs8P0Gug=" crossorigin="anonymous" defer></script>
+<script src="https://ericcsinger.com/assets/viewer/bundle.min.fca674eda5c87955d199444264ef450484ec404291dd55db5fe469f5b823d244.js" integrity="sha256-/KZ07aXIeVXRmURCZO9FBITsQEKR3VXbX&#43;Rp9bgj0kQ=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.f2bed17e252bf9064f3762211c0c01ca20721553c300c0870497712bd9ae4b9d.js" integrity="sha256-8r7RfiUr&#43;QZPN2IhHAwByiByFVPDAMCHBJdxK9muS50=" crossorigin="anonymous"></script>
+<script defer src="https://ericcsinger.com/assets/mermaid/bundle.min.e0938b3bd7a3599d1358cf0b090102626b7c6a4939c3afd605df56baf78a66ad.js" integrity="sha256-4JOLO9ejWZ0TWM8LCQECYmt8akk5w6/WBd9WuveKZq0=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;

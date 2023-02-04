@@ -20,7 +20,7 @@ Introduction:Let&rsquo;s face it, removing a domain controller via the GUI is e
 ParametersLet&rsquo;s start by estalishing some parameters
 #Array to hold roles of original DC $All_Roles_To_Move = New-Object -TypeName &#34;System."><meta itemprop="datePublished" content="2020-11-26T20:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-11-26T20:00:00+00:00" />
-<meta itemprop="wordCount" content="771">
+<meta itemprop="wordCount" content="807">
 <meta itemprop="keywords" content="Active Directory,PowerShell," /><meta property="og:title" content="PowerShell: Remove a failed domain controller" />
 <meta property="og:description" content="PowerShell: Remove a failed domain controllerVersion: 1.0.1
 Introduction:Let&rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
@@ -287,7 +287,7 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>$All_Roles_To_Move_Count = $All_Roles_To_Move | Measure-Object | select-object -expandproperty Count
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Determine if we have anything to move, and if so, move it.  Keep a note, this can take a while.  I think it needs to time out.</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">If</span> ($All_Roles_To_Move_Count <span style="color:#f92672">-gt</span> 0)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">If</span> ($All_Roles_To_Move_Count <span style="color:#f92672">-gt</span> <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>    Move-ADDirectoryServerOperationMasterRole -Identity $($AD_DC_Replacement_Name_Fully_Qualified_Domain_Name) -OperationMasterRole ($All_Roles_To_Move -join <span style="color:#e6db74">&#34;,&#34;</span>) -Force -PassThru
 </span></span><span style="display:flex;"><span>    }
@@ -312,12 +312,12 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>        $NTDS = Start-process -FilePath ntdsutil -argumentList <span style="color:#e6db74">&#34;&#34;&#34;metadata cleanup&#34;&#34; &#34;&#34;remove selected server cn=</span>$($AD_DC_Name_To_Remove)<span style="color:#e6db74">,cn=servers,</span>$($AD_Site.DistinguishedName)<span style="color:#e6db74">&#34;&#34; q q&#34;</span> -wait -nonewwindow -RedirectStandardOutput $StandardOut.FullName -RedirectStandardError $ErrorOut -PassThru
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        Get-Content -Path $StandardOut -Raw
-</span></span><span style="display:flex;"><span>        Remove-Item -Path $StandardOut -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false -Force
+</span></span><span style="display:flex;"><span>        Remove-Item -Path $StandardOut -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> ($NTDS.ExitCode <span style="color:#f92672">-gt</span> 0)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">If</span> ($NTDS.ExitCode <span style="color:#f92672">-gt</span> <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>            Get-Content -Path $ErrorOut -Raw
-</span></span><span style="display:flex;"><span>            Remove-Item -Path $ErrorOut -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false -Force
+</span></span><span style="display:flex;"><span>            Remove-Item -Path $ErrorOut -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">Throw</span> <span style="color:#e6db74">&#34;NTDS exit code was </span>$($NTDS.ExitCode)<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>
@@ -326,7 +326,7 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        Write-Host <span style="color:#e6db74">&#34;Attempting to cleanup site object for </span>$($AD_DC_Name_To_Remove)<span style="color:#e6db74">&#34;</span> -ForegroundColor Yellow
 </span></span><span style="display:flex;"><span>        $DC_In_Site = Get-ADObject -Identity <span style="color:#e6db74">&#34;cn=</span>$($AD_DC_Name_To_Remove)<span style="color:#e6db74">,cn=servers,</span>$($AD_Site.DistinguishedName)<span style="color:#e6db74">&#34;</span> -Partition <span style="color:#e6db74">&#34;CN=Configuration,</span>$($Forest_Domain.distinguishedName)<span style="color:#e6db74">&#34;</span> -Properties *
-</span></span><span style="display:flex;"><span>        $DC_In_Site | Remove-ADObject -Recursive -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false
+</span></span><span style="display:flex;"><span>        $DC_In_Site | Remove-ADObject -Recursive -Confirm:$false
 </span></span><span style="display:flex;"><span>        Write-Host <span style="color:#e6db74">&#34;Cleaned up site object for </span>$($AD_DC_Name_To_Remove)<span style="color:#e6db74">&#34;</span> -ForegroundColor Green
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        Write-Host <span style="color:#e6db74">&#34;Attempting to cleanup other AD objects with this DC name&#34;</span> -ForegroundColor Yellow
@@ -336,7 +336,7 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">If</span> ($AD_Object.DistinguishedName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$($AD_DC_Name_To_Remove)<span style="color:#e6db74">*&#34;</span>)
 </span></span><span style="display:flex;"><span>                {
 </span></span><span style="display:flex;"><span>                Write-Host <span style="color:#e6db74">&#34;Attempting to remove AD object </span>$($AD_Object.DistinguishedName)<span style="color:#e6db74">&#34;</span> -ForegroundColor Yellow
-</span></span><span style="display:flex;"><span>                $AD_Object | Remove-ADObject -Recursive -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false 
+</span></span><span style="display:flex;"><span>                $AD_Object | Remove-ADObject -Recursive -Confirm:$false 
 </span></span><span style="display:flex;"><span>                Write-Host <span style="color:#e6db74">&#34;Removed AD object </span>$($AD_Object.DistinguishedName)<span style="color:#e6db74">&#34;</span> -ForegroundColor Green
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            }
@@ -357,7 +357,7 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>                {
 </span></span><span style="display:flex;"><span>                Write-Host <span style="color:#e6db74">&#34;Removing DNS record&#34;</span> -ForegroundColor Yellow
 </span></span><span style="display:flex;"><span>                $Record 
-</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false -Force
+</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            ;<span style="color:#66d9ef">break</span>
 </span></span><span style="display:flex;"><span>            }
@@ -368,7 +368,7 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>                {
 </span></span><span style="display:flex;"><span>                Write-Host <span style="color:#e6db74">&#34;Removing DNS record&#34;</span> -ForegroundColor Yellow
 </span></span><span style="display:flex;"><span>                $Record 
-</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false -Force
+</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            ;<span style="color:#66d9ef">break</span>
 </span></span><span style="display:flex;"><span>            }
@@ -379,7 +379,18 @@ ParametersLet&rsquo;s start by estalishing some parameters
 </span></span><span style="display:flex;"><span>                {
 </span></span><span style="display:flex;"><span>                Write-Host <span style="color:#e6db74">&#34;Removing DNS record&#34;</span> -ForegroundColor Yellow
 </span></span><span style="display:flex;"><span>                $Record 
-</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false -Force
+</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm:$false -Force
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            ;<span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        {$_ <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;NS&#34;</span>} <span style="color:#75715e">#Credit to @davidmi711 for his contribution to this.  </span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">If</span> ($Record.recorddata.DomainName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$($AD_DC_Name_To_Remove)<span style="color:#e6db74">*&#34;</span>)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                Write-Host <span style="color:#e6db74">&#34;Removing DNS record&#34;</span> -ForegroundColor Yellow
+</span></span><span style="display:flex;"><span>                $Record 
+</span></span><span style="display:flex;"><span>                $Record | Remove-DnsServerResourceRecord -ZoneName $Domain.DNSRoot -ComputerName $($env:ComputerName) -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            ;<span style="color:#66d9ef">break</span>
 </span></span><span style="display:flex;"><span>            }
@@ -573,13 +584,13 @@ ParametersLet&rsquo;s start by estalishing some parameters
     <i class="fas fa-fw fa-2x fa-rss"></i>
   </a></nav>
 <div class="copyright mb-2">
-  ©2022, Eric C. Singer
+  ©2023, Eric C. Singer
 </div>
 <div class="powered-by mb-2">
   Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
 </div></footer>
-<script src="https://ericcsinger.com/assets/main/bundle.min.a5767452c795c98f64bb960a9063f6daa2204dba4ec281b9011a3d9d5a69ddb6.js" integrity="sha256-pXZ0UseVyY9ku5YKkGP22qIgTbpOwoG5ARo9nVpp3bY=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.bfb722e9ecdba11fdaece2d3d9e7da457ad9d980216913567b7d92a092522be5.js" integrity="sha256-v7ci6ezboR/a7OLT2efaRXrZ2YAhaRNWe32SoJJSK&#43;U=" crossorigin="anonymous" defer></script>
-<script src="https://ericcsinger.com/assets/viewer/bundle.min.b2c956ed655d1524c8a69c20af2231a447129927161f7d32e978b66516fcfe00.js" integrity="sha256-sslW7WVdFSTIppwgryIxpEcSmScWH30y6Xi2ZRb8/gA=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.5d4e21071a95ce5b1f635fc99cc98e30d14b157ff223fb4f76117fdf4029c3a5.js" integrity="sha256-XU4hBxqVzlsfY1/JnMmOMNFLFX/yI/tPdhF/30Apw6U=" crossorigin="anonymous"></script>
+<script src="https://ericcsinger.com/assets/main/bundle.min.3d7a38d88604208446ccee497ced30637d3c73e2fac7ed35ba38670679770eb4.js" integrity="sha256-PXo42IYEIIRGzO5JfO0wY308c&#43;L6x&#43;01ujhnBnl3DrQ=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.0d067d9d39772448ad823fd74fb864bf7f76f28c53c66e87db7a83b3c3f41ae8.js" integrity="sha256-DQZ9nTl3JEitgj/XT7hkv3928oxTxm6H23qDs8P0Gug=" crossorigin="anonymous" defer></script>
+<script src="https://ericcsinger.com/assets/viewer/bundle.min.fca674eda5c87955d199444264ef450484ec404291dd55db5fe469f5b823d244.js" integrity="sha256-/KZ07aXIeVXRmURCZO9FBITsQEKR3VXbX&#43;Rp9bgj0kQ=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.f2bed17e252bf9064f3762211c0c01ca20721553c300c0870497712bd9ae4b9d.js" integrity="sha256-8r7RfiUr&#43;QZPN2IhHAwByiByFVPDAMCHBJdxK9muS50=" crossorigin="anonymous"></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
