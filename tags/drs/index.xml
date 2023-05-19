@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>drs on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/drs/</link>
     <description>Recent content in drs on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sun, 14 Jan 2018 22:47:37 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/drs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VMware DRS default memory load balancing</title>
@@ -14,8 +15,9 @@
       <pubDate>Sun, 14 Jan 2018 22:47:37 +0000</pubDate>
       
       <guid>https://ericcsinger.com/vmware-drs-default-memory-load-balancing/</guid>
-      <description>In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down.</description>
+      <description><![CDATA[In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down.]]></description>
     </item>
     
   </channel>
 </rss>
+

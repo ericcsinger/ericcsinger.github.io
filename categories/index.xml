@@ -1,93 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/categories/</link>
     <description>Recent content in Categories on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sun, 05 May 2019 21:11:08 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Uncategorized</title>
-      <link>https://ericcsinger.com/categories/uncategorized/</link>
-      <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/uncategorized/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Backup</title>
-      <link>https://ericcsinger.com/categories/backup/</link>
-      <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/backup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>naming conventions</title>
-      <link>https://ericcsinger.com/categories/naming-conventions/</link>
-      <pubDate>Wed, 23 Nov 2016 00:46:14 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/naming-conventions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>servers</title>
-      <link>https://ericcsinger.com/categories/servers/</link>
-      <pubDate>Sat, 03 Sep 2016 19:37:12 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/servers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Storage</title>
-      <link>https://ericcsinger.com/categories/storage/</link>
-      <pubDate>Fri, 19 Aug 2016 23:45:00 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>thinking out loud</title>
-      <link>https://ericcsinger.com/categories/thinking-out-loud/</link>
-      <pubDate>Sat, 30 Apr 2016 16:22:05 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/thinking-out-loud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>monitoring</title>
-      <link>https://ericcsinger.com/categories/monitoring/</link>
-      <pubDate>Wed, 06 Apr 2016 21:53:04 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/monitoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cloud</title>
-      <link>https://ericcsinger.com/categories/cloud/</link>
-      <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>licensing</title>
-      <link>https://ericcsinger.com/categories/licensing/</link>
-      <pubDate>Sun, 05 Apr 2015 16:05:51 +0000</pubDate>
-      
-      <guid>https://ericcsinger.com/categories/licensing/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
+

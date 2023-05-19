@@ -1,431 +1,32 @@
-<!doctype html><html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="en"
-  
-   data-palette="blue"
-  >
-  <head>
-    <meta charset="utf-8">
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue">
+  <head><script src="/assets/init/bundle.min.ae263b8da19abebb94fcca26add68dc0c86f7d189b9bb2379b1258467d5579f1.js" integrity="sha256-riY7jaGavruU/MomrdaNwMhvfRibm7I3mxJYRn1VefE=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Problem Solving: CommVault tape usage - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
-<link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
-<link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
-<link rel="manifest" href="https://ericcsinger.com/manifest.json">
+    <title>Problem Solving: CommVault tape usage - Eric&#39;s Blog</title>
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="" />
-<meta name="description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks." /><meta itemprop="name" content="Problem Solving: CommVault tape usage">
-<meta itemprop="description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks."><meta itemprop="datePublished" content="2016-08-10T23:52:51+00:00" />
-<meta itemprop="dateModified" content="2016-08-10T23:52:51+00:00" />
-<meta itemprop="wordCount" content="1353">
-<meta itemprop="keywords" content="automation,backup,commvault,JAMS," /><meta property="og:title" content="Problem Solving: CommVault tape usage" />
-<meta property="og:description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks." />
+  <meta name="description" content="Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks." /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Problem Solving: CommVault tape usage"/>
+<meta name="twitter:description" content="Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks."/>
+<meta property="og:title" content="Problem Solving: CommVault tape usage" />
+<meta property="og:description" content="Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ericcsinger.com/problem-solving-commvault-tape-usage/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2016-08-10T23:52:51+00:00" />
 <meta property="article:modified_time" content="2016-08-10T23:52:51+00:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Problem Solving: CommVault tape usage"/>
-<meta name="twitter:description" content="Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks."/>
-
-<link rel="stylesheet" href="https://ericcsinger.com/assets/main/bundle.min.9f6ce38df21b9268646dcb9418a866629fed513a90854bd0b085577f5ea61003.css" integrity="sha256-n2zjjfIbkmhkbcuUGKhmYp/tUTqQhUvQsIVXf16mEAM=" crossorigin="anonymous"><link rel="stylesheet" href="https://ericcsinger.com/assets/katex/bundle.min.c7738aed5534d96f5c4eb1790af05b44a2ca1cc7d0cb6d5de1dcf95595d3f91a.css" integrity="sha256-x3OK7VU02W9cTrF5CvBbRKLKHMfQy21d4dz5VZXT&#43;Ro=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://ericcsinger.com/assets/viewer/bundle.min.6070b2af84f19b1663683173befd7b511e21bd766215f77447dbbd91caa83083.css" integrity="sha256-YHCyr4TxmxZjaDFzvv17UR4hvXZiFfd0R9u9kcqoMIM=" crossorigin="anonymous"></head>
-  <body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="https://ericcsinger.com/">Eric&#39;s Blog
-    </a>
-    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
-  <div class="offcanvas-header">
-    <h3 class="offcanvas-title">Share</h3>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <div class="offcanvas-body">
-    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=Problem%20Solving%3a%20CommVault%20tape%20usage&url=https%3a%2f%2fericcsinger.com%2fproblem-solving-commvault-tape-usage%2f">
-      <i class="fab fa-fw fa-twitter"></i> Twitter
-    </a>
-    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
-      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fproblem-solving-commvault-tape-usage%2f">
-      <i class="fab fa-fw fa-facebook-f"></i> Facebook
-    </a>
-  </div>
-</div>
-    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
-  aria-controls="offcanvasSettings" aria-label="Toggle settings">
-  <i class="fas fa-ellipsis-v"></i>
-</button>
-
-<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
-  <div class="offcanvas-header">
-    <h3 class="offcanvas-title">Settings</h3>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <div class="offcanvas-body d-flex flex-column">
-
-<div class="setting">
-  <form class="row">
-    <div class="col-auto">
-      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
-    </div>
-    <div class="col-auto ms-auto">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="modeSwitcher">
-      </div>
-    </div>
-  </form>
-</div>
-
-
-<div class="setting palettes">
-  <form class="row">
-    <div class="col-auto">
-      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
-    </div>
-    <div class="col-auto ms-auto">
-      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
-        <i class="fas fa-eye-dropper"></i>
-      </a>
-    </div>
-  </form>
-  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
-        class="btn btn-sm w-100 palette" data-palette="blue">
-      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
-        class="btn btn-sm w-100 palette" data-palette="blue-gray">
-      </button><button type="button" id="palette-brown" aria-label="Brown"
-        class="btn btn-sm w-100 palette" data-palette="brown">
-      </button><button type="button" id="palette-cyan" aria-label="Cyan"
-        class="btn btn-sm w-100 palette" data-palette="cyan">
-      </button><button type="button" id="palette-green" aria-label="Green"
-        class="btn btn-sm w-100 palette" data-palette="green">
-      </button><button type="button" id="palette-indigo" aria-label="Indigo"
-        class="btn btn-sm w-100 palette" data-palette="indigo">
-      </button><button type="button" id="palette-orange" aria-label="Orange"
-        class="btn btn-sm w-100 palette" data-palette="orange">
-      </button><button type="button" id="palette-pink" aria-label="Pink"
-        class="btn btn-sm w-100 palette" data-palette="pink">
-      </button><button type="button" id="palette-purple" aria-label="Purple"
-        class="btn btn-sm w-100 palette" data-palette="purple">
-      </button><button type="button" id="palette-red" aria-label="Red"
-        class="btn btn-sm w-100 palette" data-palette="red">
-      </button><button type="button" id="palette-teal" aria-label="Teal"
-        class="btn btn-sm w-100 palette" data-palette="teal">
-      </button><button type="button" id="palette-yellow" aria-label="Yellow"
-        class="btn btn-sm w-100 palette" data-palette="yellow">
-      </button></div>
-</div>
-<div class="setting actions d-flex justify-content-around mt-auto overflow-auto">
-  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
-    <span class="action-icon"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
-  </a>
-  <a role="button" class="action action-reload-page">
-    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
-  </a>
-  <a role="button" class="action action-copy-url">
-    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
-  </a><a class="action action-social-share" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
-    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
-    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
-  </a></div>
-
-</div>
-</div>
-
-    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
-      <form class="search-bar my-1" action="https://ericcsinger.com/search">
-  <div class="input-group input-group-sm">
-    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
-    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
-  </div>
-</form>
-      <ul class="navbar-nav ms-auto"><li class="nav-item">
-          <a class="nav-link" href="https://ericcsinger.com/about/">
-            About
-          </a>
-        </li></ul>
-    </div>
-  </div>
-</nav>
-</header>
-<main class="container">
-      <div class="row content">
-<div class="col-lg-8">
-  <div class="container"><nav class="row card component" aria-label="breadcrumb">
-  <div class="card-body">
-    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: CommVault tape usage</li></ol>
-  </div>
-</nav><div class="post-panel-wrapper position-sticky">
-  <div class="d-flex flex-column component rounded post-panel position-absolute">
-    
-    <a class="action action-panel-toggler" role="button" title="Panel toggler">
-      <i class="fas fa-fw fa-chevron-circle-down"></i>
-    </a>
-    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
-  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
-</a>
-
-    
-
-    
-    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
-  <i class="fas fa-fw fa-copyright"></i>
-</a>
-    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
-  <i class="fas fa-fw fa-comments"></i>
-</a>
-    
-    
-  </div>
-</div>
-<article class="row card component mb-4 post">
-  <div class="card-header ">
-    <h1 class="card-title post-title">Problem Solving: CommVault tape usage
-</h1>
-  </div>
-  <div class="card-body"><div class="post-meta">
-  <span class="post-date" title="created on 2016-08-10 19:52:51 -0400 EDT.">
-    Wed, 10 Aug 2016 23:52:51 &#43;0000
-  </span><span class="post-reading-time">
-    7 min read
-  </span><span class="post-taxonomies"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge post-taxonomy">Uncategorized</a><a href="https://ericcsinger.com/tags/automation/" class="badge post-taxonomy">automation</a><a href="https://ericcsinger.com/tags/backup/" class="badge post-taxonomy">backup</a><a href="https://ericcsinger.com/tags/commvault/" class="badge post-taxonomy">commvault</a><a href="https://ericcsinger.com/tags/jams/" class="badge post-taxonomy">JAMS</a></span>
-</div>
-<div class="post-content mb-3"><h1 id="introduction">Introduction:<a class="anchor ms-1" href="#introduction"><i class="fas fa-link"></i></a></h1>
-<p>I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks. What makes matters worse is when you have to deal with MORE tapes.</p>
-<p>Now that you know tapes are one of my personal seven levels of hell in IT, you’ll know why I put a bit of time into this solution. Anything I can do to reduce the number of tapes getting exported every day, ultimately leads to some reduction in the PITA scale of tapes.</p>
-<h1 id="the-issue">The issue:<a class="anchor ms-1" href="#the-issue"><i class="fas fa-link"></i></a></h1>
-<p>To provide a better understanding of the issue at hand, for years I’ve been seeing way too many tapes being used by CV. We’d kick out tapes that had 5% or 10% consumption, and the number of tapes with that level of consumption varied based on what phase of our backup strategy we were in, and what day of the week it was. It could be anything as small as 4 partially filled tapes, to times where we had 10+ tapes that weren’t filled all the way up. If the consumed data should fit on 16 tapes, and we’re kicking out 26 tapes, that’s a problem IMO. I’m sure many of you out there have contended with this in CV specifically, and I’d bet those of you using other vendors products have run into this too. I’m going to first explain why the problem is occurring, and then I’ll go over how I’ve reduced most of the waste.</p>
-<p><strong>The Why?</strong></p>
-<p>In CV, we have storage policies, and short of going into an explanation of what they are for others not familiar with CV, just think of it as an island of backup data. That island of data doesn’t co-mingle with other islands of data on disk, and tape is no exclusion. What that means is when you backup data to a storage policy and want to copy it to tape, that data getting copied to tape will automatically reserve the entire tape being used. In turn, each storage policy then reserves its own unique tapes so that data does not co-mingle together. This means for every storage policy you have, you’re guaranteed at least one unique tape per storage policy at a minimum. Now, each storage policy can have a number of streams configured. To keep things simple, let’s just ignore multiplexing for now. When a storage policy has a stream limit of 1, that means only 1 tape drive will be used, when it has a stream policy of 4, that means 4 tape drives will be used. Now, as you copy data to tape, you normally have more than 1 streams worth of data, you probably have at least one for each client in your environment (and likely much more than that). This is a good thing, having more streams means we can run data copy operations in parallel. In the case of the 4 streams example, that means we can use 4 tape drives in parallel to copy data for the example storage policy. What this also means is depending on circumstances, we could end up with 4 tapes not being filled all the way as well. Streams are optimized for performance, NOT for improving tape utilization. Now, imagine you have more than one storage policy, let’s just say 4 storage polices, each being their own island, and each with a stream limit of 2. That means you could end up with up to 8 tapes not being fully utilized. I’m also ignoring for now that in CV, you can separate incremental and fulls to different storage policies which exacerbates the problem further (taking one island and making it two).</p>
-<p>In our case, we have 4 storage policies and we had gone through a process of merging our Fulls and Incs into a single storage policy to consolidate tapes already. We have a total of 6 tape drives, which means if we just configured the storage policies to fight over the tape drives @6 streams each, we could end up in theory with 24 partially filled tapes. We’re smarter than that of course, so that wasn’t out problem. Our problem was finding the right balance between how many streams a storage policy needed to copy all its data in our window, and not making it so high that we ended up wasting tape. Pre-solution, we almost always had 4 – 6 tapes that were wasted, as in 100GB on a 2000GB tape. It was annoying and wasteful.</p>
-<h1 id="solution-problems-again-improved-solution">Solution, problems again, improved solution:<a class="anchor ms-1" href="#solution-problems-again-improved-solution"><i class="fas fa-link"></i></a></h1>
-<p>There are two main components to the solution.</p>
-<ul>
-<li>Scripting storage policy stream modification via task scheduler (MVP JAMS in our case).</li>
-<li>CommVault introducing Global Tape Policies in v11
-<ul>
-<li>This allows tapes to be shared, no longer residing on an island as mentioned above. So storage policy 1, 2, 3 and 4 can all share the same tape. Way more efficient.</li>
-</ul>
-</li>
-</ul>
-<p>In our case, when we saw the global tape policy, it was like a halo of light and angels singing, going off in our head. This was it, our problems were FINALLY solved. After going through the very tedious task of migrating to this solution, we found that we were still using 4 – 6 tapes a day more than we needed. The problem was not that data was not co-mingling, it was. No, the problem was that we set the global tape policy to 6 streams, and every day, it was using 6 tape drives for backups. At first we tried to solve the problem by limiting the aux copy streams via a scheduled task in CV (start the job with 1 stream only as an example) but we had 4 storage polices, so that only reduced the tape usage to 4. The problem again was that each storage police was scheduled and run in parallel. So while we restricted any one storage policy, ultimately we were still letting more tape drives being used than needed and in turn more tapes than was needed. We had set 6 streams, because we wanted to make sure that our FULL jobs had enough tape drives to complete over the weekend.</p>
-<p>At this stage, I came to the conclusion that we needed a way to dynamically control the streams for the global tape policy so that during the week days it was restricted to 1 tape drive (all we needed) and on the weekend, we could start out with 6 and slowly ramp back down to 1, and hopefully more fully fill our tapes. With a bit of research and some discussions with CV, I found out that they have a CLI option for controlling storage policy streams (found <a href="https://documentation.commvault.com/commvault/v10/article?p=features/storage_policies/storage_policy_xml_edit.htm" target="_blank" rel="noopener noreferrer">https://documentation.commvault.com/commvault/v10/article?p=features/storage_policies/storage_policy_xml_edit.htm)<i class="fas fa-external-link-square-alt ms-1"></i></a>
-). Using my trusty scheduling tool, I setup a basic system where on Sunday @4PM we would set the streams to “1”, and then on Friday @4PM we would raise them to “6” and Saturday @7am we would drop them to “2”. This basically solved our problem, and I’m happy to say that on week days, tapes are filled as much as is possible (1 – 2 tapes depending on which client ran a full), and on the weekend, 2 – 4 tapes are still being used. I’m still tuning the whole thing, for the fulls (it’s a balance of utilization and performance), but its better than its ever been. Its also worth noting, we went back and modified our aux copy schedules and told them to use all available streams since we now choke point it at the global tape policy. This allows any storage policy to go as fast as possible (although potentially blocking other ones).</p>
-<p>It’s a hack no doubt. IMO, CV should develop this concept in their storage policies. Basically creating a schedule window to dynamically control the queue depth. For now, this is working well.</p>
-</div></div>
-  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
-    <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
-    <a href="https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/">SQL Query: Microsoft – WSUS – Computers Update Status
-</a>
-  </div><div class="post-nav post-next">
-    <a href="https://ericcsinger.com/wish-list-nimble-storage-2016/">Wish list: Nimble Storage (2016)
-</a>
-    <i class="fas fa-fw fa-chevron-circle-down post-next-icon" data-fa-transform="rotate-270"></i>
-  </div></div></div>
-</article><div class="post-copyright mb-3 row card component" id="post-copyright">
-    <div class="card-header">
-        <h2 class="card-title">Copyright</h2>
-    </div>
-    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
-  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
-  CC BY-SA 4.0 
-</a>
-
-
-    </div>
-</div><section class="related-posts row card component">
-    <div class="card-header">
-      <h2 class="card-title">Related Posts</h2>
-    </div>
-    <div class="card-body">
-      <ul class="post-list"><li>
-          <a href="https://ericcsinger.com/problem-solving-chasing-sqls-dump/">Problem Solving: Chasing SQL&#39;s Dump
-</a>
-          <span class="float-end post-date">Sun, 15 May 2016 19:57:35 &#43;0000
-</span>
-        </li><li>
-          <a href="https://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/">Backup Storage Part 5: Realization of a failure
-</a>
-          <span class="float-end post-date">Tue, 20 Oct 2015 22:27:15 &#43;0000
-</span>
-        </li><li>
-          <a href="https://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/">Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s
-</a>
-          <span class="float-end post-date">Sat, 26 Sep 2015 18:16:34 &#43;0000
-</span>
-        </li><li>
-          <a href="https://ericcsinger.com/backup-storage-part-3c-cloud-storage/">Backup Storage Part 3c: Cloud Storage
-</a>
-          <span class="float-end post-date">Sun, 23 Aug 2015 15:33:43 &#43;0000
-</span>
-        </li><li>
-          <a href="https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/">Backup Storage Part 3a: Deduplication Targets
-</a>
-          <span class="float-end post-date">Tue, 02 Jun 2015 21:08:31 &#43;0000
-</span>
-        </li></ul>
-    </div>
-  </section><div class="card component row post-comments" id="post-comments">
-  <div class="card-header">
-    <h2 class="card-title">Comments</h2>
-  </div>
-  <div class="card-body"><script src="https://utteranc.es/client.js"
-  repo="ericcsinger/ericcsinger.github.io"
-  issue-term="title"
-  label="comment"
-  theme="github-light"
-  crossorigin="anonymous"
-  async>
-</script></div>
-</div></div>
-</div><aside class="col-lg-4 sidebar d-flex">
-  <div class="container d-flex flex-column">
-    
-    <div class="card row text-center profile component">
-  <div class="card-body">
-    <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible
-    
-     width="2316" height="3088"
-     />
-</picture>
-</div>
-    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-github"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-twitter"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
-    <i class="fas fa-fw fa-2x fa-rss"></i>
-  </a></nav>
-</div>
-  </div>
-</div>
-<section class="recent-posts row card component">
-  <div class="card-header">
-    <h2 class="card-title">Recent Posts</h2>
-  </div>
-  <div class="card-body">
-    <ul class="post-list"><li>
-        <a href="https://ericcsinger.com/naming-conventions-azure-locations/">Naming Conventions: Azure Locations
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
-</a>
-      </li></ul>
-  </div>
-</section><section class="tags-taxonomies row card component">
-      <div class="card-header">
-        <h2 class="card-title">
-          <a href="https://ericcsinger.com/tags">Tags</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="py-2"><a href="https://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
-            powershell<span class="badge badge-sm text-white bg-accent ms-1">18</span></a><a href="https://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
-            Azure<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
-            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
-            automation<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
-            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
-            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
-            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
-            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
-            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/arm/" class="badge rounded post-taxonomy" title="arm">
-            arm<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/bicep/" class="badge rounded post-taxonomy" title="bicep">
-            bicep<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/iac/" class="badge rounded post-taxonomy" title="IaC">
-            IaC<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
-            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
-            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
-            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
-            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
-            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
-            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
-            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
-            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
-            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
-            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
-            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
-            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
-            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags" class="badge rounded post-taxonomy" title='ALL'>
-          ALL
-          <span class="badge badge-sm text-white bg-accent ms-1">61</span>
-        </a></div>
-      </div>
-    </section><section class="categories-taxonomies row card component">
-      <div class="card-header">
-        <h2 class="card-title">
-          <a href="https://ericcsinger.com/categories">Categories</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="py-2"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
-            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="https://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
-            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
-            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
-            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
-            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
-            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
-            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
-            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
-            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
-      </div>
-    </section><section class="series-taxonomies row card component">
-      <div class="card-header">
-        <h2 class="card-title">
-          <a href="https://ericcsinger.com/series">Series</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="py-2"><a href="https://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
-            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge rounded post-taxonomy" title="Azure Bicep Conditional Properties">
-            Azure Bicep Conditional Properties<span class="badge badge-sm text-white bg-accent ms-1">4</span></a></div>
-      </div>
-    </section><section class="row card component">
-    <div class="card-header">
-      <h2 class="card-title">Archives</h2>
-    </div>
-    <div class="card-body">
-      <ul class="post-list">
-        <li>2022(6)</li>
-        <li>2021(3)</li>
-        <li>2020(4)</li>
-        <li>2019(7)</li>
-        <li>2018(7)</li>
-        <li>2017(17)</li>
-        <li>2016(17)</li>
-        <li>2015(16)</li>
-      </ul>
-    </div>
-</section>
-    
-  </div>
-</aside>
-</div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
-    <i class="fas fa-fw fa-2x fa-rss"></i>
-  </a></nav>
-<div class="copyright mb-2">
-  ©2023, Eric C. Singer
-</div>
-<div class="powered-by mb-2">
-  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
-</div></footer>
-<script src="https://ericcsinger.com/assets/main/bundle.min.3d7a38d88604208446ccee497ced30637d3c73e2fac7ed35ba38670679770eb4.js" integrity="sha256-PXo42IYEIIRGzO5JfO0wY308c&#43;L6x&#43;01ujhnBnl3DrQ=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.0d067d9d39772448ad823fd74fb864bf7f76f28c53c66e87db7a83b3c3f41ae8.js" integrity="sha256-DQZ9nTl3JEitgj/XT7hkv3928oxTxm6H23qDs8P0Gug=" crossorigin="anonymous" defer></script>
-<script src="https://ericcsinger.com/assets/viewer/bundle.min.fca674eda5c87955d199444264ef450484ec404291dd55db5fe469f5b823d244.js" integrity="sha256-/KZ07aXIeVXRmURCZO9FBITsQEKR3VXbX&#43;Rp9bgj0kQ=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.f2bed17e252bf9064f3762211c0c01ca20721553c300c0870497712bd9ae4b9d.js" integrity="sha256-8r7RfiUr&#43;QZPN2IhHAwByiByFVPDAMCHBJdxK9muS50=" crossorigin="anonymous"></script>
+<meta itemprop="name" content="Problem Solving: CommVault tape usage">
+<meta itemprop="description" content="Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks."><meta itemprop="datePublished" content="2016-08-10T23:52:51+00:00" />
+<meta itemprop="dateModified" content="2016-08-10T23:52:51+00:00" />
+<meta itemprop="wordCount" content="1352">
+<meta itemprop="keywords" content="automation,backup,commvault,JAMS," />
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -438,5 +39,830 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-</body>
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.8665b86c0de590a692897e53fbf55330fb969c34f1d22790e6840ff406961a52.css" integrity="sha256-hmW4bA3lkKaSiX5T+/VTMPuWnDTx0ieQ5oQP9AaWGlI=" crossorigin="anonymous">
+
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.b236565f31a50508b5851cfb13938fa5a8d9f4fd00884efe2ad27a11b82968bf.css" integrity="sha256-sjZWXzGlBQi1hRz7E5OPpajZ9P0AiE7&#43;KtJ6EbgpaL8=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.c8cc49b70e98e42caf70845e0d50f8e86821121688c2e5a5f6fc464d40154853.css" integrity="sha256-yMxJtw6Y5CyvcIReDVD46GghEhaIwuWl9vxGTUAVSFM=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://ericcsinger.com/">Eric&#39;s Blog
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Eric&#39;s Blog</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://ericcsinger.com/about/">About
+            </a>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-1" action="" novalidate>
+      <div class="input-group input-group-sm align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="bg-primary rounded shadow">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+
+<div class="col-xxl-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: CommVault tape usage</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    
+    
+    
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Sidebar toggler">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title my-2">Problem Solving: CommVault tape usage</h1>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2016-08-10 19:52:51 -0400 EDT.">Wed, 10 Aug 2016 23:52:51 &#43;0000</span><span class="post-reading-time me-1 mb-1">7 min read</span><a href="/categories/uncategorized/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
+      <i class="fas fa-fw fa-folder me-1"></i>Uncategorized</a><a href="/tags/automation/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Automation</a><a href="/tags/backup/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Backup</a><a href="/tags/commvault/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Commvault</a><a href="/tags/jams/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">JAMS</a>
+</div>
+<div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks. What makes matters worse is when you have to deal with MORE tapes.</p>
+<p>Now that you know tapes are one of my personal seven levels of hell in IT, you’ll know why I put a bit of time into this solution. Anything I can do to reduce the number of tapes getting exported every day, ultimately leads to some reduction in the PITA scale of tapes.</p>
+<h1 id="the-issue" data-numberify>The issue:<a class="anchor ms-1" href="#the-issue"></a></h1>
+<p>To provide a better understanding of the issue at hand, for years I’ve been seeing way too many tapes being used by CV. We’d kick out tapes that had 5% or 10% consumption, and the number of tapes with that level of consumption varied based on what phase of our backup strategy we were in, and what day of the week it was. It could be anything as small as 4 partially filled tapes, to times where we had 10+ tapes that weren’t filled all the way up. If the consumed data should fit on 16 tapes, and we’re kicking out 26 tapes, that’s a problem IMO. I’m sure many of you out there have contended with this in CV specifically, and I’d bet those of you using other vendors products have run into this too. I’m going to first explain why the problem is occurring, and then I’ll go over how I’ve reduced most of the waste.</p>
+<p><strong>The Why?</strong></p>
+<p>In CV, we have storage policies, and short of going into an explanation of what they are for others not familiar with CV, just think of it as an island of backup data. That island of data doesn’t co-mingle with other islands of data on disk, and tape is no exclusion. What that means is when you backup data to a storage policy and want to copy it to tape, that data getting copied to tape will automatically reserve the entire tape being used. In turn, each storage policy then reserves its own unique tapes so that data does not co-mingle together. This means for every storage policy you have, you’re guaranteed at least one unique tape per storage policy at a minimum. Now, each storage policy can have a number of streams configured. To keep things simple, let’s just ignore multiplexing for now. When a storage policy has a stream limit of 1, that means only 1 tape drive will be used, when it has a stream policy of 4, that means 4 tape drives will be used. Now, as you copy data to tape, you normally have more than 1 streams worth of data, you probably have at least one for each client in your environment (and likely much more than that). This is a good thing, having more streams means we can run data copy operations in parallel. In the case of the 4 streams example, that means we can use 4 tape drives in parallel to copy data for the example storage policy. What this also means is depending on circumstances, we could end up with 4 tapes not being filled all the way as well. Streams are optimized for performance, NOT for improving tape utilization. Now, imagine you have more than one storage policy, let’s just say 4 storage polices, each being their own island, and each with a stream limit of 2. That means you could end up with up to 8 tapes not being fully utilized. I’m also ignoring for now that in CV, you can separate incremental and fulls to different storage policies which exacerbates the problem further (taking one island and making it two).</p>
+<p>In our case, we have 4 storage policies and we had gone through a process of merging our Fulls and Incs into a single storage policy to consolidate tapes already. We have a total of 6 tape drives, which means if we just configured the storage policies to fight over the tape drives @6 streams each, we could end up in theory with 24 partially filled tapes. We’re smarter than that of course, so that wasn’t out problem. Our problem was finding the right balance between how many streams a storage policy needed to copy all its data in our window, and not making it so high that we ended up wasting tape. Pre-solution, we almost always had 4 – 6 tapes that were wasted, as in 100GB on a 2000GB tape. It was annoying and wasteful.</p>
+<h1 id="solution-problems-again-improved-solution" data-numberify>Solution, problems again, improved solution:<a class="anchor ms-1" href="#solution-problems-again-improved-solution"></a></h1>
+<p>There are two main components to the solution.</p>
+<ul>
+<li>Scripting storage policy stream modification via task scheduler (MVP JAMS in our case).</li>
+<li>CommVault introducing Global Tape Policies in v11
+<ul>
+<li>This allows tapes to be shared, no longer residing on an island as mentioned above. So storage policy 1, 2, 3 and 4 can all share the same tape. Way more efficient.</li>
+</ul>
+</li>
+</ul>
+<p>In our case, when we saw the global tape policy, it was like a halo of light and angels singing, going off in our head. This was it, our problems were FINALLY solved. After going through the very tedious task of migrating to this solution, we found that we were still using 4 – 6 tapes a day more than we needed. The problem was not that data was not co-mingling, it was. No, the problem was that we set the global tape policy to 6 streams, and every day, it was using 6 tape drives for backups. At first we tried to solve the problem by limiting the aux copy streams via a scheduled task in CV (start the job with 1 stream only as an example) but we had 4 storage polices, so that only reduced the tape usage to 4. The problem again was that each storage police was scheduled and run in parallel. So while we restricted any one storage policy, ultimately we were still letting more tape drives being used than needed and in turn more tapes than was needed. We had set 6 streams, because we wanted to make sure that our FULL jobs had enough tape drives to complete over the weekend.</p>
+<p>At this stage, I came to the conclusion that we needed a way to dynamically control the streams for the global tape policy so that during the week days it was restricted to 1 tape drive (all we needed) and on the weekend, we could start out with 6 and slowly ramp back down to 1, and hopefully more fully fill our tapes. With a bit of research and some discussions with CV, I found out that they have a CLI option for controlling storage policy streams (found <a href="https://documentation.commvault.com/commvault/v10/article?p=features/storage_policies/storage_policy_xml_edit.htm" target="_blank" rel="noopener noreferrer">https://documentation.commvault.com/commvault/v10/article?p=features/storage_policies/storage_policy_xml_edit.htm)<i class="fas fa-external-link-square-alt ms-1"></i></a>). Using my trusty scheduling tool, I setup a basic system where on Sunday @4PM we would set the streams to “1”, and then on Friday @4PM we would raise them to “6” and Saturday @7am we would drop them to “2”. This basically solved our problem, and I’m happy to say that on week days, tapes are filled as much as is possible (1 – 2 tapes depending on which client ran a full), and on the weekend, 2 – 4 tapes are still being used. I’m still tuning the whole thing, for the fulls (it’s a balance of utilization and performance), but its better than its ever been. Its also worth noting, we went back and modified our aux copy schedules and told them to use all available streams since we now choke point it at the global tape policy. This allows any storage policy to go as fast as possible (although potentially blocking other ones).</p>
+<p>It’s a hack no doubt. IMO, CV should develop this concept in their storage policies. Basically creating a schedule window to dynamically control the queue depth. For now, this is working well.</p>
+</div>
+</div>
+</div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/sql-query-microsoft-wsus-computers-update-status/">SQL Query: Microsoft – WSUS – Computers Update Status</a>
+    </div><div class="post-nav post-next">
+      <a href="/wish-list-nimble-storage-2016/">Wish list: Nimble Storage (2016)</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
+  CC BY-SA 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/problem-solving-chasing-sqls-dump/">
+    Problem Solving: Chasing SQL&#39;s Dump
+  </a>
+  <div class="post-meta mb-0">
+    Sun, 15 May 2016 19:57:35 &#43;0000
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/backup-storage-part-5-realization-of-a-failure/">
+    Backup Storage Part 5: Realization of a failure
+  </a>
+  <div class="post-meta mb-0">
+    Tue, 20 Oct 2015 22:27:15 &#43;0000
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/backup-storage-part-4a-windows-storage-spaces-gotchas/">
+    Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s
+  </a>
+  <div class="post-meta mb-0">
+    Sat, 26 Sep 2015 18:16:34 &#43;0000
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/backup-storage-part-3c-cloud-storage/">
+    Backup Storage Part 3c: Cloud Storage
+  </a>
+  <div class="post-meta mb-0">
+    Sun, 23 Aug 2015 15:33:43 &#43;0000
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/backup-storage-part-3a-deduplication-targets/">
+    Backup Storage Part 3a: Deduplication Targets
+  </a>
+  <div class="post-meta mb-0">
+    Tue, 02 Jun 2015 21:08:31 &#43;0000
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
+  <div class="card-header">
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
+  </div>
+  <div class="card-body"><script src="https://utteranc.es/client.js"
+  repo="ericcsinger/ericcsinger.github.io"
+  issue-term="title"
+  label="comment"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+
+</div>
+</div></div>
+</div>
+<aside class="col-xxl-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+    
+<div class="accordion profile">
+  <div class="accordion-item card row text-center component">
+    <div class="accordion-header card-header border-0" id="profile-header">
+      <a
+        class="accordion-button d-lg-none mb-2 shadow-none p-0 bg-transparent text-surface"
+        role="button" data-bs-toggle="collapse" href="#profile" aria-expanded="true" aria-controls="profile">
+        Profile
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible width="2316" height="3088" />
+</picture>
+</div>
+      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div>
+
+
+<nav class="social-links nav justify-content-center mt-1 justify-content-around">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="me">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"
+           style="color: #0a66c2;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="me">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"
+           style="color: #f48024;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  </div>
+</div>
+
+
+<div class="accordion taxonomies-toggle">
+    <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#taxonomies-toggle" aria-expanded="true" aria-controls="taxonomies-toggle">
+                Taxonomies
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="taxonomies-toggle">
+            <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="taxonomyTagsTab" data-bs-toggle="tab" data-bs-target="#taxonomyTags" 
+                            type="button" role="tab" aria-controls="taxonomyTags" aria-selected="true">
+                            Tags
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="taxonomyCategoriesTab" data-bs-toggle="tab" data-bs-target="#taxonomyCategories" 
+                            type="button" role="tab" aria-controls="taxonomyCategories" aria-selected="true">
+                            Categories
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="taxonomySeriesTab" data-bs-toggle="tab" data-bs-target="#taxonomySeries" 
+                            type="button" role="tab" aria-controls="taxonomySeries" aria-selected="true">
+                            Series
+                        </button>
+                    </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="taxonomyArchivesTab" data-bs-toggle="tab" data-bs-target="#taxonomyArchives" 
+                        type="button" role="tab" aria-controls="taxonomyArchives" aria-selected="true">
+                        Archives
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3">
+                    <div class="tab-pane active" id="taxonomyTags" role="tabpanel" aria-labelledby="taxonomyTagsTab" tabindex="0">
+                        <a href="/tags/powershell/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="powershell">
+                            powershell
+                            <span class="badge badge-sm text-secondary bg-white ms-1">18</span>
+                        </a>
+                        <a href="/tags/azure/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Azure">
+                            Azure
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/tags/microsoft/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Microsoft">
+                            Microsoft
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/tags/automation/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="automation">
+                            automation
+                            <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+                        </a>
+                        <a href="/tags/backup/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="backup">
+                            backup
+                            <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+                        </a>
+                        <a href="/tags/sql/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="SQL">
+                            SQL
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="storage">
+                            storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/vmware/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="vmware">
+                            vmware
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/wsus/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="wsus">
+                            wsus
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/arm/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="arm">
+                            arm
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/bicep/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="bicep">
+                            bicep
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/iac/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="IaC">
+                            IaC
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/thinking-out-loud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="thinking out loud">
+                            thinking out loud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/naming-conventions/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="naming conventions">
+                            naming conventions
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/review/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="review">
+                            review
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/windows/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="windows">
+                            windows
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/commvault/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="commvault">
+                            commvault
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/jams/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="JAMS">
+                            JAMS
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/nimble-storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="nimble storage">
+                            nimble storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/reviews/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="reviews">
+                            reviews
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/scripting/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="scripting">
+                            scripting
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/t-sql/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="T-SQL">
+                            T-SQL
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/active-directory/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="active directory">
+                            active directory
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/centralized-job-management/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="centralized job management">
+                            centralized job management
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/cloud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="cloud">
+                            cloud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="https://ericcsinger.com/tags" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title='ALL'>
+                        ALL
+                        <span class="badge badge-sm text-secondary bg-white ms-1">61</span>
+                        </a>
+                    </div>
+                    <div class="tab-pane" id="taxonomyCategories" role="tabpanel" aria-labelledby="taxonomyCategoriesTab" tabindex="0">
+                        <a href="/categories/uncategorized/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="Uncategorized">
+                            Uncategorized
+                            <span class="badge badge-sm text-secondary bg-white ms-1">48</span>
+                        </a>
+                        <a href="/categories/backup/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="Backup">
+                            Backup
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/categories/storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="Storage">
+                            Storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/categories/thinking-out-loud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="thinking out loud">
+                            thinking out loud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/categories/naming-conventions/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="naming conventions">
+                            naming conventions
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/categories/cloud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="cloud">
+                            cloud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="/categories/licensing/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="licensing">
+                            licensing
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="/categories/monitoring/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="monitoring">
+                            monitoring
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="/categories/servers/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="servers">
+                            servers
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                    </div>
+                    <div class="tab-pane" id="taxonomySeries" role="tabpanel" aria-labelledby="taxonomySeriesTab" tabindex="0">
+                        <a href="/series/backup-storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-series me-2 mb-2" title="Backup Storage">
+                            Backup Storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/series/azure-bicep-conditional-properties/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-series me-2 mb-2" title="Azure Bicep Conditional Properties">
+                            Azure Bicep Conditional Properties
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                    </div>
+                <div class="tab-pane" id="taxonomyArchives" role="tabpanel" aria-labelledby="taxonomyArchivesTab" tabindex="0">
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2022">
+    2022 <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2021">
+    2021 <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2020">
+    2020 <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2019">
+    2019 <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2018">
+    2018 <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2017">
+    2017 <span class="badge badge-sm text-secondary bg-white ms-1">17</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2016">
+    2016 <span class="badge badge-sm text-secondary bg-white ms-1">17</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2015">
+    2015 <span class="badge badge-sm text-secondary bg-white ms-1">16</span>
+    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="accordion posts-toggle">
+      <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+          <a
+            class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+            role="button"
+            data-bs-toggle="collapse"
+            href="#posts-toggle"
+            aria-expanded="true"
+            aria-controls="posts-toggle">
+            Posts
+          </a>
+        </div>
+        <div
+          class="card-body collapse accordion-collapse accordion-body d-lg-block show"
+          id="posts-toggle">
+          <ul class="nav nav-pills nav-fill" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="recent-posts-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#recent-posts"
+                  type="button"
+                  role="tab"
+                  aria-controls="recent-posts"
+                  aria-selected="true">
+                  Recent Posts
+                </button>
+              </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+              <div
+                class="tab-pane active"
+                id="recent-posts"
+                role="tabpanel"
+                aria-labelledby="recent-posts-tab"
+                tabindex="0">
+                <ul class="post-list list-unstyled ms-1">
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/naming-conventions-azure-locations/">
+        Naming Conventions: Azure Locations
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sun, 30 Oct 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/problem-solving-windows-dns-server-in-azure-returns-servfail/">
+        Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sat, 24 Sep 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/azure-bicep-conditional-properties-part-04-helper-modules/">
+        Azure Bicep Conditional Properties Part 04, Helper Modules
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sat, 10 Sep 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/azure-bicep-conditional-properties-part-03-template-variables/">
+        Azure Bicep Conditional Properties Part 03, Template Variables
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sun, 28 Aug 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/azure-bicep-conditional-properties-part-02-parameters/">
+        Azure Bicep Conditional Properties Part 02, Parameters
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sun, 21 Aug 2022 13:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=VMware%20vSAN%20in%20my%20environment%3f%20not%20yet%21&url=https%3a%2f%2fericcsinger.com%2fvmware-vsan-in-my-environment-not-yet%2f">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fvmware-vsan-in-my-environment-not-yet%2f">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Eric&#39;s Blog</p>
+    <p class="text-secondary mb-2"><small>Eric IT Blog</small></p><div class="copyright mb-2 text-secondary">
+  <small>©2023, Eric C. Singer
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.88a3da4211215658c019105ee6df6d39dcbcc5df9c304d0005643346b9f64cb9.js" integrity="sha256-iKPaQhEhVljAGRBe5t9tOdy8xd&#43;cME0ABWQzRrn2TLk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.9ba76665e3c9fa036c059c1c85f287b5780b8c3e27f6cc9cd6372b90c42cf347.js" integrity="sha256-m6dmZePJ&#43;gNsBZwchfKHtXgLjD4n9syc1jcrkMQs80c=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.b0348f9dd3c40eee23b65b205b879d1bed2136c80586689e7a50745d8f89d849.js" integrity="sha256-sDSPndPEDu4jtlsgW4edG&#43;0hNsgFhmieelB0XY&#43;J2Ek=" crossorigin="anonymous"></script>
+
+
+
+  </body>
 </html>

@@ -1,0 +1,1 @@
+(()=>{var o={fallback:"https://ericcsinger.com/",homes:{en:"https://ericcsinger.com/"}};(()=>{let e=navigator.language||navigator.userLanguage;if(e in o.homes){window.location.href=o.homes[e];return}let a=e.split("-");for(let n in o.homes)if(n.indexOf(a[0])===0){window.location.href=o.homes[n];return}window.location.href=o.fallback})();})();

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>T-SQL on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/t-sql/</link>
     <description>Recent content in T-SQL on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sat, 07 Oct 2017 20:38:40 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/t-sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Powershell Scripting: Get-ECSWSUSComputerUpdatesStatusReport</title>
@@ -14,8 +15,8 @@
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description>Introduction:I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
-I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.</description>
+      <description><![CDATA[Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
+I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.]]></description>
     </item>
     
     <item>
@@ -24,7 +25,7 @@ I wanted an ability to gather data on a given WSUS computer(s), and work with it
       <pubDate>Thu, 14 Jul 2016 21:43:51 +0000</pubDate>
       
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/</guid>
-      <description>Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.</description>
+      <description><![CDATA[Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.]]></description>
     </item>
     
     <item>
@@ -33,10 +34,11 @@ I wanted an ability to gather data on a given WSUS computer(s), and work with it
       <pubDate>Tue, 05 Jul 2016 16:54:36 +0000</pubDate>
       
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</guid>
-      <description>This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
+      <description><![CDATA[This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
 There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.
-By default, my query returns the computer target location based on the child object.</description>
+By default, my query returns the computer target location based on the child object.]]></description>
     </item>
     
   </channel>
 </rss>
+

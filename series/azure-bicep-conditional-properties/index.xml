@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Azure Bicep Conditional Properties on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/series/azure-bicep-conditional-properties/</link>
     <description>Recent content in Azure Bicep Conditional Properties on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sat, 10 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/series/azure-bicep-conditional-properties/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure Bicep Conditional Properties Part 04, Helper Modules</title>
@@ -14,9 +15,9 @@
       <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -25,9 +26,9 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Sun, 28 Aug 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -36,9 +37,9 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -47,10 +48,11 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Sun, 21 Aug 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
   </channel>
 </rss>
+

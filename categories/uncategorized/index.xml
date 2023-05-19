@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Uncategorized on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/categories/uncategorized/</link>
     <description>Recent content in Uncategorized on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sun, 05 May 2019 21:11:08 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Powershell Module Release: ECS.WSUS v1.1.0</title>
@@ -14,7 +15,7 @@
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</guid>
-      <description>Functions released in this module:Get-ECSWSUSUpdateReport </description>
+      <description><![CDATA[Functions released in this module: Get-ECSWSUSUpdateReport ]]></description>
     </item>
     
     <item>
@@ -23,9 +24,9 @@
       <pubDate>Sun, 05 May 2019 21:09:30 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.all-v2.3.0/</guid>
-      <description>This is the easiest way to install all my modules in one shot.
+      <description><![CDATA[This is the easiest way to install all my modules in one shot.
 Sub-modules released in this module:
-ECS.WSUS 1.1.0 </description>
+ECS.WSUS 1.1.0 ]]></description>
     </item>
     
     <item>
@@ -34,8 +35,8 @@ ECS.WSUS 1.1.0 </description>
       <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
       
       <guid>https://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</guid>
-      <description>We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.
-&amp;lt;pre class=&amp;#34;brush: powershell; title: ; notranslate&amp;#34; title=&amp;#34;&amp;#34;&amp;gt;$UserNamePattern = &amp;#34;*singer*&amp;#34;$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &amp;#39;msExchActiveSyncDevice&amp;#39;} | Where-Object {$_.</description>
+      <description><![CDATA[We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.
+&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;$UserNamePattern = &#34;*singer*&#34;$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.]]></description>
     </item>
     
     <item>
@@ -44,9 +45,9 @@ ECS.WSUS 1.1.0 </description>
       <pubDate>Sat, 02 Mar 2019 21:30:28 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.all-v2.2.0/</guid>
-      <description>This is the easiest way to install all my modules in one shot.
+      <description><![CDATA[This is the easiest way to install all my modules in one shot.
 Sub-modules released in this module:
-ECS.WSUS v1.0.0 You can learn more about the module here.</description>
+ECS.WSUS v1.0.0 You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -55,9 +56,9 @@ ECS.WSUS v1.0.0 You can learn more about the module here.</description>
       <pubDate>Sat, 02 Mar 2019 21:21:30 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</guid>
-      <description>This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
+      <description><![CDATA[This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
 I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.
-Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.</description>
+Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -66,7 +67,7 @@ Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTa
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
       
       <guid>https://ericcsinger.com/hci-storage-independence-vs.-san/</guid>
-      <description>I love chatting about tech and anytime I get to do so with folks like Josh Odgers, Cody Hosterman, Exchange Goddess, Dan the builder, Duncan Epping, Frank Denneman, Chrissy LeMair, etc. it’s a good day. They’re all IT celebrities in my books, and I failed to even scratch the surface of all the folks I’m following / interact with. Some folks follow their sports heroes, I follow my IT hero’s.</description>
+      <description><![CDATA[I love chatting about tech and anytime I get to do so with folks like Josh Odgers, Cody Hosterman, Exchange Goddess, Dan the builder, Duncan Epping, Frank Denneman, Chrissy LeMair, etc. it’s a good day. They’re all IT celebrities in my books, and I failed to even scratch the surface of all the folks I’m following / interact with. Some folks follow their sports heroes, I follow my IT hero’s.]]></description>
     </item>
     
     <item>
@@ -75,8 +76,8 @@ Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTa
       <pubDate>Sun, 03 Feb 2019 19:49:13 +0000</pubDate>
       
       <guid>https://ericcsinger.com/been-a-while#8230/</guid>
-      <description>Sorry it’s been so long since I’ve wrote anything. I’ve been busy with life and working on a new Powershell module. I’m hoping to get back into the groove soon. I’ve been working on a few things at work that might be interesting to write about.
-For now, I’ll leave you with this. I’ve released my 1.0.0 version of my WSUS Powershell module. I’m not considering it “officially” released until I can start writing the wiki on how to use the module, but it is on the Powershell gallery and it is on my Github.</description>
+      <description><![CDATA[Sorry it’s been so long since I’ve wrote anything. I’ve been busy with life and working on a new Powershell module. I’m hoping to get back into the groove soon. I’ve been working on a few things at work that might be interesting to write about.
+For now, I’ll leave you with this. I’ve released my 1.0.0 version of my WSUS Powershell module. I’m not considering it “officially” released until I can start writing the wiki on how to use the module, but it is on the Powershell gallery and it is on my Github.]]></description>
     </item>
     
     <item>
@@ -85,9 +86,9 @@ For now, I’ll leave you with this. I’ve released my 1.0.0 version of my WSUS
       <pubDate>Sun, 16 Sep 2018 16:27:19 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.localgpo-v2.1.0/</guid>
-      <description>This is the second release of my LocalGPO module. Mostly code enhancement, but a few property changes as well.
+      <description><![CDATA[This is the second release of my LocalGPO module. Mostly code enhancement, but a few property changes as well.
 Functions released in this module:
-Add-ECSLocalGPOUserRightAssignment Get-ECSLocalGPOUserRightAssignment Remove-ECSLocalGPOUserRightAssignment Show-ECSLocalGPOUserRightAssignment You can learn more about the module here.</description>
+Add-ECSLocalGPOUserRightAssignment Get-ECSLocalGPOUserRightAssignment Remove-ECSLocalGPOUserRightAssignment Show-ECSLocalGPOUserRightAssignment You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -96,9 +97,9 @@ Add-ECSLocalGPOUserRightAssignment Get-ECSLocalGPOUserRightAssignment Remove-ECS
       <pubDate>Sun, 16 Sep 2018 16:22:53 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.all-v2.1.0/</guid>
-      <description>This is the second release of my all encompassing module. This is the easiest way to install all my modules in one shot.
+      <description><![CDATA[This is the second release of my all encompassing module. This is the easiest way to install all my modules in one shot.
 Sub-modules released in this module:
-ECS.LocalGPO v2.1.0 ECS.WindowsGeneric v1.1.0 You can learn more about the module here.</description>
+ECS.LocalGPO v2.1.0 ECS.WindowsGeneric v1.1.0 You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -107,8 +108,8 @@ ECS.LocalGPO v2.1.0 ECS.WindowsGeneric v1.1.0 You can learn more about the modul
       <pubDate>Sun, 12 Aug 2018 22:49:52 +0000</pubDate>
       
       <guid>https://ericcsinger.com/psa-vm-backup-hot-add-mode-with-nimble-nos-5.x-on-vvols/</guid>
-      <description>Just a quick pubic service announcement. If you’re on Nimble NOS 5.x and you use vVOL’s and you’re backing up VM’s with a vendor that uses the VDDK API’s, you might want to confirm your VM’s are in fact using hot add mode.
-We discovered by happen stance, that after upgrading our Nimble SAN from 4.x to 5.x, that any VM that was on a vVOL on that particular NOS version started failing to attach disks during a backup.</description>
+      <description><![CDATA[Just a quick pubic service announcement. If you’re on Nimble NOS 5.x and you use vVOL’s and you’re backing up VM’s with a vendor that uses the VDDK API’s, you might want to confirm your VM’s are in fact using hot add mode.
+We discovered by happen stance, that after upgrading our Nimble SAN from 4.x to 5.x, that any VM that was on a vVOL on that particular NOS version started failing to attach disks during a backup.]]></description>
     </item>
     
     <item>
@@ -117,9 +118,9 @@ We discovered by happen stance, that after upgrading our Nimble SAN from 4.x to 
       <pubDate>Sun, 15 Jul 2018 17:07:48 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.windowsgeneric-v1.0.1/</guid>
-      <description>This is the first release of what I hope to be more Powershell modules. As mentioned in my earlier posts, I won’t go into details of the module in my posts, instead I’ll direct you to my GitHub page where you can read about the modules, it’s functions and release notes.
+      <description><![CDATA[This is the first release of what I hope to be more Powershell modules. As mentioned in my earlier posts, I won’t go into details of the module in my posts, instead I’ll direct you to my GitHub page where you can read about the modules, it’s functions and release notes.
 Functions released in this module:
-Convert ECSSIDToAccount Convert ECSAccountToSID You can learn more about the module here.</description>
+Convert ECSSIDToAccount Convert ECSAccountToSID You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -128,8 +129,8 @@ Convert ECSSIDToAccount Convert ECSAccountToSID You can learn more about the mod
       <pubDate>Sun, 29 Apr 2018 16:45:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/new-strategy-for-my-scripting-content/</guid>
-      <description>I know I haven’t been posting a lot, but that’s because I’ve been busy developing my first public Powershell modules. This short post isn’t to discuss the specifics of that, but rather my new strategy going forward.
-Many of you probably know what GitHub is by now, but for those of you who don’t, it’s pretty much the most popular version control system for code. While I’m not a developer per se, I do have a lot of Powershell stuff I write, and I wanted to start getting more formal with how I organize and manage it.</description>
+      <description><![CDATA[I know I haven’t been posting a lot, but that’s because I’ve been busy developing my first public Powershell modules. This short post isn’t to discuss the specifics of that, but rather my new strategy going forward.
+Many of you probably know what GitHub is by now, but for those of you who don’t, it’s pretty much the most popular version control system for code. While I’m not a developer per se, I do have a lot of Powershell stuff I write, and I wanted to start getting more formal with how I organize and manage it.]]></description>
     </item>
     
     <item>
@@ -138,9 +139,10 @@ Many of you probably know what GitHub is by now, but for those of you who don’
       <pubDate>Mon, 19 Mar 2018 12:52:31 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-vmware-vm-not-reading-vmdk-serial-number-in-os/</guid>
-      <description>I created a function while ago that utilizes the VMDK serial number to map which VMDK is used for a Windows volume. Starting with Windows 10 / Server 2016, I noticed that I could no longer see the serial number of a VMDK insides the OS. After reaching out to VMware, turned out to be a really simple fix.
+      <description><![CDATA[I created a function while ago that utilizes the VMDK serial number to map which VMDK is used for a Windows volume. Starting with Windows 10 / Server 2016, I noticed that I could no longer see the serial number of a VMDK insides the OS. After reaching out to VMware, turned out to be a really simple fix.
 First let me share the relevant KB:
-https://kb.vmware.com/s/article/52815I would suggest you make sure this setting is present on all VM’s.</description>
+https://kb.vmware.com/s/article/52815
+I would suggest you make sure this setting is present on all VM’s.]]></description>
     </item>
     
     <item>
@@ -149,7 +151,7 @@ https://kb.vmware.com/s/article/52815I would suggest you make sure this setting
       <pubDate>Sun, 14 Jan 2018 22:47:37 +0000</pubDate>
       
       <guid>https://ericcsinger.com/vmware-drs-default-memory-load-balancing/</guid>
-      <description>In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down.</description>
+      <description><![CDATA[In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down.]]></description>
     </item>
     
     <item>
@@ -158,7 +160,7 @@ https://kb.vmware.com/s/article/52815I would suggest you make sure this setting
       <pubDate>Mon, 25 Dec 2017 19:39:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-installing-sql-/-setting-up-alwayson-availability-groups/</guid>
-      <description>Introduction:We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS + SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well.</description>
+      <description><![CDATA[Introduction: We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS + SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well.]]></description>
     </item>
     
     <item>
@@ -167,8 +169,8 @@ https://kb.vmware.com/s/article/52815I would suggest you make sure this setting
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
-      <description>Introduction:I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
-Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).</description>
+      <description><![CDATA[Introduction: I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
+Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).]]></description>
     </item>
     
     <item>
@@ -177,7 +179,7 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Thu, 16 Nov 2017 00:40:55 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thanksgiving-2017-truck-drivers/</guid>
-      <description>I know I’m totally guilty of saying expletives with regards to truckers. Being honest, most of it is due to my own impatience / selfishness. Still once I realize, that I’m getting upset about a person that’s driving a 40-ton vehicle cautiously, things tend to fall back into perspective. In fact, the more I’ve watched shows like Ice Road Truckers, and various documentaries about truck’in, the more I find that there’s just not enough gratitude expressed for these folks.</description>
+      <description><![CDATA[I know I’m totally guilty of saying expletives with regards to truckers. Being honest, most of it is due to my own impatience / selfishness. Still once I realize, that I’m getting upset about a person that’s driving a 40-ton vehicle cautiously, things tend to fall back into perspective. In fact, the more I’ve watched shows like Ice Road Truckers, and various documentaries about truck’in, the more I find that there’s just not enough gratitude expressed for these folks.]]></description>
     </item>
     
     <item>
@@ -186,7 +188,7 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Sat, 11 Nov 2017 21:41:53 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thanksgiving-2017-sanitation-and-cleaning-crew/</guid>
-      <description>Series Introduction:Back in October I had a grand plan to have 23 days of thanks. Unfortunately, life got in the way, and I never had the time to pre-write all the posts I wanted to. Rather than giving up, I’m going to punch out as many as I can before the 24th. Since I want to focus on the month of thanks, by giving thanks, I’m not going to be writing any technical posts.</description>
+      <description><![CDATA[Series Introduction: Back in October I had a grand plan to have 23 days of thanks. Unfortunately, life got in the way, and I never had the time to pre-write all the posts I wanted to. Rather than giving up, I’m going to punch out as many as I can before the 24th. Since I want to focus on the month of thanks, by giving thanks, I’m not going to be writing any technical posts.]]></description>
     </item>
     
     <item>
@@ -195,8 +197,8 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description>Introduction:I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
-I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.</description>
+      <description><![CDATA[Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
+I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.]]></description>
     </item>
     
     <item>
@@ -205,9 +207,9 @@ I wanted an ability to gather data on a given WSUS computer(s), and work with it
       <pubDate>Sat, 30 Sep 2017 21:25:51 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputer-and-get-ecswsuscomputersintargetgroup/</guid>
-      <description>Introduction:These two functions by themselves aren’t exactly sexy. Their main goal is to be used to feed my function Get-ECSWSUSComputerUpdatesStatusReport. Still, I can see some limited value to them outside of that use case.
+      <description><![CDATA[Introduction: These two functions by themselves aren’t exactly sexy. Their main goal is to be used to feed my function Get-ECSWSUSComputerUpdatesStatusReport. Still, I can see some limited value to them outside of that use case.
 One thing you’ll notice, is i’m hitting SQL directly instead of querying the WSUS APIs. I’m doing this, despite it not being recommended, because it’s infinitely faster and far more flexible that the APIs.
-Dependencies:First and foremost, you need my Invoke-ECSSQLQuery function located here.</description>
+Dependencies: First and foremost, you need my Invoke-ECSSQLQuery function located here.]]></description>
     </item>
     
     <item>
@@ -216,8 +218,8 @@ Dependencies:First and foremost, you need my Invoke-ECSSQLQuery function locate
       <pubDate>Sat, 23 Sep 2017 19:44:46 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-877stockcar.com-exotic-experiences/</guid>
-      <description>Introduction:This post is 100% off topic, it’s about my “exotic car” experience through 877stockcar.com. In general, my blog is for tech stuff, but I figure it might be fun to write about something non-tech for once. This is about the https://877stockcar.com/experiences/exotic-experiences/located at Pocono Raceway.
-I wanted to write this for anyone that might be thinking of dropping up to $700 on their package, so you know what you’re in for.</description>
+      <description><![CDATA[Introduction: This post is 100% off topic, it’s about my “exotic car” experience through 877stockcar.com. In general, my blog is for tech stuff, but I figure it might be fun to write about something non-tech for once. This is about the https://877stockcar.com/experiences/exotic-experiences/ located at Pocono Raceway.
+I wanted to write this for anyone that might be thinking of dropping up to $700 on their package, so you know what you’re in for.]]></description>
     </item>
     
     <item>
@@ -226,9 +228,9 @@ I wanted to write this for anyone that might be thinking of dropping up to $700 
       <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</guid>
-      <description>Warning:This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
-Disclaimer:Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
-Introduction:I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.</description>
+      <description><![CDATA[Warning: This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
+Disclaimer: Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
+Introduction: I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.]]></description>
     </item>
     
     <item>
@@ -237,7 +239,7 @@ Introduction:I don’t know about all of you, but for me, VMware has been an un
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
-      <description>Introduction:If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.</description>
+      <description><![CDATA[Introduction: If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.]]></description>
     </item>
     
     <item>
@@ -246,8 +248,8 @@ Introduction:I don’t know about all of you, but for me, VMware has been an un
       <pubDate>Fri, 30 Jun 2017 21:20:28 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/</guid>
-      <description>Introduction:If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
-VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowing if you have the correct drivers is to find which VIB matches which PCI device.</description>
+      <description><![CDATA[Introduction: If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
+VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowing if you have the correct drivers is to find which VIB matches which PCI device.]]></description>
     </item>
     
     <item>
@@ -256,8 +258,8 @@ VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowin
       <pubDate>Tue, 13 Jun 2017 16:49:54 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-wsus-failing-for-windows-10-with-error-8024401c/</guid>
-      <description>Hi Folks,
-After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured.</description>
+      <description><![CDATA[Hi Folks,
+After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured.]]></description>
     </item>
     
     <item>
@@ -266,8 +268,8 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
       <pubDate>Tue, 16 May 2017 12:40:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/reminder-wsus-computer-status-report/</guid>
-      <description>Hi,
-Given the recent events, I just wanted to repost one of my older posts which goes over using WSUS’s SQL DB to get the update status of a computer(s).</description>
+      <description><![CDATA[Hi,
+Given the recent events, I just wanted to repost one of my older posts which goes over using WSUS’s SQL DB to get the update status of a computer(s).]]></description>
     </item>
     
     <item>
@@ -276,7 +278,7 @@ Given the recent events, I just wanted to repost one of my older posts which goe
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
-      <description>History:Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.</description>
+      <description><![CDATA[History: Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
     </item>
     
     <item>
@@ -285,8 +287,8 @@ Given the recent events, I just wanted to repost one of my older posts which goe
       <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-what-hp--nimble-means-to-me/</guid>
-      <description>Disclaimer:These are opinions, not facts and these opinions are mine, not my employers.
-Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.</description>
+      <description><![CDATA[Disclaimer: These are opinions, not facts and these opinions are mine, not my employers.
+Introduction: Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.]]></description>
     </item>
     
     <item>
@@ -295,7 +297,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Sat, 28 Jan 2017 21:38:09 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-server-names/</guid>
-      <description>Introduction:One of the things I’m struggling with, is how to balance the number of posts per naming convention. It would be easy in some ways to use a single post per server type, but it would also be overly redundant in many ways. I originally wrote a dedicated post to SQL server naming conventions, and realized that the logic behind its name is ultimately a similar logic for other server names.</description>
+      <description><![CDATA[Introduction: One of the things I’m struggling with, is how to balance the number of posts per naming convention. It would be easy in some ways to use a single post per server type, but it would also be overly redundant in many ways. I originally wrote a dedicated post to SQL server naming conventions, and realized that the logic behind its name is ultimately a similar logic for other server names.]]></description>
     </item>
     
     <item>
@@ -304,7 +306,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-1.5-years-with-mvp-systems-job-automation-scheduler-jams/</guid>
-      <description>Introduction:I wrote a really quick review hereabout MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.</description>
+      <description><![CDATA[Introduction: I wrote a really quick review here about MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.]]></description>
     </item>
     
     <item>
@@ -313,7 +315,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
-      <description>Introduction:If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.</description>
+      <description><![CDATA[Introduction: If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.]]></description>
     </item>
     
     <item>
@@ -322,7 +324,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</guid>
-      <description>Introduction:In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.</description>
+      <description><![CDATA[Introduction: In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.]]></description>
     </item>
     
     <item>
@@ -331,7 +333,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Wed, 10 Aug 2016 23:52:51 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-commvault-tape-usage/</guid>
-      <description>Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.</description>
+      <description><![CDATA[Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.]]></description>
     </item>
     
     <item>
@@ -340,7 +342,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Thu, 14 Jul 2016 21:43:51 +0000</pubDate>
       
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/</guid>
-      <description>Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.</description>
+      <description><![CDATA[Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.]]></description>
     </item>
     
     <item>
@@ -349,9 +351,9 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Tue, 05 Jul 2016 16:54:36 +0000</pubDate>
       
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</guid>
-      <description>This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
+      <description><![CDATA[This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
 There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.
-By default, my query returns the computer target location based on the child object.</description>
+By default, my query returns the computer target location based on the child object.]]></description>
     </item>
     
     <item>
@@ -360,8 +362,8 @@ By default, my query returns the computer target location based on the child obj
       <pubDate>Mon, 04 Jul 2016 19:13:41 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-invoke-ecssqlquery/</guid>
-      <description>Quick Powershell post for those of you that may on occasion want to retrieve data out of a SQL table via Powershell. I didn’t personally do most of the heavy lifting in this, I simply took some work that various folks out there did and put it into a repeatable function instead.
-Firstly, head over to hereto my GitHub if you want to grab it. I’ll be keeping it updated as change requests come in, or as I get new ideas, so make sure if you do use my function, that you check back in on occasion for new versions.</description>
+      <description><![CDATA[Quick Powershell post for those of you that may on occasion want to retrieve data out of a SQL table via Powershell. I didn’t personally do most of the heavy lifting in this, I simply took some work that various folks out there did and put it into a repeatable function instead.
+Firstly, head over to here to my GitHub if you want to grab it. I’ll be keeping it updated as change requests come in, or as I get new ideas, so make sure if you do use my function, that you check back in on occasion for new versions.]]></description>
     </item>
     
     <item>
@@ -370,8 +372,8 @@ Firstly, head over to hereto my GitHub if you want to grab it. I’ll be keepin
       <pubDate>Thu, 19 May 2016 18:38:30 +0000</pubDate>
       
       <guid>https://ericcsinger.com/vmware-dumping-the-c#-client-for-good-in-the-next-release/</guid>
-      <description>If you haven’t seen by now, VMware plans to dump the c# client in the next release. Article is herefor your review. I was the first one to comment, and maybe its just a coincidence, but it seems like I got a small fire started. If you have any strong feeling either way, maybe its worth posting your view in their comments or mine.
-Me, my views are in their comments, but suffice to say, I prefer thick clients over web clients all day long.</description>
+      <description><![CDATA[If you haven’t seen by now, VMware plans to dump the c# client in the next release. Article is here for your review. I was the first one to comment, and maybe its just a coincidence, but it seems like I got a small fire started. If you have any strong feeling either way, maybe its worth posting your view in their comments or mine.
+Me, my views are in their comments, but suffice to say, I prefer thick clients over web clients all day long.]]></description>
     </item>
     
     <item>
@@ -380,7 +382,7 @@ Me, my views are in their comments, but suffice to say, I prefer thick clients o
       <pubDate>Sat, 30 Apr 2016 20:54:49 +0000</pubDate>
       
       <guid>https://ericcsinger.com/kudos-west-coast-technologies-wct/</guid>
-      <description>In general I have to say I’m not a fan of VAR’s for many reasons. Most of which because I find little “Value Add” in having them resell technology that would probably be cheaper if I wasn’t stuck going through them. However, there’s always an exception to the rule, and after a recent mess up I wanted throw a shout out to WCTfor helping us out of a tough bind.</description>
+      <description><![CDATA[In general I have to say I’m not a fan of VAR’s for many reasons. Most of which because I find little “Value Add” in having them resell technology that would probably be cheaper if I wasn’t stuck going through them. However, there’s always an exception to the rule, and after a recent mess up I wanted throw a shout out to WCT for helping us out of a tough bind.]]></description>
     </item>
     
     <item>
@@ -389,9 +391,9 @@ Me, my views are in their comments, but suffice to say, I prefer thick clients o
       <pubDate>Sat, 26 Dec 2015 21:56:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsvmwarevirtualdisktowindowslogicaldiskmapping/</guid>
-      <description>Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping: which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
+      <description><![CDATA[Building off my last function Get-ECSPhysicalDiskToLogicalDiskMapping: which took a windows physical disk and mapped it to a windows logical disk, this function will take a VMware virtual disk and map it to a windows logical disk.
 This function has the following dependencies and assumptions:
-It depends on my windows physical to logical function and all its dependencies. It assumes your VM name matches your windows server name It assumes you’ve pre-loaded the VMware powershell snap-in.</description>
+It depends on my windows physical to logical function and all its dependencies. It assumes your VM name matches your windows server name It assumes you’ve pre-loaded the VMware powershell snap-in.]]></description>
     </item>
     
     <item>
@@ -400,8 +402,8 @@ It depends on my windows physical to logical function and all its dependencies. 
       <pubDate>Sun, 20 Dec 2015 16:50:39 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsphysicaldisktologicaldiskmapping/</guid>
-      <description>I figured it was about time to knock out something a little technical for a change, and I figured I’d start with this little function, which is part of a larger script that I’ll talk more about later.
-There may be a time where you need to find the relationship between a physical disk drive and your logical drive. In my case, I had a colleague ask me if there was an easy way to match a VMware disk to a Window disk so he could extend the proper drive.</description>
+      <description><![CDATA[I figured it was about time to knock out something a little technical for a change, and I figured I’d start with this little function, which is part of a larger script that I’ll talk more about later.
+There may be a time where you need to find the relationship between a physical disk drive and your logical drive. In my case, I had a colleague ask me if there was an easy way to match a VMware disk to a Window disk so he could extend the proper drive.]]></description>
     </item>
     
     <item>
@@ -410,8 +412,8 @@ There may be a time where you need to find the relationship between a physical d
       <pubDate>Sat, 21 Nov 2015 21:27:56 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-2.5-years-with-nimble-storage/</guid>
-      <description>Disclaimer: I’m not getting paid for this review, nor have I been asked to do this by anyone. These views are my own, and not my employers, and they’re opinions not facts .
-Intro:To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.</description>
+      <description><![CDATA[Disclaimer: I’m not getting paid for this review, nor have I been asked to do this by anyone. These views are my own, and not my employers, and they’re opinions not facts .
+Intro: To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.]]></description>
     </item>
     
     <item>
@@ -420,8 +422,8 @@ Intro:To begin with, as you can tell, I’ve been running Nimble Storage for a 
       <pubDate>Tue, 20 Oct 2015 22:27:15 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</guid>
-      <description>No one likes admitting they’re wrong, and I’m certainly no different. Being a mature person means being able to admit you’re wrong, even if it means doing it publicly, and that is what I’m about to do.
-I’ve been writing this series slowly over the past few months, and during that time, I’ve noticed an increasing number of instances where my storage space virtual disks NTFS would go corrupt. Basically, I’d see Veeam errors writing to our repository, and when investigating, I would find files not deleting (old VBK’s).</description>
+      <description><![CDATA[No one likes admitting they’re wrong, and I’m certainly no different. Being a mature person means being able to admit you’re wrong, even if it means doing it publicly, and that is what I’m about to do.
+I’ve been writing this series slowly over the past few months, and during that time, I’ve noticed an increasing number of instances where my storage space virtual disks NTFS would go corrupt. Basically, I’d see Veeam errors writing to our repository, and when investigating, I would find files not deleting (old VBK’s).]]></description>
     </item>
     
     <item>
@@ -430,8 +432,8 @@ I’ve been writing this series slowly over the past few months, and during that
       <pubDate>Sat, 26 Sep 2015 18:28:41 +0000</pubDate>
       
       <guid>https://ericcsinger.com/quicky-post-centralized-task-management-and-workflow/</guid>
-      <description>Just wanted to post this quick, and I may have time to do a more through post later, but this will do for now.
-In our backup solution, we had to join together two solutions, CommVault and Veeam. Veeeam backed up the data to disk and CommVault backed the data up to tape. The problem with this solution is the systems were unaware of each other. We really needed a solution that could take disperate systems and jobs, and basically link them together in a workflow.</description>
+      <description><![CDATA[Just wanted to post this quick, and I may have time to do a more through post later, but this will do for now.
+In our backup solution, we had to join together two solutions, CommVault and Veeam. Veeeam backed up the data to disk and CommVault backed the data up to tape. The problem with this solution is the systems were unaware of each other. We really needed a solution that could take disperate systems and jobs, and basically link them together in a workflow.]]></description>
     </item>
     
     <item>
@@ -440,7 +442,7 @@ In our backup solution, we had to join together two solutions, CommVault and Vee
       <pubDate>Sat, 26 Sep 2015 18:16:34 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</guid>
-      <description>The pro and the con of a software defined storage is that its not a turn key solution. Not only do you have the power to customize your solution, you also have no choice but to design your solution. With Storage Spaces, we figured most of this stuff out before selecting it as our new backup storage solution. At the time, there was some documentation on storage spaces, but it was very much a learning process.</description>
+      <description><![CDATA[The pro and the con of a software defined storage is that its not a turn key solution. Not only do you have the power to customize your solution, you also have no choice but to design your solution. With Storage Spaces, we figured most of this stuff out before selecting it as our new backup storage solution. At the time, there was some documentation on storage spaces, but it was very much a learning process.]]></description>
     </item>
     
     <item>
@@ -449,8 +451,8 @@ In our backup solution, we had to join together two solutions, CommVault and Vee
       <pubDate>Sun, 13 Sep 2015 20:17:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-3d-traditional-san-/-nas/</guid>
-      <description>Of all the types of storage we looked at, this was the one type that I kept coming back to. It was a storage technology that I had the most personal experience with, and having just finished implementing my companies first SAN, I was pretty well versed in what was out on the market.
-There were other reasons as well. Traditional storage is arguably the most familiar storage technology out there.</description>
+      <description><![CDATA[Of all the types of storage we looked at, this was the one type that I kept coming back to. It was a storage technology that I had the most personal experience with, and having just finished implementing my companies first SAN, I was pretty well versed in what was out on the market.
+There were other reasons as well. Traditional storage is arguably the most familiar storage technology out there.]]></description>
     </item>
     
     <item>
@@ -459,7 +461,7 @@ There were other reasons as well. Traditional storage is arguably the most famil
       <pubDate>Sun, 23 Aug 2015 15:33:43 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
-      <description>Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.</description>
+      <description><![CDATA[Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.]]></description>
     </item>
     
     <item>
@@ -468,9 +470,9 @@ There were other reasons as well. Traditional storage is arguably the most famil
       <pubDate>Sat, 11 Jul 2015 14:56:14 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-3b-scale-out-storage/</guid>
-      <description>While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
+      <description><![CDATA[While evaluating EMC’s DataDomain solution, our EMC rep suggested we also take a look at their Isilon product. Not being a person to turn down a chance to check out new technology I happily obliged.
 Before we get into my thoughts on Isilon, let’s go over a simplistic overview of what scale out storage is, and what makes it different from say an EMC VNX.
-SANs like the EMC VNX are what I’ll refer to as more traditional storage.</description>
+SANs like the EMC VNX are what I’ll refer to as more traditional storage.]]></description>
     </item>
     
     <item>
@@ -479,8 +481,9 @@ SANs like the EMC VNX are what I’ll refer to as more traditional storage.</des
       <pubDate>Tue, 19 May 2015 17:52:21 +0000</pubDate>
       
       <guid>https://ericcsinger.com/vmware-vsan-in-my-environment-not-yet/</guid>
-      <description>When VMware first announced vSAN, the premiss of the solution was just pure awesomeness. After all, VMware has the best hypervisor (fact, not opinion), they’re in the process of honing what I think will be a Cisco butt kicking software defined network solution. Basically vSAN was the only missing piece to building a software defined datacenter. However, like NSX, I just don’t think vSAN is at a point where they can replace my tried and true shared storage solution.</description>
+      <description><![CDATA[When VMware first announced vSAN, the premiss of the solution was just pure awesomeness. After all, VMware has the best hypervisor (fact, not opinion), they’re in the process of honing what I think will be a Cisco butt kicking software defined network solution. Basically vSAN was the only missing piece to building a software defined datacenter. However, like NSX, I just don’t think vSAN is at a point where they can replace my tried and true shared storage solution.]]></description>
     </item>
     
   </channel>
 </rss>
+

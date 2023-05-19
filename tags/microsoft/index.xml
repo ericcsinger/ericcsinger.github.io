@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Microsoft on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/microsoft/</link>
     <description>Recent content in Microsoft on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sun, 30 Oct 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Naming Conventions: Azure Locations</title>
@@ -14,7 +15,7 @@
       <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-azure-locations/</guid>
-      <description>IntroductionIt&amp;rsquo;s been a while since I&amp;rsquo;ve blogged about naming conventions. For most it&amp;rsquo;s not an interesting topic, and for many, it&amp;rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&amp;rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.</description>
+      <description><![CDATA[Introduction It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.]]></description>
     </item>
     
     <item>
@@ -23,7 +24,7 @@
       <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</guid>
-      <description>IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&amp;rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&amp;rsquo;ve had to adjust default setting, but that&amp;rsquo;s exactly what I&amp;rsquo;ve had to do.</description>
+      <description><![CDATA[Introduction I had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do.]]></description>
     </item>
     
     <item>
@@ -32,9 +33,9 @@
       <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -43,9 +44,9 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Sun, 28 Aug 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -54,9 +55,9 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Sun, 21 Aug 2022 13:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -65,9 +66,9 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Sun, 21 Aug 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/</guid>
-      <description>Version: 1.0.0
-Series IntroductionWhether you&amp;rsquo;re new to ARM/Bicep or a pro, I&amp;rsquo;m sure you&amp;rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&amp;rsquo;m going to show you a few ways you can work a round this.</description>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
     <item>
@@ -76,8 +77,8 @@ In this series, I&amp;rsquo;m going to show you a few ways you can work a round 
       <pubDate>Fri, 05 Mar 2021 12:00:00 +0500</pubDate>
       
       <guid>https://ericcsinger.com/iac-creativity-introduction/</guid>
-      <description>Version: 1.0.0
-IntroductionAs many know, I&amp;rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&amp;rsquo;ve had an on again / off again relationship with Azure ARM.</description>
+      <description><![CDATA[Version: 1.0.0
+Introduction As many know, I&rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&rsquo;ve had an on again / off again relationship with Azure ARM.]]></description>
     </item>
     
     <item>
@@ -86,11 +87,12 @@ IntroductionAs many know, I&amp;rsquo;m a big fan of automation. A lot of my bl
       <pubDate>Sun, 21 Feb 2021 16:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/microsofts-biggest-security-failure/</guid>
-      <description>Version: 1.0.1
-IntroductionLook we all know the running joke is &amp;ldquo;Microsoft Security&amp;rdquo; is an oxymoron. Over the years though, Microsoft has made large strides in improving security. In fact, one could make a case that they have defined newer standards that others have lacked.
-That said, I&amp;rsquo;d like to discuss an area that has left companies exposed for malicious intent. Monitoring in a Microsoft Windows environment.
-Finally, before continuing. These are my opinions shaped from my own experience.</description>
+      <description><![CDATA[Version: 1.0.1
+Introduction Look we all know the running joke is &ldquo;Microsoft Security&rdquo; is an oxymoron. Over the years though, Microsoft has made large strides in improving security. In fact, one could make a case that they have defined newer standards that others have lacked.
+That said, I&rsquo;d like to discuss an area that has left companies exposed for malicious intent. Monitoring in a Microsoft Windows environment.
+Finally, before continuing. These are my opinions shaped from my own experience.]]></description>
     </item>
     
   </channel>
 </rss>
+

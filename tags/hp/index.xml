@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HP on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/hp/</link>
     <description>Recent content in HP on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sun, 19 Mar 2017 17:41:16 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/hp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: What HP &#43; Nimble means to me</title>
@@ -14,9 +15,10 @@
       <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-what-hp--nimble-means-to-me/</guid>
-      <description>Disclaimer:These are opinions, not facts and these opinions are mine, not my employers.
-Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.</description>
+      <description><![CDATA[Disclaimer: These are opinions, not facts and these opinions are mine, not my employers.
+Introduction: Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.]]></description>
     </item>
     
   </channel>
 </rss>
+

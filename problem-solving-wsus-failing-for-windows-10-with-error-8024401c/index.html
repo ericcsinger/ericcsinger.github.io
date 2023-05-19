@@ -1,23 +1,23 @@
-<!doctype html><html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="en"
-  
-   data-palette="blue"
-  >
-  <head>
-    <meta charset="utf-8">
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
+  data-bs-theme="auto" data-palette="blue">
+  <head><script src="/assets/init/bundle.min.ae263b8da19abebb94fcca26add68dc0c86f7d189b9bb2379b1258467d5579f1.js" integrity="sha256-riY7jaGavruU/MomrdaNwMhvfRibm7I3mxJYRn1VefE=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Problem Solving: WSUS failing for Windows 10 with error 8024401c - Eric&#39;s Blog</title><link rel="apple-touch-icon" href="https://ericcsinger.com/images/icons/icon-180x180.png" sizes="180x180">
-<link rel="icon" href="https://ericcsinger.com/images/icons/icon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://ericcsinger.com/images/icons/icon-16x16.png" sizes="16x16" type="image/png">
-<link rel="icon" href="https://ericcsinger.com/images/icons/favicon.ico">
-<link rel="manifest" href="https://ericcsinger.com/manifest.json">
+    <title>Problem Solving: WSUS failing for Windows 10 with error 8024401c - Eric&#39;s Blog</title>
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="" />
-<meta name="description" content="Hi Folks,
-After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured." /><meta itemprop="name" content="Problem Solving: WSUS failing for Windows 10 with error 8024401c">
-<meta itemprop="description" content="Hi Folks,
-After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured."><meta itemprop="datePublished" content="2017-06-13T16:49:54+00:00" />
-<meta itemprop="dateModified" content="2017-06-13T16:49:54+00:00" />
-<meta itemprop="wordCount" content="898">
-<meta itemprop="keywords" content="problem solving,windows 10,wsus," /><meta property="og:title" content="Problem Solving: WSUS failing for Windows 10 with error 8024401c" />
+  <meta name="description" content="Hi Folks,
+After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured." /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Problem Solving: WSUS failing for Windows 10 with error 8024401c"/>
+<meta name="twitter:description" content="Hi Folks,
+After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured."/>
+<meta property="og:title" content="Problem Solving: WSUS failing for Windows 10 with error 8024401c" />
 <meta property="og:description" content="Hi Folks,
 After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured." />
 <meta property="og:type" content="article" />
@@ -25,181 +25,230 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
 <meta property="article:published_time" content="2017-06-13T16:49:54+00:00" />
 <meta property="article:modified_time" content="2017-06-13T16:49:54+00:00" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Problem Solving: WSUS failing for Windows 10 with error 8024401c"/>
-<meta name="twitter:description" content="Hi Folks,
-After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured."/>
+<meta itemprop="name" content="Problem Solving: WSUS failing for Windows 10 with error 8024401c">
+<meta itemprop="description" content="Hi Folks,
+After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured."><meta itemprop="datePublished" content="2017-06-13T16:49:54+00:00" />
+<meta itemprop="dateModified" content="2017-06-13T16:49:54+00:00" />
+<meta itemprop="wordCount" content="897">
+<meta itemprop="keywords" content="problem solving,windows 10,wsus," />
 
-<link rel="stylesheet" href="https://ericcsinger.com/assets/main/bundle.min.9f6ce38df21b9268646dcb9418a866629fed513a90854bd0b085577f5ea61003.css" integrity="sha256-n2zjjfIbkmhkbcuUGKhmYp/tUTqQhUvQsIVXf16mEAM=" crossorigin="anonymous"><link rel="stylesheet" href="https://ericcsinger.com/assets/katex/bundle.min.c7738aed5534d96f5c4eb1790af05b44a2ca1cc7d0cb6d5de1dcf95595d3f91a.css" integrity="sha256-x3OK7VU02W9cTrF5CvBbRKLKHMfQy21d4dz5VZXT&#43;Ro=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://ericcsinger.com/assets/viewer/bundle.min.6070b2af84f19b1663683173befd7b511e21bd766215f77447dbbd91caa83083.css" integrity="sha256-YHCyr4TxmxZjaDFzvv17UR4hvXZiFfd0R9u9kcqoMIM=" crossorigin="anonymous"></head>
-  <body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-163410401-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.8665b86c0de590a692897e53fbf55330fb969c34f1d22790e6840ff406961a52.css" integrity="sha256-hmW4bA3lkKaSiX5T+/VTMPuWnDTx0ieQ5oQP9AaWGlI=" crossorigin="anonymous">
+
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.b236565f31a50508b5851cfb13938fa5a8d9f4fd00884efe2ad27a11b82968bf.css" integrity="sha256-sjZWXzGlBQi1hRz7E5OPpajZ9P0AiE7&#43;KtJ6EbgpaL8=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.c8cc49b70e98e42caf70845e0d50f8e86821121688c2e5a5f6fc464d40154853.css" integrity="sha256-yMxJtw6Y5CyvcIReDVD46GghEhaIwuWl9vxGTUAVSFM=" crossorigin="anonymous">
+
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
   <div class="container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button><a class="navbar-brand flex-grow-1 flex-lg-grow-0 text-center text-lg-start mx-auto me-lg-3" href="https://ericcsinger.com/">Eric&#39;s Blog
-    </a>
-    <div class="offcanvas offcanvas-bottom surface" tabindex="-1" id="offcanvasSocialShare" aria-labelledby="offcanvasSocialShare">
-  <div class="offcanvas-header">
-    <h3 class="offcanvas-title">Share</h3>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <div class="offcanvas-body">
-    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=Problem%20Solving%3a%20WSUS%20failing%20for%20Windows%2010%20with%20error%208024401c&url=https%3a%2f%2fericcsinger.com%2fproblem-solving-wsus-failing-for-windows-10-with-error-8024401c%2f">
-      <i class="fab fa-fw fa-twitter"></i> Twitter
-    </a>
-    <a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button"
-      target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fproblem-solving-wsus-failing-for-windows-10-with-error-8024401c%2f">
-      <i class="fab fa-fw fa-facebook-f"></i> Facebook
-    </a>
-  </div>
-</div>
-    <button class="navbar-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings"
-  aria-controls="offcanvasSettings" aria-label="Toggle settings">
-  <i class="fas fa-ellipsis-v"></i>
-</button>
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://ericcsinger.com/">Eric&#39;s Blog
+</a>
 
-<div class="offcanvas offcanvas-end surface h-100" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettings">
-  <div class="offcanvas-header">
-    <h3 class="offcanvas-title">Settings</h3>
-    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <div class="offcanvas-body d-flex flex-column">
-
-<div class="setting">
-  <form class="row">
-    <div class="col-auto">
-      <label><i class="fas fa-fw fa-adjust"></i> Mode</label>
-    </div>
-    <div class="col-auto ms-auto">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="modeSwitcher">
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Eric&#39;s Blog</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto"><li class="nav-item col-6 col-xxl-auto">
+            <a class="nav-link py-2 px-0 px-xxl-2" href="https://ericcsinger.com/about/">About
+            </a>
+          </li>
+        </ul>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-1" action="" novalidate>
+      <div class="input-group input-group-sm align-items-center">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
+          <i class="fas fa-fw fa-search fa-lg"></i>
+        </span>
+        <input
+          class="my-1 form-control border-white rounded-5 search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          required>
+          <span class="search-shortcut position-absolute end-0 top-0 me-2">
+            <kbd class="bg-primary rounded shadow">/</kbd>
+          </span>
+      </div>
+    </form><hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">Palette</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="Blue"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="Blue Gray"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="Brown"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="Cyan"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="Green"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="Indigo"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="Orange"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="Pink"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="Purple"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="Red"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="Teal"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="Yellow"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">Mode</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> Light
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> Dark
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> Auto
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
       </div>
     </div>
-  </form>
-</div>
-
-
-<div class="setting palettes">
-  <form class="row">
-    <div class="col-auto">
-      <label><i class="fas fa-fw fa-palette"></i> Palette</label>
-    </div>
-    <div class="col-auto ms-auto">
-      <a id="btnPalette" class="btn btn-sm btn-outline-primary" role="button" aria-label="palettePicker">
-        <i class="fas fa-eye-dropper"></i>
-      </a>
-    </div>
-  </form>
-  <div class="mt-2 d-flex justify-content-between visually-hidden" id="palettePicker"><button type="button" id="palette-blue" aria-label="Blue"
-        class="btn btn-sm w-100 palette" data-palette="blue">
-      </button><button type="button" id="palette-blue-gray" aria-label="Blue Gray"
-        class="btn btn-sm w-100 palette" data-palette="blue-gray">
-      </button><button type="button" id="palette-brown" aria-label="Brown"
-        class="btn btn-sm w-100 palette" data-palette="brown">
-      </button><button type="button" id="palette-cyan" aria-label="Cyan"
-        class="btn btn-sm w-100 palette" data-palette="cyan">
-      </button><button type="button" id="palette-green" aria-label="Green"
-        class="btn btn-sm w-100 palette" data-palette="green">
-      </button><button type="button" id="palette-indigo" aria-label="Indigo"
-        class="btn btn-sm w-100 palette" data-palette="indigo">
-      </button><button type="button" id="palette-orange" aria-label="Orange"
-        class="btn btn-sm w-100 palette" data-palette="orange">
-      </button><button type="button" id="palette-pink" aria-label="Pink"
-        class="btn btn-sm w-100 palette" data-palette="pink">
-      </button><button type="button" id="palette-purple" aria-label="Purple"
-        class="btn btn-sm w-100 palette" data-palette="purple">
-      </button><button type="button" id="palette-red" aria-label="Red"
-        class="btn btn-sm w-100 palette" data-palette="red">
-      </button><button type="button" id="palette-teal" aria-label="Teal"
-        class="btn btn-sm w-100 palette" data-palette="teal">
-      </button><button type="button" id="palette-yellow" aria-label="Yellow"
-        class="btn btn-sm w-100 palette" data-palette="yellow">
-      </button></div>
-</div>
-<div class="setting actions d-flex justify-content-around mt-auto overflow-auto">
-  <a role="button" class="action action-go-back" href="javascript: window.history.back();">
-    <span class="action-icon"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
-  </a>
-  <a role="button" class="action action-reload-page">
-    <span class="action-icon"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
-  </a>
-  <a role="button" class="action action-copy-url">
-    <span class="action-icon"><i class="fas fa-2x fa-link"></i></span> Copy URL
-  </a><a class="action action-social-share" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSocialShare"
-    aria-controls="offcanvasSocialShare" aria-label="Toggle social share">
-    <span class="action-icon"><i class="fas fa-2x fa-share-alt"></i></span> Share
-  </a></div>
-
-</div>
-</div>
-
-    <div class="collapse navbar-collapse" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navbarSupportedContent">
-      <form class="search-bar my-1" action="https://ericcsinger.com/search">
-  <div class="input-group input-group-sm">
-    <span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
-    <input class="form-control rounded-pill" name="q" type="search" aria-label="Search">
-  </div>
-</form>
-      <ul class="navbar-nav ms-auto"><li class="nav-item">
-          <a class="nav-link" href="https://ericcsinger.com/about/">
-            About
-          </a>
-        </li></ul>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
     </div>
   </div>
 </nav>
+
 </header>
-<main class="container">
-      <div class="row content">
-<div class="col-lg-8">
+
+    <main class="container">
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
+</noscript>
+
+<div class="col-xxl-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
-  <div class="card-body">
-    <ol class="breadcrumb "><li class="breadcrumb-item"><a href="https://ericcsinger.com/">Home</a></li><li class="breadcrumb-item"><a href="https://ericcsinger.com/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: WSUS failing for Windows 10 with error 8024401c</li></ol>
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: WSUS failing for Windows 10 with error 8024401c</li></ol>
   </div>
-</nav><div class="post-panel-wrapper position-sticky">
-  <div class="d-flex flex-column component rounded post-panel position-absolute">
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
     
-    <a class="action action-panel-toggler" role="button" title="Panel toggler">
-      <i class="fas fa-fw fa-chevron-circle-down"></i>
-    </a>
-    <a id="sidebarToggler" class="action d-none d-lg-block" role="button" title="Sidebar toggler">
+    
+
+    
+    
+    
+  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="Table of contents">
+    <i class="fas fa-fw fa-list-alt"></i>
+  </a>
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Table of contents">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    <a class="action action-post-comments" href="#post-comments" role="button" aria-label="Comments" title="Comments">
+  <i class="fas fa-fw fa-comments"></i>
+</a>
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Sidebar toggler">
   <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
 </a>
 
     
-
-    
-    <a class="action" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
-  <i class="fas fa-fw fa-copyright"></i>
-</a>
-    <a class="action" href="#post-comments" role="button" aria-label="Comments" title="Comments">
-  <i class="fas fa-fw fa-comments"></i>
-</a>
-    <a class="action" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
-  <i class="fas fa-fw fa-list-alt"></i>
-</a>
-    
   </div>
-</div>
-<article class="row card component mb-4 post">
+</div><article class="row card component mb-4 post">
   <div class="card-header ">
-    <h1 class="card-title post-title">Problem Solving: WSUS failing for Windows 10 with error 8024401c
-</h1>
+    <h1 class="card-title post-title my-2">Problem Solving: WSUS failing for Windows 10 with error 8024401c</h1>
   </div>
-  <div class="card-body"><div class="post-meta">
-  <span class="post-date" title="created on 2017-06-13 12:49:54 -0400 EDT.">
-    Tue, 13 Jun 2017 16:49:54 &#43;0000
-  </span><span class="post-reading-time">
-    5 min read
-  </span><span class="post-taxonomies"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge post-taxonomy">Uncategorized</a><a href="https://ericcsinger.com/tags/problem-solving/" class="badge post-taxonomy">problem solving</a><a href="https://ericcsinger.com/tags/windows-10/" class="badge post-taxonomy">windows 10</a><a href="https://ericcsinger.com/tags/wsus/" class="badge post-taxonomy">wsus</a></span>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="created on 2017-06-13 12:49:54 -0400 EDT.">Tue, 13 Jun 2017 16:49:54 &#43;0000</span><span class="post-reading-time me-1 mb-1">5 min read</span><a href="/categories/uncategorized/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
+      <i class="fas fa-fw fa-folder me-1"></i>Uncategorized</a><a href="/tags/problem-solving/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Problem Solving</a><a href="/tags/windows-10/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Windows 10</a><a href="/tags/wsus/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Wsus</a>
 </div>
-<div class="post-content mb-3"><p>Hi Folks,</p>
+
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">Contents</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><p>Hi Folks,</p>
 <p>After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “<strong>Do not connect to any Windows Update Internet locations”</strong>  was not configured. After doing some digging we determined that this was put in place to prevent our clients from downloading updates from MS directly, which was originally happening. The weird thing to me was why were our clients going to MS anyway? We have WSUS, that is the point of WSUS? Disabling the setting resulted in us getting updates, but now they were coming from MS directly and not WSUS. Enabling <strong>or</strong> setting it to “not configured” resulted in the lovely error.</p>
 <p>Example snippet of log file below.</p>
 <p><em>2017/06/13 10:08:31.2836183 676 10488 WebServices WS error: There was an error communicating with the endpoint at ‘http://%ServerName%/ClientWebService/client.asmx’.</em><br>
@@ -207,8 +256,7 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
 <em>2017/06/13 10:08:31.2836189 676 10488 WebServices WS error: The operation did not complete within the time allotted.</em><br>
 <em>2017/06/13 10:08:31.2836280 676 10488 WebServices WS error: The operation timed out</em><br>
 <em>2017/06/13 10:08:31.2836379 676 10488 WebServices Web service call failed with hr = 8024401c.</em></p>
-<p>After a ton of Google Fu, I stumbled on to this article <a href="https://blogs.technet.microsoft.com/windowsserver/2017/01/09/why-wsus-and-sccm-managed-clients-are-reaching-out-to-microsoft-online/" target="_blank" rel="noopener noreferrer">https://blogs.technet.microsoft.com/windowsserver/2017/01/09/why-wsus-and-sccm-managed-clients-are-reaching-out-to-microsoft-online/<i class="fas fa-external-link-square-alt ms-1"></i></a>
- Before you start reading, make sure you’re relaxed and read through it carefully, because the answer is there, but you have make sure you’re not just skimming.</p>
+<p>After a ton of Google Fu, I stumbled on to this article <a href="https://blogs.technet.microsoft.com/windowsserver/2017/01/09/why-wsus-and-sccm-managed-clients-are-reaching-out-to-microsoft-online/" target="_blank" rel="noopener noreferrer">https://blogs.technet.microsoft.com/windowsserver/2017/01/09/why-wsus-and-sccm-managed-clients-are-reaching-out-to-microsoft-online/<i class="fas fa-external-link-square-alt ms-1"></i></a> Before you start reading, make sure you’re relaxed and read through it carefully, because the answer is there, but you have make sure you’re not just skimming.</p>
 <p>Here is the main section and highlighted points that you need to glean from that article.</p>
 <hr>
 <p><em><!-- raw HTML omitted -->Ensure that the registry HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate doesn’t reflect any of these values.<!-- raw HTML omitted --></em></p>
@@ -222,10 +270,8 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
 <li><em><!-- raw HTML omitted -->DeferUpgrade<!-- raw HTML omitted --></em></li>
 <li><em><!-- raw HTML omitted -->ExcludeWUDriversInQualityUpdate<!-- raw HTML omitted --></em></li>
 </ul>
-<h2 id="what-just-happened-here-arent-these-update-or-upgrade-deferral-policies">What just happened here? Aren’t these update or upgrade deferral policies?<a class="anchor ms-1" href="#what-just-happened-here-arent-these-update-or-upgrade-deferral-policies"><i class="fas fa-link"></i></a></h2>
-<p><em><!-- raw HTML omitted -->Not in a managed environment. These policies are meant for <a href="https://blogs.msdn.microsoft.com/beanexpert/2015/11/15/windows-update-for-business-explained/" target="_blank" rel="noopener noreferrer">Windows Update for Business<i class="fas fa-external-link-square-alt ms-1"></i></a>
- (WUfB).<!-- raw HTML omitted --> Learn more about <a href="https://technet.microsoft.com/en-us/itpro/windows/manage/waas-manage-updates-wufb" target="_blank" rel="noopener noreferrer">Windows Update for Business<i class="fas fa-external-link-square-alt ms-1"></i></a>
-.</em></p>
+<h2 id="what-just-happened-here-arent-these-update-or-upgrade-deferral-policies" data-numberify>What just happened here? Aren’t these update or upgrade deferral policies?<a class="anchor ms-1" href="#what-just-happened-here-arent-these-update-or-upgrade-deferral-policies"></a></h2>
+<p><em><!-- raw HTML omitted -->Not in a managed environment. These policies are meant for <a href="https://blogs.msdn.microsoft.com/beanexpert/2015/11/15/windows-update-for-business-explained/" target="_blank" rel="noopener noreferrer">Windows Update for Business<i class="fas fa-external-link-square-alt ms-1"></i></a> (WUfB).<!-- raw HTML omitted --> Learn more about <a href="https://technet.microsoft.com/en-us/itpro/windows/manage/waas-manage-updates-wufb" target="_blank" rel="noopener noreferrer">Windows Update for Business<i class="fas fa-external-link-square-alt ms-1"></i></a>.</em></p>
 <p><em>Windows Update for Business aka WUfB enables information technology administrators to keep the Windows 10 devices in their organization always up to date with the latest security defenses and Windows features <strong>by directly connecting these systems to Windows Update service</strong>.</em></p>
 <p><em><!-- raw HTML omitted --><strong>We also recommend that you do not use these new settings with WSUS/SCCM.</strong><!-- raw HTML omitted --></em></p>
 <p><em><!-- raw HTML omitted -->If you are already using an on-prem solution to manage Windows updates/upgrades, using the new WUfB settings will enable your clients to also reach out to Microsoft Update online to fetch update bypassing <!-- raw HTML omitted --><!-- raw HTML omitted -->your WSUS/SCCM end-point<!-- raw HTML omitted -->.</em></p>
@@ -249,19 +295,19 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
 <li>If WSUS is enabled, ignore WUfB settings and vice versa.</li>
 </ol>
 <p>Anyway, hope that helps any other poor souls out there.</p>
-</div></div>
-  <div class="card-footer"><div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
-    <i class="fas fa-fw fa-chevron-circle-down post-prev-icon" data-fa-transform="rotate-90"></i>
-    <a href="https://ericcsinger.com/review-5-years-with-commvault/">Review: 5 years with CommVault
-</a>
-  </div><div class="post-nav post-next">
-    <a href="https://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/">Powershell Scripting: Get-ECSESXHostVIBToPCIDevices
-</a>
-    <i class="fas fa-fw fa-chevron-circle-down post-next-icon" data-fa-transform="rotate-270"></i>
-  </div></div></div>
-</article><div class="post-copyright mb-3 row card component" id="post-copyright">
+</div>
+</div>
+</div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/review-5-years-with-commvault/">Review: 5 years with CommVault</a>
+    </div><div class="post-nav post-next">
+      <a href="/powershell-scripting-get-ecsesxhostvibtopcidevices/">Powershell Scripting: Get-ECSESXHostVIBToPCIDevices</a>
+      <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
     <div class="card-header">
-        <h2 class="card-title">Copyright</h2>
+        <h2 class="card-title fs-4 my-2 text-surface">Copyright</h2>
     </div>
     <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
   <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-sa"></i></span>
@@ -271,25 +317,59 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
 
     </div>
 </div><section class="related-posts row card component">
-    <div class="card-header">
-      <h2 class="card-title">Related Posts</h2>
-    </div>
-    <div class="card-body">
-      <ul class="post-list"><li>
-          <a href="https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/">SQL Query: Microsoft – WSUS – Computers Update Status
-</a>
-          <span class="float-end post-date">Thu, 14 Jul 2016 21:43:51 &#43;0000
-</span>
-        </li><li>
-          <a href="https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/">SQL Query: Microsoft WSUS Computers to Computer Target
-</a>
-          <span class="float-end post-date">Tue, 05 Jul 2016 16:54:36 &#43;0000
-</span>
-        </li></ul>
-    </div>
-  </section><div class="card component row post-comments" id="post-comments">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          Related Posts
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/sql-query-microsoft-wsus-computers-update-status/">
+    SQL Query: Microsoft – WSUS – Computers Update Status
+  </a>
+  <div class="post-meta mb-0">
+    Thu, 14 Jul 2016 21:43:51 &#43;0000
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <div
+    class="post-card-default-img card-img-top d-flex align-items-center justify-content-center bg-body-secondary mb-1">
+    NO IMAGE
+  </div>
+
+  <a class="post-title" href="/sql-query-microsoft-wsus-computers-to-computer-target/">
+    SQL Query: Microsoft WSUS Computers to Computer Target
+  </a>
+  <div class="post-meta mb-0">
+    Tue, 05 Jul 2016 16:54:36 &#43;0000
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section><div class="card component row post-comments" id="post-comments">
   <div class="card-header">
-    <h2 class="card-title">Comments</h2>
+    <h2 class="card-title my-2 fs-4 text-surface">Comments</h2>
   </div>
   <div class="card-body"><script src="https://utteranc.es/client.js"
   repo="ericcsinger/ericcsinger.github.io"
@@ -298,175 +378,498 @@ After updating WSUS to support Windows 10 newer update format, we noticed that o
   theme="github-light"
   crossorigin="anonymous"
   async>
-</script></div>
+</script>
+
+
+
+</div>
 </div></div>
-</div><aside class="col-lg-4 sidebar d-flex">
+</div>
+<aside class="col-xxl-4 sidebar d-flex">
   <div class="container d-flex flex-column">
     
-    <div class="card row text-center profile component">
-  <div class="card-body">
-    <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle" alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible
     
-     width="2316" height="3088"
-     />
+<div class="accordion profile">
+  <div class="accordion-item card row text-center component">
+    <div class="accordion-header card-header border-0" id="profile-header">
+      <a
+        class="accordion-button d-lg-none mb-2 shadow-none p-0 bg-transparent text-surface"
+        role="button" data-bs-toggle="collapse" href="#profile" aria-expanded="true" aria-controls="profile">
+        Profile
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible width="2316" height="3088" />
 </picture>
 </div>
-    <div class="col-12 profile-meta"><div class="profile-name">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><div class="profile-about"><i class="fas fa-fw fa-user"></i><a href="https://ericcsinger.com/about/">About Me</a></div><nav class="social-links nav justify-content-center"><a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-github"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-linkedin-in"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-stack-overflow"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="noopener noreferrer">
-        <i class="fa-fw fa-2x fab fa-twitter"></i>
-      </a><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
-    <i class="fas fa-fw fa-2x fa-rss"></i>
-  </a></nav>
+      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div>
+
+
+<nav class="social-links nav justify-content-center mt-1 justify-content-around">
+      <a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="me">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"
+           style="color: #0a66c2;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="me">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"
+           style="color: #f48024;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
+  <a class="nav-link social-link" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
 </div>
   </div>
 </div>
-<div class="post-toc row mb-4 card component" id="postTOC">
-  <div class="card-header">
-    <h2 class="card-title">Contents</h2>
+
+
+<div class="accordion taxonomies-toggle">
+    <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#taxonomies-toggle" aria-expanded="true" aria-controls="taxonomies-toggle">
+                Taxonomies
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="taxonomies-toggle">
+            <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="taxonomyTagsTab" data-bs-toggle="tab" data-bs-target="#taxonomyTags" 
+                            type="button" role="tab" aria-controls="taxonomyTags" aria-selected="true">
+                            Tags
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="taxonomyCategoriesTab" data-bs-toggle="tab" data-bs-target="#taxonomyCategories" 
+                            type="button" role="tab" aria-controls="taxonomyCategories" aria-selected="true">
+                            Categories
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="taxonomySeriesTab" data-bs-toggle="tab" data-bs-target="#taxonomySeries" 
+                            type="button" role="tab" aria-controls="taxonomySeries" aria-selected="true">
+                            Series
+                        </button>
+                    </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="taxonomyArchivesTab" data-bs-toggle="tab" data-bs-target="#taxonomyArchives" 
+                        type="button" role="tab" aria-controls="taxonomyArchives" aria-selected="true">
+                        Archives
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3">
+                    <div class="tab-pane active" id="taxonomyTags" role="tabpanel" aria-labelledby="taxonomyTagsTab" tabindex="0">
+                        <a href="/tags/powershell/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="powershell">
+                            powershell
+                            <span class="badge badge-sm text-secondary bg-white ms-1">18</span>
+                        </a>
+                        <a href="/tags/azure/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Azure">
+                            Azure
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/tags/microsoft/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Microsoft">
+                            Microsoft
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/tags/automation/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="automation">
+                            automation
+                            <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+                        </a>
+                        <a href="/tags/backup/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="backup">
+                            backup
+                            <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+                        </a>
+                        <a href="/tags/sql/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="SQL">
+                            SQL
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="storage">
+                            storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/vmware/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="vmware">
+                            vmware
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/wsus/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="wsus">
+                            wsus
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/arm/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="arm">
+                            arm
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/bicep/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="bicep">
+                            bicep
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/iac/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="IaC">
+                            IaC
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/thinking-out-loud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="thinking out loud">
+                            thinking out loud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+                        </a>
+                        <a href="/tags/naming-conventions/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="naming conventions">
+                            naming conventions
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/review/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="review">
+                            review
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/windows/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="windows">
+                            windows
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/commvault/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="commvault">
+                            commvault
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/jams/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="JAMS">
+                            JAMS
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/nimble-storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="nimble storage">
+                            nimble storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/reviews/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="reviews">
+                            reviews
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/scripting/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="scripting">
+                            scripting
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/t-sql/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="T-SQL">
+                            T-SQL
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/active-directory/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="active directory">
+                            active directory
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/centralized-job-management/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="centralized job management">
+                            centralized job management
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/cloud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="cloud">
+                            cloud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="https://ericcsinger.com/tags" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title='ALL'>
+                        ALL
+                        <span class="badge badge-sm text-secondary bg-white ms-1">61</span>
+                        </a>
+                    </div>
+                    <div class="tab-pane" id="taxonomyCategories" role="tabpanel" aria-labelledby="taxonomyCategoriesTab" tabindex="0">
+                        <a href="/categories/uncategorized/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="Uncategorized">
+                            Uncategorized
+                            <span class="badge badge-sm text-secondary bg-white ms-1">48</span>
+                        </a>
+                        <a href="/categories/backup/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="Backup">
+                            Backup
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/categories/storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="Storage">
+                            Storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/categories/thinking-out-loud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="thinking out loud">
+                            thinking out loud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/categories/naming-conventions/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="naming conventions">
+                            naming conventions
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/categories/cloud/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="cloud">
+                            cloud
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="/categories/licensing/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="licensing">
+                            licensing
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="/categories/monitoring/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="monitoring">
+                            monitoring
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="/categories/servers/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="servers">
+                            servers
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                    </div>
+                    <div class="tab-pane" id="taxonomySeries" role="tabpanel" aria-labelledby="taxonomySeriesTab" tabindex="0">
+                        <a href="/series/backup-storage/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-series me-2 mb-2" title="Backup Storage">
+                            Backup Storage
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/series/azure-bicep-conditional-properties/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-series me-2 mb-2" title="Azure Bicep Conditional Properties">
+                            Azure Bicep Conditional Properties
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                    </div>
+                <div class="tab-pane" id="taxonomyArchives" role="tabpanel" aria-labelledby="taxonomyArchivesTab" tabindex="0">
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2022">
+    2022 <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2021">
+    2021 <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2020">
+    2020 <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2019">
+    2019 <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2018">
+    2018 <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2017">
+    2017 <span class="badge badge-sm text-secondary bg-white ms-1">17</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2016">
+    2016 <span class="badge badge-sm text-secondary bg-white ms-1">17</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2015">
+    2015 <span class="badge badge-sm text-secondary bg-white ms-1">16</span>
+    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="accordion posts-toggle">
+      <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+          <a
+            class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+            role="button"
+            data-bs-toggle="collapse"
+            href="#posts-toggle"
+            aria-expanded="true"
+            aria-controls="posts-toggle">
+            Posts
+          </a>
+        </div>
+        <div
+          class="card-body collapse accordion-collapse accordion-body d-lg-block show"
+          id="posts-toggle">
+          <ul class="nav nav-pills nav-fill" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="recent-posts-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#recent-posts"
+                  type="button"
+                  role="tab"
+                  aria-controls="recent-posts"
+                  aria-selected="true">
+                  Recent Posts
+                </button>
+              </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+              <div
+                class="tab-pane active"
+                id="recent-posts"
+                role="tabpanel"
+                aria-labelledby="recent-posts-tab"
+                tabindex="0">
+                <ul class="post-list list-unstyled ms-1">
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/naming-conventions-azure-locations/">
+        Naming Conventions: Azure Locations
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sun, 30 Oct 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <nav id="TableOfContents">
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/problem-solving-windows-dns-server-in-azure-returns-servfail/">
+        Problem Solving: Windows DNS Server in Azure returns SERVFAIL
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sat, 24 Sep 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/azure-bicep-conditional-properties-part-04-helper-modules/">
+        Azure Bicep Conditional Properties Part 04, Helper Modules
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sat, 10 Sep 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/azure-bicep-conditional-properties-part-03-template-variables/">
+        Azure Bicep Conditional Properties Part 03, Template Variables
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sun, 28 Aug 2022 12:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/azure-bicep-conditional-properties-part-02-parameters/">
+        Azure Bicep Conditional Properties Part 02, Parameters
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          Sun, 21 Aug 2022 13:00:00 &#43;0000
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">Contents</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        Contents
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#what-just-happened-here-arent-these-update-or-upgrade-deferral-policies"><em>What just happened here? Aren’t these update or upgrade deferral policies?</em></a></li>
   </ul>
 </nav>
-  </div>
-</div><section class="recent-posts row card component">
-  <div class="card-header">
-    <h2 class="card-title">Recent Posts</h2>
-  </div>
-  <div class="card-body">
-    <ul class="post-list"><li>
-        <a href="https://ericcsinger.com/naming-conventions-azure-locations/">Naming Conventions: Azure Locations
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/">Problem Solving: Windows DNS Server in Azure returns SERVFAIL
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/">Azure Bicep Conditional Properties Part 04, Helper Modules
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/">Azure Bicep Conditional Properties Part 03, Template Variables
-</a>
-      </li><li>
-        <a href="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/">Azure Bicep Conditional Properties Part 02, Parameters
-</a>
-      </li></ul>
-  </div>
-</section><section class="tags-taxonomies row card component">
-      <div class="card-header">
-        <h2 class="card-title">
-          <a href="https://ericcsinger.com/tags">Tags</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="py-2"><a href="https://ericcsinger.com/tags/powershell/" class="badge rounded post-taxonomy" title="powershell">
-            powershell<span class="badge badge-sm text-white bg-accent ms-1">18</span></a><a href="https://ericcsinger.com/tags/azure/" class="badge rounded post-taxonomy" title="Azure">
-            Azure<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/tags/microsoft/" class="badge rounded post-taxonomy" title="Microsoft">
-            Microsoft<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/tags/automation/" class="badge rounded post-taxonomy" title="automation">
-            automation<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/backup/" class="badge rounded post-taxonomy" title="backup">
-            backup<span class="badge badge-sm text-white bg-accent ms-1">7</span></a><a href="https://ericcsinger.com/tags/sql/" class="badge rounded post-taxonomy" title="SQL">
-            SQL<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/storage/" class="badge rounded post-taxonomy" title="storage">
-            storage<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/vmware/" class="badge rounded post-taxonomy" title="vmware">
-            vmware<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/wsus/" class="badge rounded post-taxonomy" title="wsus">
-            wsus<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/tags/arm/" class="badge rounded post-taxonomy" title="arm">
-            arm<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/bicep/" class="badge rounded post-taxonomy" title="bicep">
-            bicep<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/iac/" class="badge rounded post-taxonomy" title="IaC">
-            IaC<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
-            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">5</span></a><a href="https://ericcsinger.com/tags/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
-            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/review/" class="badge rounded post-taxonomy" title="review">
-            review<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/windows/" class="badge rounded post-taxonomy" title="windows">
-            windows<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/tags/commvault/" class="badge rounded post-taxonomy" title="commvault">
-            commvault<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/jams/" class="badge rounded post-taxonomy" title="JAMS">
-            JAMS<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/nimble-storage/" class="badge rounded post-taxonomy" title="nimble storage">
-            nimble storage<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/reviews/" class="badge rounded post-taxonomy" title="reviews">
-            reviews<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/scripting/" class="badge rounded post-taxonomy" title="scripting">
-            scripting<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/t-sql/" class="badge rounded post-taxonomy" title="T-SQL">
-            T-SQL<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/tags/active-directory/" class="badge rounded post-taxonomy" title="active directory">
-            active directory<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/centralized-job-management/" class="badge rounded post-taxonomy" title="centralized job management">
-            centralized job management<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags/cloud/" class="badge rounded post-taxonomy" title="cloud">
-            cloud<span class="badge badge-sm text-white bg-accent ms-1">2</span></a><a href="https://ericcsinger.com/tags" class="badge rounded post-taxonomy" title='ALL'>
-          ALL
-          <span class="badge badge-sm text-white bg-accent ms-1">61</span>
-        </a></div>
-      </div>
-    </section><section class="categories-taxonomies row card component">
-      <div class="card-header">
-        <h2 class="card-title">
-          <a href="https://ericcsinger.com/categories">Categories</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="py-2"><a href="https://ericcsinger.com/categories/uncategorized/" class="badge rounded post-taxonomy" title="Uncategorized">
-            Uncategorized<span class="badge badge-sm text-white bg-accent ms-1">48</span></a><a href="https://ericcsinger.com/categories/backup/" class="badge rounded post-taxonomy" title="Backup">
-            Backup<span class="badge badge-sm text-white bg-accent ms-1">6</span></a><a href="https://ericcsinger.com/categories/storage/" class="badge rounded post-taxonomy" title="Storage">
-            Storage<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/thinking-out-loud/" class="badge rounded post-taxonomy" title="thinking out loud">
-            thinking out loud<span class="badge badge-sm text-white bg-accent ms-1">4</span></a><a href="https://ericcsinger.com/categories/naming-conventions/" class="badge rounded post-taxonomy" title="naming conventions">
-            naming conventions<span class="badge badge-sm text-white bg-accent ms-1">3</span></a><a href="https://ericcsinger.com/categories/cloud/" class="badge rounded post-taxonomy" title="cloud">
-            cloud<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/licensing/" class="badge rounded post-taxonomy" title="licensing">
-            licensing<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/monitoring/" class="badge rounded post-taxonomy" title="monitoring">
-            monitoring<span class="badge badge-sm text-white bg-accent ms-1">1</span></a><a href="https://ericcsinger.com/categories/servers/" class="badge rounded post-taxonomy" title="servers">
-            servers<span class="badge badge-sm text-white bg-accent ms-1">1</span></a></div>
-      </div>
-    </section><section class="series-taxonomies row card component">
-      <div class="card-header">
-        <h2 class="card-title">
-          <a href="https://ericcsinger.com/series">Series</a>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="py-2"><a href="https://ericcsinger.com/series/backup-storage/" class="badge rounded post-taxonomy" title="Backup Storage">
-            Backup Storage<span class="badge badge-sm text-white bg-accent ms-1">8</span></a><a href="https://ericcsinger.com/series/azure-bicep-conditional-properties/" class="badge rounded post-taxonomy" title="Azure Bicep Conditional Properties">
-            Azure Bicep Conditional Properties<span class="badge badge-sm text-white bg-accent ms-1">4</span></a></div>
-      </div>
-    </section><section class="row card component">
-    <div class="card-header">
-      <h2 class="card-title">Archives</h2>
     </div>
-    <div class="card-body">
-      <ul class="post-list">
-        <li>2022(6)</li>
-        <li>2021(3)</li>
-        <li>2020(4)</li>
-        <li>2019(7)</li>
-        <li>2018(7)</li>
-        <li>2017(17)</li>
-        <li>2016(17)</li>
-        <li>2015(16)</li>
-      </ul>
-    </div>
-</section>
+  </div>
+</div>
+
+
+
+
+
     
   </div>
 </aside>
-</div>
-    </main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav justify-content-center mb-2"><a class="nav-link social-link" target="_blank" href="https://ericcsinger.com/index.xml" title="RSS" rel="noopener noreferrer">
-    <i class="fas fa-fw fa-2x fa-rss"></i>
-  </a></nav>
-<div class="copyright mb-2">
-  ©2023, Eric C. Singer
-</div>
-<div class="powered-by mb-2">
-  Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">Bootstrap</a> theme.
-</div></footer>
-<script src="https://ericcsinger.com/assets/main/bundle.min.3d7a38d88604208446ccee497ced30637d3c73e2fac7ed35ba38670679770eb4.js" integrity="sha256-PXo42IYEIIRGzO5JfO0wY308c&#43;L6x&#43;01ujhnBnl3DrQ=" crossorigin="anonymous" defer></script><script src="https://ericcsinger.com/assets/icons/bundle.min.0d067d9d39772448ad823fd74fb864bf7f76f28c53c66e87db7a83b3c3f41ae8.js" integrity="sha256-DQZ9nTl3JEitgj/XT7hkv3928oxTxm6H23qDs8P0Gug=" crossorigin="anonymous" defer></script>
-<script src="https://ericcsinger.com/assets/viewer/bundle.min.fca674eda5c87955d199444264ef450484ec404291dd55db5fe469f5b823d244.js" integrity="sha256-/KZ07aXIeVXRmURCZO9FBITsQEKR3VXbX&#43;Rp9bgj0kQ=" crossorigin="anonymous" defer></script><script defer src="https://ericcsinger.com/assets/katex/bundle.min.f2bed17e252bf9064f3762211c0c01ca20721553c300c0870497712bd9ae4b9d.js" integrity="sha256-8r7RfiUr&#43;QZPN2IhHAwByiByFVPDAMCHBJdxK9muS50=" crossorigin="anonymous"></script>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-163410401-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      Actions
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
+      target="_blank" href="https://twitter.com/intent/tweet?title=VMware%20vSAN%20in%20my%20environment%3f%20not%20yet%21&url=https%3a%2f%2fericcsinger.com%2fvmware-vsan-in-my-environment-not-yet%2f">
+        <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
+      </a>
+      <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fvmware-vsan-in-my-environment-not-yet%2f">
+        <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
+      </a>
+    </div>
+    <hr class="mb-4"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> Go back
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> Reload
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> Copy URL
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Eric&#39;s Blog</p>
+    <p class="text-secondary mb-2"><small>Eric IT Blog</small></p><div class="copyright mb-2 text-secondary">
+  <small>©2023, Eric C. Singer
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
 
-</body>
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
+  </a>
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.88a3da4211215658c019105ee6df6d39dcbcc5df9c304d0005643346b9f64cb9.js" integrity="sha256-iKPaQhEhVljAGRBe5t9tOdy8xd&#43;cME0ABWQzRrn2TLk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.9ba76665e3c9fa036c059c1c85f287b5780b8c3e27f6cc9cd6372b90c42cf347.js" integrity="sha256-m6dmZePJ&#43;gNsBZwchfKHtXgLjD4n9syc1jcrkMQs80c=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.b0348f9dd3c40eee23b65b205b879d1bed2136c80586689e7a50745d8f89d849.js" integrity="sha256-sDSPndPEDu4jtlsgW4edG&#43;0hNsgFhmieelB0XY&#43;J2Ek=" crossorigin="anonymous"></script>
+
+
+
+  </body>
 </html>

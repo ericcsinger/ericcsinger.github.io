@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>kudos on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/kudos/</link>
     <description>Recent content in kudos on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Sat, 30 Apr 2016 20:54:49 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/kudos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>KUDOS: West Coast Technologies (WCT)</title>
@@ -14,8 +15,9 @@
       <pubDate>Sat, 30 Apr 2016 20:54:49 +0000</pubDate>
       
       <guid>https://ericcsinger.com/kudos-west-coast-technologies-wct/</guid>
-      <description>In general I have to say I’m not a fan of VAR’s for many reasons. Most of which because I find little “Value Add” in having them resell technology that would probably be cheaper if I wasn’t stuck going through them. However, there’s always an exception to the rule, and after a recent mess up I wanted throw a shout out to WCTfor helping us out of a tough bind.</description>
+      <description><![CDATA[In general I have to say I’m not a fan of VAR’s for many reasons. Most of which because I find little “Value Add” in having them resell technology that would probably be cheaper if I wasn’t stuck going through them. However, there’s always an exception to the rule, and after a recent mess up I wanted throw a shout out to WCT for helping us out of a tough bind.]]></description>
     </item>
     
   </channel>
 </rss>
+

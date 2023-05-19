@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>servers on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/servers/</link>
     <description>Recent content in servers on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©{year}, Eric C. Singer</copyright>
+    <copyright>©2023, Eric C. Singer
+</copyright>
     <lastBuildDate>Thu, 13 Apr 2017 23:49:38 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/servers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: Why do server vendors still struggle with driver and firmware management?</title>
@@ -14,7 +15,7 @@
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
-      <description>History:Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.</description>
+      <description><![CDATA[History: Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
     </item>
     
     <item>
@@ -23,9 +24,10 @@
       <pubDate>Sat, 03 Sep 2016 19:37:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-4.5-years-with-dell-poweredge-servers/</guid>
-      <description>Disclaimer:Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
-Introduction:When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example).</description>
+      <description><![CDATA[Disclaimer: Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
+Introduction: When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example).]]></description>
     </item>
     
   </channel>
 </rss>
+
