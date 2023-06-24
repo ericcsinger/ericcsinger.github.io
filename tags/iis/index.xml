@@ -15,7 +15,7 @@
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
-      <description><![CDATA[Introduction: If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.]]></description>
+      <description><![CDATA[Introduction:If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.]]></description>
     </item>
     
   </channel>

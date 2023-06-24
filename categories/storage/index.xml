@@ -15,7 +15,7 @@
       <pubDate>Fri, 19 Aug 2016 23:45:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/wish-list-nimble-storage-2016/</guid>
-      <description><![CDATA[Introduction: These are just some random things that I would love to see implemented by Nimble Storage in their solution. I don’t actually expect most of this stuff to happen in a year, but it would be interesting to see how many do. Some are more realistic than others of course, but part of the fun in this is asking for some stuff that perhaps is a bit of a stretch.]]></description>
+      <description><![CDATA[Introduction:These are just some random things that I would love to see implemented by Nimble Storage in their solution. I don’t actually expect most of this stuff to happen in a year, but it would be interesting to see how many do. Some are more realistic than others of course, but part of the fun in this is asking for some stuff that perhaps is a bit of a stretch.]]></description>
     </item>
     
     <item>
@@ -44,8 +44,8 @@ Also, just to give you a little more context, while evaluating storage, were als
       <pubDate>Tue, 21 Apr 2015 16:46:46 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
-      <description><![CDATA[Introduction: This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
-Backup Storage Part 1: The “Why” it needed to change Last year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.]]></description>
+      <description><![CDATA[Introduction:This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
+Backup Storage Part 1: The “Why” it needed to changeLast year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.]]></description>
     </item>
     
   </channel>

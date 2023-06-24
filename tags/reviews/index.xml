@@ -15,7 +15,7 @@
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-5-years-with-commvault/</guid>
-      <description><![CDATA[Introduction: Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.]]></description>
+      <description><![CDATA[Introduction:Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.]]></description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
-      <description><![CDATA[Introduction: If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.]]></description>
+      <description><![CDATA[Introduction:If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.]]></description>
     </item>
     
     <item>
@@ -33,8 +33,8 @@
       <pubDate>Sat, 03 Sep 2016 19:37:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-4.5-years-with-dell-poweredge-servers/</guid>
-      <description><![CDATA[Disclaimer: Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
-Introduction: When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example).]]></description>
+      <description><![CDATA[Disclaimer:Typical stuff, these are my views not my employers, they’re opinions not facts (mostly at least), use your own best judgement, take my views with a quarry full of salt.
+Introduction:When I started at my current employer, one of the things I wasn’t super keen on was having to deal with Dell hardware. I had some previous experience with Dell servers, none of which was good. My former employer was an HP shop that had converted from Dell, and early on in my SysAdmin gig, I had the misfortune of having to work with some of the older Dell servers (r850 as an example).]]></description>
     </item>
     
   </channel>

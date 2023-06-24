@@ -15,7 +15,7 @@
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description><![CDATA[The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
+      <description><![CDATA[The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
     </item>
     
     <item>

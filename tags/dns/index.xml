@@ -15,7 +15,7 @@
       <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</guid>
-      <description><![CDATA[Introduction I had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do.]]></description>
+      <description><![CDATA[IntroductionI had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do.]]></description>
     </item>
     
   </channel>

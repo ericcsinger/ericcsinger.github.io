@@ -2,31 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ericcsinger.com/tags/api/</loc>
-    <lastmod>2022-10-30T12:00:00+00:00</lastmod>
+    <loc>https://ericcsinger.com/tags/active-directory/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/ad/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/authentication/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/azure/</loc>
-    <lastmod>2022-10-30T12:00:00+00:00</lastmod>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/</loc>
-    <lastmod>2022-10-30T12:00:00+00:00</lastmod>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/microsoft/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/pgadmin/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/pgadmin-azure-ad-authentication-token-renewal/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/postgresql/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/posts/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/powershell/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/</loc>
+    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/api/</loc>
     <lastmod>2022-10-30T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/naming-conventions/</loc>
     <lastmod>2022-10-30T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/naming-conventions-azure-locations/</loc>
-    <lastmod>2022-10-30T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/posts/</loc>
-    <lastmod>2022-10-30T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/powershell/</loc>
-    <lastmod>2022-10-30T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/</loc>
     <lastmod>2022-10-30T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/dns/</loc>
@@ -82,9 +100,6 @@
   </url><url>
     <loc>https://ericcsinger.com/powershell-find-orphaned-disks-in-azure-and-their-cost/</loc>
     <lastmod>2021-02-06T16:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/active-directory/</loc>
-    <lastmod>2020-11-26T20:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/powershell-remove-a-failed-domain-controller/</loc>
     <lastmod>2020-11-26T20:00:00+00:00</lastmod>

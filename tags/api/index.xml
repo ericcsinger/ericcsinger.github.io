@@ -15,7 +15,7 @@
       <pubDate>Sun, 30 Oct 2022 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-azure-locations/</guid>
-      <description><![CDATA[Introduction It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.]]></description>
+      <description><![CDATA[IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.]]></description>
     </item>
     
   </channel>

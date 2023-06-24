@@ -36,7 +36,7 @@ I would suggest you make sure this setting is present on all VM’s.]]></descrip
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
-      <description><![CDATA[Introduction: I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
+      <description><![CDATA[Introduction:I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
 Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).]]></description>
     </item>
     
@@ -46,9 +46,9 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</guid>
-      <description><![CDATA[Warning: This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
-Disclaimer: Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
-Introduction: I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.]]></description>
+      <description><![CDATA[Warning:This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
+Disclaimer:Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
+Introduction:I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.]]></description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@ Introduction: I don’t know about all of you, but for me, VMware has been an un
       <pubDate>Fri, 30 Jun 2017 21:20:28 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/</guid>
-      <description><![CDATA[Introduction: If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
+      <description><![CDATA[Introduction:If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
 VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowing if you have the correct drivers is to find which VIB matches which PCI device.]]></description>
     </item>
     
@@ -67,7 +67,7 @@ VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowin
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
-      <description><![CDATA[History: Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
+      <description><![CDATA[History:Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
     </item>
     
   </channel>

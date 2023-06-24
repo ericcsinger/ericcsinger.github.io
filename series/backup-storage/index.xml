@@ -84,8 +84,8 @@ Also, just to give you a little more context, while evaluating storage, were als
       <pubDate>Tue, 21 Apr 2015 16:46:46 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
-      <description><![CDATA[Introduction: This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
-Backup Storage Part 1: The “Why” it needed to change Last year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.]]></description>
+      <description><![CDATA[Introduction:This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
+Backup Storage Part 1: The “Why” it needed to changeLast year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.]]></description>
     </item>
     
   </channel>

@@ -15,7 +15,7 @@
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-5-years-with-commvault/</guid>
-      <description><![CDATA[Introduction: Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.]]></description>
+      <description><![CDATA[Introduction:Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.]]></description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description><![CDATA[The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
+      <description><![CDATA[The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
     </item>
     
     <item>
@@ -33,9 +33,9 @@
       <pubDate>Sun, 28 Feb 2016 21:54:49 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-1.5-years-with-veeam/</guid>
-      <description><![CDATA[Disclaimer: These are my opinions, these are not facts. Take them with a grain of salt, and use your own judgement. These are also my personal views, not those of my employer.
+      <description><![CDATA[Disclaimer:These are my opinions, these are not facts. Take them with a grain of salt, and use your own judgement. These are also my personal views, not those of my employer.
 Also, no one is paying me for this, no one asked me to write this. It’s not un-biased, but its also not a hired review.
-Introduction: As you may know from reading my backup storage series, we were going from a backup migration of native CommVault to Veeam + CommVault.]]></description>
+Introduction:As you may know from reading my backup storage series, we were going from a backup migration of native CommVault to Veeam + CommVault.]]></description>
     </item>
     
     <item>
@@ -64,8 +64,8 @@ Also, just to give you a little more context, while evaluating storage, were als
       <pubDate>Tue, 21 Apr 2015 16:46:46 +0000</pubDate>
       
       <guid>https://ericcsinger.com/backup-storage-part-1-why-it-needed-to-change/</guid>
-      <description><![CDATA[Introduction: This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
-Backup Storage Part 1: The “Why” it needed to change Last year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.]]></description>
+      <description><![CDATA[Introduction:This is going to be a multi-part series where I walk you through the whole process we took in evaluating, implementing and living with a new backup storage solution. While its not a perfect solution, given the parameters we had to work within, I think we ended up with some very decent storage.
+Backup Storage Part 1: The “Why” it needed to changeLast year my team and I began a project to overhaul our backup solution and part of that solution involved researching some new storage options.]]></description>
     </item>
     
   </channel>

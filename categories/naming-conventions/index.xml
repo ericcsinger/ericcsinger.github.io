@@ -15,8 +15,8 @@
       <pubDate>Wed, 23 Nov 2016 00:46:14 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-sql-server-names/</guid>
-      <description><![CDATA[Introduction: If you’re working in a Windows environment like me, you have to deal with 15 character limitations (at least if you care about NETBIOS resolution). Honestly, really cramps my style, but these conventions were written with that limitation in mind. If you’re using this for a Linux based server running MySQL or PostgreSQL, you might be able to get a little more detailed.
-Multi Environment / Cluster or standalone: At my employer ASI, we have to contend with multiple applications, multiple environments for each application and in a lot of cases clusters.]]></description>
+      <description><![CDATA[Introduction:If you’re working in a Windows environment like me, you have to deal with 15 character limitations (at least if you care about NETBIOS resolution). Honestly, really cramps my style, but these conventions were written with that limitation in mind. If you’re using this for a Linux based server running MySQL or PostgreSQL, you might be able to get a little more detailed.
+Multi Environment / Cluster or standalone:At my employer ASI, we have to contend with multiple applications, multiple environments for each application and in a lot of cases clusters.]]></description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ Multi Environment / Cluster or standalone: At my employer ASI, we have to conten
       <pubDate>Sun, 13 Nov 2016 17:04:02 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-windows-local-administrator-group-via-active-directory/</guid>
-      <description><![CDATA[Introduction: One thing that always kind of sucked with windows servers (and its even worse with Linux) is dealing with how to manage local administrator rights. Now I realize a lot of you just add yourself to the domain admins and use that account (not a security best practices) to administer your servers, but what about everyone and everything else that might need local admin access? What I have for you here is how I not only created a new naming conventions, but also how I tackled managing local administrator access in windows domain environment.]]></description>
+      <description><![CDATA[Introduction:One thing that always kind of sucked with windows servers (and its even worse with Linux) is dealing with how to manage local administrator rights. Now I realize a lot of you just add yourself to the domain admins and use that account (not a security best practices) to administer your servers, but what about everyone and everything else that might need local admin access? What I have for you here is how I not only created a new naming conventions, but also how I tackled managing local administrator access in windows domain environment.]]></description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@ Multi Environment / Cluster or standalone: At my employer ASI, we have to conten
       <pubDate>Sun, 13 Nov 2016 16:18:53 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-introduction/</guid>
-      <description><![CDATA[Introduction: If there was one area in IT that I tend to be fanatical about (some would say fanatical isn’t a strong enough word), I would have to say its naming conventions. For me, learning about naming conventions in school and then seeing it put into practice in my first real gig, really enforced the concept that naming conventions are important. I actually consider myself pretty lucky in that respect because I don’t think a lot of people have had the fortune of studying about the concept, let alone working for a company that had a decent naming convention.]]></description>
+      <description><![CDATA[Introduction:If there was one area in IT that I tend to be fanatical about (some would say fanatical isn’t a strong enough word), I would have to say its naming conventions. For me, learning about naming conventions in school and then seeing it put into practice in my first real gig, really enforced the concept that naming conventions are important. I actually consider myself pretty lucky in that respect because I don’t think a lot of people have had the fortune of studying about the concept, let alone working for a company that had a decent naming convention.]]></description>
     </item>
     
   </channel>
