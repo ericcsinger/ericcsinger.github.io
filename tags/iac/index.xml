@@ -6,7 +6,7 @@
     <description>Recent content in IaC on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©2023, Eric C. Singer
+    <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 10 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/iac/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -16,7 +16,7 @@
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</guid>
       <description><![CDATA[Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
@@ -27,7 +27,7 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</guid>
       <description><![CDATA[Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
@@ -38,7 +38,7 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/</guid>
       <description><![CDATA[Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
@@ -49,7 +49,7 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
       
       <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/</guid>
       <description><![CDATA[Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
     </item>
     
@@ -60,7 +60,7 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
       
       <guid>https://ericcsinger.com/iac-creativity-introduction/</guid>
       <description><![CDATA[Version: 1.0.0
-IntroductionAs many know, I&rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&rsquo;ve had an on again / off again relationship with Azure ARM.]]></description>
+Introduction As many know, I&rsquo;m a big fan of automation. A lot of my blog posts have focused on leveraging PowerShell to do my bidding. As my career has evolved, so have the tools I leverage. In a cloud world, even scripting by itself can become to error prone and inconsistent. Many have been leveraging IaC (Infrastructure as Code) to solve this problem. I am one such person. For years I&rsquo;ve had an on again / off again relationship with Azure ARM.]]></description>
     </item>
     
   </channel>

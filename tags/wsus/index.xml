@@ -6,7 +6,7 @@
     <description>Recent content in wsus on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©2023, Eric C. Singer
+    <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 05 May 2019 21:11:08 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/wsus/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -15,7 +15,7 @@
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</guid>
-      <description><![CDATA[Functions released in this module:Get-ECSWSUSUpdateReport ]]></description>
+      <description><![CDATA[ Functions released in this module: Get-ECSWSUSUpdateReport ]]></description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</guid>
       <description><![CDATA[This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
 I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.
-Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.]]></description>
+Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTa
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description><![CDATA[Introduction:I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
+      <description><![CDATA[Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
 I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.]]></description>
     </item>
     

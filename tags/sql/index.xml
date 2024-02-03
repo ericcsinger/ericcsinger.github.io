@@ -6,7 +6,7 @@
     <description>Recent content in SQL on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©2023, Eric C. Singer
+    <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Mon, 27 Nov 2017 15:56:13 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -15,7 +15,7 @@
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
-      <description><![CDATA[Introduction:I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
+      <description><![CDATA[Introduction: I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
 Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).]]></description>
     </item>
     
@@ -25,8 +25,8 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Wed, 23 Nov 2016 00:46:14 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-sql-server-names/</guid>
-      <description><![CDATA[Introduction:If you’re working in a Windows environment like me, you have to deal with 15 character limitations (at least if you care about NETBIOS resolution). Honestly, really cramps my style, but these conventions were written with that limitation in mind. If you’re using this for a Linux based server running MySQL or PostgreSQL, you might be able to get a little more detailed.
-Multi Environment / Cluster or standalone:At my employer ASI, we have to contend with multiple applications, multiple environments for each application and in a lot of cases clusters.]]></description>
+      <description><![CDATA[Introduction: If you’re working in a Windows environment like me, you have to deal with 15 character limitations (at least if you care about NETBIOS resolution). Honestly, really cramps my style, but these conventions were written with that limitation in mind. If you’re using this for a Linux based server running MySQL or PostgreSQL, you might be able to get a little more detailed.
+Multi Environment / Cluster or standalone: At my employer ASI, we have to contend with multiple applications, multiple environments for each application and in a lot of cases clusters.]]></description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ Firstly, head over to here to my GitHub if you want to grab it. I’ll be keepin
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description><![CDATA[The Problem:For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
+      <description><![CDATA[The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
     </item>
     
   </channel>

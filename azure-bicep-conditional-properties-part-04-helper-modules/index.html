@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue">
-  <head><script src="/assets/init/bundle.min.ae263b8da19abebb94fcca26add68dc0c86f7d189b9bb2379b1258467d5579f1.js" integrity="sha256-riY7jaGavruU/MomrdaNwMhvfRibm7I3mxJYRn1VefE=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.3375dc9e5b11ea7926abebde4cd36826a1589fcf946bf2ef335bc44fd66d0d95.js" integrity="sha256-M3XcnlsR6nkmq&#43;veTNNoJqFYn8&#43;Ua/LvM1vET9ZtDZU=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Azure Bicep Conditional Properties Part 04, Helper Modules - Eric&#39;s Blog</title>
@@ -13,15 +13,15 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="iac, azure, bicep, arm, automation, microsoft, deployment" />
   <meta name="description" content="Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
-In this series, I&rsquo;m going to show you a few ways you can work a round this." /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Azure Bicep Conditional Properties Part 04, Helper Modules"/>
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this." /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Azure Bicep Conditional Properties Part 04, Helper Modules"/>
 <meta name="twitter:description" content="Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this."/>
+<meta name="twitter:site" content="@esinger"/>
 <meta property="og:title" content="Azure Bicep Conditional Properties Part 04, Helper Modules" />
 <meta property="og:description" content="Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/" /><meta property="article:section" content="posts" />
@@ -29,9 +29,10 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
 <meta property="article:modified_time" content="2022-09-10T12:00:00+00:00" />
 <meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/" /><meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-02-parameters/" /><meta property="og:see_also" content="https://ericcsinger.com/azure-bicep-conditional-properties-part-01-introduction/" />
 
+
 <meta itemprop="name" content="Azure Bicep Conditional Properties Part 04, Helper Modules">
 <meta itemprop="description" content="Version: 1.0.0
-Series IntroductionWhether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
 In this series, I&rsquo;m going to show you a few ways you can work a round this."><meta itemprop="datePublished" content="2022-09-10T12:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-09-10T12:00:00+00:00" />
 <meta itemprop="wordCount" content="3087">
@@ -48,11 +49,11 @@ if (!doNotTrack) {
 }
 </script>
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.8665b86c0de590a692897e53fbf55330fb969c34f1d22790e6840ff406961a52.css" integrity="sha256-hmW4bA3lkKaSiX5T+/VTMPuWnDTx0ieQ5oQP9AaWGlI=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.5a163d9f3e713db8b105a772a88a5a4c3f1a6b90da1387fb4023a920ed1a9885.css" integrity="sha256-WhY9nz5xPbixBadyqIpaTD8aa5DaE4f7QCOpIO0amIU=" crossorigin="anonymous">
 
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.b236565f31a50508b5851cfb13938fa5a8d9f4fd00884efe2ad27a11b82968bf.css" integrity="sha256-sjZWXzGlBQi1hRz7E5OPpajZ9P0AiE7&#43;KtJ6EbgpaL8=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.fb3a3e29bffe2441555af92c874c243cf7a0bbd63527b739829f2fb126f8cb0d.css" integrity="sha256-&#43;zo&#43;Kb/&#43;JEFVWvksh0wkPPegu9Y1J7c5gp8vsSb4yw0=" crossorigin="anonymous">
 
-    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.c8cc49b70e98e42caf70845e0d50f8e86821121688c2e5a5f6fc464d40154853.css" integrity="sha256-yMxJtw6Y5CyvcIReDVD46GghEhaIwuWl9vxGTUAVSFM=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
 
 
 </head>
@@ -78,8 +79,8 @@ if (!doNotTrack) {
         </ul>
         
     <hr class="d-xxl-none">
-    <form class="search-bar ms-auto my-1" action="" novalidate>
-      <div class="input-group input-group-sm align-items-center">
+    <form class="search-bar ms-auto my-auto" action="" novalidate>
+      <div class="input-group align-items-center">
         <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
           <i class="fas fa-fw fa-search fa-lg"></i>
         </span>
@@ -91,7 +92,7 @@ if (!doNotTrack) {
           aria-label="Search"
           required>
           <span class="search-shortcut position-absolute end-0 top-0 me-2">
-            <kbd class="bg-primary rounded shadow">/</kbd>
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
           </span>
       </div>
     </form><hr class="d-xxl-none">
@@ -219,10 +220,10 @@ if (!doNotTrack) {
     
     
     
-  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="Table of contents">
+  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="Contents">
     <i class="fas fa-fw fa-list-alt"></i>
   </a>
-<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Table of contents">
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
   <i class="fas fa-fw fa-list-alt"></i>
 </a>
     <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
@@ -232,7 +233,7 @@ if (!doNotTrack) {
   <i class="fas fa-fw fa-comments"></i>
 </a>
     
-<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Sidebar toggler">
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
   <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
 </a>
 
@@ -254,9 +255,11 @@ if (!doNotTrack) {
     <hr class="text-secondary">
 </div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
         <div id="post-content-body"><p><em>Version: 1.0.0</em></p>
+
 <h2 id="series-introduction" data-numberify>Series Introduction<a class="anchor ms-1" href="#series-introduction"></a></h2>
 <p>Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties.  Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively.  At least not as of yet.  I was surprised when writing this, to not see a whole lot of articles showing how work around this.</p>
 <p>In this series, I&rsquo;m going to show you a few ways you can work a round this.  All of them are convoluted, but they do work.  Each one will have pros and cons, and it will be up to you determine which one you like best.  Of course, you don&rsquo;t have to stick to one or other.  Like most things in technology, use what works best in your situation.</p>
+
 <h3 id="series-index" data-numberify>Series Index<a class="anchor ms-1" href="#series-index"></a></h3>
 <ul>
 <li><a href="/azure-bicep-conditional-properties-part-01-introduction">Part 01, Introduction</a></li>
@@ -264,6 +267,7 @@ if (!doNotTrack) {
 <li><a href="/azure-bicep-conditional-properties-part-03-template-variables">Part 03, Template Variables</a></li>
 <li><a href="/azure-bicep-conditional-properties-part-04-helper-modules">Part 04, Helper Modules</a></li>
 </ul>
+
 <h3 id="series-demo-setup" data-numberify>Series Demo Setup<a class="anchor ms-1" href="#series-demo-setup"></a></h3>
 <p>In this series demo, I&rsquo;ll show you how I solved the issue with conditional properties in the virtual network &ldquo;subnet&rdquo; properties.  This was a particularly challenging one as it&rsquo;s an array of objects.  I chose this for our series example to show you how to handle conditional properties in more complex scenarios.</p>
 <p>Throughout this series, we&rsquo;ll use a common set of files to demonstrate both working and non-working examples.  The contents of the files will change throughout each post, so I would suggest creating a folder structure that looks something like this.</p>
@@ -278,8 +282,10 @@ if (!doNotTrack) {
 </li>
 </ul>
 <p>You can store a copy of the files used in the demo in each folder.  This will allow you to walk through each option, and go back to previous posts if you need to review.</p>
+
 <h2 id="article-introduction" data-numberify>Article Introduction<a class="anchor ms-1" href="#article-introduction"></a></h2>
 <p>In part 3 we established that Bicep is not a programming language, but that doesn&rsquo;t mean we can&rsquo;t work a round some of it&rsquo;s limitations.  In this article, I want to show you how to deal with conditional properties in nested object.  This builds on what we already learned in part 3 and extends your abilities to build some powerful templates with a few simple helper <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules" target="_blank" rel="noopener noreferrer">modules<i class="fas fa-external-link-square-alt ms-1"></i></a>.</p>
+
 <h2 id="article-demo-setup" data-numberify>Article Demo Setup<a class="anchor ms-1" href="#article-demo-setup"></a></h2>
 <p>For this article, you will need the following files.</p>
 <ul>
@@ -290,6 +296,7 @@ if (!doNotTrack) {
 <li><strong>deploy.ps1:</strong>  This file is used to execute the deployment.</li>
 </ul>
 <p>You can find the snippets of each file below.  Keep in mind, these might change from article to article, so I suggest overwriting your local copies if you&rsquo;re following along.</p>
+
 <h3 id="parametersps1" data-numberify>parameters.ps1<a class="anchor ms-1" href="#parametersps1"></a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#START: Parameters</span>
@@ -405,10 +412,11 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Output Object</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#############################</span>
-</span></span></code></pre></div><h3 id="templatebicep" data-numberify>template.bicep<a class="anchor ms-1" href="#templatebicep"></a></h3>
+</span></span></code></pre></div>
+<h3 id="templatebicep" data-numberify>template.bicep<a class="anchor ms-1" href="#templatebicep"></a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: res_networkVirtualNetwork</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> deploymentObject <span style="color:#66d9ef">object</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> deploymentObject object
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: res_networkVirtualNetwork</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span>
@@ -422,21 +430,21 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: conditionally build subnets</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsPropertyDefined = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;subnets&#39;</span>) <span style="color:#f92672">==</span> true ? true : false
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsExistToBeDeploy = subnetsPropertyDefined <span style="color:#f92672">==</span> true ? <span style="color:#a6e22e">empty</span>(deploymentObject.subnets) <span style="color:#f92672">==</span> false : false
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsToDeploy = subnetsExistToBeDeploy <span style="color:#f92672">==</span> true ? deploymentObject.subnets : []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsPropertyDefined = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;subnets&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? <span style="color:#66d9ef">true</span> : <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsExistToBeDeploy = subnetsPropertyDefined <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? <span style="color:#a6e22e">empty</span>(deploymentObject.subnets) <span style="color:#f92672">==</span> <span style="color:#66d9ef">false</span> : <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsToDeploy = subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? deploymentObject.subnets : []
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_allSubnets <span style="color:#e6db74">&#39;templateSubnetHelper.bicep&#39;</span> = [<span style="color:#66d9ef">for</span> subnet <span style="color:#66d9ef">in</span> subnetsToDeploy: <span style="color:#66d9ef">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> true) {
-</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;${uniqueString(deploymentObject.name)}_${subnet.name}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_allSubnets <span style="color:#e6db74">&#39;templateSubnetHelper.bicep&#39;</span> = [<span style="color:#66d9ef">for</span> subnet <span style="color:#66d9ef">in</span> subnetsToDeploy: <span style="color:#a6e22e">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">uniqueString</span>(deploymentObject.name)<span style="color:#e6db74">}</span><span style="color:#e6db74">_</span><span style="color:#e6db74">${</span>subnet.name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
 </span></span><span style="display:flex;"><span>  params:{
 </span></span><span style="display:flex;"><span>    subnetObject: subnet
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_arrayHelper <span style="color:#e6db74">&#39;templateArrayHelper.bicep&#39;</span> = <span style="color:#66d9ef">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> true) {
-</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;arrayHelper_${deploymentObject.name}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_arrayHelper <span style="color:#e6db74">&#39;templateArrayHelper.bicep&#39;</span> = <span style="color:#a6e22e">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;arrayHelper_</span><span style="color:#e6db74">${</span>deploymentObject.name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
 </span></span><span style="display:flex;"><span>  params:{
-</span></span><span style="display:flex;"><span>    array0: [<span style="color:#66d9ef">for</span> (subnetName<span style="color:#960050;background-color:#1e0010">,</span> index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ]
+</span></span><span style="display:flex;"><span>    array0: [<span style="color:#66d9ef">for</span> (subnetName, index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -454,14 +462,14 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Dynamically check the paramters for each property to see if it exists.  If so, we define it, if not, we create a blank object</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> dhcpOptions = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;dhcpOptions&#39;</span>) ? {dhcpOptions: deploymentObject.dhcpOptions} : {}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = subnetsExistToBeDeploy <span style="color:#f92672">==</span> true ? {subnets: mod_arrayHelper.outputs.arrayunion } : {}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableDdosProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableDdosProtection&#39;</span>) ? {enableDdosProtection: deploymentObject.enableDdosProtection} : {}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableVmProtection = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;enableVmProtection&#39;</span>) ? {enableVmProtection: deploymentObject.enableVmProtection} : {}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> virtualNetworkPeerings = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;virtualNetworkPeerings&#39;</span>) ? {virtualNetworkPeerings: deploymentObject.virtualNetworkPeerings} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> dhcpOptions = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;dhcpOptions&#39;</span>) ? {dhcpOptions: deploymentObject.dhcpOptions} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? {subnets: mod_arrayHelper.outputs.arrayunion } : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableDdosProtection = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;enableDdosProtection&#39;</span>) ? {enableDdosProtection: deploymentObject.enableDdosProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> enableVmProtection = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;enableVmProtection&#39;</span>) ? {enableVmProtection: deploymentObject.enableVmProtection} : {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> virtualNetworkPeerings = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;virtualNetworkPeerings&#39;</span>) ? {virtualNetworkPeerings: deploymentObject.virtualNetworkPeerings} : {}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Merge all of the objects together into the complete object</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> properties = <span style="color:#a6e22e">union</span>(baseProperties<span style="color:#960050;background-color:#1e0010">,</span>dhcpOptions<span style="color:#960050;background-color:#1e0010">,</span>subnets<span style="color:#960050;background-color:#1e0010">,</span>enableDdosProtection<span style="color:#960050;background-color:#1e0010">,</span>enableVmProtection<span style="color:#960050;background-color:#1e0010">,</span>virtualNetworkPeerings)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> properties = <span style="color:#a6e22e">union</span>(baseProperties,dhcpOptions,subnets,enableDdosProtection,enableVmProtection,virtualNetworkPeerings)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: conditionally build properties</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
@@ -471,7 +479,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> res_networkVirtualNetwork <span style="color:#e6db74">&#39;Microsoft.Network/virtualNetworks@2021-03-01&#39;</span> = {
 </span></span><span style="display:flex;"><span>  name: deploymentObject.name
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">//Dynamic property value for location</span>
-</span></span><span style="display:flex;"><span>  location: <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;location&#39;</span>) ? deploymentObject.location : defaultLocation
+</span></span><span style="display:flex;"><span>  location: <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;location&#39;</span>) ? deploymentObject.location : defaultLocation
 </span></span><span style="display:flex;"><span>  tags: deploymentObject.tags
 </span></span><span style="display:flex;"><span>  properties: properties
 </span></span><span style="display:flex;"><span>  }
@@ -480,23 +488,24 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">///////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: res_networkVirtualNetwork</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> outputProperties <span style="color:#66d9ef">object</span> = properties
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> outputProperties object = properties
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: res_networkVirtualNetwork</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
-</span></span></code></pre></div><h3 id="templatesubnethelperbicep" data-numberify>templateSubnetHelper.bicep<a class="anchor ms-1" href="#templatesubnethelperbicep"></a></h3>
+</span></span></code></pre></div>
+<h3 id="templatesubnethelperbicep" data-numberify>templateSubnetHelper.bicep<a class="anchor ms-1" href="#templatesubnethelperbicep"></a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: targetScope</span>
-</span></span><span style="display:flex;"><span>targetScope = <span style="color:#e6db74">&#39;resourceGroup&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">targetScope</span> = <span style="color:#e6db74">&#39;resourceGroup&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: targetScope</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: parameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>@<span style="color:#a6e22e">description</span>(<span style="color:#e6db74">&#39;&#39;</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;</span><span style="color:#960050;background-color:#1e0010">&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> subnetObject <span style="color:#66d9ef">object</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#a6e22e">description</span>(<span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> subnetObject object
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: parameters</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span>
@@ -557,7 +566,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> newSubnetObject = {
 </span></span><span style="display:flex;"><span>  name: subnetObject.name
-</span></span><span style="display:flex;"><span>  properties: <span style="color:#a6e22e">union</span>(addressPrefix<span style="color:#960050;background-color:#1e0010">,</span>delegations<span style="color:#960050;background-color:#1e0010">,</span>natGateway<span style="color:#960050;background-color:#1e0010">,</span>networkSecurityGroup<span style="color:#960050;background-color:#1e0010">,</span>privateEndpointNetworkPolicies<span style="color:#960050;background-color:#1e0010">,</span>privateLinkServiceNetworkPolicies<span style="color:#960050;background-color:#1e0010">,</span>routeTable<span style="color:#960050;background-color:#1e0010">,</span>serviceEndpointPolicies<span style="color:#960050;background-color:#1e0010">,</span>serviceEndpoints)
+</span></span><span style="display:flex;"><span>  properties: <span style="color:#a6e22e">union</span>(addressPrefix,delegations,natGateway,networkSecurityGroup,privateEndpointNetworkPolicies,privateLinkServiceNetworkPolicies,routeTable,serviceEndpointPolicies,serviceEndpoints)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: Build subnet object</span>
@@ -566,24 +575,25 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: output</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> subnet <span style="color:#66d9ef">object</span> = newSubnetObject
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> subnet object = newSubnetObject
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: output</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
-</span></span></code></pre></div><h3 id="templatearrayhelperbicep" data-numberify>templateArrayHelper.bicep<a class="anchor ms-1" href="#templatearrayhelperbicep"></a></h3>
+</span></span></code></pre></div>
+<h3 id="templatearrayhelperbicep" data-numberify>templateArrayHelper.bicep<a class="anchor ms-1" href="#templatearrayhelperbicep"></a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: parameters</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array1 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array2 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array3 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array4 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array5 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array6 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array7 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array8 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array9 <span style="color:#a6e22e">array</span> = []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array0 <span style="color:#a6e22e">array</span> = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array1 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array2 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array3 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array4 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array5 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array6 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array7 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array8 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array9 array = []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> array0 array = []
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: parameters</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
@@ -592,7 +602,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: variable</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> arrayunion = <span style="color:#a6e22e">union</span>(array0<span style="color:#960050;background-color:#1e0010">,</span>array1<span style="color:#960050;background-color:#1e0010">,</span>array2<span style="color:#960050;background-color:#1e0010">,</span>array3<span style="color:#960050;background-color:#1e0010">,</span>array4<span style="color:#960050;background-color:#1e0010">,</span>array5<span style="color:#960050;background-color:#1e0010">,</span>array6<span style="color:#960050;background-color:#1e0010">,</span>array7<span style="color:#960050;background-color:#1e0010">,</span>array8<span style="color:#960050;background-color:#1e0010">,</span>array9)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> arrayunion = <span style="color:#a6e22e">union</span>(array0,array1,array2,array3,array4,array5,array6,array7,array8,array9)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: variable</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
@@ -600,11 +610,12 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: Output</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> arrayunion <span style="color:#a6e22e">array</span> = arrayunion
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> arrayunion array = arrayunion
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//END: Output</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
-</span></span></code></pre></div><h3 id="deployps1" data-numberify>deploy.ps1<a class="anchor ms-1" href="#deployps1"></a></h3>
+</span></span></code></pre></div>
+<h3 id="deployps1" data-numberify>deploy.ps1<a class="anchor ms-1" href="#deployps1"></a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> 
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>    $ErrorActionPreference = <span style="color:#e6db74">&#34;Stop&#34;</span>
@@ -662,10 +673,12 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    Write-Host $($ExceptionObject | Out-String ) 
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Throw</span> $($ExceptionObject | Where-Object {$PSItem <span style="color:#f92672">-notlike</span> <span style="color:#e6db74">&#34;#*&#34;</span>} | Out-String)
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div><h2 id="demo-execution" data-numberify>Demo Execution<a class="anchor ms-1" href="#demo-execution"></a></h2>
+</span></span></code></pre></div>
+<h2 id="demo-execution" data-numberify>Demo Execution<a class="anchor ms-1" href="#demo-execution"></a></h2>
 <p>To run the demo, all we need to do is execute the deploy.ps1 file.  This can be accomplished by the following command.\</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>. .\deploy.ps1
-</span></span></code></pre></div><h2 id="demo-result" data-numberify>Demo Result<a class="anchor ms-1" href="#demo-result"></a></h2>
+</span></span></code></pre></div>
+<h2 id="demo-result" data-numberify>Demo Result<a class="anchor ms-1" href="#demo-result"></a></h2>
 <p>Upon completion of the script, here is what you&rsquo;ll see that is different.</p>
 <ol>
 <li>You will now have <strong>two</strong> virtual networks.</li>
@@ -674,10 +687,13 @@ if (!doNotTrack) {
 <li>The template now has an output, this is so we can see the results of our conditional properties.</li>
 <li>You&rsquo;ll notice that we were able to conditionally set subnets properties. The output for vNetOne subnet, only contain properties defined with values in the parameters.ps1.</li>
 </ol>
+
 <h3 id="demo-result-explanation" data-numberify>Demo Result Explanation<a class="anchor ms-1" href="#demo-result-explanation"></a></h3>
 <p>To understand how I accomplished this, let&rsquo;s look at a few changes I made.</p>
+
 <h4 id="parametersps1-changes" data-numberify>parameters.ps1 changes<a class="anchor ms-1" href="#parametersps1-changes"></a></h4>
 <p>Like in part 3, we continued to simplify the parameters.ps1.</p>
+
 <h5 id="parametersps1-subnet-changes" data-numberify>parameters.ps1 subnet changes<a class="anchor ms-1" href="#parametersps1-subnet-changes"></a></h5>
 <p>Now the subnets themselves, only need property names defined, and do <strong>not</strong> need to mirror the official property schema.  Previously, we needed the subnets to match the schema of subnets bicep structure as detailed <a href="https://docs.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks?pivots=deployment-language-bicep#subnet" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>.  Now you can craft your parameters however you like. The complexity of a well formed schema is moved to the helper template as you&rsquo;ll see further on.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#75715e">#########################################</span>
@@ -697,8 +713,10 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">#END: GatewaySubnet</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">#########################################</span>
-</span></span></code></pre></div><h4 id="generate-json-artifact-to-validate-this" data-numberify>Generate JSON artifact to validate this<a class="anchor ms-1" href="#generate-json-artifact-to-validate-this"></a></h4>
+</span></span></code></pre></div>
+<h4 id="generate-json-artifact-to-validate-this" data-numberify>Generate JSON artifact to validate this<a class="anchor ms-1" href="#generate-json-artifact-to-validate-this"></a></h4>
 <p>Here is how we can validate that what is mentioned above, is in fact true.  Take a look specifically at TeamOne.  Notice how we have a number of defined properties which are empty.  This is something our helper modules is going to take care of.</p>
+
 <h5 id="team-one" data-numberify>Team One<a class="anchor ms-1" href="#team-one"></a></h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span> . .\parameters.ps1 -TeamName <span style="color:#e6db74">&#34;one&#34;</span> | ConvertTo-Json -Depth <span style="color:#ae81ff">100</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -753,7 +771,8 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;environment&#34;</span>: <span style="color:#e6db74">&#34;sandbox&#34;</span>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h5 id="team-two" data-numberify>Team Two<a class="anchor ms-1" href="#team-two"></a></h5>
+</span></span></code></pre></div>
+<h5 id="team-two" data-numberify>Team Two<a class="anchor ms-1" href="#team-two"></a></h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span> . .\parameters.ps1 -TeamName <span style="color:#e6db74">&#34;two&#34;</span> | ConvertTo-Json -Depth <span style="color:#ae81ff">100</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
@@ -767,29 +786,31 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableDdosProtection&#34;</span>: <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="templatebicep-changes" data-numberify>template.bicep changes<a class="anchor ms-1" href="#templatebicep-changes"></a></h4>
+</span></span></code></pre></div>
+<h4 id="templatebicep-changes" data-numberify>template.bicep changes<a class="anchor ms-1" href="#templatebicep-changes"></a></h4>
 <p>As with part 3, we continue to move more of the complexity into the Bicep templates.</p>
+
 <h5 id="adding-a-new-section-to-deal-with-subnets" data-numberify>Adding a new section to deal with subnets<a class="anchor ms-1" href="#adding-a-new-section-to-deal-with-subnets"></a></h5>
 <p>We now have a section which offloads the subnet evaluation work to a whole other Bicep module.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//START: conditionally build subnets</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsPropertyDefined = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;subnets&#39;</span>) <span style="color:#f92672">==</span> true ? true : false <span style="color:#75715e">//make sure there is even a subnet property defined</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsExistToBeDeploy = subnetsPropertyDefined <span style="color:#f92672">==</span> true ? <span style="color:#a6e22e">empty</span>(deploymentObject.subnets) <span style="color:#f92672">==</span> false : false <span style="color:#75715e">//make sure we have subnets defined and that it&#39;s not just an empty array</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsToDeploy = subnetsExistToBeDeploy <span style="color:#f92672">==</span> true ? deploymentObject.subnets : [] <span style="color:#75715e">// use the defined subnets, or create an empty array</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsPropertyDefined = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;subnets&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? <span style="color:#66d9ef">true</span> : <span style="color:#66d9ef">false</span> <span style="color:#75715e">//make sure there is even a subnet property defined</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsExistToBeDeploy = subnetsPropertyDefined <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? <span style="color:#a6e22e">empty</span>(deploymentObject.subnets) <span style="color:#f92672">==</span> <span style="color:#66d9ef">false</span> : <span style="color:#66d9ef">false</span> <span style="color:#75715e">//make sure we have subnets defined and that it&#39;s not just an empty array</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsToDeploy = subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? deploymentObject.subnets : [] <span style="color:#75715e">// use the defined subnets, or create an empty array</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//If the array has subnets, we&#39;ll loop through them and have a helper module process them.  Otherwise, if the array is empty, this will ultimately not run.  (not items to loop through)</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_allSubnets <span style="color:#e6db74">&#39;templateSubnetHelper.bicep&#39;</span> = [<span style="color:#66d9ef">for</span> subnet <span style="color:#66d9ef">in</span> subnetsToDeploy: <span style="color:#66d9ef">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> true) {
-</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;${uniqueString(deploymentObject.name)}_${subnet.name}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_allSubnets <span style="color:#e6db74">&#39;templateSubnetHelper.bicep&#39;</span> = [<span style="color:#66d9ef">for</span> subnet <span style="color:#66d9ef">in</span> subnetsToDeploy: <span style="color:#a6e22e">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">uniqueString</span>(deploymentObject.name)<span style="color:#e6db74">}</span><span style="color:#e6db74">_</span><span style="color:#e6db74">${</span>subnet.name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
 </span></span><span style="display:flex;"><span>  params:{
 </span></span><span style="display:flex;"><span>    subnetObject: subnet
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//We have an array or arrays, and it&#39;s a pain to parse looped outputs in Bicep.  Rather than trying to do something to complex, we send it to another helper module to &#34;union&#34; the arrays.  </span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_arrayHelper <span style="color:#e6db74">&#39;templateArrayHelper.bicep&#39;</span> = <span style="color:#66d9ef">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> true) {
-</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;arrayHelper_${deploymentObject.name}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_arrayHelper <span style="color:#e6db74">&#39;templateArrayHelper.bicep&#39;</span> = <span style="color:#a6e22e">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;arrayHelper_</span><span style="color:#e6db74">${</span>deploymentObject.name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
 </span></span><span style="display:flex;"><span>  params:{
-</span></span><span style="display:flex;"><span>    array0: [<span style="color:#66d9ef">for</span> (subnetName<span style="color:#960050;background-color:#1e0010">,</span> index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ]
+</span></span><span style="display:flex;"><span>    array0: [<span style="color:#66d9ef">for</span> (subnetName, index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -797,35 +818,36 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#75715e">////////////////////////////////////////</span>
 </span></span></code></pre></div><p>Now to explain what is going on.</p>
 <p>To avoid errors in the deployment, we first need to see if any <strong>subnet</strong> property has been defined at all.  We&rsquo;ll do this with the contains object.  If the property exits, it will return true, other wise false.  We&rsquo;ll use this value in the next evaluation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsPropertyDefined = <span style="color:#a6e22e">contains</span>(deploymentObject<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#e6db74">&#39;subnets&#39;</span>) <span style="color:#f92672">==</span> true ? true : false
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsPropertyDefined = <span style="color:#a6e22e">contains</span>(deploymentObject, <span style="color:#e6db74">&#39;subnets&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? <span style="color:#66d9ef">true</span> : <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><p>We now know whether there is a subnet properties defined or not.  Thanks to the &ldquo;subnetPropertiesDefined&rdquo; var.  Now we need to determine if there is any values.  If we have values, again, we set a boolean value of true otherwise false.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsExistToBeDeploy = subnetsPropertyDefined <span style="color:#f92672">==</span> true ? <span style="color:#a6e22e">empty</span>(deploymentObject.subnets) <span style="color:#f92672">==</span> false : false
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsExistToBeDeploy = subnetsPropertyDefined <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? <span style="color:#a6e22e">empty</span>(deploymentObject.subnets) <span style="color:#f92672">==</span> <span style="color:#66d9ef">false</span> : <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><p>If subnetsExistToDeploy is true, we now know that we have a subnet object to deploy.  We can now use this value to setup either a var with an empty array or a var with the subnets you want to deploy.  The reason we do this is because Bicep doesn&rsquo;t handle conditions + loops very well.  At least there are a lot of limitations.  With an empty array, Bicep will effectively skip the module because there is nothing to loop through.  Therefor, it&rsquo;s essentially making it a conditional deployment.  You can use this tactic with any property that is based on an array.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsToDeploy = subnetsExistToBeDeploy <span style="color:#f92672">==</span> true ? deploymentObject.subnets : []
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnetsToDeploy = subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? deploymentObject.subnets : []
 </span></span></code></pre></div><p>Now, we&rsquo;ll loop through all the subnets and determine if anything needs to be conditionally deployed.  If a subnet exists, we&rsquo;ll send it our help module (more on that later).  We&rsquo;re using a module because this is the only way that we can do loops with conditions in Bicep.  Looking at this code now, I suspect we don&rsquo;t even need the condition statement since an empty array will do nothing.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_allSubnets <span style="color:#e6db74">&#39;templateSubnetHelper.bicep&#39;</span> = [<span style="color:#66d9ef">for</span> subnet <span style="color:#66d9ef">in</span> subnetsToDeploy: <span style="color:#66d9ef">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> true) {
-</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;${uniqueString(deploymentObject.name)}_${subnet.name}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_allSubnets <span style="color:#e6db74">&#39;templateSubnetHelper.bicep&#39;</span> = [<span style="color:#66d9ef">for</span> subnet <span style="color:#66d9ef">in</span> subnetsToDeploy: <span style="color:#a6e22e">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">uniqueString</span>(deploymentObject.name)<span style="color:#e6db74">}</span><span style="color:#e6db74">_</span><span style="color:#e6db74">${</span>subnet.name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
 </span></span><span style="display:flex;"><span>  params:{
 </span></span><span style="display:flex;"><span>    subnetObject: subnet
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}]
 </span></span></code></pre></div><p>The results of the subnet helper module will be an array of objects. This next part is to simply make things easier for us.  How?  Well Bicep has a lot of loop limits, and one of those with consuming the output of a Bicep module that was the result of a loop its self.  One way to get around this, is to use yet another module, but this time, <strong>not</strong> doing any loops.  Instead, we put the data in to a generic module that does nothing more than union an array and spit an array back out.  Since the module in this case is not a loop, we can directly reference the output.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_arrayHelper <span style="color:#e6db74">&#39;templateArrayHelper.bicep&#39;</span> = <span style="color:#66d9ef">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> true) {
-</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;arrayHelper_${deploymentObject.name}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">module</span> mod_arrayHelper <span style="color:#e6db74">&#39;templateArrayHelper.bicep&#39;</span> = <span style="color:#a6e22e">if</span>(subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>  name: <span style="color:#e6db74">&#39;arrayHelper_</span><span style="color:#e6db74">${</span>deploymentObject.name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
 </span></span><span style="display:flex;"><span>  params:{
-</span></span><span style="display:flex;"><span>    array0: [<span style="color:#66d9ef">for</span> (subnetName<span style="color:#960050;background-color:#1e0010">,</span> index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ]
+</span></span><span style="display:flex;"><span>    array0: [<span style="color:#66d9ef">for</span> (subnetName, index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ]
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>As an aside, here is what kind of error might you get if you didn&rsquo;t use the array module.  For example, if your variable looks like this.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = subnetsExistToBeDeploy <span style="color:#f92672">==</span> true ? [<span style="color:#66d9ef">for</span> (subnetName<span style="color:#960050;background-color:#1e0010">,</span> index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ] : {}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? [<span style="color:#66d9ef">for</span> (subnetName, index) <span style="color:#66d9ef">in</span> subnetsToDeploy: mod_allSubnets[index].outputs.subnet ] : {}
 </span></span></code></pre></div><p>Then you can expect to see an error message like the one below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">owner</span>: <span style="color:#e6db74">&#34;_generated_diagnostic_collection_name_#1&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#f92672">code</span>: <span style="color:#e6db74">&#34;BCP138&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;For-expressions are not supported in this context. For-expressions may be used as values of resource, module, variable, and output declarations, or values of resource and module properties.&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#f92672">source</span>: <span style="color:#e6db74">&#34;bicep&#34;</span>
 </span></span></code></pre></div><p>The final difference in the main bicep file is just a tweak of the original conditional property for the subnet.  You can see here that we again check if there is a subnet to deploy and if so, we are able to directly reference the output of the helper array module.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = subnetsExistToBeDeploy <span style="color:#f92672">==</span> true ? {subnets: mod_arrayHelper.outputs.arrayunion } : {}
-</span></span></code></pre></div><h4 id="templatesubnethelperbicep-explication" data-numberify>templateSubnetHelper.bicep explication<a class="anchor ms-1" href="#templatesubnethelperbicep-explication"></a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bicep" data-lang="Bicep"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> subnets = subnetsExistToBeDeploy <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> ? {subnets: mod_arrayHelper.outputs.arrayunion } : {}
+</span></span></code></pre></div>
+<h4 id="templatesubnethelperbicep-explication" data-numberify>templateSubnetHelper.bicep explication<a class="anchor ms-1" href="#templatesubnethelperbicep-explication"></a></h4>
 <p>The subnet helper bicep template actually doesn&rsquo;t need a a lot of explanation.  It works very much like the way our evaluation variables worked in part 3 (and still work in part 4).  But let&rsquo;s break it down into a few steps.</p>
 <ol>
 <li>We are only sending a subnet object that we know has data.  Those evaluations were done ahead of time, thanks to conditional variables we explained starting <a href="/azure-bicep-conditional-properties-part-04-helper-modules/#adding-a-new-section-to-deal-with-subnets">here</a></li>
@@ -840,10 +862,13 @@ if (!doNotTrack) {
 <li>Once all the property evaluations are complete, we utilize the <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-object#union" target="_blank" rel="noopener noreferrer">union function<i class="fas fa-external-link-square-alt ms-1"></i></a> to join them together as a single object again.</li>
 <li>Finally we output them back to the module so they can be consumed by the main template.</li>
 </ol>
+
 <h4 id="templatearrayhelperbicep-explication" data-numberify>templateArrayHelper.bicep explication<a class="anchor ms-1" href="#templatearrayhelperbicep-explication"></a></h4>
 <p>Again, very similar to the above point, we&rsquo;ve create a generic array helper that will allow us to join together what is already an array.  The problem as mentioned above, is Bicep has some real weird limitation.  Since we can&rsquo;t conditionally loop in a variable, we want to first create a variable that contains all the values we want.  That is the point of the array module.  We use it to conditionally create a single array of data that we can directly reference.</p>
+
 <h4 id="the-results" data-numberify>The results<a class="anchor ms-1" href="#the-results"></a></h4>
 <p>Once you&rsquo;ve deployed the two virtual networks, you should see the following outputs available.</p>
+
 <h5 id="vnetone-output" data-numberify>vNetOne Output<a class="anchor ms-1" href="#vnetone-output"></a></h5>
 <p>Remember when I mentioned to keep an eye on team ones vnet?  Remember how it had a bunch of empty properties specified?  Below, you can see that other than peerings properties, all empty properties have been filtered out.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -887,7 +912,8 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: []
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h5 id="vnettwo-output" data-numberify>vNetTwo Output<a class="anchor ms-1" href="#vnettwo-output"></a></h5>
+</span></span></code></pre></div>
+<h5 id="vnettwo-output" data-numberify>vNetTwo Output<a class="anchor ms-1" href="#vnettwo-output"></a></h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;addressSpace&#34;</span>: {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;addressPrefixes&#34;</span>: [
@@ -898,7 +924,8 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;enableVmProtection&#34;</span>: <span style="color:#66d9ef">false</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;virtualNetworkPeerings&#34;</span>: []
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="article-conclusion" data-numberify>Article Conclusion<a class="anchor ms-1" href="#article-conclusion"></a></h2>
+</span></span></code></pre></div>
+<h2 id="article-conclusion" data-numberify>Article Conclusion<a class="anchor ms-1" href="#article-conclusion"></a></h2>
 <p>In this article we touched on dealing with nested conditional properties.  It&rsquo;s a tad more convoluted for sure, but 100% doable if you want to keep the complexity in the template instead of your parameters.</p>
 </div>
 </div>
@@ -1055,34 +1082,10 @@ if (!doNotTrack) {
       </a>
     </div>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
-      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible width="2316" height="3088" />
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp?v=611493b44b508440a53cad8a164e00eb" loading="lazy" data-viewer-invisible width="2316" height="3088" />
 </picture>
 </div>
-      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div>
-
-
-<nav class="social-links nav justify-content-center mt-1 justify-content-around">
-      <a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="me">
-        <i class="fa-fw fa-2x fab fa-github"
-          ></i>
-      </a>
-      <a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="me">
-        <i class="fa-fw fa-2x fab fa-linkedin-in"
-           style="color: #0a66c2;"></i>
-      </a>
-      <a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="me">
-        <i class="fa-fw fa-2x fab fa-stack-overflow"
-           style="color: #f48024;"></i>
-      </a>
-      <a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="me">
-        <i class="fa-fw fa-2x fab fa-twitter"
-           style="color: #1d9bf0;"></i>
-      </a>
-  <a class="nav-link social-link" target="_blank" href="/index.xml" title="RSS" rel="me">
-    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
-  </a>
-</nav>
-</div>
+      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on designing and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div></div>
   </div>
 </div>
 
@@ -1504,11 +1507,11 @@ if (!doNotTrack) {
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=Backup%20Storage%20Part%204a%3a%20Windows%20Storage%20Spaces%20Gotcha%27s&url=https%3a%2f%2fericcsinger.com%2fbackup-storage-part-4a-windows-storage-spaces-gotchas%2f">
+      target="_blank" href="https://twitter.com/intent/tweet?title=Thinking%20out%20loud%3a%20CLI%20vs.%20GUI%2c%20a%20pointless%20debate&url=https%3a%2f%2fericcsinger.com%2fthinking-out-loud-cli-vs.-gui-a-pointless-debate%2f">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fbackup-storage-part-4a-windows-storage-spaces-gotchas%2f">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fthinking-out-loud-cli-vs.-gui-a-pointless-debate%2f">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -1528,7 +1531,7 @@ if (!doNotTrack) {
   <div class="col-12 mt-2">
     <p class="mb-2">Eric&#39;s Blog</p>
     <p class="text-secondary mb-2"><small>Eric IT Blog</small></p><div class="copyright mb-2 text-secondary">
-  <small>©2023, Eric C. Singer
+  <small>©2024, Eric C. Singer
 </small>
 </div>
 <div class="powered-by mb-2 text-secondary">
@@ -1539,6 +1542,22 @@ if (!doNotTrack) {
 
 
 <nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="me">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"
+           style="color: #0a66c2;"></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="me">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"
+           style="color: #f48024;"></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
   <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
     <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
   </a>
@@ -1547,9 +1566,9 @@ if (!doNotTrack) {
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.88a3da4211215658c019105ee6df6d39dcbcc5df9c304d0005643346b9f64cb9.js" integrity="sha256-iKPaQhEhVljAGRBe5t9tOdy8xd&#43;cME0ABWQzRrn2TLk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.9ba76665e3c9fa036c059c1c85f287b5780b8c3e27f6cc9cd6372b90c42cf347.js" integrity="sha256-m6dmZePJ&#43;gNsBZwchfKHtXgLjD4n9syc1jcrkMQs80c=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.b0348f9dd3c40eee23b65b205b879d1bed2136c80586689e7a50745d8f89d849.js" integrity="sha256-sDSPndPEDu4jtlsgW4edG&#43;0hNsgFhmieelB0XY&#43;J2Ek=" crossorigin="anonymous"></script>
+<script data-precache src="/assets/main/bundle.min.54cd60eeae6fe1589fbfcfe3a408654e1951a330d3666622694d9bf3583cad43.js" integrity="sha256-VM1g7q5v4Vifv8/jpAhlThlRozDTZmYiaU2b81g8rUM=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.eace3aacbb4d5035eb584c009bfde9abce78ef2130f9cf3fda0237765b9e5f58.js" integrity="sha256-6s46rLtNUDXrWEwAm/3pq8547yEw&#43;c8/2gI3dlueX1g=" crossorigin="anonymous"></script>
 
 
 

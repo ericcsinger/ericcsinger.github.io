@@ -6,7 +6,7 @@
     <description>Recent content in ad on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©2023, Eric C. Singer
+    <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 24 Jun 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/ad/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -15,7 +15,7 @@
       <pubDate>Sat, 24 Jun 2023 12:00:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/pgadmin-azure-ad-authentication-token-renewal/</guid>
-      <description><![CDATA[IntroductionMicrosoft recently released Azure Active Directory (AzureAD) authentication support for Azure PostgreSQL Flexible Server (AzPG). I&rsquo;m a huge proponent of leveraging AzureAD whenever possible, over local accounts, keys, etc. There all sorts of pros to this approach, none of which I&rsquo;m going to dive into.
+      <description><![CDATA[Introduction Microsoft recently released Azure Active Directory (AzureAD) authentication support for Azure PostgreSQL Flexible Server (AzPG). I&rsquo;m a huge proponent of leveraging AzureAD whenever possible, over local accounts, keys, etc. There all sorts of pros to this approach, none of which I&rsquo;m going to dive into.
 What we will dive into, is the fact that PGAdmin, the most popular GUI for PostgreSQL, doesn&rsquo;t natively support Azure AD authentication, and how I worked around that.]]></description>
     </item>
     

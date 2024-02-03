@@ -6,7 +6,7 @@
     <description>Recent content in cloud on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©2023, Eric C. Singer
+    <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Wed, 30 Dec 2015 17:13:39 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -15,7 +15,7 @@
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
-      <description><![CDATA[Introduction:Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.]]></description>
+      <description><![CDATA[Introduction: Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.]]></description>
     </item>
     
   </channel>

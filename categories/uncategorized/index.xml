@@ -6,7 +6,7 @@
     <description>Recent content in Uncategorized on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>©2023, Eric C. Singer
+    <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 05 May 2019 21:11:08 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -15,7 +15,7 @@
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</guid>
-      <description><![CDATA[Functions released in this module:Get-ECSWSUSUpdateReport ]]></description>
+      <description><![CDATA[ Functions released in this module: Get-ECSWSUSUpdateReport ]]></description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@ ECS.WSUS v1.0.0 You can learn more about the module here.]]></description>
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</guid>
       <description><![CDATA[This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
 I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.
-Functions released in this module:Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.]]></description>
+Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.]]></description>
     </item>
     
     <item>
@@ -160,7 +160,7 @@ I would suggest you make sure this setting is present on all VM’s.]]></descrip
       <pubDate>Mon, 25 Dec 2017 19:39:00 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-installing-sql-/-setting-up-alwayson-availability-groups/</guid>
-      <description><![CDATA[Introduction:We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS + SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well.]]></description>
+      <description><![CDATA[Introduction: We setup a decent number of SQL servers every year. Most of the time we’re migrating to a newer OS + SQL combo, but sometimes it’s for a new product. As you may have read in my virtualizing SQL post, one of the pros to virtualizing SQL, was having this ability. Having seen the ameba affect virtualization created for other systems, I knew this would soon happen with SQL as well.]]></description>
     </item>
     
     <item>
@@ -169,7 +169,7 @@ I would suggest you make sure this setting is present on all VM’s.]]></descrip
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
-      <description><![CDATA[Introduction:I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
+      <description><![CDATA[Introduction: I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
 Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).]]></description>
     </item>
     
@@ -188,7 +188,7 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Sat, 11 Nov 2017 21:41:53 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thanksgiving-2017-sanitation-and-cleaning-crew/</guid>
-      <description><![CDATA[Series Introduction:Back in October I had a grand plan to have 23 days of thanks. Unfortunately, life got in the way, and I never had the time to pre-write all the posts I wanted to. Rather than giving up, I’m going to punch out as many as I can before the 24th. Since I want to focus on the month of thanks, by giving thanks, I’m not going to be writing any technical posts.]]></description>
+      <description><![CDATA[Series Introduction: Back in October I had a grand plan to have 23 days of thanks. Unfortunately, life got in the way, and I never had the time to pre-write all the posts I wanted to. Rather than giving up, I’m going to punch out as many as I can before the 24th. Since I want to focus on the month of thanks, by giving thanks, I’m not going to be writing any technical posts.]]></description>
     </item>
     
     <item>
@@ -197,7 +197,7 @@ Like most things on the internet, I find that folks tend to share all the good, 
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description><![CDATA[Introduction:I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
+      <description><![CDATA[Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
 I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.]]></description>
     </item>
     
@@ -207,9 +207,8 @@ I wanted an ability to gather data on a given WSUS computer(s), and work with it
       <pubDate>Sat, 30 Sep 2017 21:25:51 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputer-and-get-ecswsuscomputersintargetgroup/</guid>
-      <description><![CDATA[Introduction:These two functions by themselves aren’t exactly sexy. Their main goal is to be used to feed my function Get-ECSWSUSComputerUpdatesStatusReport. Still, I can see some limited value to them outside of that use case.
-One thing you’ll notice, is i’m hitting SQL directly instead of querying the WSUS APIs. I’m doing this, despite it not being recommended, because it’s infinitely faster and far more flexible that the APIs.
-Dependencies:First and foremost, you need my Invoke-ECSSQLQuery function located here.]]></description>
+      <description><![CDATA[Introduction: These two functions by themselves aren’t exactly sexy. Their main goal is to be used to feed my function Get-ECSWSUSComputerUpdatesStatusReport. Still, I can see some limited value to them outside of that use case.
+One thing you’ll notice, is i’m hitting SQL directly instead of querying the WSUS APIs. I’m doing this, despite it not being recommended, because it’s infinitely faster and far more flexible that the APIs.]]></description>
     </item>
     
     <item>
@@ -218,7 +217,7 @@ Dependencies:First and foremost, you need my Invoke-ECSSQLQuery function locate
       <pubDate>Sat, 23 Sep 2017 19:44:46 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-877stockcar.com-exotic-experiences/</guid>
-      <description><![CDATA[Introduction:This post is 100% off topic, it’s about my “exotic car” experience through 877stockcar.com. In general, my blog is for tech stuff, but I figure it might be fun to write about something non-tech for once. This is about the https://877stockcar.com/experiences/exotic-experiences/ located at Pocono Raceway.
+      <description><![CDATA[Introduction: This post is 100% off topic, it’s about my “exotic car” experience through 877stockcar.com. In general, my blog is for tech stuff, but I figure it might be fun to write about something non-tech for once. This is about the https://877stockcar.com/experiences/exotic-experiences/ located at Pocono Raceway.
 I wanted to write this for anyone that might be thinking of dropping up to $700 on their package, so you know what you’re in for.]]></description>
     </item>
     
@@ -228,9 +227,9 @@ I wanted to write this for anyone that might be thinking of dropping up to $700 
       <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</guid>
-      <description><![CDATA[Warning:This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
-Disclaimer:Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
-Introduction:I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.]]></description>
+      <description><![CDATA[Warning: This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
+Disclaimer: Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
+Introduction: I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.]]></description>
     </item>
     
     <item>
@@ -239,7 +238,7 @@ Introduction:I don’t know about all of you, but for me, VMware has been an un
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
-      <description><![CDATA[Introduction:If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.]]></description>
+      <description><![CDATA[Introduction: If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.]]></description>
     </item>
     
     <item>
@@ -248,7 +247,7 @@ Introduction:I don’t know about all of you, but for me, VMware has been an un
       <pubDate>Fri, 30 Jun 2017 21:20:28 +0000</pubDate>
       
       <guid>https://ericcsinger.com/powershell-scripting-get-ecsesxhostvibtopcidevices/</guid>
-      <description><![CDATA[Introduction:If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
+      <description><![CDATA[Introduction: If you remember a little bit ago, I said I was trying to work around the lack of driver management with vendors. This function is the start of a few tools you can use to potentially make your life a little easier.
 VMware’s drivers are VIBS (but not all VIBS are drivers). So the key to knowing if you have the correct drivers is to find which VIB matches which PCI device.]]></description>
     </item>
     
@@ -278,7 +277,7 @@ Given the recent events, I just wanted to repost one of my older posts which goe
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
-      <description><![CDATA[History:Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
+      <description><![CDATA[History: Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
     </item>
     
     <item>
@@ -287,8 +286,8 @@ Given the recent events, I just wanted to repost one of my older posts which goe
       <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-what-hp--nimble-means-to-me/</guid>
-      <description><![CDATA[Disclaimer:These are opinions, not facts and these opinions are mine, not my employers.
-Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.]]></description>
+      <description><![CDATA[Disclaimer: These are opinions, not facts and these opinions are mine, not my employers.
+Introduction: Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out.]]></description>
     </item>
     
     <item>
@@ -297,7 +296,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Sat, 28 Jan 2017 21:38:09 +0000</pubDate>
       
       <guid>https://ericcsinger.com/naming-conventions-server-names/</guid>
-      <description><![CDATA[Introduction:One of the things I’m struggling with, is how to balance the number of posts per naming convention. It would be easy in some ways to use a single post per server type, but it would also be overly redundant in many ways. I originally wrote a dedicated post to SQL server naming conventions, and realized that the logic behind its name is ultimately a similar logic for other server names.]]></description>
+      <description><![CDATA[Introduction: One of the things I’m struggling with, is how to balance the number of posts per naming convention. It would be easy in some ways to use a single post per server type, but it would also be overly redundant in many ways. I originally wrote a dedicated post to SQL server naming conventions, and realized that the logic behind its name is ultimately a similar logic for other server names.]]></description>
     </item>
     
     <item>
@@ -306,7 +305,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
       
       <guid>https://ericcsinger.com/review-1.5-years-with-mvp-systems-job-automation-scheduler-jams/</guid>
-      <description><![CDATA[Introduction:I wrote a really quick review here about MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.]]></description>
+      <description><![CDATA[Introduction: I wrote a really quick review here about MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.]]></description>
     </item>
     
     <item>
@@ -315,7 +314,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
       
       <guid>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
-      <description><![CDATA[Introduction:If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.]]></description>
+      <description><![CDATA[Introduction: If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.]]></description>
     </item>
     
     <item>
@@ -324,7 +323,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
       
       <guid>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</guid>
-      <description><![CDATA[Introduction:In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.]]></description>
+      <description><![CDATA[Introduction: In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.]]></description>
     </item>
     
     <item>
@@ -333,7 +332,7 @@ Introduction:Upon receiving the news that HP was to acquire Nimble, I can’t s
       <pubDate>Wed, 10 Aug 2016 23:52:51 +0000</pubDate>
       
       <guid>https://ericcsinger.com/problem-solving-commvault-tape-usage/</guid>
-      <description><![CDATA[Introduction:I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.]]></description>
+      <description><![CDATA[Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.]]></description>
     </item>
     
     <item>
@@ -413,7 +412,7 @@ There may be a time where you need to find the relationship between a physical d
       
       <guid>https://ericcsinger.com/review-2.5-years-with-nimble-storage/</guid>
       <description><![CDATA[Disclaimer: I’m not getting paid for this review, nor have I been asked to do this by anyone. These views are my own, and not my employers, and they’re opinions not facts .
-Intro:To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.]]></description>
+Intro: To begin with, as you can tell, I’ve been running Nimble Storage for a few years at this point, and I felt like it was time to provide a review of both the good and bad. When I was looking at storage a few years ago, it was hard to find reviews of vendors, they were very short, non-informative, clearly paid for, or posts by obvious fan boys.]]></description>
     </item>
     
     <item>

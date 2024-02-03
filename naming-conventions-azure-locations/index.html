@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue">
-  <head><script src="/assets/init/bundle.min.ae263b8da19abebb94fcca26add68dc0c86f7d189b9bb2379b1258467d5579f1.js" integrity="sha256-riY7jaGavruU/MomrdaNwMhvfRibm7I3mxJYRn1VefE=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.3375dc9e5b11ea7926abebde4cd36826a1589fcf946bf2ef335bc44fd66d0d95.js" integrity="sha256-M3XcnlsR6nkmq&#43;veTNNoJqFYn8&#43;Ua/LvM1vET9ZtDZU=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Naming Conventions: Azure Locations - Eric&#39;s Blog</title>
@@ -12,18 +12,19 @@
     <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_192x192_resize_box_3.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="azure, location, region, name, iso3166, microsoft, geo, api, powershell, naming conventions" />
-  <meta name="description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name." /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Naming Conventions: Azure Locations"/>
-<meta name="twitter:description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name."/>
+  <meta name="description" content="Introduction It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name." /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Naming Conventions: Azure Locations"/>
+<meta name="twitter:description" content="Introduction It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name."/>
+<meta name="twitter:site" content="@esinger"/>
 <meta property="og:title" content="Naming Conventions: Azure Locations" />
-<meta property="og:description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name." />
+<meta property="og:description" content="Introduction It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ericcsinger.com/naming-conventions-azure-locations/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-30T12:00:00+00:00" />
 <meta property="article:modified_time" content="2022-10-30T12:00:00+00:00" />
 
+
 <meta itemprop="name" content="Naming Conventions: Azure Locations">
-<meta itemprop="description" content="IntroductionIt&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name."><meta itemprop="datePublished" content="2022-10-30T12:00:00+00:00" />
+<meta itemprop="description" content="Introduction It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions. For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind. While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride. For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name."><meta itemprop="datePublished" content="2022-10-30T12:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-10-30T12:00:00+00:00" />
 <meta itemprop="wordCount" content="2455">
 <meta itemprop="keywords" content="azure,microsoft,api,powershell,naming conventions," />
@@ -39,11 +40,11 @@ if (!doNotTrack) {
 }
 </script>
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.8665b86c0de590a692897e53fbf55330fb969c34f1d22790e6840ff406961a52.css" integrity="sha256-hmW4bA3lkKaSiX5T+/VTMPuWnDTx0ieQ5oQP9AaWGlI=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.5a163d9f3e713db8b105a772a88a5a4c3f1a6b90da1387fb4023a920ed1a9885.css" integrity="sha256-WhY9nz5xPbixBadyqIpaTD8aa5DaE4f7QCOpIO0amIU=" crossorigin="anonymous">
 
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.b236565f31a50508b5851cfb13938fa5a8d9f4fd00884efe2ad27a11b82968bf.css" integrity="sha256-sjZWXzGlBQi1hRz7E5OPpajZ9P0AiE7&#43;KtJ6EbgpaL8=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.fb3a3e29bffe2441555af92c874c243cf7a0bbd63527b739829f2fb126f8cb0d.css" integrity="sha256-&#43;zo&#43;Kb/&#43;JEFVWvksh0wkPPegu9Y1J7c5gp8vsSb4yw0=" crossorigin="anonymous">
 
-    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.c8cc49b70e98e42caf70845e0d50f8e86821121688c2e5a5f6fc464d40154853.css" integrity="sha256-yMxJtw6Y5CyvcIReDVD46GghEhaIwuWl9vxGTUAVSFM=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
 
 
 </head>
@@ -69,8 +70,8 @@ if (!doNotTrack) {
         </ul>
         
     <hr class="d-xxl-none">
-    <form class="search-bar ms-auto my-1" action="" novalidate>
-      <div class="input-group input-group-sm align-items-center">
+    <form class="search-bar ms-auto my-auto" action="" novalidate>
+      <div class="input-group align-items-center">
         <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
           <i class="fas fa-fw fa-search fa-lg"></i>
         </span>
@@ -82,7 +83,7 @@ if (!doNotTrack) {
           aria-label="Search"
           required>
           <span class="search-shortcut position-absolute end-0 top-0 me-2">
-            <kbd class="bg-primary rounded shadow">/</kbd>
+            <kbd class="text-dark bg-white opacity-75 rounded-3 shadow border border-primary py-1 fw-bold">/</kbd>
           </span>
       </div>
     </form><hr class="d-xxl-none">
@@ -210,10 +211,10 @@ if (!doNotTrack) {
     
     
     
-  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="Table of contents">
+  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="Contents">
     <i class="fas fa-fw fa-list-alt"></i>
   </a>
-<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Table of contents">
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Contents">
   <i class="fas fa-fw fa-list-alt"></i>
 </a>
     <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
@@ -223,7 +224,7 @@ if (!doNotTrack) {
   <i class="fas fa-fw fa-comments"></i>
 </a>
     
-<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Sidebar toggler">
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="Toggle sidebar">
   <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
 </a>
 
@@ -243,8 +244,10 @@ if (!doNotTrack) {
         </div>
     <hr class="text-secondary">
 </div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
-        <div id="post-content-body"><h2 id="introduction" data-numberify>Introduction<a class="anchor ms-1" href="#introduction"></a></h2>
+        <div id="post-content-body">
+<h2 id="introduction" data-numberify>Introduction<a class="anchor ms-1" href="#introduction"></a></h2>
 <p>It&rsquo;s been a while since I&rsquo;ve blogged about naming conventions.  For most it&rsquo;s not an interesting topic, and for many, it&rsquo;s the last thing on their mind.  While I would never say I get joy out of creating a good naming convention, I do get a sense of satisfaction and pride.  For this blog post, I want to document how I&rsquo;ve tackled getting consistent naming out of an inconsistent Azure location name.</p>
+
 <h2 id="the-problem" data-numberify>The problem<a class="anchor ms-1" href="#the-problem"></a></h2>
 <p>Azure&rsquo;s location naming scheme leaves a bit to be desired.  It looks like they kind of changed their scheme part of the way through.  Or maybe they thought they were making it easier to understand.  Honestly, I&rsquo;m a little lost on why they picked what they picked, and why they shifted directions.</p>
 <p>Let&rsquo;s run this PowerShell commands below.</p>
@@ -298,24 +301,30 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>westus2
 </span></span><span style="display:flex;"><span>westus3
 </span></span></code></pre></div><p>I see three different naming patterns, how many do you see?</p>
+
 <h3 id="example-1-cardinal-direction--country--region-number-or-not" data-numberify>Example 1, Cardinal Direction + Country + Region Number (or not)<a class="anchor ms-1" href="#example-1-cardinal-direction--country--region-number-or-not"></a></h3>
 <p>Here are a few examples of this naming scheme</p>
 <pre tabindex="0"><code class="language-output" data-lang="output">eastus
 westus3
 southindia
-</code></pre><h3 id="example-2-cardinal-direction--continent--region-number-or-not" data-numberify>Example 2, Cardinal Direction + Continent + Region Number (or not)<a class="anchor ms-1" href="#example-2-cardinal-direction--continent--region-number-or-not"></a></h3>
+</code></pre>
+<h3 id="example-2-cardinal-direction--continent--region-number-or-not" data-numberify>Example 2, Cardinal Direction + Continent + Region Number (or not)<a class="anchor ms-1" href="#example-2-cardinal-direction--continent--region-number-or-not"></a></h3>
 <pre tabindex="0"><code class="language-output" data-lang="output">eastasia
 westeurope
-</code></pre><h3 id="example-3-country--cardinal-direction--region-number-or-not" data-numberify>Example 3, Country + Cardinal Direction + Region Number (or not)<a class="anchor ms-1" href="#example-3-country--cardinal-direction--region-number-or-not"></a></h3>
+</code></pre>
+<h3 id="example-3-country--cardinal-direction--region-number-or-not" data-numberify>Example 3, Country + Cardinal Direction + Region Number (or not)<a class="anchor ms-1" href="#example-3-country--cardinal-direction--region-number-or-not"></a></h3>
 <pre tabindex="0"><code class="language-output" data-lang="output">southafricanorth
 brazilsouth
 uaenorth
-</code></pre><h3 id="what-is-the-problem-with-this" data-numberify>What is the problem with this<a class="anchor ms-1" href="#what-is-the-problem-with-this"></a></h3>
+</code></pre>
+<h3 id="what-is-the-problem-with-this" data-numberify>What is the problem with this<a class="anchor ms-1" href="#what-is-the-problem-with-this"></a></h3>
 <p>For me, a naming scheme should be first and foremost consistent.  Bonus points if it&rsquo;s intuitive.  In this case, I don&rsquo;t find it to be either.  You could argue the names are self explanatory from a human eye, but programmatically speaking, it&rsquo;s inconsistent.</p>
 <p>Think of it like this, if you were going to write a scripted (automated) process to read the location, and dynamically make a unique location name from the data above could you?</p>
 <p>Another problem to consider is the length of the location names.  Azure has a number of resources that have very short naming requirements.  In a case like that, it would be problematic to use the full location name, regardless of it&rsquo;s consistency.  Just to give you an example, the longest location name is 18 characters long.</p>
+
 <h2 id="iso3166" data-numberify>ISO3166<a class="anchor ms-1" href="#iso3166"></a></h2>
 <p>If you are not familiar with <a href="https://www.iso.org/iso-3166-country-codes.html" target="_blank" rel="noopener noreferrer">ISO3166<i class="fas fa-external-link-square-alt ms-1"></i></a>, it is a naming scheme for countries and their subdivisions.  This standard ensures there is a unique identifier for each country and in turn each countries subdivisions.  There are two useful (for us) versions of the ISO3166.</p>
+
 <h3 id="iso3166-1" data-numberify>ISO3166-1<a class="anchor ms-1" href="#iso3166-1"></a></h3>
 <p>This standard contains the following three basic properties.</p>
 <ol>
@@ -323,8 +332,10 @@ uaenorth
 <li>Alpha 2:  This an abbreviated two character identifier for each country in the world.</li>
 <li>Alpha 3:  Similar to above, but allowing one more character.</li>
 </ol>
+
 <h3 id="iso3166-2" data-numberify>ISO3166-2<a class="anchor ms-1" href="#iso3166-2"></a></h3>
 <p>This standard contains unique identifiers for localites within a given country.  In the US, that would be states.  The name is comprised of the alpha 2 of the country, and then a unique two digit alpha for the given locality in that country.</p>
+
 <h2 id="hope-is-not-lost" data-numberify>Hope is not lost<a class="anchor ms-1" href="#hope-is-not-lost"></a></h2>
 <p>While Microsoft has made it difficult to get this information, they have provided a way for us to hunt it down ourselves.  Let&rsquo;s take a look at the results of a Get-AzLocation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">Location         </span>: <span style="color:#ae81ff">eastus</span>
@@ -345,11 +356,15 @@ uaenorth
 </span></span><span style="display:flex;"><span>                   ]
 </span></span><span style="display:flex;"><span><span style="color:#f92672">Providers        </span>: {<span style="color:#ae81ff">microsoft.insights, Microsoft.OperationsManagement, Microsoft.ContainerRegistry, Microsoft.Cache…}</span>
 </span></span></code></pre></div><p>Do you see the two interesting data points I do?  It&rsquo;s not anything that&rsquo;s name related.  If you haven&rsquo;t guessed it, it&rsquo;s the Latitude and Longitude.  Check out this link <a href="https://www.google.com/maps/place/37%C2%B022%2718.8%22N&#43;79%C2%B048%2759.0%22W/@37.3719042,-79.8185887,17z" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a> and we can see the exact location of where the EastUS data center is located.</p>
+
 <h2 id="what-can-we-do-with-gps" data-numberify>What can we do with GPS<a class="anchor ms-1" href="#what-can-we-do-with-gps"></a></h2>
 <p>What we need, is a geolocation based API.  The first place I checked was Google Maps.  And while the API does exist, I had zero desire to enter a credit card in to tap their database.  I gave Bing Maps API a try, but didn&rsquo;t really like the information I was getting out of them (no surprise).  I stumbled on this slick host called Position Stack, located (here)[https://positionstack.com/documentation].</p>
+
 <h2 id="other-locational-information" data-numberify>Other locational information<a class="anchor ms-1" href="#other-locational-information"></a></h2>
 <p>While I was on the hunt for ISO3166 and GPS based data, I grabbed one more dataset from <a href="https://www.ip2location.com" target="_blank" rel="noopener noreferrer">IP2Location<i class="fas fa-external-link-square-alt ms-1"></i></a>.</p>
+
 <h2 id="script" data-numberify>SCRIPT<a class="anchor ms-1" href="#script"></a></h2>
+
 <h3 id="requirements" data-numberify>Requirements<a class="anchor ms-1" href="#requirements"></a></h3>
 <ol>
 <li>You will need the file &ldquo;AllLocationInformationJoinedHashTable.json&rdquo; located  <a href="https://github.com/ericcsinger/Gists/blob/master/locationInformation/AllLocationInformationJoinedHashTable.json" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a> in my Gists repo.
@@ -364,6 +379,7 @@ uaenorth
 </li>
 <li>You will need the AzModules and you will need to be connected to Azure.</li>
 </ol>
+
 <h3 id="allmicrosoftazurelocationsps1" data-numberify>allMicrosoftAzureLocations.ps1<a class="anchor ms-1" href="#allmicrosoftazurelocationsps1"></a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[CmdletBinding()]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> 
@@ -640,7 +656,8 @@ uaenorth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#END: Output</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################################################</span>
-</span></span></code></pre></div><h3 id="output-example-eastus" data-numberify>Output Example (EastUS)<a class="anchor ms-1" href="#output-example-eastus"></a></h3>
+</span></span></code></pre></div>
+<h3 id="output-example-eastus" data-numberify>Output Example (EastUS)<a class="anchor ms-1" href="#output-example-eastus"></a></h3>
 <pre tabindex="0"><code class="language-output" data-lang="output">azureCardinalDirectionPrimary  east
 azureCardinalDirectionSeconda… east
 azureDisplayName               East US
@@ -673,7 +690,8 @@ reverseLookupRegionCode        VA
 reverseLookupTimeZoneName      America/Kentucky/Monticello
 reverseLookupTimeZoneOffsetSec -14400
 reverseLookupTimeZoneOffsetSt… -04:00
-</code></pre><h3 id="explanation-of-output" data-numberify>Explanation of output<a class="anchor ms-1" href="#explanation-of-output"></a></h3>
+</code></pre>
+<h3 id="explanation-of-output" data-numberify>Explanation of output<a class="anchor ms-1" href="#explanation-of-output"></a></h3>
 <p>I could walk through the script, but that&rsquo;s not really what this post is about.  The script is there for your use, and you can do with it as you want.  However, the output of the script, that is what this post is primarily about.</p>
 <p>There are three main outputs.</p>
 <ol>
@@ -685,18 +703,22 @@ reverseLookupTimeZoneOffsetSt… -04:00
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">azureCardinalDirectionPrimary</span>: <span style="color:#ae81ff">east</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">azureCardinalDirectionSecondary</span>: <span style="color:#ae81ff">east</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">azureLocationNumber</span>: <span style="color:#ae81ff">0</span>
-</span></span></code></pre></div><h4 id="cardinal-direction" data-numberify>Cardinal Direction<a class="anchor ms-1" href="#cardinal-direction"></a></h4>
+</span></span></code></pre></div>
+<h4 id="cardinal-direction" data-numberify>Cardinal Direction<a class="anchor ms-1" href="#cardinal-direction"></a></h4>
 <ol>
 <li>Some of Azures locations use a country name.  And some some country names include cardinal directions.  For example, South Africa.  In those cases, I excluded the <strong>first</strong> &ldquo;south&rdquo; from any cardinal direction hits.</li>
 <li>Many of the Azure locations only contain one cardinal direction.  In those cases I doubled set the secondary as the primary for consistency.  That is, EastUS, will have a primary of &ldquo;east&rdquo; and a secondary of &ldquo;east&rdquo; as well.</li>
 <li>Something like SouthCentralUS, will have &ldquo;South&rdquo; as primary and a secondary of &ldquo;Central&rdquo;.</li>
 </ol>
+
 <h4 id="location-number" data-numberify>Location Number<a class="anchor ms-1" href="#location-number"></a></h4>
 <ol>
 <li>Some of Azures locations have a trailing number after the name.  Like EastUS2, but some don&rsquo;t.  In the spirit of &ldquo;consistency&rdquo; I looked for a number in the name, and if I did not find one, I utilized a zero in it&rsquo;s place.  So EastUS is &ldquo;EastUS 0&rdquo;</li>
 </ol>
+
 <h2 id="fun-with-the-data" data-numberify>Fun with the data<a class="anchor ms-1" href="#fun-with-the-data"></a></h2>
 <p>Now that we have this data, what can we do with it?</p>
+
 <h3 id="import-the-data-we-exported" data-numberify>Import the data we exported<a class="anchor ms-1" href="#import-the-data-we-exported"></a></h3>
 <p>This puts the data into a couple of formats to help us with access it in different ways.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">###################################</span>
@@ -749,7 +771,8 @@ reverseLookupTimeZoneOffsetSt… -04:00
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$AllOptions | Sort-Object -Property Option6 | FT
-</span></span></code></pre></div><h3 id="example-output-of-eastus" data-numberify>Example output of EastUS<a class="anchor ms-1" href="#example-output-of-eastus"></a></h3>
+</span></span></code></pre></div>
+<h3 id="example-output-of-eastus" data-numberify>Example output of EastUS<a class="anchor ms-1" href="#example-output-of-eastus"></a></h3>
 <pre tabindex="0"><code class="language-output" data-lang="output">$AllOptions | Where-Object {$_.Location -eq &#39;EastUS&#39;}
 
 Location : eastus
@@ -760,7 +783,8 @@ Option4  : usaee0
 Option5  : usee0 
 Option6  : 840ee0
 Option7  : usva0 
-</code></pre><h3 id="explaining-the-output-options" data-numberify>Explaining the output options<a class="anchor ms-1" href="#explaining-the-output-options"></a></h3>
+</code></pre>
+<h3 id="explaining-the-output-options" data-numberify>Explaining the output options<a class="anchor ms-1" href="#explaining-the-output-options"></a></h3>
 <ol>
 <li><strong>Location:</strong> This is the default location name provided by Microsoft.</li>
 <li><strong>Option1:</strong>  This what a location name would look like if it was created with the following standard properties in a predictable order
@@ -791,6 +815,7 @@ Option7  : usva0
 </li>
 </ol>
 <p>To summarize the outputs, option1 - option3 are friendly location names, and option4 - option7 are examples of something you could use in a resource naming convention.</p>
+
 <h2 id="final-thoughts" data-numberify>Final thoughts<a class="anchor ms-1" href="#final-thoughts"></a></h2>
 <p>This is probably one of those blog posts that most folks will find boring.  For me, I enjoyed the ability of exploring what data we could join together to enhance what we know about a given Azure location.  More so, I found that being able to programmatically name a given Azure location consistently, was a big win.  Utilizing these techniques, you can not only prepopulate your location names, but also ensure they follow a consistent predictable standard.</p>
 <p>While written in the context of Microsoft Azure, ultimately these techniques could be used for pretty much any location information.</p>
@@ -949,34 +974,10 @@ Option7  : usva0
       </a>
     </div>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
-      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp" loading="lazy" data-viewer-invisible width="2316" height="3088" />
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp?v=611493b44b508440a53cad8a164e00eb" loading="lazy" data-viewer-invisible width="2316" height="3088" />
 </picture>
 </div>
-      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on architecting and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div>
-
-
-<nav class="social-links nav justify-content-center mt-1 justify-content-around">
-      <a class="nav-link social-link" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="me">
-        <i class="fa-fw fa-2x fab fa-github"
-          ></i>
-      </a>
-      <a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="me">
-        <i class="fa-fw fa-2x fab fa-linkedin-in"
-           style="color: #0a66c2;"></i>
-      </a>
-      <a class="nav-link social-link" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="me">
-        <i class="fa-fw fa-2x fab fa-stack-overflow"
-           style="color: #f48024;"></i>
-      </a>
-      <a class="nav-link social-link" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="me">
-        <i class="fa-fw fa-2x fab fa-twitter"
-           style="color: #1d9bf0;"></i>
-      </a>
-  <a class="nav-link social-link" target="_blank" href="/index.xml" title="RSS" rel="me">
-    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
-  </a>
-</nav>
-</div>
+      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on designing and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div></div>
   </div>
 </div>
 
@@ -1409,11 +1410,11 @@ Option7  : usva0
   </div>
   <div class="offcanvas-body mt-2"><div class="social-share mb-4 d-flex overflow-auto">
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Twitter Share Button"
-      target="_blank" href="https://twitter.com/intent/tweet?title=Backup%20Storage%20Part%204a%3a%20Windows%20Storage%20Spaces%20Gotcha%27s&url=https%3a%2f%2fericcsinger.com%2fbackup-storage-part-4a-windows-storage-spaces-gotchas%2f">
+      target="_blank" href="https://twitter.com/intent/tweet?title=Thinking%20out%20loud%3a%20CLI%20vs.%20GUI%2c%20a%20pointless%20debate&url=https%3a%2f%2fericcsinger.com%2fthinking-out-loud-cli-vs.-gui-a-pointless-debate%2f">
         <i class="fab fa-2x fa-fw fa-twitter mb-2"></i> Twitter
       </a>
       <a class="btn-social-share d-flex flex-column align-items-center me-3" rel="noopener noreferrer" aria-label="Facebook Share Button"
-        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fbackup-storage-part-4a-windows-storage-spaces-gotchas%2f">
+        target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fericcsinger.com%2fthinking-out-loud-cli-vs.-gui-a-pointless-debate%2f">
         <i class="fab fa-2x fa-fw fa-facebook-f mb-2"></i> Facebook
       </a>
     </div>
@@ -1433,7 +1434,7 @@ Option7  : usva0
   <div class="col-12 mt-2">
     <p class="mb-2">Eric&#39;s Blog</p>
     <p class="text-secondary mb-2"><small>Eric IT Blog</small></p><div class="copyright mb-2 text-secondary">
-  <small>©2023, Eric C. Singer
+  <small>©2024, Eric C. Singer
 </small>
 </div>
 <div class="powered-by mb-2 text-secondary">
@@ -1444,6 +1445,22 @@ Option7  : usva0
 
 
 <nav class="social-links nav justify-content-center mb-2 mt-3">
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://github.com/ericcsinger" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://linkedin.com/in/ericcsinger" title="LinkedIn" rel="me">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"
+           style="color: #0a66c2;"></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://stackoverflow.com/users/1239030" title="Stack Overflow" rel="me">
+        <i class="fa-fw fa-2x fab fa-stack-overflow"
+           style="color: #f48024;"></i>
+      </a>
+      <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="https://twitter.com/esinger" title="Twitter" rel="me">
+        <i class="fa-fw fa-2x fab fa-twitter"
+           style="color: #1d9bf0;"></i>
+      </a>
   <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
     <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
   </a>
@@ -1452,10 +1469,10 @@ Option7  : usva0
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.88a3da4211215658c019105ee6df6d39dcbcc5df9c304d0005643346b9f64cb9.js" integrity="sha256-iKPaQhEhVljAGRBe5t9tOdy8xd&#43;cME0ABWQzRrn2TLk=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.9ba76665e3c9fa036c059c1c85f287b5780b8c3e27f6cc9cd6372b90c42cf347.js" integrity="sha256-m6dmZePJ&#43;gNsBZwchfKHtXgLjD4n9syc1jcrkMQs80c=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.b0348f9dd3c40eee23b65b205b879d1bed2136c80586689e7a50745d8f89d849.js" integrity="sha256-sDSPndPEDu4jtlsgW4edG&#43;0hNsgFhmieelB0XY&#43;J2Ek=" crossorigin="anonymous"></script>
-<script data-precache defer src="/assets/mermaid/bundle.min.11e2d3c6dccbd16a477dbad5621034ad2831370869ea2c84c7873916e9d9f438.js" integrity="sha256-EeLTxtzL0WpHfbrVYhA0rSgxNwhp6iyEx4c5FunZ9Dg=" crossorigin="anonymous"></script>
+<script data-precache src="/assets/main/bundle.min.54cd60eeae6fe1589fbfcfe3a408654e1951a330d3666622694d9bf3583cad43.js" integrity="sha256-VM1g7q5v4Vifv8/jpAhlThlRozDTZmYiaU2b81g8rUM=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
+  <script data-precache defer src="/assets/katex/bundle.min.eace3aacbb4d5035eb584c009bfde9abce78ef2130f9cf3fda0237765b9e5f58.js" integrity="sha256-6s46rLtNUDXrWEwAm/3pq8547yEw&#43;c8/2gI3dlueX1g=" crossorigin="anonymous"></script>
+<script data-precache defer src="/assets/mermaid/bundle.min.ec0f14fe742191150a0f5649e64fb5fb6197b7b4f9c6ea22ae6d84bb402e3fa5.js" integrity="sha256-7A8U/nQhkRUKD1ZJ5k&#43;1&#43;2GXt7T5xuoirm2Eu0AuP6U=" crossorigin="anonymous"></script>
 
 
 
