@@ -65,6 +65,9 @@
     <loc>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</loc>
+    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ericcsinger.com/tags/bicep/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
@@ -173,7 +176,7 @@
     <loc>https://ericcsinger.com/tags/storage/</loc>
     <lastmod>2019-02-09T22:11:53+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/been-a-while#8230/</loc>
+    <loc>https://ericcsinger.com/been-a-while%238230/</loc>
     <lastmod>2019-02-03T19:49:13+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/powershell-module-release-ecs.localgpo-v2.1.0/</loc>
@@ -377,7 +380,7 @@
     <loc>https://ericcsinger.com/powershell-scripting-invoke-ecssqlquery/</loc>
     <lastmod>2016-07-04T19:13:41+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/vmware-dumping-the-c#-client-for-good-in-the-next-release/</loc>
+    <loc>https://ericcsinger.com/vmware-dumping-the-c%23-client-for-good-in-the-next-release/</loc>
     <lastmod>2016-05-19T18:38:30+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</loc>
@@ -401,10 +404,10 @@
     <loc>https://ericcsinger.com/tags/logicmonitor/</loc>
     <lastmod>2016-04-06T21:53:04+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/categories/monitoring/</loc>
+    <loc>https://ericcsinger.com/tags/monitoring/</loc>
     <lastmod>2016-04-06T21:53:04+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/tags/monitoring/</loc>
+    <loc>https://ericcsinger.com/categories/monitoring/</loc>
     <lastmod>2016-04-06T21:53:04+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/review-1-year-with-logicmonitor/</loc>

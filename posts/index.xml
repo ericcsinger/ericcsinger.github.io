@@ -49,6 +49,17 @@ In this series, I&rsquo;m going to show you a few ways you can work a round this
     </item>
     
     <item>
+      <title>Azure Bicep Conditional Properties Part 04, Helper Modules</title>
+      <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</link>
+      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</guid>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
+    </item>
+    
+    <item>
       <title>Azure Bicep Conditional Properties Part 03, Template Variables</title>
       <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-03-template-variables/</link>
       <pubDate>Sun, 28 Aug 2022 12:00:00 +0000</pubDate>
@@ -220,10 +231,10 @@ Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTa
     
     <item>
       <title>Been a while&amp;#8230;</title>
-      <link>https://ericcsinger.com/been-a-while#8230/</link>
+      <link>https://ericcsinger.com/been-a-while%238230/</link>
       <pubDate>Sun, 03 Feb 2019 19:49:13 +0000</pubDate>
       
-      <guid>https://ericcsinger.com/been-a-while#8230/</guid>
+      <guid>https://ericcsinger.com/been-a-while%238230/</guid>
       <description><![CDATA[Sorry it’s been so long since I’ve wrote anything. I’ve been busy with life and working on a new Powershell module. I’m hoping to get back into the groove soon. I’ve been working on a few things at work that might be interesting to write about.
 For now, I’ll leave you with this. I’ve released my 1.0.0 version of my WSUS Powershell module. I’m not considering it “officially” released until I can start writing the wiki on how to use the module, but it is on the Powershell gallery and it is on my Github.]]></description>
     </item>
@@ -571,10 +582,10 @@ Firstly, head over to here to my GitHub if you want to grab it. I’ll be keepin
     
     <item>
       <title>VMware dumping the c# client for good in the next release</title>
-      <link>https://ericcsinger.com/vmware-dumping-the-c#-client-for-good-in-the-next-release/</link>
+      <link>https://ericcsinger.com/vmware-dumping-the-c%23-client-for-good-in-the-next-release/</link>
       <pubDate>Thu, 19 May 2016 18:38:30 +0000</pubDate>
       
-      <guid>https://ericcsinger.com/vmware-dumping-the-c#-client-for-good-in-the-next-release/</guid>
+      <guid>https://ericcsinger.com/vmware-dumping-the-c%23-client-for-good-in-the-next-release/</guid>
       <description><![CDATA[If you haven’t seen by now, VMware plans to dump the c# client in the next release. Article is here for your review. I was the first one to comment, and maybe its just a coincidence, but it seems like I got a small fire started. If you have any strong feeling either way, maybe its worth posting your view in their comments or mine.
 Me, my views are in their comments, but suffice to say, I prefer thick clients over web clients all day long.]]></description>
     </item>

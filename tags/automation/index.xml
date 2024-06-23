@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>automation on Eric&#39;s Blog</title>
+    <title>Automation on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/automation/</link>
-    <description>Recent content in automation on Eric&#39;s Blog</description>
+    <description>Recent content in Automation on Eric&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©2024, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 10 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure Bicep Conditional Properties Part 04, Helper Modules</title>
+      <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</link>
+      <pubDate>Sat, 10 Sep 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</guid>
+      <description><![CDATA[Version: 1.0.0
+Series Introduction Whether you&rsquo;re new to ARM/Bicep or a pro, I&rsquo;m sure you&rsquo;ve run into the issue of needing conditional properties. Unfortunately, ARM and Bicep do not officially have functions built in to handle this natively. At least not as of yet. I was surprised when writing this, to not see a whole lot of articles showing how work around this.
+In this series, I&rsquo;m going to show you a few ways you can work a round this.]]></description>
+    </item>
+    
     <item>
       <title>Azure Bicep Conditional Properties Part 04, Helper Modules</title>
       <link>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</link>
