@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ericcsinger.com/tags/cloud/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/finops/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/infrastructure/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/posts/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/tags/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ericcsinger.com/thinking-out-loud-shared-vs.-dedicated-infrastructure/</loc>
+    <lastmod>2024-06-23T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ericcsinger.com/tags/active-directory/</loc>
     <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
@@ -12,9 +33,6 @@
     <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/azure/</loc>
-    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/</loc>
     <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/microsoft/</loc>
@@ -29,13 +47,7 @@
     <loc>https://ericcsinger.com/tags/postgresql/</loc>
     <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ericcsinger.com/posts/</loc>
-    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ericcsinger.com/tags/powershell/</loc>
-    <lastmod>2023-06-24T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/</loc>
     <lastmod>2023-06-24T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/tags/api/</loc>
@@ -60,9 +72,6 @@
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/series/azure-bicep-conditional-properties/</loc>
-    <lastmod>2022-09-10T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</loc>
     <lastmod>2022-09-10T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/azure-bicep-conditional-properties-part-04-helper-modules/</loc>
@@ -415,9 +424,6 @@
   </url><url>
     <loc>https://ericcsinger.com/review-1.5-years-with-veeam/</loc>
     <lastmod>2016-02-28T21:54:49+00:00</lastmod>
-  </url><url>
-    <loc>https://ericcsinger.com/tags/cloud/</loc>
-    <lastmod>2015-12-30T17:13:39+00:00</lastmod>
   </url><url>
     <loc>https://ericcsinger.com/categories/cloud/</loc>
     <lastmod>2015-12-30T17:13:39+00:00</lastmod>
