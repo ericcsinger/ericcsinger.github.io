@@ -1,32 +1,44 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue">
-  <head><script src="/assets/init/bundle.min.3375dc9e5b11ea7926abebde4cd36826a1589fcf946bf2ef335bc44fd66d0d95.js" integrity="sha256-M3XcnlsR6nkmq&#43;veTNNoJqFYn8&#43;Ua/LvM1vET9ZtDZU=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.2232e70cd03e25718136e7eb51d0b7aac3fb2a2161c5553fb49ad1dfdc9881e0.js" integrity="sha256-IjLnDNA&#43;JXGBNufrUdC3qsP7KiFhxVU/tJrR39yYgeA=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Review: 1 year with LogicMonitor - Eric&#39;s Blog</title>
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_16x16_resize_box_3.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_32x32_resize_box_3.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_150x150_resize_box_3.png" sizes="150x150" type="image/png">
-    <link rel="apple-touch-icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_180x180_resize_box_3.png" sizes="180x180" type="image/png">
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="/favicon_hu_e83888ddb6472856.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hu_276a61518911b273.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hu_1fce3f16494f6ae3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hu_f105fae78c239d0f.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hu_af357fe99fc0195a.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="" />
-  <meta name="description" content="Disclaimer: This is unsolicited feedback. These are my own opinions and not those of my employer.
-Terminology: I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
-LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers." />
+  <meta name="description" content="Disclaimer:
+This is unsolicited feedback. These are my own opinions and not those of my employer.
+
+Terminology:
+I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
+
+LM: Acronym I user for LogicMonitor
+Collector: Its a windows or linux box that grabs the data you want monitored from your other servers. Its an agent that sits on a server and allows LM to either remotely poll other servers, or locally collect data.
+Datasource: This is a term used to describe a “monitor”. As an example, if I wanted to monitor a windows logical disk perfmon counter, that would be a datasource. If I have a script that checks for the status of an exchange database, that would be a datasource.
+Instance: A term used to describe a very specific item that’s monitored by a datasource. For example, going back to the logical disk datasource. If you had a C: E: and F: drive, each drive is an individual instance. Some datasources are designed to collect multiple instances (like the example) others like “ping” are not.
+Device: Anything that you’re monitoring. This is what LM license. A few examples, a windows server, linux server, switch. pdu, etc.
+
+
+Introduction:
+If we’re all honest, I think we can all agree that monitoring solutions suck. Its a little crass I know, but I think its a fitting word for this software class as a whole. Backup and monitoring are the two areas I always here folks say “they all suck, this one just sucks a little less”. And that is really why we chose LogicMonitor. Its not that I’m blown away with it as a solution, but it sucks a lot less then the other options out there. So you could say from my view they’e the best, or you could say they’re the least worst. Either way, we chose them over a number of other vendors, including the all so popular SolarWinds." />
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Review: 1 year with LogicMonitor">
   <meta name="twitter:description" content="Disclaimer: This is unsolicited feedback. These are my own opinions and not those of my employer.
 Terminology: I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
-LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers.">
+LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers. Its an agent that sits on a server and allows LM to either remotely poll other servers, or locally collect data. Datasource: This is a term used to describe a “monitor”. As an example, if I wanted to monitor a windows logical disk perfmon counter, that would be a datasource. If I have a script that checks for the status of an exchange database, that would be a datasource. Instance: A term used to describe a very specific item that’s monitored by a datasource. For example, going back to the logical disk datasource. If you had a C: E: and F: drive, each drive is an individual instance. Some datasources are designed to collect multiple instances (like the example) others like “ping” are not. Device: Anything that you’re monitoring. This is what LM license. A few examples, a windows server, linux server, switch. pdu, etc. Introduction: If we’re all honest, I think we can all agree that monitoring solutions suck. Its a little crass I know, but I think its a fitting word for this software class as a whole. Backup and monitoring are the two areas I always here folks say “they all suck, this one just sucks a little less”. And that is really why we chose LogicMonitor. Its not that I’m blown away with it as a solution, but it sucks a lot less then the other options out there. So you could say from my view they’e the best, or you could say they’re the least worst. Either way, we chose them over a number of other vendors, including the all so popular SolarWinds.">
       <meta name="twitter:site" content="@esinger">
 <meta property="og:url" content="https://ericcsinger.com/review-1-year-with-logicmonitor/">
   <meta property="og:site_name" content="Eric&#39;s Blog">
   <meta property="og:title" content="Review: 1 year with LogicMonitor">
   <meta property="og:description" content="Disclaimer: This is unsolicited feedback. These are my own opinions and not those of my employer.
 Terminology: I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
-LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers.">
+LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers. Its an agent that sits on a server and allows LM to either remotely poll other servers, or locally collect data. Datasource: This is a term used to describe a “monitor”. As an example, if I wanted to monitor a windows logical disk perfmon counter, that would be a datasource. If I have a script that checks for the status of an exchange database, that would be a datasource. Instance: A term used to describe a very specific item that’s monitored by a datasource. For example, going back to the logical disk datasource. If you had a C: E: and F: drive, each drive is an individual instance. Some datasources are designed to collect multiple instances (like the example) others like “ping” are not. Device: Anything that you’re monitoring. This is what LM license. A few examples, a windows server, linux server, switch. pdu, etc. Introduction: If we’re all honest, I think we can all agree that monitoring solutions suck. Its a little crass I know, but I think its a fitting word for this software class as a whole. Backup and monitoring are the two areas I always here folks say “they all suck, this one just sucks a little less”. And that is really why we chose LogicMonitor. Its not that I’m blown away with it as a solution, but it sucks a lot less then the other options out there. So you could say from my view they’e the best, or you could say they’re the least worst. Either way, we chose them over a number of other vendors, including the all so popular SolarWinds.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -38,14 +50,12 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
   <meta itemprop="name" content="Review: 1 year with LogicMonitor">
   <meta itemprop="description" content="Disclaimer: This is unsolicited feedback. These are my own opinions and not those of my employer.
 Terminology: I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
-LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers.">
+LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers. Its an agent that sits on a server and allows LM to either remotely poll other servers, or locally collect data. Datasource: This is a term used to describe a “monitor”. As an example, if I wanted to monitor a windows logical disk perfmon counter, that would be a datasource. If I have a script that checks for the status of an exchange database, that would be a datasource. Instance: A term used to describe a very specific item that’s monitored by a datasource. For example, going back to the logical disk datasource. If you had a C: E: and F: drive, each drive is an individual instance. Some datasources are designed to collect multiple instances (like the example) others like “ping” are not. Device: Anything that you’re monitoring. This is what LM license. A few examples, a windows server, linux server, switch. pdu, etc. Introduction: If we’re all honest, I think we can all agree that monitoring solutions suck. Its a little crass I know, but I think its a fitting word for this software class as a whole. Backup and monitoring are the two areas I always here folks say “they all suck, this one just sucks a little less”. And that is really why we chose LogicMonitor. Its not that I’m blown away with it as a solution, but it sucks a lot less then the other options out there. So you could say from my view they’e the best, or you could say they’re the least worst. Either way, we chose them over a number of other vendors, including the all so popular SolarWinds.">
   <meta itemprop="datePublished" content="2016-04-06T21:53:04+00:00">
   <meta itemprop="dateModified" content="2016-04-06T21:53:04+00:00">
   <meta itemprop="wordCount" content="4450">
   <meta itemprop="keywords" content="LogicMonitor,Monitoring">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4G7NX7JV6"></script>
       <script>
         var doNotTrack = false;
@@ -60,13 +70,9 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
           gtag('config', 'G-B4G7NX7JV6');
         }
       </script>
-    
-  
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.356a9760bdbac40681ce47a16bc4b7f78053a86b772594c63870d4face095fc0.css" integrity="sha256-NWqXYL26xAaBzkeha8S394BTqGt3JZTGOHDU+s4JX8A=" crossorigin="anonymous">
 
-
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.368ce8b44733911753d64f35f557af4bbeedf7bf90d3430c9cd715002e796c77.css" integrity="sha256-NozotEczkRdT1k819VevS77t97+Q00MMnNcVAC55bHc=" crossorigin="anonymous">
-
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.b556ec958bd1c02e7341a64d31ec7c9cd88375ba59b282a7df7b7ff99901ccd2.css" integrity="sha256-tVbslYvRwC5zQaZNMex8nNiDdbpZsoKn33t/&#43;ZkBzNI=" crossorigin="anonymous">
 
     <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
 
@@ -217,12 +223,13 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
 
 </header>
 
-    <main class="container">
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.6eaf083f43f73eb9a5e7053a7319f846fc45da423be9e1e17cd536403c4e5c9c.js" integrity="sha256-bq8IP0P3Prml5wU6cxn4RvxF2kI76eHhfNU2QDxOXJw=" crossorigin="anonymous"></script>
+
       <div class="row content"><noscript>
     <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
 </noscript>
 
-<div class="col-xxl-8">
+<div class="content-posts col-xxl-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
     <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">Posts</a></li><li class="breadcrumb-item active">Review: 1 year with LogicMonitor</li></ol>
@@ -389,9 +396,9 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
 <li>Setting up dashboards is easy, but tedious if you need to make multiple similar dashboards. If I have 20 web clusters as an example, I might want a dashboard for each one. There’s no easy way to create those dashboards other than simply cloning a template, and going through (painfully) one chart and one datapoint at a time and updating which device and label to use. Again, going back to point 5, perhaps something via the API’s could make this much easier.</li>
 <li>Update 03/01/2017: I haven’t had a chance to validate their dashboard enhancements yet, but it looks like they’ve added functionality that would make creating dashboards a lot easier.</li>
 <li>Their lack of AD integrate authentication is frustrating. Forcing us to use either MS SAML or some third party solution just seems unneeded. its a nice option for sure, but I’d much rather have an appliance that I run which enables AD auth.</li>
-<li><!-- raw HTML omitted -->They lack a “poll now” feature which I loved in solarwinds. If I have a datasource (say CPU) set to poll every 5 minutes. I’m stuck waiting 5 minutes for that device to poll. 5 minutes can be a long time when you’re recovering from an outage.<!-- raw HTML omitted --></li>
+<li><del>They lack a “poll now” feature which I loved in solarwinds. If I have a datasource (say CPU) set to poll every 5 minutes. I’m stuck waiting 5 minutes for that device to poll. 5 minutes can be a long time when you’re recovering from an outage.</del></li>
 <li>Update 03/01/2017: They have now added the poll now feature.</li>
-<li><!-- raw HTML omitted -->They roll up historical data way too fast on average. With in less than a day, our data went from per poll datapoint (say every minute), to 8 minute averages. I can understand if after a week that happened, but in less than a day, that’s just crazy. Now, last I heard, they were looking to move to a different platform which would resolve this (again they continue to innovate / improve), but its a painful issue to live with when you need it.<!-- raw HTML omitted --></li>
+<li><del>They roll up historical data way too fast on average. With in less than a day, our data went from per poll datapoint (say every minute), to 8 minute averages. I can understand if after a week that happened, but in less than a day, that’s just crazy. Now, last I heard, they were looking to move to a different platform which would resolve this (again they continue to innovate / improve), but its a painful issue to live with when you need it.</del></li>
 <li>Update 10/04/2016: I forget the exact release (7.9 maybe?) but this is no longer an issue. What you collect is what you keep for your agreed upon retention.</li>
 <li>They had this really simplistic, but slightly dated UI that they’re now abandoning for a newer GUI. In many ways I DO like the new GUI, but simple things like finding threshold overrides, or datasources disabled at a group level are now way harder than they need to be. It seems like the UI designers are spending too much time focusing on aesthetics vs. functionality.</li>
 <li>I appreciate that they have tech support, but honestly I feel like they’re reading a script some times. Multiple cases where we’ve demonstrated that our device wasn’t having issues, and that its probably their collectors, they’ve come back and forced us to prove it time and time again. Even when we come armed with info like “i logged into the poller, and run this command to grab wmi info on remote problem system as the poller user”.</li>
@@ -399,7 +406,7 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
 <li>I HATE the way their datasources don’t have an “overrides” function. What I mean by that is they have system datasources (ones they provide) and sometimes you need to make tweaks to them. Well in a few months, they may have an update for that datasoruce you tweaked. When you run the update, it whacks all your settings. I wish they provided a read only datasource, and that we had an ability to “link” a new datasource that had our customization, which over rode their datasource. This would allow their new features and tweaks to roll in, but things that we’ve overridden, would remain in place.</li>
 <li>When they build datasources, to put it bluntly, I think they cheap out on fully developing them. For example, if I have an IronPort Email Security Appliance. They may have a built in datasource, but it may not have all the available OID’s setup or even all the datapoints. I get that it means they might need to store more data on their end, but why not just bite the bullet and configure ALL MIBS as an example and all datapoints. Maybe even have an option where only whats truly needed (subjective definition BTW) is enabled by default, but the other options are available, and as simple as enabling them.</li>
 <li>Going off of point 14, they don’t really seem to think like an admin of the thing they’re monitoring. Or more specifically, in many cases they’re not fully monitoring the health of an application, just monitoring counters that exists. Let me give you an example. With active directory, one of the things you want to monitor is DFS-R health. Simply monitoring a counters doesn’t always provide insight into whether something like this is healthy or functioning as it should. In my case, I wanted to know for a fact that replication was working in Active Directory, so I ended up having to write a Powershell script that regularly created / updated a health file (on each DC) and then monitored that a given health file was updated on all DC’s. Now to be fair to LM, they never claimed to be a full tilt applicaiton monitor <strong>and</strong> I was able to do said monitor with their product. Still, if LM were to say hire or consult with an Active Directory engineer, there would be things like this that they could probably glean, that would benefit all of their customers. You could also contend this is something that could be crowd sourced by the community, but TBH, I’d much rather see something provided by them, and supported by them.</li>
-<li><!-- raw HTML omitted -->They still lack a comprehensive RestAPI. Adding to that, they lack Powershell cmdlets for administering their products. Again, I’m going to berate any vendor that doesn’t offer Powershell in 2016. IMO if you’re catering to a windows crowd, not offering Powershell is just foolish on your part. Again, why should 100’s to 1,000’s of your customers waste time figuring out your API’s to do common functions, when you could spend the time once, and 1,000’s of customers could benefit from your work. Not to mention now there would be a standard (searchable) CLI / help doc for how to do something.<!-- raw HTML omitted --></li>
+<li><del>They still lack a comprehensive RestAPI. Adding to that, they lack Powershell cmdlets for administering their products. Again, I’m going to berate any vendor that doesn’t offer Powershell in 2016. IMO if you’re catering to a windows crowd, not offering Powershell is just foolish on your part. Again, why should 100’s to 1,000’s of your customers waste time figuring out your API’s to do common functions, when you could spend the time once, and 1,000’s of customers could benefit from your work. Not to mention now there would be a standard (searchable) CLI / help doc for how to do something.</del></li>
 <li>Update 10/04/2016: As of 8.0, their API is pretty comprehensive if not complete. I haven’t had a chance to use their API, so I can’t speak to things like how user friendly it is, but it does exist now.</li>
 <li>To say setting up, troubleshooting, and administering their alert / notification rules is a PITA is an understatement. There are things like making sure rules are properly prioritized based on static numbers (not dynamic). It works like an ACL. Adding to that, it seems like there’s only one target per device. Even thought a device can be a member of multiple groups, only one group can actually be used to configure notifications / alerts. For example, lets say you have a group called “windows” and a sub-group called “SQL”. And let’s just say for argument, you have a special SQL server called “specialSQL”. Now let’s say be default you want all windows admins to monitor all windows boxes. And you want DBA’s to get all SQL alerts (but windows admins still need the alerts too), but you also have a special team that needs alerts for specialSQL server. You need three alert groups setup with members as outlined below. So now just imagine a joint like us with 700 devices and 100 different folks that want different alerts for different systems? Yikes! And, just remember the beginning point, each one of these is a rule, with a different number, that needs to be configured correctly or one group may not end up getting a notification, ever.</li>
 <li>One for Windows admins, which contains windows admins</li>
@@ -410,7 +417,7 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
 <li>Their datasources besides not always being documented well (or in many cases not at all) have absolutely no decent naming convention. Instead of doing something like “Vendor_Product_Datasource” they just randomly choose vendors, or product names and in many cases abbreviate them. For example, one datasource might be named “winos” and another “wincpu”?</li>
 <li>Their threshold evaluation leaves a lot to be desired. They work based on the following operators “=,&lt;=,&gt;=,&lt;,&gt;,!=, etc.” Some devices have nice even number sequences where anything above 1 = warning until you get to 4 and then its an error. In those cases their thresholds work fine. However if you can something tricky like 0 = good, 1 = verybad, 2 = warning, 3 = maybe something you should look into, 4 = error. There’s no good way to target numbers that are all over the place with thier limitation. It would be nice to see them add query based evaluation instead. As in supporting “or” + “and” + grouping threshold conditons. Like (=1 or = 2) or (&gt;=7). I suspect it might take some extra CPU power to make that evaluation, but it would be worth it.</li>
 <li>Having agent based collection would be a nice option for those of us that don’t like having to doll out admin rights to our collectors. We have a few cases where we installed the collector right on the server we wanted to monitor to avoid such things. Perhaps we could do that across the board, but I haven’t looked into it and honestly that would be a hack.</li>
-<li><!-- raw HTML omitted -->They’re SaaS, so if you’re limited to a lot of their constraints (data retention as an example).<!-- raw HTML omitted --></li>
+<li><del>They’re SaaS, so if you’re limited to a lot of their constraints (data retention as an example).</del></li>
 <li>Update 10/04/2016: It looks like they now retain up to two years worth of data with certain contracts. Better than before, but still not a good fit for long term retention.</li>
 <li>They’re not a replacement solution for all your deep web, application and network monitoring solutions. Yes they have NetFlow, but I suspect Scrutinizer does it much better.</li>
 </ol>
@@ -470,7 +477,7 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
       </a>
     </div>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
-      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp?v=611493b44b508440a53cad8a164e00eb" loading="lazy" data-viewer-invisible width="2316" height="3088" />
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp?v=474438880c076aa6bcfa6a5e9186211d" loading="lazy" data-viewer-invisible width="2316" height="3088" />
 </picture>
 </div>
       <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on designing and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div></div>
@@ -902,7 +909,7 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
   <div class="col-12 mt-2">
     <p class="mb-2">Eric&#39;s Blog</p>
     <p class="text-secondary mb-2"><small>Eric IT Blog</small></p><div class="copyright mb-2 text-secondary">
-  <small>©2024, Eric C. Singer
+  <small>©2025, Eric C. Singer
 </small>
 </div>
 <div class="powered-by mb-2 text-secondary">
@@ -929,7 +936,7 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
         <i class="fa-fw fa-2x fab fa-twitter"
            style="color: #1d9bf0;"></i>
       </a>
-  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" data-rss-feed href="https://ericcsinger.com/index.xml" title="RSS" rel="me">
     <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
   </a>
 </nav>
@@ -937,9 +944,9 @@ LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that g
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.c9acc4caae1e36883e244f04920800424d047e44273c6c74b01dabf1702bb1a9.js" integrity="sha256-yazEyq4eNog&#43;JE8EkggAQk0EfkQnPGx0sB2r8XArsak=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/main/bundle.min.8fb955cb1935fe23042ba0b0bfee9d8ee684a3b7e559915ffdc6fa74e1381632.js" integrity="sha256-j7lVyxk1/iMEK6Cwv&#43;6djuaEo7flWZFf/cb6dOE4FjI=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.16eedf63f2c395d2073253764cf197c28b18ac0264a7e0722c9b5b68f38201de.js" integrity="sha256-Fu7fY/LDldIHMlN2TPGXwosYrAJkp&#43;ByLJtbaPOCAd4=" crossorigin="anonymous" defer></script>
 <script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ba733dc1a647d4293d838a9c0c37db25ab829bb2d7b4c00e2df53e2b663db53c.js" integrity="sha256-unM9waZH1Ck9g4qcDDfbJauCm7LXtMAOLfU&#43;K2Y9tTw=" crossorigin="anonymous"></script>
 
 
 

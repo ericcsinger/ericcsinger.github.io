@@ -4,46 +4,43 @@
     <title>Thinking Out Loud on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/categories/thinking-out-loud/</link>
     <description>Recent content in Thinking Out Loud on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 30 Apr 2016 16:22:05 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/thinking-out-loud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: The broken talent acquisition process</title>
       <link>https://ericcsinger.com/thinking-out-loud-the-broken-talent-acquisition-process/</link>
       <pubDate>Sat, 30 Apr 2016 16:22:05 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-the-broken-talent-acquisition-process/</guid>
-      <description><![CDATA[I was scanning through my LinkedIn feed the other day and stumbled across an interesting picture / chart showing common mistakes that interview candidates make posted by a former colleague. To basically summarize, it was a culmination of physical characteristics (slouching, not smiling, clothing not too trendy, but not too outdated, etc.), knowing a lot about the company and position, and various other common do’s and don’ts.
-My first reaction was “no duh”, but then I paused for a moment and said to myself “Why?]]></description>
+      <description><![CDATA[<p>I was scanning through my LinkedIn feed the other day and stumbled across an interesting picture / chart showing common mistakes that interview candidates make posted by a former colleague. To basically summarize, it was a culmination of physical characteristics (slouching, not smiling, clothing not too trendy, but not too outdated, etc.), knowing a lot about the company and position, and various other common do’s and don’ts.</p>
+<p>My first reaction was “no duh”, but then I paused for a moment and said to myself “Why?” Does this criteria really lead to you getting the best candidate for the position or is it actually filtering out the best candidate for the position? It actually got me a little annoyed just thinking about how shallow someone recruiting must be if these were deciding factors. Then I started thinking about other facets of recruiting that just seem not only outdated, but also likely detrimental to a company finding the best possible candidates. It’s actually bothered me enough that I felt compelled to get a blog post written about what I think is wrong on not only the recruiting side, but also the candidates side too.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud:  The cloud (IaaS) delusion</title>
       <link>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
-      <description><![CDATA[Introduction: Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses. Additionally, I think its worth noting that in general, like any technology, I’m a fan of what makes my life easier, what’s better for my employer, and what’s financially sound. In many cases cloud fits those requirement, and I currently run and have run cloud solutions (long before being trendy). I’m not anti cloud, I’m anti throwing money away, which is what IaaS is mostly doing.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud: CLI vs. GUI, a pointless debate</title>
       <link>https://ericcsinger.com/thinking-out-loud-cli-vs.-gui-a-pointless-debate/</link>
       <pubDate>Sat, 11 Apr 2015 21:57:39 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-cli-vs.-gui-a-pointless-debate/</guid>
-      <description><![CDATA[I see this come up occasionally and I really don’t get why its always an “x is better than y”. A lot of times folks are talking about what works best for them in their world, and for all intents and purposes stating that if its best for them, its best for all. I’d like to challenge this reasoning and also challenge the notion that both a CLI and GUI have their place.]]></description>
+      <description><![CDATA[<p>I see this come up occasionally and I really don’t get why its always an “x is better than y”. A lot of times folks are talking about what works best for them in <span style="text-decoration: underline;">their</span> world, and for all intents and purposes stating that if its best for them, its best for all. I’d like to challenge this reasoning and also challenge the notion that both a CLI and GUI have their place.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud: Core vs. Socket Licensing</title>
       <link>https://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</link>
       <pubDate>Sun, 05 Apr 2015 16:05:51 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</guid>
-      <description><![CDATA[I recall when Microsoft changed their SQL licensing model from per socket to per core. It was not a well received model and it certainly wasn’t following the industry standard. I’d even say it ranked up there with VMware vRAM tax debacle. The big difference being that VMware reversed their licensing model. To this day, other than perhaps Oracle, I don’t know of any other product / manufacture using this model.]]></description>
+      <description><![CDATA[<p>I recall when Microsoft changed their SQL licensing model from per socket to per core. It was not a well received model and it certainly wasn’t following the industry standard. I’d even say it ranked up there with VMware vRAM tax debacle. The big difference being that VMware reversed their licensing model. To this day, other than perhaps Oracle, I don’t know of any other product / manufacture using this model. And you know what, its a shame.</p>]]></description>
     </item>
     
   </channel>

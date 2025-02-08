@@ -4,69 +4,83 @@
     <title>Wsus on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/wsus/</link>
     <description>Recent content in Wsus on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 05 May 2019 21:11:08 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/wsus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Powershell Module Release: ECS.WSUS v1.1.0</title>
       <link>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</link>
       <pubDate>Sun, 05 May 2019 21:11:08 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.1.0/</guid>
-      <description><![CDATA[ Functions released in this module: Get-ECSWSUSUpdateReport ]]></description>
+      <description><![CDATA[<h2 id="functions-released-in-this-module" data-numberify>Functions released in this module:<a class="anchor ms-1" href="#functions-released-in-this-module"></a></h2>
+<ul>
+<li>Get-ECSWSUSUpdateReport</li>
+</ul>]]></description>
     </item>
     
     <item>
       <title>Powershell Module Release: ECS.WSUS v1.0.0</title>
       <link>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</link>
       <pubDate>Sat, 02 Mar 2019 21:21:30 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/powershell-module-release-ecs.wsus-v1.0.0/</guid>
-      <description><![CDATA[This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.
-I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.
-Functions released in this module: Connect-ECSWSUSDatabase Get-ECSWSUSComputerTarget Get-ECSWSUSComputerTargetGroup Get-ECSWSUSComputerTargetInTargetGroup Get-ECSWSUSComputerTargetReport Get-ECSWSUSUpdate Test-ECSWSUSDatabaseConnected You can learn more about the module here.]]></description>
+      <description><![CDATA[<p>This is the initial release of my WSUS module. This is a module I put together to properly organize a lot of my one off WSUS functions.</p>
+<p>I have found these functions useful for reporting n the status of computers in WSUS in mass. Querying the DB directly, while not recommended, is much faster than using the API, and you can get a lot more information out of it.</p>
+
+<h2 id="functions-released-in-this-module" data-numberify>Functions released in this module:<a class="anchor ms-1" href="#functions-released-in-this-module"></a></h2>
+<ul>
+<li>Connect-ECSWSUSDatabase</li>
+<li>Get-ECSWSUSComputerTarget</li>
+<li>Get-ECSWSUSComputerTargetGroup</li>
+<li>Get-ECSWSUSComputerTargetInTargetGroup</li>
+<li>Get-ECSWSUSComputerTargetReport</li>
+<li>Get-ECSWSUSUpdate</li>
+<li>Test-ECSWSUSDatabaseConnected</li>
+</ul>
+<p>You can learn more about the module <a href="https://github.com/ericcsinger/ecs.wsus/wiki" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>.</p>]]></description>
     </item>
     
     <item>
       <title>Powershell Scripting: Get-ECSWSUSComputerUpdatesStatusReport</title>
       <link>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</link>
       <pubDate>Sat, 07 Oct 2017 20:38:40 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/powershell-scripting-get-ecswsuscomputerupdatesstatusreport/</guid>
-      <description><![CDATA[Introduction: I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.
-I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I hate the WSUS reports built into the console. They’re slow, and when it comes to doing something useful with the data, it’s basically impossible. That’s why I wrote this function.</p>
+<p>I wanted an ability to gather data on a given WSUS computer(s), and work with it in Powershell. This function gives me the ability to write scripts for bulk reports, automate my patching process (checking that all updates are done), and in general, gives me the same data the standard WSUS report does, but at a MUCH faster rate.</p>]]></description>
     </item>
     
     <item>
       <title>Problem Solving: WSUS failing for Windows 10 with error 8024401c</title>
       <link>https://ericcsinger.com/problem-solving-wsus-failing-for-windows-10-with-error-8024401c/</link>
       <pubDate>Tue, 13 Jun 2017 16:49:54 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-wsus-failing-for-windows-10-with-error-8024401c/</guid>
-      <description><![CDATA[Hi Folks,
-After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured.]]></description>
+      <description><![CDATA[<p>Hi Folks,</p>
+<p>After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “<strong>Do not connect to any Windows Update Internet locations”</strong>  was not configured. After doing some digging we determined that this was put in place to prevent our clients from downloading updates from MS directly, which was originally happening. The weird thing to me was why were our clients going to MS anyway? We have WSUS, that is the point of WSUS? Disabling the setting resulted in us getting updates, but now they were coming from MS directly and not WSUS. Enabling <strong>or</strong> setting it to “not configured” resulted in the lovely error.</p>]]></description>
     </item>
     
     <item>
       <title>SQL Query: Microsoft – WSUS – Computers Update Status</title>
       <link>https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/</link>
       <pubDate>Thu, 14 Jul 2016 21:43:51 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/</guid>
-      <description><![CDATA[Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.]]></description>
+      <description><![CDATA[<p>Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.</p>]]></description>
     </item>
     
     <item>
       <title>SQL Query: Microsoft WSUS Computers to Computer Target</title>
       <link>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</link>
       <pubDate>Tue, 05 Jul 2016 16:54:36 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</guid>
-      <description><![CDATA[This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
-There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.
-By default, my query returns the computer target location based on the child object.]]></description>
+      <description><![CDATA[<p>This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query <a href="https://github.com/ericcsinger/SQL/blob/master/Microsoft/Windows%20System%20Update%20Services%20%28WSUS%29/Computer%20to%20Computer%20Target/Computers%20to%20Computer%20Target.SQL" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>.</p>
+<p>There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.</p>
+<hr>
+<blockquote>
+<div class="main-content"><div><div data-pjax-container="" id="js-repo-pjax-container"><div class="container new-discussion-timeline experiment-repo-nav"><div class="repository-content"><div class="file"><div class="blob-wrapper data type-sql"><table class="highlight tab-size js-file-line-container" data-tab-size="8"><tbody><tr><td class="blob-code blob-code-inner js-file-line" id="LC35"><span class="pl-k">Where</span> \[SUSDB\].\[dbo\].\[tbExpandedTargetInTargetGroup\].\[IsExplicitMember\] <span class="pl-k">=</span> <span class="pl-c1">1</span></td></tr></tbody></table>
+</div></div></div></div></div></div></div></blockquote>
+<div class="container site-footer-container">- - - - - -
+<p>By default, my query returns the computer target location based on the child object. If you were to change that value from a 1 to a 0, it would show you the computers parent computer target instead. May or may not be of interest to you.</p>]]></description>
     </item>
     
   </channel>

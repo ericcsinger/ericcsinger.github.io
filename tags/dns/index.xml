@@ -4,18 +4,18 @@
     <title>Dns on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/dns/</link>
     <description>Recent content in Dns on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 24 Sep 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/dns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Problem Solving: Windows DNS Server in Azure returns SERVFAIL</title>
       <link>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</link>
       <pubDate>Sat, 24 Sep 2022 12:00:00 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-windows-dns-server-in-azure-returns-servfail/</guid>
-      <description><![CDATA[Introduction I had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you. Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage. I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do.]]></description>
+      <description><![CDATA[<h2 id="introduction" data-numberify>Introduction<a class="anchor ms-1" href="#introduction"></a></h2>
+<p>I had been troubleshooting a fairly tricky DNS resolution issue and wanted to share what I learned with all of you.  Most of the DNS lookup issues I&rsquo;ve encountered in my career, have been the result of a misconfigured zone, record, or a server outage.  I cannot recall a time with a Windows DNS server, where I&rsquo;ve had to adjust default setting, but that&rsquo;s exactly what I&rsquo;ve had to do.</p>]]></description>
     </item>
     
   </channel>

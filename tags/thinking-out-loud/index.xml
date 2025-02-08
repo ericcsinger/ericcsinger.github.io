@@ -4,57 +4,63 @@
     <title>Thinking Out Loud on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/thinking-out-loud/</link>
     <description>Recent content in Thinking Out Loud on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 20 Aug 2017 20:10:29 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/thinking-out-loud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: VMware, this is what I want from you</title>
       <link>https://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</link>
       <pubDate>Sun, 20 Aug 2017 20:10:29 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-vmware-this-is-what-i-want-from-you/</guid>
-      <description><![CDATA[Warning: This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.
-Disclaimer: Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.
-Introduction: I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited.]]></description>
+      <description><![CDATA[<h1 id="warning" data-numberify>Warning:<a class="anchor ms-1" href="#warning"></a></h1>
+<p>This post is clicking in at 6k words. If you are looking for a quick read, this isn’t for you.</p>
+
+<h1 id="disclaimer" data-numberify>Disclaimer:<a class="anchor ms-1" href="#disclaimer"></a></h1>
+<p>Typical stuff, these are my personal views, not views of my employers. These are not facts, merely opinions and random thoughts I’m writing down.</p>
+
+<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I don’t know about all of you, but for me, VMware has been an uninspiring company over the last couple of years. VMworld was a time when I used to get excited. It used to mean big new features were coming, and the platform would evolve in nice big steps. However, over the last 5 – 7 years, VMware has gotten progressively disappointing. My disappointment however is not limited to the products alone, but the company culture as well.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud: Why do server vendors still struggle with driver and firmware management?</title>
       <link>https://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</link>
       <pubDate>Thu, 13 Apr 2017 23:49:38 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-why-do-server-vendors-still-struggle-with-driver-and-firmware-management/</guid>
-      <description><![CDATA[History: Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent.]]></description>
+      <description><![CDATA[<h1 id="history" data-numberify>History:<a class="anchor ms-1" href="#history"></a></h1>
+<p>Let me give you a little back story before digging into the meat of this post. My team and I make a very concerted effort to keep our servers firmware and drivers updated. We’ve gone so far as to purchase software from Dell, implement a process on how firmware / drivers are to be updated, and ensuring that its routinely done every quarter. We do this because in general it’s a best practice, but also because we’ve run into too many occasions where troubleshooting with a vendor stops (if it ever starts) very quickly if the drivers / firmware isn’t recent. In essence, we’re doing our best to be diligent and proactive with keeping our servers healthy, secure and updated.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud: What HP &#43; Nimble means to me</title>
       <link>https://ericcsinger.com/thinking-out-loud-what-hp--nimble-means-to-me/</link>
       <pubDate>Sun, 19 Mar 2017 17:41:16 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-what-hp--nimble-means-to-me/</guid>
-      <description><![CDATA[Disclaimer: These are opinions, not facts and these opinions are mine, not my employers.
-Introduction: Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out.]]></description>
+      <description><![CDATA[<h1 id="disclaimer" data-numberify>Disclaimer:<a class="anchor ms-1" href="#disclaimer"></a></h1>
+<p>These are opinions, not facts and these opinions are mine, not my employers.</p>
+
+<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>Upon receiving the news that HP was to acquire Nimble, I can’t say I was exactly thrilled. Nothing personal against HP, they make great servers, but I like Nimble the way it is right now. None the less, I know the industry is moving in a direction where its either get big, or get out. There is a huge storm “cloud” looming, and if you’re an on premises solution, its going to be a scary time in the coming years.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud: Hyper converged storages missing link</title>
       <link>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</link>
       <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</guid>
-      <description><![CDATA[Introduction: In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage. I could probably go into a ton of reasons why I personally see shared storage still being the preferred architecture for enterprises, but instead I’ll focus on one area that if adopted might change my view (slightly). You see, there is a balance between the best and good enough. Shared storage IMO is the best, but HCI could be good enough.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud:  The cloud (IaaS) delusion</title>
       <link>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
-      <description><![CDATA[Introduction: Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses. Additionally, I think its worth noting that in general, like any technology, I’m a fan of what makes my life easier, what’s better for my employer, and what’s financially sound. In many cases cloud fits those requirement, and I currently run and have run cloud solutions (long before being trendy). I’m not anti cloud, I’m anti throwing money away, which is what IaaS is mostly doing.</p>]]></description>
     </item>
     
   </channel>

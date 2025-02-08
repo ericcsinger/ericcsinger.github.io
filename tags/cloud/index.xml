@@ -4,38 +4,38 @@
     <title>Cloud on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/cloud/</link>
     <description>Recent content in Cloud on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 23 Jun 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: Shared vs. Dedicated Infrastructure</title>
       <link>https://ericcsinger.com/thinking-out-loud-shared-vs.-dedicated-infrastructure/</link>
       <pubDate>Sun, 23 Jun 2024 12:00:00 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-shared-vs.-dedicated-infrastructure/</guid>
-      <description><![CDATA[Version: 1.0.0
-Introduction I&rsquo;m sure we&rsquo;re all familiar with the quote &ldquo;Those who don&rsquo;t know history are doomed to repeat it.&rdquo; In technology, we&rsquo;ve seen various waves of solutions repeating themselves. Often each wave has evolved in a way that it solves previous issues. Thus the negatives of the historical waves are not applicable, or mitigated.
-In this article, I&rsquo;m going to talk about the infrastructure trends I&rsquo;ve seen in my career.]]></description>
+      <description><![CDATA[<p><em>Version: 1.0.0</em></p>
+
+<h2 id="introduction" data-numberify>Introduction<a class="anchor ms-1" href="#introduction"></a></h2>
+<p>I&rsquo;m sure we&rsquo;re all familiar with the quote &ldquo;Those who don&rsquo;t know history are doomed to repeat it.&rdquo;  In technology, we&rsquo;ve seen various waves of solutions repeating themselves.  Often each wave has evolved in a way that it solves previous issues.  Thus the negatives of the historical waves are not applicable, or mitigated.</p>
+<p>In this article, I&rsquo;m going to talk about the infrastructure trends I&rsquo;ve seen in my career.  We are repeating ourselves, and in many ways, repeating the problems we&rsquo;ve tried to avoid.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud:  The cloud (IaaS) delusion</title>
       <link>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</link>
       <pubDate>Wed, 30 Dec 2015 17:13:39 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-the-cloud-iaas-delusion/</guid>
-      <description><![CDATA[Introduction: Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>Just so we’re all being honest here, I’m not going to sit here and lie about how I’m not biased and I’m looking at both sides 100% objectively. I mean I’m going to try to, but I have a slant towards on prem, and a lot of that is based on my experience and research with IaaS solutions as they exist now. My view of course is subject to change as technology advances (as anyones should), and I think with enough time, IaaS will get to a point where its a no brainer, but I don’t think that time is yet for the masses. Additionally, I think its worth noting that in general, like any technology, I’m a fan of what makes my life easier, what’s better for my employer, and what’s financially sound. In many cases cloud fits those requirement, and I currently run and have run cloud solutions (long before being trendy). I’m not anti cloud, I’m anti throwing money away, which is what IaaS is mostly doing.</p>]]></description>
     </item>
     
     <item>
       <title>Backup Storage Part 3c: Cloud Storage</title>
       <link>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</link>
       <pubDate>Sun, 23 Aug 2015 15:33:43 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
-      <description><![CDATA[Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.]]></description>
+      <description><![CDATA[<p>Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.</p>]]></description>
     </item>
     
   </channel>

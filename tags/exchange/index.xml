@@ -4,28 +4,37 @@
     <title>Exchange on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/exchange/</link>
     <description>Recent content in Exchange on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 02 Mar 2019 22:03:38 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/exchange/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deleting msExchActiveSyncDevice container after migrating to Office 365</title>
       <link>https://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</link>
       <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</guid>
-      <description><![CDATA[We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.
-&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;$UserNamePattern = &#34;*singer*&#34;$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.]]></description>
+      <description><![CDATA[<p>We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.</p>
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
+$UserNamePattern = &#34;*singer*&#34;
+
+
+$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.DistinguishedName -like $($UserNamePattern)} 
+$ActivesyncContainer = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevices&#39;} | Where-Object {$_.DistinguishedName -like $($UserNamePattern)} 
+
+$ActivesyncContainer | Set-ADObject -ProtectedFromAccidentalDeletion:$false 
+$AllActiveSyncDevices | Remove-ADObject -Confirm:$false
+$ActivesyncContainer | Remove-ADObject -Confirm:$false
+</code></pre><p>The essential steps we need to do are as follows:</p>]]></description>
     </item>
     
     <item>
       <title>Powershell Scripting: Microsoft Exchange, Configure client-specific message size limits</title>
       <link>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</link>
       <pubDate>Mon, 03 Jul 2017 22:14:22 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/powershell-scripting-microsoft-exchange-configure-client-specific-message-size-limits/</guid>
-      <description><![CDATA[Introduction: If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>If you don’t know by now, I’m a huge PowerShell fan. It’s my go to scripting language for anything related to Microsoft (and non-Microsoft) automation and administration. So when it came time to automating post exchange cumulative update setting, I was a bit surprised to see some of the code examples from Microsoft, not containing any PowerShell example. Surprised is probably the wrong word, how about annoyed? I mean, after all, this is not only the company that shoved this awesome scripting language down our throat, but also the very team that was the first one to have a comprehensive set of admin abilities via PowerShell. So if that’s the case, why in the world, don’t they have a single PS example for configuring client-specific message size limits?</p>]]></description>
     </item>
     
   </channel>

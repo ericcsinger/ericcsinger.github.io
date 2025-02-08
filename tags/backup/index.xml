@@ -4,74 +4,74 @@
     <title>Backup on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/backup/</link>
     <description>Recent content in Backup on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 11 Jun 2017 19:39:36 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/backup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 5 years with CommVault</title>
       <link>https://ericcsinger.com/review-5-years-with-commvault/</link>
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/review-5-years-with-commvault/</guid>
-      <description><![CDATA[Introduction: Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money. Still, insurance (and that’s what backup is) is something that’s typically on the back of companies minds.</p>]]></description>
     </item>
     
     <item>
       <title>Problem Solving: CommVault tape usage</title>
       <link>https://ericcsinger.com/problem-solving-commvault-tape-usage/</link>
       <pubDate>Wed, 10 Aug 2016 23:52:51 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-commvault-tape-usage/</guid>
-      <description><![CDATA[Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks. What makes matters worse is when you have to deal with MORE tapes.</p>]]></description>
     </item>
     
     <item>
       <title>Problem Solving: Chasing SQL&#39;s Dump</title>
       <link>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</link>
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description><![CDATA[The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
+      <description><![CDATA[<h1 id="the-problem" data-numberify>The Problem:<a class="anchor ms-1" href="#the-problem"></a></h1>
+<p>For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂</p>]]></description>
     </item>
     
     <item>
       <title>Backup Storage Part 5: Realization of a failure</title>
       <link>https://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</link>
       <pubDate>Tue, 20 Oct 2015 22:27:15 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/backup-storage-part-5-realization-of-a-failure/</guid>
-      <description><![CDATA[No one likes admitting they’re wrong, and I’m certainly no different. Being a mature person means being able to admit you’re wrong, even if it means doing it publicly, and that is what I’m about to do.
-I’ve been writing this series slowly over the past few months, and during that time, I’ve noticed an increasing number of instances where my storage space virtual disks NTFS would go corrupt. Basically, I’d see Veeam errors writing to our repository, and when investigating, I would find files not deleting (old VBK’s).]]></description>
+      <description><![CDATA[<p>No one likes admitting they’re wrong, and I’m certainly no different. Being a mature person means being able to admit you’re wrong, even if it means doing it publicly, and that is what I’m about to do.</p>
+<p>I’ve been writing this series slowly over the past few months, and during that time, I’ve noticed an increasing number of instances where my storage space virtual disks NTFS would go corrupt. Basically, I’d see Veeam errors writing to our repository, and when investigating, I would find files not deleting (old VBK’s). When trying to manually delete them, they would either throw some error, or they would act like they were deleted (they’d disappear), but then return only a second later. The only way to fix this (temporarily) was to do a check disk, which requires taking the disk offline. When you have a number of backup jobs going at anytime, this means something is going to crash, and it was my luck that it was always in middle of a 4TB+ VM.</p>]]></description>
     </item>
     
     <item>
       <title>Backup Storage Part 4a: Windows Storage Spaces Gotcha&#39;s</title>
       <link>https://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</link>
       <pubDate>Sat, 26 Sep 2015 18:16:34 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/backup-storage-part-4a-windows-storage-spaces-gotchas/</guid>
-      <description><![CDATA[The pro and the con of a software defined storage is that its not a turn key solution. Not only do you have the power to customize your solution, you also have no choice but to design your solution. With Storage Spaces, we figured most of this stuff out before selecting it as our new backup storage solution. At the time, there was some documentation on storage spaces, but it was very much a learning process.]]></description>
+      <description><![CDATA[<p>The pro and the con of a software defined storage is that its not a turn key solution. Not only do you have the power to customize your solution, you also have no choice but to design your solution. With Storage Spaces, we figured most of this stuff out before selecting it as our new backup storage solution. At the time, there was some documentation on storage spaces, but it was very much a learning process. Most “how to’s” were demonstrated inside labs, so I found some aspects of the documentation to be useless, but I was able to glean enough information, to at least know what to think about.</p>]]></description>
     </item>
     
     <item>
       <title>Backup Storage Part 3c: Cloud Storage</title>
       <link>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</link>
       <pubDate>Sun, 23 Aug 2015 15:33:43 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/backup-storage-part-3c-cloud-storage/</guid>
-      <description><![CDATA[Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.]]></description>
+      <description><![CDATA[<p>Anyone who’s heard the word “cloud” as it pertains to technology knows its a fairly nebulous term. About the only thing people seem to grasp is that its means “not in my datacenter or home”. When we talk about “cloud storage” the term is still fuzzy, but at least we know it has something to do with storage. For this post, I’m going to be writing about two specific types of storage outlined below.</p>]]></description>
     </item>
     
     <item>
       <title>Backup Storage Part 3a: Deduplication Targets</title>
       <link>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</link>
       <pubDate>Tue, 02 Jun 2015 21:08:31 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</guid>
-      <description><![CDATA[Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.
-Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.]]></description>
+      <description><![CDATA[<p>Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.</p>
+<ol>
+<li>Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</li>
+<li>We were hoping that something like a deduplication target would finally enable us to get rid of tape and replicate our data to our DR site (instead of sneakernet).</li>
+</ol>
+<p>For those of you not particularly versed in deduplicated storage, there are a few things to keep in mind.</p>]]></description>
     </item>
     
   </channel>

@@ -4,41 +4,69 @@
     <title>Active Directory on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/active-directory/</link>
     <description>Recent content in Active Directory on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 24 Jun 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PGAdmin Azure AD Authentication Token Renewal</title>
       <link>https://ericcsinger.com/pgadmin-azure-ad-authentication-token-renewal/</link>
       <pubDate>Sat, 24 Jun 2023 12:00:00 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/pgadmin-azure-ad-authentication-token-renewal/</guid>
-      <description><![CDATA[Introduction Microsoft recently released Azure Active Directory (AzureAD) authentication support for Azure PostgreSQL Flexible Server (AzPG). I&rsquo;m a huge proponent of leveraging AzureAD whenever possible, over local accounts, keys, etc. There all sorts of pros to this approach, none of which I&rsquo;m going to dive into.
-What we will dive into, is the fact that PGAdmin, the most popular GUI for PostgreSQL, doesn&rsquo;t natively support Azure AD authentication, and how I worked around that.]]></description>
+      <description><![CDATA[<h2 id="introduction" data-numberify>Introduction<a class="anchor ms-1" href="#introduction"></a></h2>
+<p>Microsoft recently released Azure Active Directory (AzureAD) authentication support for Azure PostgreSQL Flexible Server (AzPG).  I&rsquo;m a huge proponent of leveraging AzureAD whenever possible, over local accounts, keys, etc.  There all sorts of pros to this approach, none of which I&rsquo;m going to dive into.</p>
+<p>What we will dive into, is the fact that PGAdmin, the most popular GUI for PostgreSQL, doesn&rsquo;t natively support Azure AD authentication, and how I worked around that.  It&rsquo;s not that you can&rsquo;t login to AzPG with AzureAD.  Rather the issue is that the token expires after 60 minutes (max), and you have to reconnect to the server.  This is frustrating when dealing with a single server, and unusable when dealing with many.</p>]]></description>
     </item>
     
     <item>
       <title>PowerShell: Remove a failed domain controller</title>
       <link>https://ericcsinger.com/powershell-remove-a-failed-domain-controller/</link>
       <pubDate>Thu, 26 Nov 2020 20:00:00 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/powershell-remove-a-failed-domain-controller/</guid>
-      <description><![CDATA[PowerShell: Remove a failed domain controller Version: 1.0.1
-Introduction: Let&rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something. In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS. Nothing about utilizing PowerShell.
-Parameters Let&rsquo;s start by estalishing some parameters
-#Array to hold roles of original DC $All_Roles_To_Move = New-Object -TypeName &#34;System.]]></description>
+      <description><![CDATA[<h1 id="powershell-remove-a-failed-domain-controller" data-numberify>PowerShell: Remove a failed domain controller<a class="anchor ms-1" href="#powershell-remove-a-failed-domain-controller"></a></h1>
+<p>Version: 1.0.1</p>
+
+<h2 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h2>
+<p>Let&rsquo;s face it, removing a domain controller via the GUI is easy, but sometimes you just want to know how to automate something.  In my research there was a lot of resources on how to cleanup using the GUI, or via NTDS.  Nothing about utilizing PowerShell.</p>
+
+<h2 id="parameters" data-numberify>Parameters<a class="anchor ms-1" href="#parameters"></a></h2>
+<p>Let&rsquo;s start by estalishing some parameters</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span><span style="color:#75715e">#Array to hold roles of original DC</span>
+</span></span><span style="display:flex;"><span>$All_Roles_To_Move = New-Object -TypeName <span style="color:#e6db74">&#34;System.Collections.ArrayList&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Name of the domain controller you&#39;d like to cleanup.  This should be the NETBIOS name, not the FQDN</span>
+</span></span><span style="display:flex;"><span>$AD_DC_Name_To_Remove = <span style="color:#e6db74">&#34;Name-DC-Remove&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AD_DC_Replacement_Name = <span style="color:#e6db74">&#34;Enter the name of the DC to move any FSMO roles too&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Name of your forrest domain name.  </span>
+</span></span><span style="display:flex;"><span>$Forest_Fully_Qualified_Domain_Name = <span style="color:#e6db74">&#34;Forest.com&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#The netbios name of your domain.  if it&#39;s the same, leave it null</span>
+</span></span><span style="display:flex;"><span>$NETBIOS_Domain_Name = $null
+</span></span></code></pre></div>
+<h2 id="getting-some-preliminary-domain-and-forest-information" data-numberify>Getting some preliminary domain and forest information<a class="anchor ms-1" href="#getting-some-preliminary-domain-and-forest-information"></a></h2>
+<p>First we need some data that we don&rsquo;t have at the moment, like the all the domain information.</p>]]></description>
     </item>
     
     <item>
       <title>Deleting msExchActiveSyncDevice container after migrating to Office 365</title>
       <link>https://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</link>
       <pubDate>Sat, 02 Mar 2019 22:03:38 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/deleting-msexchactivesyncdevice-container-after-migrating-to-office-365/</guid>
-      <description><![CDATA[We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.
-&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;$UserNamePattern = &#34;*singer*&#34;$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.]]></description>
+      <description><![CDATA[<p>We migrated to Office 365 last year and were are in the process of cleaning up some items left behind. One of the many things we’ve needed to clean up is stale activesync devices. I wanted to share a very simplified example of the code I used to delete the container in case it helps anyone in the future.</p>
+<pre tabindex="0"><code>&lt;pre class=&#34;brush: powershell; title: ; notranslate&#34; title=&#34;&#34;&gt;
+$UserNamePattern = &#34;*singer*&#34;
+
+
+$AllActiveSyncDevices = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevice&#39;} | Where-Object {$_.DistinguishedName -like $($UserNamePattern)} 
+$ActivesyncContainer = Get-ADObject -filter { ObjectClass -like &#39;msExchActiveSyncDevices&#39;} | Where-Object {$_.DistinguishedName -like $($UserNamePattern)} 
+
+$ActivesyncContainer | Set-ADObject -ProtectedFromAccidentalDeletion:$false 
+$AllActiveSyncDevices | Remove-ADObject -Confirm:$false
+$ActivesyncContainer | Remove-ADObject -Confirm:$false
+</code></pre><p>The essential steps we need to do are as follows:</p>]]></description>
     </item>
     
   </channel>

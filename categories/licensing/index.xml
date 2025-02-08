@@ -4,18 +4,17 @@
     <title>Licensing on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/categories/licensing/</link>
     <description>Recent content in Licensing on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 05 Apr 2015 16:05:51 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/categories/licensing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking out loud: Core vs. Socket Licensing</title>
       <link>https://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</link>
       <pubDate>Sun, 05 Apr 2015 16:05:51 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-core-vs.-socket-licensing/</guid>
-      <description><![CDATA[I recall when Microsoft changed their SQL licensing model from per socket to per core. It was not a well received model and it certainly wasn’t following the industry standard. I’d even say it ranked up there with VMware vRAM tax debacle. The big difference being that VMware reversed their licensing model. To this day, other than perhaps Oracle, I don’t know of any other product / manufacture using this model.]]></description>
+      <description><![CDATA[<p>I recall when Microsoft changed their SQL licensing model from per socket to per core. It was not a well received model and it certainly wasn’t following the industry standard. I’d even say it ranked up there with VMware vRAM tax debacle. The big difference being that VMware reversed their licensing model. To this day, other than perhaps Oracle, I don’t know of any other product / manufacture using this model. And you know what, its a shame.</p>]]></description>
     </item>
     
   </channel>

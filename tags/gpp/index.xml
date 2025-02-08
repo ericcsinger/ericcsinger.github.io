@@ -4,18 +4,18 @@
     <title>GPP on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/gpp/</link>
     <description>Recent content in GPP on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 18 Sep 2016 16:10:12 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/gpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quicky Review: GPO/GPP vs. DSC</title>
       <link>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</link>
       <pubDate>Sun, 18 Sep 2016 16:10:12 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/quicky-review-gpo/gpp-vs.-dsc/</guid>
-      <description><![CDATA[Introduction: If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>If you’re not in a DevOps based shop, or living under a rock, you may not know that Microsoft has been working on a solution that by all accounts sounds like its poised to usurp GPO / GPP. The solution I’m talking about is Desired State Configuration, or DSC. According to all the marketing hype, DSC is the next best thing for IT since virtualization. If the vision comes to fruition, GPO and GPP will be a legacy solution. Enterprise mobility management will be used for desktops and DSC will be used for servers. Given that I currently manage 700 VM’s and about an equal number of desktops, I figured why not take it for a test drive. So I stood up a simplistic environment, and played around with it for a full week and my conclusion is this.</p>]]></description>
     </item>
     
   </channel>

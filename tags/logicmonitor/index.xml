@@ -4,20 +4,31 @@
     <title>LogicMonitor on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/logicmonitor/</link>
     <description>Recent content in LogicMonitor on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Wed, 06 Apr 2016 21:53:04 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/logicmonitor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 1 year with LogicMonitor</title>
       <link>https://ericcsinger.com/review-1-year-with-logicmonitor/</link>
       <pubDate>Wed, 06 Apr 2016 21:53:04 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/review-1-year-with-logicmonitor/</guid>
-      <description><![CDATA[Disclaimer: This is unsolicited feedback. These are my own opinions and not those of my employer.
-Terminology: I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.
-LM: Acronym I user for LogicMonitor Collector: Its a windows or linux box that grabs the data you want monitored from your other servers.]]></description>
+      <description><![CDATA[<h1 id="disclaimer" data-numberify>Disclaimer:<a class="anchor ms-1" href="#disclaimer"></a></h1>
+<p>This is unsolicited feedback. These are my own opinions and not those of my employer.</p>
+
+<h1 id="terminology" data-numberify>Terminology:<a class="anchor ms-1" href="#terminology"></a></h1>
+<p>I know I’ve been lacking this in some of my other blogs posts, so here’s a stab at trying to make sure you have a rough idea of what certain words mean.</p>
+<ul>
+<li><strong>LM</strong>: Acronym I user for LogicMonitor</li>
+<li><strong>Collector</strong>: Its a windows or linux box that grabs the data you want monitored from your other servers. Its an agent that sits on a server and allows LM to either remotely poll other servers, or locally collect data.</li>
+<li><strong>Datasource</strong>: This is a term used to describe a “monitor”. As an example, if I wanted to monitor a windows logical disk perfmon counter, that would be a datasource. If I have a script that checks for the status of an exchange database, that would be a datasource.</li>
+<li><strong>Instance</strong>: A term used to describe a very specific item that’s monitored by a datasource. For example, going back to the logical disk datasource. If you had a C: E: and F: drive, each drive is an individual instance. Some datasources are designed to collect multiple instances (like the example) others like “ping” are not.</li>
+<li><strong>Device:</strong> Anything that you’re monitoring. This is what LM license. A few examples, a windows server, linux server, switch. pdu, etc.</li>
+</ul>
+
+<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>If we’re all honest, I think we can all agree that monitoring solutions suck. Its a little crass I know, but I think its a fitting word for this software class as a whole. Backup and monitoring are the two areas I always here folks say “they all suck, this one just sucks a little less”. And that is really why we chose LogicMonitor. Its not that I’m blown away with it as a solution, but it sucks a lot less then the other options out there. So you could say from my view they’e the best, or you could say they’re the least worst. Either way, we chose them over a number of other vendors, including the all so popular SolarWinds.</p>]]></description>
     </item>
     
   </channel>

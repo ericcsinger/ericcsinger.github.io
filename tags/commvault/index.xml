@@ -4,36 +4,36 @@
     <title>Commvault on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/commvault/</link>
     <description>Recent content in Commvault on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 11 Jun 2017 19:39:36 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/commvault/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 5 years with CommVault</title>
       <link>https://ericcsinger.com/review-5-years-with-commvault/</link>
       <pubDate>Sun, 11 Jun 2017 19:39:36 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/review-5-years-with-commvault/</guid>
-      <description><![CDATA[Introduction: Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>Backup and recovery is a rather dry topic, but it’s an important one. After all, what’s more critical to your company than their data? You can have the best products in the world, but if disaster strikes and you don’t have a good solution in place, it can make your recovery painful or even impossible. Still, many companies shirk investment in this segment. The good solutions (like the one I’m about to discuss) cost a pretty penny, and that’s capital that needs to be balanced with technology that makes or saves your company money. Still, insurance (and that’s what backup is) is something that’s typically on the back of companies minds.</p>]]></description>
     </item>
     
     <item>
       <title>Problem Solving: CommVault tape usage</title>
       <link>https://ericcsinger.com/problem-solving-commvault-tape-usage/</link>
       <pubDate>Wed, 10 Aug 2016 23:52:51 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-commvault-tape-usage/</guid>
-      <description><![CDATA[Introduction: I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I hate dealing with tapes, pretty much every aspect of them. The tracking of them is a PITA, having to physically manage them is a PITA, dealing with tape library issues is a PITA, dealing with tape encryption is a PITA, running out of tapes is a PITA, dealing with legal hold for tapes is a PITA, and I could keep going on with the many ways that tape just sucks. What makes matters worse is when you have to deal with MORE tapes.</p>]]></description>
     </item>
     
     <item>
       <title>Problem Solving: Chasing SQL&#39;s Dump</title>
       <link>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</link>
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description><![CDATA[The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
+      <description><![CDATA[<h1 id="the-problem" data-numberify>The Problem:<a class="anchor ms-1" href="#the-problem"></a></h1>
+<p>For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂</p>]]></description>
     </item>
     
   </channel>

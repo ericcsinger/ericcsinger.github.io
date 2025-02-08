@@ -4,19 +4,19 @@
     <title>Pgadmin on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/pgadmin/</link>
     <description>Recent content in Pgadmin on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 24 Jun 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/pgadmin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PGAdmin Azure AD Authentication Token Renewal</title>
       <link>https://ericcsinger.com/pgadmin-azure-ad-authentication-token-renewal/</link>
       <pubDate>Sat, 24 Jun 2023 12:00:00 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/pgadmin-azure-ad-authentication-token-renewal/</guid>
-      <description><![CDATA[Introduction Microsoft recently released Azure Active Directory (AzureAD) authentication support for Azure PostgreSQL Flexible Server (AzPG). I&rsquo;m a huge proponent of leveraging AzureAD whenever possible, over local accounts, keys, etc. There all sorts of pros to this approach, none of which I&rsquo;m going to dive into.
-What we will dive into, is the fact that PGAdmin, the most popular GUI for PostgreSQL, doesn&rsquo;t natively support Azure AD authentication, and how I worked around that.]]></description>
+      <description><![CDATA[<h2 id="introduction" data-numberify>Introduction<a class="anchor ms-1" href="#introduction"></a></h2>
+<p>Microsoft recently released Azure Active Directory (AzureAD) authentication support for Azure PostgreSQL Flexible Server (AzPG).  I&rsquo;m a huge proponent of leveraging AzureAD whenever possible, over local accounts, keys, etc.  There all sorts of pros to this approach, none of which I&rsquo;m going to dive into.</p>
+<p>What we will dive into, is the fact that PGAdmin, the most popular GUI for PostgreSQL, doesn&rsquo;t natively support Azure AD authentication, and how I worked around that.  It&rsquo;s not that you can&rsquo;t login to AzPG with AzureAD.  Rather the issue is that the token expires after 60 minutes (max), and you have to reconnect to the server.  This is frustrating when dealing with a single server, and unusable when dealing with many.</p>]]></description>
     </item>
     
   </channel>

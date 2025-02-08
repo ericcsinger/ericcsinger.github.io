@@ -4,19 +4,18 @@
     <title>Windows 10 on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/windows-10/</link>
     <description>Recent content in Windows 10 on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Tue, 13 Jun 2017 16:49:54 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Problem Solving: WSUS failing for Windows 10 with error 8024401c</title>
       <link>https://ericcsinger.com/problem-solving-wsus-failing-for-windows-10-with-error-8024401c/</link>
       <pubDate>Tue, 13 Jun 2017 16:49:54 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-wsus-failing-for-windows-10-with-error-8024401c/</guid>
-      <description><![CDATA[Hi Folks,
-After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “Do not connect to any Windows Update Internet locations” was not configured.]]></description>
+      <description><![CDATA[<p>Hi Folks,</p>
+<p>After updating WSUS to support Windows 10 newer update format, we noticed that our Windows 10 client weren’t working. The error they were getting was 8024401c whenever we checked for updates (post WSUS upgrade). Initially we thought it was related to the WSUS upgrade, but found out that most of our systems hadn’t been updating for a while. So we moved on to troubleshooting the client further. We found that the following GPO “<strong>Do not connect to any Windows Update Internet locations”</strong>  was not configured. After doing some digging we determined that this was put in place to prevent our clients from downloading updates from MS directly, which was originally happening. The weird thing to me was why were our clients going to MS anyway? We have WSUS, that is the point of WSUS? Disabling the setting resulted in us getting updates, but now they were coming from MS directly and not WSUS. Enabling <strong>or</strong> setting it to “not configured” resulted in the lovely error.</p>]]></description>
     </item>
     
   </channel>

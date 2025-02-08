@@ -1,26 +1,27 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="en"
   data-bs-theme="auto" data-palette="blue">
-  <head><script src="/assets/init/bundle.min.3375dc9e5b11ea7926abebde4cd36826a1589fcf946bf2ef335bc44fd66d0d95.js" integrity="sha256-M3XcnlsR6nkmq&#43;veTNNoJqFYn8&#43;Ua/LvM1vET9ZtDZU=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.2232e70cd03e25718136e7eb51d0b7aac3fb2a2161c5553fb49ad1dfdc9881e0.js" integrity="sha256-IjLnDNA&#43;JXGBNufrUdC3qsP7KiFhxVU/tJrR39yYgeA=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Problem Solving: Chasing SQL&#39;s Dump - Eric&#39;s Blog</title>
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_16x16_resize_box_3.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_32x32_resize_box_3.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_150x150_resize_box_3.png" sizes="150x150" type="image/png">
-    <link rel="apple-touch-icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_180x180_resize_box_3.png" sizes="180x180" type="image/png">
-    <link rel="icon" href="/favicon_huc1d2ba7c7d6d5aa3e01f2f328b911c53_11507_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="/favicon_hu_e83888ddb6472856.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hu_276a61518911b273.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hu_1fce3f16494f6ae3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hu_f105fae78c239d0f.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hu_af357fe99fc0195a.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
 <meta name="keywords" content="" />
-  <meta name="description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them." />
+  <meta name="description" content="The Problem:
+For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂" />
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Problem Solving: Chasing SQL&#39;s Dump">
-  <meta name="twitter:description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.">
+  <meta name="twitter:description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂">
       <meta name="twitter:site" content="@esinger">
 <meta property="og:url" content="https://ericcsinger.com/problem-solving-chasing-sqls-dump/">
   <meta property="og:site_name" content="Eric&#39;s Blog">
   <meta property="og:title" content="Problem Solving: Chasing SQL&#39;s Dump">
-  <meta property="og:description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.">
+  <meta property="og:description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -33,14 +34,12 @@
     <meta property="article:tag" content="SQL">
 
   <meta itemprop="name" content="Problem Solving: Chasing SQL&#39;s Dump">
-  <meta itemprop="description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.">
+  <meta itemprop="description" content="The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂">
   <meta itemprop="datePublished" content="2016-05-15T19:57:35+00:00">
   <meta itemprop="dateModified" content="2016-05-15T19:57:35+00:00">
   <meta itemprop="wordCount" content="4380">
   <meta itemprop="keywords" content="Backup,Commvault,JAMS,Scripting,SQL">
 
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4G7NX7JV6"></script>
       <script>
         var doNotTrack = false;
@@ -55,13 +54,9 @@
           gtag('config', 'G-B4G7NX7JV6');
         }
       </script>
-    
-  
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.356a9760bdbac40681ce47a16bc4b7f78053a86b772594c63870d4face095fc0.css" integrity="sha256-NWqXYL26xAaBzkeha8S394BTqGt3JZTGOHDU+s4JX8A=" crossorigin="anonymous">
 
-
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.368ce8b44733911753d64f35f557af4bbeedf7bf90d3430c9cd715002e796c77.css" integrity="sha256-NozotEczkRdT1k819VevS77t97+Q00MMnNcVAC55bHc=" crossorigin="anonymous">
-
-<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.506b6798499d2e8621e3d1f1db89099c3aa2639acd8b3b000b14cc6999c5b340.css" integrity="sha256-UGtnmEmdLoYh49Hx24kJnDqiY5rNizsACxTMaZnFs0A=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/katex/bundle.min.b556ec958bd1c02e7341a64d31ec7c9cd88375ba59b282a7df7b7ff99901ccd2.css" integrity="sha256-tVbslYvRwC5zQaZNMex8nNiDdbpZsoKn33t/&#43;ZkBzNI=" crossorigin="anonymous">
 
     <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.8c1002839fa22c1350d6ae1eef6593120e108f973c41348be9b5065430566aaf.css" integrity="sha256-jBACg5&#43;iLBNQ1q4e72WTEg4Qj5c8QTSL6bUGVDBWaq8=" crossorigin="anonymous">
 
@@ -212,12 +207,13 @@
 
 </header>
 
-    <main class="container">
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.6eaf083f43f73eb9a5e7053a7319f846fc45da423be9e1e17cd536403c4e5c9c.js" integrity="sha256-bq8IP0P3Prml5wU6cxn4RvxF2kI76eHhfNU2QDxOXJw=" crossorigin="anonymous"></script>
+
       <div class="row content"><noscript>
     <div class="alert alert-danger" role="alert">Your browser does not support JavaScript.</div>
 </noscript>
 
-<div class="col-xxl-8">
+<div class="content-posts col-xxl-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
     <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">Home</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">Posts</a></li><li class="breadcrumb-item active">Problem Solving: Chasing SQL&#39;s Dump</li></ol>
@@ -271,7 +267,7 @@
 <ul>
 <li>DAS was used for not only storage the SQL log, DB and index, but also backup’s. Sometimes if the SQL server was critical enough, we had dedicated disks for backups, but that wasn’t typical. This of course is a problem for many reasons.
 <ul>
-<li>Performance for not only backup’s but the SQL service its self were limited often because they were sharing the same disks. So when a backup kicked off, SQL was reading from the same disks it was attempting to write to. This wasn’t as big of an issue for the few systems that had dedicated disks, but even there, sometimes they were sharing the same RAID card, which meant you’re still <!-- raw HTML omitted -->potentially<!-- raw HTML omitted --> bottlenecking one for the other.</li>
+<li>Performance for not only backup’s but the SQL service its self were limited often because they were sharing the same disks. So when a backup kicked off, SQL was reading from the same disks it was attempting to write to. This wasn’t as big of an issue for the few systems that had dedicated disks, but even there, sometimes they were sharing the same RAID card, which meant you’re still <span style="text-decoration: underline;">potentially</span> bottlenecking one for the other.</li>
 <li>Capacity was spread across physical servers. Some systems had plenty of space and others barely had enough. Islands are never easy to manage.</li>
 <li>If that SQL server went down, so did its most recent backup’s. TL backup’s were also stored here (shudders).</li>
 <li>Being a dev shop meant doing environment refreshes. This meant creating and maintaining share / NTFS permissions across servers. This by its self isn’t inherently difficult if its thought out ahead of time, but it wasn’t (not my design).</li>
@@ -445,7 +441,7 @@
 <li>Then move the backup files to the Pickup folder</li>
 <li>Move the done file to the Pickup Folder</li>
 <li>We then confirm the queue \date_time is empty and delete it.</li>
-<li><!-- raw HTML omitted -->***NOTE: Notice how we look for a DONE file first. This allows stage 1 to be populating a new Queue sub-folder while we’re working on this stage without inadvertently moving data that’s in use by another stage. This is why there’s a specific order to when we move the done file in each stage.<!-- raw HTML omitted --></li>
+<li><span style="color: #993300;">***NOTE: Notice how we look for a DONE file first. This allows stage 1 to be populating a new Queue sub-folder while we’re working on this stage without inadvertently moving data that’s in use by another stage. This is why there’s a specific order to when we move the done file in each stage.</span></li>
 </ol>
 </li>
 </ol>
@@ -643,7 +639,7 @@
       </a>
     </div>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
-      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp?v=611493b44b508440a53cad8a164e00eb" loading="lazy" data-viewer-invisible width="2316" height="3088" />
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Eric C. Singer" src="https://ericcsinger.com/about/headshot.webp?v=474438880c076aa6bcfa6a5e9186211d" loading="lazy" data-viewer-invisible width="2316" height="3088" />
 </picture>
 </div>
       <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Eric C. Singer</div><div class="profile-bio">An enthusiastic IT professional, focused on designing and automating infrastructure since 2002.</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i>Quakertown, PA</div><a class="profile-about text-primary" href="/about/"><i class="fas fa-fw fa-user"></i>About Me</a></div></div>
@@ -1079,7 +1075,7 @@
   <div class="col-12 mt-2">
     <p class="mb-2">Eric&#39;s Blog</p>
     <p class="text-secondary mb-2"><small>Eric IT Blog</small></p><div class="copyright mb-2 text-secondary">
-  <small>©2024, Eric C. Singer
+  <small>©2025, Eric C. Singer
 </small>
 </div>
 <div class="powered-by mb-2 text-secondary">
@@ -1106,7 +1102,7 @@
         <i class="fa-fw fa-2x fab fa-twitter"
            style="color: #1d9bf0;"></i>
       </a>
-  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/index.xml" title="RSS" rel="me">
+  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" data-rss-feed href="https://ericcsinger.com/index.xml" title="RSS" rel="me">
     <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
   </a>
 </nav>
@@ -1114,9 +1110,9 @@
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.c9acc4caae1e36883e244f04920800424d047e44273c6c74b01dabf1702bb1a9.js" integrity="sha256-yazEyq4eNog&#43;JE8EkggAQk0EfkQnPGx0sB2r8XArsak=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/main/bundle.min.8fb955cb1935fe23042ba0b0bfee9d8ee684a3b7e559915ffdc6fa74e1381632.js" integrity="sha256-j7lVyxk1/iMEK6Cwv&#43;6djuaEo7flWZFf/cb6dOE4FjI=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.16eedf63f2c395d2073253764cf197c28b18ac0264a7e0722c9b5b68f38201de.js" integrity="sha256-Fu7fY/LDldIHMlN2TPGXwosYrAJkp&#43;ByLJtbaPOCAd4=" crossorigin="anonymous" defer></script>
 <script data-precache src="/assets/viewer/bundle.min.06371891cfe6d10d36cba465c61c4d7cb17591a3be2fd9af4a38444d2074e709.js" integrity="sha256-BjcYkc/m0Q02y6RlxhxNfLF1kaO&#43;L9mvSjhETSB05wk=" crossorigin="anonymous" defer></script>
-  <script data-precache defer src="/assets/katex/bundle.min.ebacb71ff73d65512126000e4a076fdbd207a155f88a4e69b442c0407e576fe3.js" integrity="sha256-66y3H/c9ZVEhJgAOSgdv29IHoVX4ik5ptELAQH5Xb&#43;M=" crossorigin="anonymous"></script>
+  <script data-precache defer src="/assets/katex/bundle.min.ba733dc1a647d4293d838a9c0c37db25ab829bb2d7b4c00e2df53e2b663db53c.js" integrity="sha256-unM9waZH1Ck9g4qcDDfbJauCm7LXtMAOLfU&#43;K2Y9tTw=" crossorigin="anonymous"></script>
 
 
 

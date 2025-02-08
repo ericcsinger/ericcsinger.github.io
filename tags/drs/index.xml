@@ -4,18 +4,17 @@
     <title>Drs on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/drs/</link>
     <description>Recent content in Drs on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 14 Jan 2018 22:47:37 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/drs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VMware DRS default memory load balancing</title>
       <link>https://ericcsinger.com/vmware-drs-default-memory-load-balancing/</link>
       <pubDate>Sun, 14 Jan 2018 22:47:37 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/vmware-drs-default-memory-load-balancing/</guid>
-      <description><![CDATA[In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down.]]></description>
+      <description><![CDATA[<p>In general, I find DRS does a fantastic job of keeping VM’s happy. However, in the past, I’ve seen a number of unexplained situations where hosts in a cluster run out of memory when a VM goes from idle, to busy all of a sudden. In fact, this happened three times to us in a dedicated cluster for our SQL VM’s. What was unexplained wasn’t how the host ran out of memory, that was pretty easy to track down. What was unexplained was why DRS didn’t move any of the VM’s. In this cluster we had a lot of VM’s with restrictive rules, but there were plenty of VM’s on this host that could have been easily relocated to prevent the over-committing of memory.</p>]]></description>
     </item>
     
   </channel>

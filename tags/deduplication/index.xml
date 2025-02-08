@@ -4,19 +4,22 @@
     <title>Deduplication on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/deduplication/</link>
     <description>Recent content in Deduplication on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Tue, 02 Jun 2015 21:08:31 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/deduplication/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Backup Storage Part 3a: Deduplication Targets</title>
       <link>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</link>
       <pubDate>Tue, 02 Jun 2015 21:08:31 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/backup-storage-part-3a-deduplication-targets/</guid>
-      <description><![CDATA[Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.
-Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.]]></description>
+      <description><![CDATA[<p>Deduplication and backup kind of go hand in hand, so we couldn’t evaluate backup storage and not check out this segment. We had two primary goals for a deduplication appliance.</p>
+<ol>
+<li>Reduce racks space while enabling us to store more data. As you know in part 1, we had a lot of rack space being consumed. While we weren’t hurting for rack space in our primary DC, we were in our DR DC.</li>
+<li>We were hoping that something like a deduplication target would finally enable us to get rid of tape and replicate our data to our DR site (instead of sneakernet).</li>
+</ol>
+<p>For those of you not particularly versed in deduplicated storage, there are a few things to keep in mind.</p>]]></description>
     </item>
     
   </channel>

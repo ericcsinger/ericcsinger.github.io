@@ -4,27 +4,26 @@
     <title>HCI on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/hci/</link>
     <description>Recent content in HCI on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 09 Feb 2019 22:11:53 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/hci/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HCI storage independence vs. SAN</title>
       <link>https://ericcsinger.com/hci-storage-independence-vs.-san/</link>
       <pubDate>Sat, 09 Feb 2019 22:11:53 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/hci-storage-independence-vs.-san/</guid>
-      <description><![CDATA[I love chatting about tech and anytime I get to do so with folks like Josh Odgers, Cody Hosterman, Exchange Goddess, Dan the builder, Duncan Epping, Frank Denneman, Chrissy LeMair, etc. it’s a good day. They’re all IT celebrities in my books, and I failed to even scratch the surface of all the folks I’m following / interact with. Some folks follow their sports heroes, I follow my IT hero’s.]]></description>
+      <description><![CDATA[<p>I love chatting about tech and anytime I get to do so with folks like Josh Odgers, Cody Hosterman, Exchange Goddess, Dan the builder, Duncan Epping, Frank Denneman, Chrissy LeMair, etc. it’s a good day. They’re all IT celebrities in my books, and I failed to even scratch the surface of all the folks I’m following / interact with. Some folks follow their sports heroes, I follow my IT hero’s.</p>]]></description>
     </item>
     
     <item>
       <title>Thinking out loud: Hyper converged storages missing link</title>
       <link>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</link>
       <pubDate>Tue, 23 Aug 2016 23:52:39 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/thinking-out-loud-hyper-converged-storages-missing-link/</guid>
-      <description><![CDATA[Introduction: In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>In general, I’m not a huge fan of hyper converged infrastructure. To me, its more “hype” than substance at the moment. It was born out of web scale infrastructure like Google, Facebook, etc. and IMO, that is still the area where it’s better suited. The only enterprise layer where I see HCI being a good fit is VDI, other than that, almost every other enterprise workload would be better suited on new school shared storage. I could probably go into a ton of reasons why I personally see shared storage still being the preferred architecture for enterprises, but instead I’ll focus on one area that if adopted might change my view (slightly). You see, there is a balance between the best and good enough. Shared storage IMO is the best, but HCI could be good enough.</p>]]></description>
     </item>
     
   </channel>

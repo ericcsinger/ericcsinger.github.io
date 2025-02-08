@@ -4,19 +4,18 @@
     <title>Workflow on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/workflow/</link>
     <description>Recent content in Workflow on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sat, 26 Sep 2015 18:28:41 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quicky post: Centralized task management and workflow</title>
       <link>https://ericcsinger.com/quicky-post-centralized-task-management-and-workflow/</link>
       <pubDate>Sat, 26 Sep 2015 18:28:41 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/quicky-post-centralized-task-management-and-workflow/</guid>
-      <description><![CDATA[Just wanted to post this quick, and I may have time to do a more through post later, but this will do for now.
-In our backup solution, we had to join together two solutions, CommVault and Veeam. Veeeam backed up the data to disk and CommVault backed the data up to tape. The problem with this solution is the systems were unaware of each other. We really needed a solution that could take disperate systems and jobs, and basically link them together in a workflow.]]></description>
+      <description><![CDATA[<p>Just wanted to post this quick, and I may have time to do a more through post later, but this will do for now.</p>
+<p>In our backup solution, we had to join together two solutions, CommVault and Veeam. Veeeam backed up the data to disk and CommVault backed the data up to tape. The problem with this solution is the systems were unaware of each other. We really needed a solution that could take disperate systems and jobs, and basically link them together in a workflow. After a lot of searching we found this AWESOME product from MVP systems called “JAMS (Job automation management scheduler).</p>]]></description>
     </item>
     
   </channel>

@@ -4,28 +4,27 @@
     <title>Centralized Job Management on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/centralized-job-management/</link>
     <description>Recent content in Centralized Job Management on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Sun, 08 Jan 2017 21:20:27 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/centralized-job-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 1.5 years with MVP Systems Job Automation Scheduler (JAMS)</title>
       <link>https://ericcsinger.com/review-1.5-years-with-mvp-systems-job-automation-scheduler-jams/</link>
       <pubDate>Sun, 08 Jan 2017 21:20:27 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/review-1.5-years-with-mvp-systems-job-automation-scheduler-jams/</guid>
-      <description><![CDATA[Introduction: I wrote a really quick review here about MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I wrote a really quick review <a href="http://wp.me/p62gzE-1W" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a> about MVP systems JAMS product about 1 year or so ago (maybe a little less). At the time, I was in search of a solution that could help me glue together several disjointed systems in a workflow. Specifically, we were trying to integrate Veeam and CommVault backup’s together. Veeam was of course doing the VM backup’s, and CommVault was copying the Veeam files to tape. We’ve since moved on from Veeam, but JAMS has continued to be a vital part of our infrastructure.</p>]]></description>
     </item>
     
     <item>
       <title>Quicky post: Centralized task management and workflow</title>
       <link>https://ericcsinger.com/quicky-post-centralized-task-management-and-workflow/</link>
       <pubDate>Sat, 26 Sep 2015 18:28:41 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/quicky-post-centralized-task-management-and-workflow/</guid>
-      <description><![CDATA[Just wanted to post this quick, and I may have time to do a more through post later, but this will do for now.
-In our backup solution, we had to join together two solutions, CommVault and Veeam. Veeeam backed up the data to disk and CommVault backed the data up to tape. The problem with this solution is the systems were unaware of each other. We really needed a solution that could take disperate systems and jobs, and basically link them together in a workflow.]]></description>
+      <description><![CDATA[<p>Just wanted to post this quick, and I may have time to do a more through post later, but this will do for now.</p>
+<p>In our backup solution, we had to join together two solutions, CommVault and Veeam. Veeeam backed up the data to disk and CommVault backed the data up to tape. The problem with this solution is the systems were unaware of each other. We really needed a solution that could take disperate systems and jobs, and basically link them together in a workflow. After a lot of searching we found this AWESOME product from MVP systems called “JAMS (Job automation management scheduler).</p>]]></description>
     </item>
     
   </channel>

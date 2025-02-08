@@ -4,68 +4,71 @@
     <title>SQL on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/sql/</link>
     <description>Recent content in SQL on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Mon, 27 Nov 2017 15:56:13 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review: 5 years virtualizing Microsoft SQL Server</title>
       <link>https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</link>
       <pubDate>Mon, 27 Nov 2017 15:56:13 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/review-5-years-virtualizing-microsoft-sql-server/</guid>
-      <description><![CDATA[Introduction: I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.
-Like most things on the internet, I find that folks tend to share all the good, without sharing any of the bad (or vice versa).]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>I know what you’re thinking, it’s 2017, why are you writing about virtualizing Microsoft SQL? Most are doing it after all. And even if they’re not, there’s this whole SQLaaS thing that’s starting to take off, so why would anyone care? Well I’m writing this as more of a reflection on virtualizing SQL. What works well, what doesn’t, what lessons I’ve learned, what I’m still learning, etc.</p>]]></description>
     </item>
     
     <item>
       <title>Naming Conventions: SQL Server Names</title>
       <link>https://ericcsinger.com/naming-conventions-sql-server-names/</link>
       <pubDate>Wed, 23 Nov 2016 00:46:14 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/naming-conventions-sql-server-names/</guid>
-      <description><![CDATA[Introduction: If you’re working in a Windows environment like me, you have to deal with 15 character limitations (at least if you care about NETBIOS resolution). Honestly, really cramps my style, but these conventions were written with that limitation in mind. If you’re using this for a Linux based server running MySQL or PostgreSQL, you might be able to get a little more detailed.
-Multi Environment / Cluster or standalone: At my employer ASI, we have to contend with multiple applications, multiple environments for each application and in a lot of cases clusters.]]></description>
+      <description><![CDATA[<h1 id="introduction" data-numberify>Introduction:<a class="anchor ms-1" href="#introduction"></a></h1>
+<p>If you’re working in a Windows environment like me, you have to deal with 15 character limitations (at least if you care about NETBIOS resolution). Honestly, really cramps my style, but these conventions were written with that limitation in mind. If you’re using this for a Linux based server running MySQL or PostgreSQL, you might be able to get a little more detailed.</p>
+
+<h1 id="multi-environment--cluster-or-standalone" data-numberify>Multi Environment / Cluster or standalone:<a class="anchor ms-1" href="#multi-environment--cluster-or-standalone"></a></h1>
+<p>At my employer ASI, we have to contend with multiple applications, multiple environments for each application and in a lot of cases clusters. Trying to come up with a name that works for them all can be tough, but I think I’ve got a few good ones depending on your use cases.</p>]]></description>
     </item>
     
     <item>
       <title>SQL Query: Microsoft – WSUS – Computers Update Status</title>
       <link>https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/</link>
       <pubDate>Thu, 14 Jul 2016 21:43:51 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-update-status/</guid>
-      <description><![CDATA[Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.]]></description>
+      <description><![CDATA[<p>Sometimes the WSUS console, just doesn’t give you the info you need, or it doesn’t provide it in a format you want. This query is for one of those examples. This query can be used in multiple ways to show the update status of a computer, computers or computer in a computer target. For me, I wanted to see the update status, without worrying about what non-applicable updates were installed. I also, didn’t care about updates that I didn’t approve, which was another reason I wrote this query.</p>]]></description>
     </item>
     
     <item>
       <title>SQL Query: Microsoft WSUS Computers to Computer Target</title>
       <link>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</link>
       <pubDate>Tue, 05 Jul 2016 16:54:36 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/sql-query-microsoft-wsus-computers-to-computer-target/</guid>
-      <description><![CDATA[This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query here.
-There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.
-By default, my query returns the computer target location based on the child object.]]></description>
+      <description><![CDATA[<p>This is a simple query you can use map your computers to their various targets in a nice easy to export table. I’d love to say the script is sexier than that, but its really not. You can find the sql query <a href="https://github.com/ericcsinger/SQL/blob/master/Microsoft/Windows%20System%20Update%20Services%20%28WSUS%29/Computer%20to%20Computer%20Target/Computers%20to%20Computer%20Target.SQL" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a>.</p>
+<p>There is only one section worth mentioning because it can change the way a computer is mapped to a computer target.</p>
+<hr>
+<blockquote>
+<div class="main-content"><div><div data-pjax-container="" id="js-repo-pjax-container"><div class="container new-discussion-timeline experiment-repo-nav"><div class="repository-content"><div class="file"><div class="blob-wrapper data type-sql"><table class="highlight tab-size js-file-line-container" data-tab-size="8"><tbody><tr><td class="blob-code blob-code-inner js-file-line" id="LC35"><span class="pl-k">Where</span> \[SUSDB\].\[dbo\].\[tbExpandedTargetInTargetGroup\].\[IsExplicitMember\] <span class="pl-k">=</span> <span class="pl-c1">1</span></td></tr></tbody></table>
+</div></div></div></div></div></div></div></blockquote>
+<div class="container site-footer-container">- - - - - -
+<p>By default, my query returns the computer target location based on the child object. If you were to change that value from a 1 to a 0, it would show you the computers parent computer target instead. May or may not be of interest to you.</p>]]></description>
     </item>
     
     <item>
       <title>Powershell Scripting: Invoke-ECSSQLQuery</title>
       <link>https://ericcsinger.com/powershell-scripting-invoke-ecssqlquery/</link>
       <pubDate>Mon, 04 Jul 2016 19:13:41 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/powershell-scripting-invoke-ecssqlquery/</guid>
-      <description><![CDATA[Quick Powershell post for those of you that may on occasion want to retrieve data out of a SQL table via Powershell. I didn’t personally do most of the heavy lifting in this, I simply took some work that various folks out there did and put it into a repeatable function instead.
-Firstly, head over to here to my GitHub if you want to grab it. I’ll be keeping it updated as change requests come in, or as I get new ideas, so make sure if you do use my function, that you check back in on occasion for new versions.]]></description>
+      <description><![CDATA[<p>Quick Powershell post for those of you that may on occasion want to retrieve data out of a SQL table via Powershell. I didn’t personally do most of the heavy lifting in this, I simply took some work that various folks out there did and put it into a repeatable function instead.</p>
+<p>Firstly, head over to <a href="https://github.com/ericcsinger/Powershell/tree/master/Microsoft/SQL/Invoke-ECSSQLQuery" target="_blank" rel="noopener noreferrer">here<i class="fas fa-external-link-square-alt ms-1"></i></a> to my GitHub if you want to grab it. I’ll be keeping it updated as change requests come in, or as I get new ideas, so make sure if you do use my function, that you check back in on occasion for new versions.</p>]]></description>
     </item>
     
     <item>
       <title>Problem Solving: Chasing SQL&#39;s Dump</title>
       <link>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</link>
       <pubDate>Sun, 15 May 2016 19:57:35 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/problem-solving-chasing-sqls-dump/</guid>
-      <description><![CDATA[The Problem: For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them.]]></description>
+      <description><![CDATA[<h1 id="the-problem" data-numberify>The Problem:<a class="anchor ms-1" href="#the-problem"></a></h1>
+<p>For years as an admin I’ve had to deal with SQL. At a former employer, our SQL environment / databases were small, and backup licensing was based on agents, not capacity. Fast forward to my current employer, we have a fairly decent sized SQL environment (60 – 70 servers), our backup’s are large , licensing is based on capacity, and we have a full time DBA crew that manage their own backup schedules, and prefer that backup’s are managed by them. What that means is dealing with a ton of dumps. Read into that as you want 🙂</p>]]></description>
     </item>
     
   </channel>

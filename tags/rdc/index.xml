@@ -4,20 +4,24 @@
     <title>RDC on Eric&#39;s Blog</title>
     <link>https://ericcsinger.com/tags/rdc/</link>
     <description>Recent content in RDC on Eric&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>©2024, Eric C. Singer
+    <copyright>©2025, Eric C. Singer
 </copyright>
     <lastBuildDate>Wed, 13 May 2020 18:30:00 +0000</lastBuildDate><atom:link href="https://ericcsinger.com/tags/rdc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RDP: An internal error has occurred</title>
       <link>https://ericcsinger.com/rdp-an-internal-error-has-occurred/</link>
       <pubDate>Wed, 13 May 2020 18:30:00 +0000</pubDate>
-      
       <guid>https://ericcsinger.com/rdp-an-internal-error-has-occurred/</guid>
-      <description><![CDATA[RDP: An internal error has occurred Problem overview One of my colleagues hit me up about an issue they were seeing when trying to RDP into a DC. The error from RDP was &ldquo;An internal error has occurred&rdquo;. Totally useful right :-).
-We could console in so that was a slight sigh of relief.
-Other symptoms When I consoled into the system and look at the event logs, the following event entry was created after each RDP attempt.]]></description>
+      <description><![CDATA[<h1 id="rdp-an-internal-error-has-occurred" data-numberify>RDP: An internal error has occurred<a class="anchor ms-1" href="#rdp-an-internal-error-has-occurred"></a></h1>
+
+<h2 id="problem-overview" data-numberify>Problem overview<a class="anchor ms-1" href="#problem-overview"></a></h2>
+<p>One of my colleagues hit me up about an issue they were seeing when trying to RDP into a DC.  The error from RDP was &ldquo;An internal error has occurred&rdquo;.  Totally useful right :-).</p>
+<p>We could console in so that was a slight sigh of relief.</p>
+
+<h2 id="other-symptoms" data-numberify>Other symptoms<a class="anchor ms-1" href="#other-symptoms"></a></h2>
+<p>When I consoled into the system and look at the event logs, the following event entry was created after each RDP attempt.</p>]]></description>
     </item>
     
   </channel>
